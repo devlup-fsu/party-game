@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Controls="*res://Shared/Controls/controls.gd"
+Controls="*res://Core/Controls/controls.gd"
 
 [display]
 
