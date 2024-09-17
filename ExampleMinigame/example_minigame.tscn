@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxdxdtb7hygle"]
+
+[ext_resource type="PackedScene" uid="uid://do26dwfxfgvfy" path="res://ExampleMinigame/player.tscn" id="1_4panx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m7ldj"]
+
+[sub_resource type="Sky" id="Sky_hrp2f"]
+sky_material = SubResource("ProceduralSkyMaterial_m7ldj")
+
+[sub_resource type="Environment" id="Environment_cvidf"]
+background_mode = 2
+sky = SubResource("Sky_hrp2f")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x1xr1"]
+size = Vector2(25, 25)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dy1n2"]
+data = PackedVector3Array(12.5, 0, 12.5, -12.5, 0, 12.5, 12.5, 0, -12.5, -12.5, 0, 12.5, -12.5, 0, -12.5, 12.5, 0, -12.5)
+
+[node name="ExampleMinigame" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cvidf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.706279, 0.707933, 0, -0.707933, 0.706279, 0, 12.7409, 15.7514)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_x1xr1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("ConcavePolygonShape3D_dy1n2")
+
+[node name="Player1" parent="." instance=ExtResource("1_4panx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.93707, 1.51129, 0)
+color = Color(0, 1, 0, 1)
+
+[node name="Player2" parent="." instance=ExtResource("1_4panx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93707, 1.51129, 0)
+player = 1
+color = Color(1, 0, 0, 1)
+
+[node name="Player3" parent="." instance=ExtResource("1_4panx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18762, 1.51129, 0)
+player = 2
+color = Color(0, 0.0499997, 1, 1)
+
+[node name="Player4" parent="." instance=ExtResource("1_4panx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59104, 1.51129, 0)
+player = 3
+color = Color(1, 0.933333, 0, 1)
