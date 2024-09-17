@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Minigame" load_steps=3 format=3 uid="uid://du4dg67vgfyg8"]
+
+[ext_resource type="Script" path="res://Core/Minigames/minigame.gd" id="1_2rveh"]
+[ext_resource type="PackedScene" uid="uid://bxdxdtb7hygle" path="res://ExampleMinigame/example_minigame.tscn" id="1_alhig"]
+
+[resource]
+script = ExtResource("1_2rveh")
+name = "Example Minigame"
+description = ""
+scene = ExtResource("1_alhig")

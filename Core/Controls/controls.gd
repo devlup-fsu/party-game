@@ -1,12 +1,13 @@
 extends Node
 
+
 enum Player {
 	ONE,
 	TWO,
 	THREE,
-	FOUR,
-	COUNT
+	FOUR
 }
+
 
 # TODO: In Godot 4.4, dictionaries can be typed. Will be Dictionary[Player, int]
 var _player_controllers: Dictionary = {}
@@ -14,6 +15,8 @@ var _player_controllers: Dictionary = {}
 var _player_actions: Dictionary = {}
 # TODO: Type as Dictionary[Player, Dictionary[StringName, bool]]
 var _immediate_player_actions: Dictionary = {}
+# TODO: Type as Dictionary[Player, Dictionary[StringName, bool]]
+var _immediate_player_actions_buffer: Dictionary = {}
 # TODO: type as Dictionary[Player, Dictionary[StringName, float]]
 var _player_action_strength: Dictionary = {}
 
@@ -21,37 +24,36 @@ var _player_action_strength: Dictionary = {}
 func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
 	
-	for player in range(Player.ONE, Player.COUNT):
+	for player in range(Player.ONE, Player.size()):
 		_player_actions[player] = {}
 		_immediate_player_actions[player] = {}
+		_immediate_player_actions_buffer[player] = {}
 		_player_action_strength[player] = {}
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	_immediate_player_actions = _immediate_player_actions_buffer.duplicate(true)
 	
-	var clear_immediate_player_actions = func() -> void:
-		for player in range(Player.ONE, Player.COUNT):
-			_immediate_player_actions[player].clear()
-	
-	clear_immediate_player_actions.call_deferred()
-	
-	if get_controller_of_player(Player.ONE) != -1:
-		print(get_vector(Player.ONE, "core_player_left", "core_player_right", "core_player_down", "core_player_up"))
+	for player in range(Player.ONE, Player.size()):
+		_immediate_player_actions_buffer[player].clear()
 
 
 func _input(event: InputEvent) -> void:
+	if not event.is_action_type():
+		return
+	
 	var player = _player_controllers.find_key(event.device)
 	if player != null:
 		for action: StringName in InputMap.get_actions():
 			if event.is_action_pressed(action):
 				if not _player_actions[player].get_or_add(action, false):
 					_player_actions[player][action] = true
-					_immediate_player_actions[player][action] = true
+					_immediate_player_actions_buffer[player][action] = true
 				if event is InputEventJoypadMotion:
 					_player_action_strength[player][action] = event.axis_value
 			elif event.is_action_released(action):
 				_player_actions[player][action] = false
-				_immediate_player_actions[player][action] = false
+				_immediate_player_actions_buffer[player][action] = false
 				_player_action_strength[player][action] = 0.0
 
 
@@ -94,6 +96,10 @@ func try_unassign_player_controller(player: Player) -> bool:
 	return false
 
 
+func get_assigned_player_count() -> int:
+	return _player_controllers.keys().size()
+
+
 func unassign_all_controllers() -> void:
 	_player_controllers.clear()
 
@@ -114,7 +120,7 @@ func get_action_strength(player: Player, action: StringName) -> float:
 
 
 func get_axis(player: Player, negative_action: StringName, positive_action: StringName) -> float:
-	return get_action_strength(player, positive_action) - get_action_strength(player, negative_action)
+	return abs(get_action_strength(player, positive_action)) - abs(get_action_strength(player, negative_action))
 
 
 func get_vector(player: Player, negative_x: StringName, positive_x: StringName, negative_y: StringName, positive_y: StringName) -> Vector2:
