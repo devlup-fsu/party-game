@@ -23,11 +23,6 @@ Controls="*res://Core/Controls/controls.gd"
 
 window/stretch/mode="canvas_items"
 
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
-
 [input]
 
 core_player_up={
@@ -60,7 +55,3 @@ core_submit={
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
-
-[rendering]
-
-anti_aliasing/quality/msaa_3d=1
