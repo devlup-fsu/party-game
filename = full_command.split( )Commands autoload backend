@@ -1,0 +1,59 @@
+[33mcommit e53bbad70027aa2593e91e7e2ebb84e83b0c6661[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mcore-debug-console[m[33m, [m[1;31morigin/core-debug-console[m[33m)[m
+Author: Dion Tryban <github@diontryban.com>
+Date:   Tue Oct 1 15:50:47 2024 -0400
+
+    Add Commands autoload backend
+
+[33mcommit 42d313075b5cfa5c8e6af4c3404a624e3a435a3f[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Merge: 7c6ba32 0eeef80
+Author: Dion Tryban <github@diontryban.com>
+Date:   Tue Sep 17 18:32:08 2024 -0400
+
+    Merge pull request #2 from devlup-fsu/core-controllers
+    
+    Core controllers
+
+[33mcommit 0eeef80ce255bac37028ae00717247e393f82e90[m
+Author: Dion Tryban <github@diontryban.com>
+Date:   Tue Sep 17 18:02:06 2024 -0400
+
+    Add example minigame with moving players
+
+[33mcommit da13fc0912e88a3a39ebb40f367c7b7b0703437a[m
+Author: Dion Tryban <github@diontryban.com>
+Date:   Tue Sep 17 16:28:40 2024 -0400
+
+    Add functions to Controls singleton to query actions
+
+[33mcommit 7c6ba32a0b9ddf6174db3f7d2faf4932d01d8e3e[m[33m ([m[1;33mtag: [m[1;33mv2024.09.13[m[33m)[m
+Merge: 3cc353f 039f19f
+Author: Dion Tryban <github@diontryban.com>
+Date:   Fri Sep 13 13:53:06 2024 -0400
+
+    Merge pull request #1 from devlup-fsu/export-actions
+    
+    Add github workflow to export a build of the game
+
+[33mcommit 039f19f00c87812c3c072817fcc8d331f8391487[m
+Author: Innovation Hub 9 <github@diontryban.com>
+Date:   Fri Sep 13 13:51:42 2024 -0400
+
+    Add github workflow to export a build of the game
+
+[33mcommit 3cc353fdf0b2ea628941aa33410691fb5dad8618[m
+Author: FIH-COM23A109 <github@diontryban.com>
+Date:   Fri Sep 13 12:49:23 2024 -0400
+
+    Rename Shared folder to Core
+
+[33mcommit 48c7676e3aae6566d2fbaca41d289028495fd2a6[m
+Author: Dion Tryban <github@diontryban.com>
+Date:   Thu Sep 12 00:19:22 2024 -0400
+
+    Begin work on Controls system for tracking multiple controllers
+
+[33mcommit f70bf2d6490d8523e1067f2e2e2c95c5f1481c5c[m
+Author: Dion Tryban <github@diontryban.com>
+Date:   Wed Sep 11 18:07:39 2024 -0400
+
+    Initial commit
