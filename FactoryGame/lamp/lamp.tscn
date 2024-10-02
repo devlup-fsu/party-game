@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cchk8dtc054e5"]
+
+[ext_resource type="ArrayMesh" uid="uid://oy8tto3fh6e3" path="res://FactoryGame/resources/StreetLight.obj" id="1_oucfb"]
+
+[node name="Lamp" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("1_oucfb")
+
+[node name="RightLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.319, 1.125)
+light_color = Color(0.88, 0.65516, 0.2376, 1)
+light_energy = 15.0
+omni_range = 20.0
+
+[node name="LeftLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.319, -1.125)
+light_color = Color(0.88, 0.65516, 0.2376, 1)
+light_energy = 15.0
+omni_range = 20.0

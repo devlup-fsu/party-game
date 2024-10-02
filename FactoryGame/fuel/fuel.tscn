@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://ywlbgl2hhb30"]
+
+[ext_resource type="Script" path="res://FactoryGame/fuel/fuel.gd" id="1_dcd1w"]
+[ext_resource type="Script" path="res://FactoryGame/fuel/fuel_collision.gd" id="2_8ssu2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vh1ty"]
+friction = 3.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3552d"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pqfn3"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.9
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8x1kh"]
+
+[node name="Fuel" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 14
+physics_material_override = SubResource("PhysicsMaterial_vh1ty")
+script = ExtResource("1_dcd1w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_3552d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_pqfn3")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 5
+collision_priority = 2.0
+script = ExtResource("2_8ssu2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_8x1kh")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 2.0
+shadow_enabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

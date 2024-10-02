@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://ges8lqnwpw11"]
+
+[ext_resource type="Script" path="res://FactoryGame/player/player.gd" id="1_4pf3t"]
+[ext_resource type="Texture2D" uid="uid://dpxpv5wrj44gt" path="res://FactoryGame/resources/textures/throw_bar/over.png" id="2_nsf7m"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2ad30"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_eyunm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5rnt4"]
+
+[sub_resource type="Gradient" id="Gradient_wlc5i"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.683099, 1)
+colors = PackedColorArray(1, 0.313726, 0.113725, 1, 1, 0.909804, 0.219608, 1, 0.227451, 0.937255, 0.345098, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ychfj"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_wlc5i")
+width = 60
+height = 14
+
+[node name="Player" type="CharacterBody3D"]
+collision_mask = 5
+script = ExtResource("1_4pf3t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_2ad30")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_eyunm")
+
+[node name="CarriedFuelPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="ThrowStrengthBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_5rnt4")
+offset_right = 64.0
+offset_bottom = 16.0
+texture_over = ExtResource("2_nsf7m")
+texture_progress = SubResource("GradientTexture2D_ychfj")
+texture_progress_offset = Vector2(2, 1)
