@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb3bnwxwpslx"
-path="res://.godot/imported/clean-concrete_preview.jpg-9a784e47b3d7e667512e153c21f8215b.ctex"
+uid="uid://b3f2782mijw2w"
+path="res://.godot/imported/brick-wall_preview.jpg-f39cf6a6baf52530d0a7d60ef8c9f647.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://FactoryGame/resources/clean-concrete-bl/clean-concrete_preview.jpg"
-dest_files=["res://.godot/imported/clean-concrete_preview.jpg-9a784e47b3d7e667512e153c21f8215b.ctex"]
+source_file="res://FactoryGame/resources/materials/brick-wall-bl/brick-wall_preview.jpg"
+dest_files=["res://.godot/imported/brick-wall_preview.jpg-f39cf6a6baf52530d0a7d60ef8c9f647.ctex"]
 
 [params]
 

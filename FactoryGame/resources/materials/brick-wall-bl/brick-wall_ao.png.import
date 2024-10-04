@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://05v8lqwg1qb1"
-path.s3tc="res://.godot/imported/brick-wall_normal-ogl.png-15d08fccbc8e421b1e72f603ea17588a.s3tc.ctex"
+uid="uid://c8jwd4wwrhqoe"
+path.s3tc="res://.godot/imported/brick-wall_ao.png-97038cb007c9c1499fd26049afdb942c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://FactoryGame/resources/brick-wall-bl/brick-wall_normal-ogl.png"
-dest_files=["res://.godot/imported/brick-wall_normal-ogl.png-15d08fccbc8e421b1e72f603ea17588a.s3tc.ctex"]
+source_file="res://FactoryGame/resources/materials/brick-wall-bl/brick-wall_ao.png"
+dest_files=["res://.godot/imported/brick-wall_ao.png-97038cb007c9c1499fd26049afdb942c.s3tc.ctex"]
 
 [params]
 
@@ -20,11 +20,11 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
+roughness/mode=8
 roughness/src_normal="res://resources/brick-wall-bl/brick-wall_normal-ogl.png"
 process/fix_alpha_border=true
 process/premult_alpha=false

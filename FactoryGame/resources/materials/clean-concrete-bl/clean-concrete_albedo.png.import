@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duey6qo067ebi"
-path.s3tc="res://.godot/imported/clean-concrete_normal-ogl.png-71d3dd6c816bf10d37c0e0d894f3670f.s3tc.ctex"
+uid="uid://dbsgswh3sgfic"
+path.s3tc="res://.godot/imported/clean-concrete_albedo.png-d7746d674076acd3b5940c77d7220442.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://FactoryGame/resources/clean-concrete-bl/clean-concrete_normal-ogl.png"
-dest_files=["res://.godot/imported/clean-concrete_normal-ogl.png-71d3dd6c816bf10d37c0e0d894f3670f.s3tc.ctex"]
+source_file="res://FactoryGame/resources/materials/clean-concrete-bl/clean-concrete_albedo.png"
+dest_files=["res://.godot/imported/clean-concrete_albedo.png-d7746d674076acd3b5940c77d7220442.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://resources/clean-concrete-bl/clean-concrete_normal-ogl.png"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
