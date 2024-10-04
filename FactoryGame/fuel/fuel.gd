@@ -28,6 +28,6 @@ func set_type(new_type: FuelType):
 	material.emission_enabled = true
 	material.emission = fuel_color
 	
-	$MeshInstance3D.set_surface_override_material(0, material)
+	$Core.set_surface_override_material(0, material)
 	$OmniLight3D.light_color = fuel_color
 	
