@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cchk8dtc054e5" path="res://FactoryGame/lamp/lamp.tscn" id="2_dgur4"]
 [ext_resource type="Environment" uid="uid://dg6l0wqbnceet" path="res://FactoryGame/resources/sky.tres" id="2_pjdpf"]
 [ext_resource type="PackedScene" uid="uid://dt1gyjiqt10pe" path="res://FactoryGame/furnace/furnace.tscn" id="4_6j1yc"]
-[ext_resource type="Material" uid="uid://brqxm3henxq7l" path="res://FactoryGame/resources/clean-concrete-bl/concrete_material.tres" id="4_atkfc"]
-[ext_resource type="Material" uid="uid://bw05a2hcnvpse" path="res://FactoryGame/resources/brick-wall-bl/brick_material.tres" id="5_q47ng"]
+[ext_resource type="Material" uid="uid://brqxm3henxq7l" path="res://FactoryGame/resources/materials/clean-concrete-bl/concrete_material.tres" id="4_atkfc"]
+[ext_resource type="Material" uid="uid://bw05a2hcnvpse" path="res://FactoryGame/resources/materials/brick-wall-bl/brick_material.tres" id="5_q47ng"]
 [ext_resource type="PackedScene" uid="uid://8im326ay6uie" path="res://FactoryGame/fuel gen/fuel_generator.tscn" id="6_64uwv"]
 [ext_resource type="Script" path="res://FactoryGame/ui/fps_label.gd" id="7_ppaln"]
 [ext_resource type="Script" path="res://FactoryGame/ui/score_display.gd" id="8_ekchf"]
@@ -53,6 +53,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 1.498, -16)
 [node name="Player2" parent="Players" instance=ExtResource("1_00avj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1.498, -16)
 player_number = 1
+debug_input = true
 
 [node name="Player3" parent="Players" instance=ExtResource("1_00avj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 1.498, 16)
