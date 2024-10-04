@@ -43,7 +43,6 @@ var current_pickup_cooldown = 0
 var throw_charge = 0.0
 
 func _ready() -> void:
-	print(player_number, DEBUG_INPUT_ACTIONS)
 	var material := StandardMaterial3D.new()
 	material.albedo_color = PLAYER_COLORS[player_number]
 	material.roughness = 0.2
@@ -126,8 +125,6 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	var direction = get_direction()
-	if player_number == Controls.Player.ONE:
-		print(direction)
 	if direction:
 		facing_direction = direction
 		
