@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://4hxfda0fvecm"]
+
+[ext_resource type="PackedScene" uid="uid://c1r4vrrpf7usc" path="res://HoleInWallMinigane/wall_player.tscn" id="1_6ps5w"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uomkt"]
+sky_top_color = Color(0.0474158, 0.0894499, 0.15262, 1)
+sky_horizon_color = Color(0.0823529, 0.0862745, 0.109804, 1)
+sky_curve = 0.126134
+ground_bottom_color = Color(0.134164, 0.163229, 0.203355, 1)
+ground_horizon_color = Color(0.0756164, 0.0910377, 0.103178, 1)
+ground_curve = 0.16
+
+[sub_resource type="Sky" id="Sky_fmlju"]
+sky_material = SubResource("ProceduralSkyMaterial_uomkt")
+
+[sub_resource type="Environment" id="Environment_yvyvf"]
+background_mode = 2
+sky = SubResource("Sky_fmlju")
+ambient_light_energy = 6.0
+reflected_light_source = 2
+
+[node name="WallMinigameMain" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yvyvf")
+
+[node name="Camera3D" type="Camera3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, 0, 3.6901, 10.5326)
+
+[node name="Wall_Player" parent="WorldEnvironment" instance=ExtResource("1_6ps5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18759, 3.75753, 0.042532)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.749014, 0.662555, 0, -0.662555, 0.749014, 0, 0, 25.8418)
+light_energy = 1.61
