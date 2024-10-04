@@ -22,9 +22,10 @@ const PLAYER_COLORS = [
 ]
 
 const MAX_VELOCITY = 10
-const ACCELERATION = 2
+const ACCELERATION = 2.5
 const FRICTION = 1.5
 const JUMP_VELOCITY = 4.5
+const JOYSTICK_CARDINAL_SNAP_ANGLE = 0.125
 
 const PICKUP_COOLDOWN = 0.2  # seconds
 const MAX_THROW_CHARGE = 0.75
@@ -60,6 +61,8 @@ func get_direction() -> Vector3:
 		input_dir = Input.get_vector(DEBUG_INPUT_ACTIONS['left'], DEBUG_INPUT_ACTIONS['right'], DEBUG_INPUT_ACTIONS['up'], DEBUG_INPUT_ACTIONS['down'])
 	else:
 		input_dir = Controls.get_vector(player_number, "core_player_left", "core_player_right", "core_player_up", "core_player_down")
+		input_dir.x = 0 if abs(input_dir.x) < JOYSTICK_CARDINAL_SNAP_ANGLE else input_dir.x
+		input_dir.y = 0 if abs(input_dir.y) < JOYSTICK_CARDINAL_SNAP_ANGLE else input_dir.y
 	return (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 
