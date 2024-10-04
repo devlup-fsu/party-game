@@ -52,10 +52,7 @@ func _input(event: InputEvent) -> void:
 				if event.is_action(action):
 					var stick_moved = abs(event.axis_value) > JOYSTICK_DEADZONE
 					_player_actions[player][action] = stick_moved
-					if stick_moved:
-						_player_action_strength[player][action] = event.axis_value
-					else:
-						_player_action_strength[player][action] = 0.0
+					_player_action_strength[player][action] = event.axis_value if stick_moved else 0.0
 			else:
 				if event.is_action_pressed(action):
 					if not _player_actions[player].get_or_add(action, false):
