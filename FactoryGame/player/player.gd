@@ -3,6 +3,17 @@ class_name FactoryPlayer
 
 @export var player_number: Controls.Player
 
+# Enables keyboard controls. Enable if you don't have 2 controllers
+@export var debug_input: bool = false
+
+@onready var DEBUG_INPUT_ACTIONS = {
+	"up": "debug_player%d_up" % (player_number + 1),
+	"down": "debug_player%d_down" % (player_number + 1),
+	"left": "debug_player%d_left" % (player_number + 1),
+	"right": "debug_player%d_right" % (player_number + 1),
+	"jump": "debug_player%d_jump" % (player_number + 1),
+}
+
 const PLAYER_COLORS = [
 	Color(1, 0.1, 0.1),
 	Color(0.1, 0.1, 1),
@@ -24,6 +35,7 @@ const THROW_BAR_SMOOTHING_SPEED: float = 0.35
 
 # TODO: swap this out with right stick input later on or something more intuitive
 var facing_direction = Vector3(1, 0, 0);
+var prev_throwbutton_state = false;
 
 var points = 0
 var carried_fuel_node: Fuel = null
@@ -31,6 +43,7 @@ var current_pickup_cooldown = 0
 var throw_charge = 0.0
 
 func _ready() -> void:
+	print(player_number, DEBUG_INPUT_ACTIONS)
 	var material := StandardMaterial3D.new()
 	material.albedo_color = PLAYER_COLORS[player_number]
 	material.roughness = 0.2
@@ -42,10 +55,12 @@ func _ready() -> void:
 	$ThrowStrengthBar.modulate = Color(1, 1, 1, 0.8)
 
 
-# TODO: replace Input with Controls
 func get_direction() -> Vector3:
-	#var input_dir := Controls.get_vector(player_number, 'core_player_left', 'core_player_right', 'core_player_up', 'core_player_down')
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir: Vector2
+	if debug_input:
+		input_dir = Input.get_vector(DEBUG_INPUT_ACTIONS['left'], DEBUG_INPUT_ACTIONS['right'], DEBUG_INPUT_ACTIONS['up'], DEBUG_INPUT_ACTIONS['down'])
+	else:
+		input_dir = Controls.get_vector(player_number, "core_player_left", "core_player_right", "core_player_up", "core_player_down")
 	return (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 
@@ -65,12 +80,17 @@ func throw_tick(delta: float):
 	if carried_fuel_node == null:
 		return
 	
-	if Input.is_action_pressed('ui_accept'):
+	var current_throwbutton_state: bool
+	if debug_input:
+		current_throwbutton_state = Input.is_action_pressed(DEBUG_INPUT_ACTIONS['jump'])
+	else:
+		current_throwbutton_state = Controls.is_action_pressed(player_number, 'core_player_jump')
+	if current_throwbutton_state:
 		throw_charge = move_toward(throw_charge, MAX_THROW_CHARGE, delta)
 		$ThrowStrengthBar.visible = true
 		$ThrowStrengthBar.value = throw_charge * THROW_BAR_SCALE
 	
-	if Input.is_action_just_released('ui_accept'):
+	elif prev_throwbutton_state:
 		var throw_direction = Vector3(facing_direction.x, 0.25, facing_direction.z)
 		carried_fuel_node.linear_velocity = throw_direction * throw_charge * THROW_STRENGTH
 		var angular_vector = throw_direction.rotated(Vector3(0, 1, 0), PI/4) * throw_charge * 10
@@ -80,6 +100,8 @@ func throw_tick(delta: float):
 		throw_charge = 0.0
 		$ThrowStrengthBar.visible = false
 		$ThrowStrengthBar.value = 0
+	
+	prev_throwbutton_state = current_throwbutton_state
 
 
 func get_strength_bar_target_position():
@@ -104,6 +126,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	var direction = get_direction()
+	if player_number == Controls.Player.ONE:
+		print(direction)
 	if direction:
 		facing_direction = direction
 		
@@ -117,3 +141,10 @@ func _process(delta: float) -> void:
 	if carried_fuel_node != null:
 		carried_fuel_node.global_position = global_position + $CarriedFuelPosition.position
 	current_pickup_cooldown = move_toward(current_pickup_cooldown, 0, delta)
+
+
+# TODO: make this interface with player select screen to allow for multiple players
+# THIS IS TEMPORARY
+func _input(event: InputEvent):
+	if player_number == Controls.Player.ONE:
+		Controls.try_assign_player_controller(player_number, event.device)
