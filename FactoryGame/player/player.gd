@@ -21,11 +21,11 @@ const PLAYER_COLORS = [
 	Color(0.1, 1, 0.1)
 ]
 
-const MAX_VELOCITY = 10
+const MAX_VELOCITY = 9
 const ACCELERATION = 2.5
-const FRICTION = 1.5
+const FRICTION = 2
 const JUMP_VELOCITY = 4.5
-const JOYSTICK_CARDINAL_SNAP_ANGLE = 0.125
+const JOYSTICK_CARDINAL_SNAP_ANGLE = 0.075
 
 const PICKUP_COOLDOWN = 0.2  # seconds
 const MAX_THROW_CHARGE = 0.75
@@ -87,6 +87,7 @@ func throw_tick(delta: float):
 		current_throwbutton_state = Input.is_action_pressed(DEBUG_INPUT_ACTIONS['jump'])
 	else:
 		current_throwbutton_state = Controls.is_action_pressed(player_number, 'core_player_jump')
+	
 	if current_throwbutton_state:
 		throw_charge = move_toward(throw_charge, MAX_THROW_CHARGE, delta)
 		$ThrowStrengthBar.visible = true
