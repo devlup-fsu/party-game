@@ -2,7 +2,6 @@ extends RigidBody3D
 class_name Fuel
 
 var parent_generator: FuelGenerator = null
-var near_generator: bool = true
 var carrier: FactoryPlayer = null
 
 enum FuelType {

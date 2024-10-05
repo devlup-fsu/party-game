@@ -122,7 +122,7 @@ type = 3
 script = ExtResource("8_nqspd")
 
 [node name="FuelGenerator" parent="Generators" instance=ExtResource("6_64uwv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.297553, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.4302, 0)
 
 [node name="FpsLabel" type="Label" parent="."]
 offset_right = 40.0

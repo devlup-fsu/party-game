@@ -5,18 +5,23 @@ var fuel = preload("res://FactoryGame/fuel/fuel.tscn")
 
 @onready var parent: Node3D = get_parent()
 
-const GENERATE_INTERVAL := 5.0  # seconds
-const GENERATE_INTERVAL_VARIANCE := 0.25
-const GENERATE_DISTANCE := 0.0
-const GENERATE_DISTANCE_VARIANCE := 1.25
-const MAX_SURROUNDING_FUEL := 3
+@export var generate_interval := 5.0  # seconds
+@export var generate_interval_variance := 0.25
+
+const GENERATE_DISTANCE_VARIANCE := 0.75
 
 var generate_timer := 0.0
-var surrounding_fuel_count := 0
 
 # Stores fuel types in random order that get "pulled" out of the bucket.
 # This ensures that each fuel type will be generated once before restarting.
 var fuel_type_bucket: Array = []
+
+
+func _ready():
+	var material: Material = $Pipe.get_active_material(0).duplicate() as StandardMaterial3D
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.albedo_color.a = 0.95
+	$Pipe.set_surface_override_material(0, material)
 
 
 func get_bucket_value(bucket: Array, bucket_size: int) -> int:
@@ -25,30 +30,30 @@ func get_bucket_value(bucket: Array, bucket_size: int) -> int:
 		bucket.shuffle()
 	return bucket.pop_front()
 
+
 func rand_angle() -> float:
 	return deg_to_rad(randi_range(0, 360))
 
 
 func generate_fuel():
-	var distance := GENERATE_DISTANCE + randf_range(-GENERATE_DISTANCE_VARIANCE, GENERATE_DISTANCE_VARIANCE)
-	var facing_vector := Vector2.from_angle(rand_angle()) * distance
-	var shift_vector := Vector3(facing_vector.x, 2, facing_vector.y)
+	var distance = randf_range(-GENERATE_DISTANCE_VARIANCE, GENERATE_DISTANCE_VARIANCE)
+	var facing_vector = Vector2.from_angle(rand_angle()) * distance
+	var shift_vector = Vector3(facing_vector.x, 0, facing_vector.y)
+	var angular_velocity = Vector3(randf_range(-2, 2), randf_range(-2, 2), randf_range(-2, 2)) 
 	var fuel_node: Fuel = fuel.instantiate()
 	
 	fuel_node.set_type(get_bucket_value(fuel_type_bucket, 4))
+	fuel_node.position = $GenerateLocation.position
 	fuel_node.translate_object_local(shift_vector)
-	fuel_node.rotate_x(rand_angle())
-	fuel_node.rotate_y(rand_angle())
-	fuel_node.rotate_z(rand_angle())
+	fuel_node.angular_velocity = angular_velocity
 	fuel_node.parent_generator = self
 	
 	add_child(fuel_node)
-	surrounding_fuel_count += 1
 	parent.amount_fuel_objects += 1
 
 func _process(delta: float) -> void:
 	generate_timer -= delta
 	if generate_timer <= 0:
-		generate_timer = GENERATE_INTERVAL + randi_range(0, GENERATE_INTERVAL_VARIANCE)
-		if surrounding_fuel_count < MAX_SURROUNDING_FUEL and parent.amount_fuel_objects < parent.fuel_object_limit:
+		generate_timer = generate_interval + randi_range(0, generate_interval_variance)
+		if parent.amount_fuel_objects < parent.fuel_object_limit:
 			generate_fuel()
