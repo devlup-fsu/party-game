@@ -101,6 +101,7 @@ func throw_tick(delta: float):
 			carried_fuel_node.linear_velocity = throw_direction * throw_charge * THROW_STRENGTH
 			var angular_vector = throw_direction.rotated(Vector3(0, 1, 0), PI/4) * throw_charge * 10
 			carried_fuel_node.angular_velocity = angular_vector
+			carried_fuel_node.being_carried = false
 			carried_fuel_node = null
 			reset_throw_charge()
 	

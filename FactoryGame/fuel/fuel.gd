@@ -3,6 +3,7 @@ class_name Fuel
 
 var parent_generator: FuelGenerator = null
 var carrier: FactoryPlayer = null
+var being_carried: bool = false
 
 enum FuelType {
 	RED,
