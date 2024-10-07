@@ -10,8 +10,9 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Fuel and body.carrier != null and body.type == type:
-		if body.carrier.carried_fuel_node == body:
+		if body.carrier.carried_fuel_node == body:  # Walked into furnace
 			body.carrier.carried_fuel_node = null
+			body.carrier.reset_throw_charge()
 		body.carrier.points += 1
 		body.parent_generator.parent.amount_fuel_objects -= 1
 		body.queue_free()

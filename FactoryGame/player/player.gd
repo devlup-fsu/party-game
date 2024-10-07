@@ -77,32 +77,32 @@ func update_velocity(direction: Vector3):
 		velocity.z = move_toward(velocity.z, 0, FRICTION)
 
 
-# TODO: replace Input with Controls
+func reset_throw_charge():
+	current_pickup_cooldown = PICKUP_COOLDOWN
+	throw_charge = 0.0
+	$ThrowStrengthBar.visible = false
+	$ThrowStrengthBar.value = 0
+
 func throw_tick(delta: float):
-	if carried_fuel_node == null:
-		return
-	
 	var current_throwbutton_state: bool
 	if debug_input:
 		current_throwbutton_state = Input.is_action_pressed(DEBUG_INPUT_ACTIONS['jump'])
 	else:
 		current_throwbutton_state = Controls.is_action_pressed(player_number, 'core_player_jump')
 	
-	if current_throwbutton_state:
-		throw_charge = move_toward(throw_charge, MAX_THROW_CHARGE, delta)
-		$ThrowStrengthBar.visible = true
-		$ThrowStrengthBar.value = throw_charge * THROW_BAR_SCALE
-	
-	elif prev_throwbutton_state:
-		var throw_direction = Vector3(facing_direction.x, 0.25, facing_direction.z)
-		carried_fuel_node.linear_velocity = throw_direction * throw_charge * THROW_STRENGTH
-		var angular_vector = throw_direction.rotated(Vector3(0, 1, 0), PI/4) * throw_charge * 10
-		carried_fuel_node.angular_velocity = angular_vector
-		carried_fuel_node = null
-		current_pickup_cooldown = PICKUP_COOLDOWN
-		throw_charge = 0.0
-		$ThrowStrengthBar.visible = false
-		$ThrowStrengthBar.value = 0
+	if carried_fuel_node != null:
+		if current_throwbutton_state:
+			throw_charge = move_toward(throw_charge, MAX_THROW_CHARGE, delta)
+			$ThrowStrengthBar.visible = true
+			$ThrowStrengthBar.value = throw_charge * THROW_BAR_SCALE
+		
+		elif prev_throwbutton_state:
+			var throw_direction = Vector3(facing_direction.x, 0.25, facing_direction.z)
+			carried_fuel_node.linear_velocity = throw_direction * throw_charge * THROW_STRENGTH
+			var angular_vector = throw_direction.rotated(Vector3(0, 1, 0), PI/4) * throw_charge * 10
+			carried_fuel_node.angular_velocity = angular_vector
+			carried_fuel_node = null
+			reset_throw_charge()
 	
 	prev_throwbutton_state = current_throwbutton_state
 
