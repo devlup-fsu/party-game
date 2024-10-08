@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbsgswh3sgfic"
-path.s3tc="res://.godot/imported/clean-concrete_albedo.png-98ca7fcbcd535e95e1752c1fa0fd9635.s3tc.ctex"
+uid="uid://cw6jayqj7b5gb"
+path.s3tc="res://.godot/imported/brick-wall_height.png-fe532a27dfabc9b43961684245422ec8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://FactoryGame/resources/clean-concrete-bl/clean-concrete_albedo.png"
-dest_files=["res://.godot/imported/clean-concrete_albedo.png-98ca7fcbcd535e95e1752c1fa0fd9635.s3tc.ctex"]
+source_file="res://FactoryGame/resources/materials/brick-wall-bl/brick-wall_height.png"
+dest_files=["res://.godot/imported/brick-wall_height.png-fe532a27dfabc9b43961684245422ec8.s3tc.ctex"]
 
 [params]
 
@@ -24,8 +24,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=7
+roughness/src_normal="res://resources/brick-wall-bl/brick-wall_normal-ogl.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
