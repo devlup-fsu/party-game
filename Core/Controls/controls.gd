@@ -46,21 +46,23 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	var player = _player_controllers.find_key(event.device)
-	if player != null:
-		for action: StringName in InputMap.get_actions():
-			if event is InputEventJoypadMotion:
-				if event.is_action(action):
-					var stick_moved = abs(event.axis_value) > JOYSTICK_DEADZONE
-					_player_actions[player][action] = stick_moved
-					_player_action_strength[player][action] = event.axis_value if stick_moved else 0.0
-			else:
-				if event.is_action_pressed(action):
-					if not _player_actions[player].get_or_add(action, false):
-						_player_actions[player][action] = true
-						_immediate_player_actions_buffer[player][action] = true
-				elif event.is_action_released(action):
-					_player_actions[player][action] = false
-					_immediate_player_actions_buffer[player][action] = false
+	if player == null:
+		return
+	
+	for action: StringName in InputMap.get_actions():
+		if event is InputEventJoypadMotion:
+			if event.is_action(action):
+				var stick_moved = abs(event.axis_value) > JOYSTICK_DEADZONE
+				_player_actions[player][action] = stick_moved
+				_player_action_strength[player][action] = event.axis_value if stick_moved else 0.0
+		else:
+			if event.is_action_pressed(action):
+				if not _player_actions[player].get_or_add(action, false):
+					_player_actions[player][action] = true
+					_immediate_player_actions_buffer[player][action] = true
+			elif event.is_action_released(action):
+				_player_actions[player][action] = false
+				_immediate_player_actions_buffer[player][action] = false
 
 
 func _on_joy_connection_changed(controller: int, connected: bool) -> void:
