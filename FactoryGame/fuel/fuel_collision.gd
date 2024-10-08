@@ -7,14 +7,16 @@ func _on_body_entered(body: Node3D) -> void:
 	if body is FactoryPlayer \
 	and body.carried_fuel_node == null \
 	and body.current_pickup_cooldown == 0 \
-	and not parent.being_carried:
+	and not body.isStunned \
+	and not parent.being_carried \
+	and not parent.ifDangerous:
 		body.carried_fuel_node = parent
 		parent.carrier = body
 		parent.being_carried = true
 		parent.rotation = Vector3(0, 0, 0)
 	
-	if body is FactoryPlayer and body.carried_fuel_node.ifDangerous == true:
+	if body is FactoryPlayer and parent.ifDangerous == true:
 		body.isStunned = true
-		body.carried_fuel_node.ifDangerous = false
+		parent.ifDangerous = false
 	if body is CSGBox3D: # Floor and walls. Would like for a better check here as later this may be an issue
 		parent.ifDangerous = false

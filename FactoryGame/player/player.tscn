@@ -21,7 +21,7 @@ width = 60
 height = 14
 
 [node name="Player" type="CharacterBody3D"]
-collision_mask = 5
+collision_mask = 13
 script = ExtResource("1_4pf3t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

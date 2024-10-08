@@ -32,7 +32,7 @@ const MAX_THROW_CHARGE = 0.75
 const THROW_STRENGTH = 20
 const THROW_BAR_SCALE = 1000
 const THROW_BAR_SMOOTHING_SPEED: float = 0.35
-const STUN_DURATION = 2 
+const STUN_DURATION = 2.0
 
 
 # TODO: swap this out with right stick input later on or something more intuitive
