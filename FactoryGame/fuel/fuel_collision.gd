@@ -11,7 +11,7 @@ func _on_body_entered(body: Node3D) -> void:
 		if parent.near_generator:
 			parent.parent_generator.surrounding_fuel_count -= 1
 			parent.near_generator = false
-	# TODO remove dangerous tag from fuel when it hits the ground, so only throws stun
+	
 	if body is FactoryPlayer and body.carried_fuel_node.ifDangerous == true:
 		body.isStunned = true
 		body.carried_fuel_node.ifDangerous = false
