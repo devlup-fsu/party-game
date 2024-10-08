@@ -14,6 +14,8 @@ class_name FactoryPlayer
 	"jump": "debug_player%d_jump" % (player_number + 1),
 }
 
+var stunned_material = preload("res://FactoryGame/resources/materials/temp_stunned_material.tres")
+
 const PLAYER_COLORS = [
 	Color(1, 0.1, 0.1),
 	Color(0.1, 0.1, 1),
@@ -29,7 +31,7 @@ const JOYSTICK_CARDINAL_SNAP_ANGLE = 0.075
 
 const PICKUP_COOLDOWN = 0.2  # seconds
 const MAX_THROW_CHARGE = 0.75
-const THROW_STRENGTH = 20
+const THROW_STRENGTH = 10
 const THROW_BAR_SCALE = 1000
 const THROW_BAR_SMOOTHING_SPEED: float = 0.35
 const STUN_DURATION = 2.0
@@ -46,11 +48,21 @@ var throw_charge = 0.0
 var isStunned: bool = false # gets stunned when a dangerous fuel cell collides with player
 var currentStunDuration = STUN_DURATION
 
+var player_material: StandardMaterial3D
+
+
+func reset_player_material():
+	$MeshInstance3D.set_surface_override_material(0, player_material)
+
+func set_stunned_material():
+	$MeshInstance3D.set_surface_override_material(0, stunned_material)
+
+
 func _ready() -> void:
-	var material := StandardMaterial3D.new()
-	material.albedo_color = PLAYER_COLORS[player_number]
-	material.roughness = 0.2
-	$MeshInstance3D.set_surface_override_material(0, material)
+	player_material = StandardMaterial3D.new()
+	player_material.albedo_color = PLAYER_COLORS[player_number]
+	player_material.roughness = 0.2
+	reset_player_material()
 	
 	# Setup throw strength bar
 	$ThrowStrengthBar.max_value = MAX_THROW_CHARGE * THROW_BAR_SCALE
@@ -105,8 +117,8 @@ func throw_tick(delta: float):
 			$ThrowStrengthBar.value = throw_charge * THROW_BAR_SCALE
 		
 		elif prev_throwbutton_state:
-			var throw_direction = Vector3(facing_direction.x, 0.25, facing_direction.z)
-			carried_fuel_node.linear_velocity = throw_direction * throw_charge * THROW_STRENGTH
+			var throw_direction = Vector3(facing_direction.x, 0.05, facing_direction.z)
+			carried_fuel_node.linear_velocity = throw_direction * throw_charge * THROW_STRENGTH + velocity
 			var angular_vector = throw_direction.rotated(Vector3(0, 1, 0), PI/4) * throw_charge * 10
 			carried_fuel_node.angular_velocity = angular_vector
 			carried_fuel_node.ifDangerous = true # sets if dangerous to true once the fuel cell is thrown
@@ -156,8 +168,9 @@ func _process(delta: float) -> void:
 	if isStunned == true:
 		currentStunDuration = move_toward(currentStunDuration, 0, delta) # reduces current stun duration by delta until 0
 		if currentStunDuration == 0:
-			isStunned = 0
+			isStunned = false
 			currentStunDuration = STUN_DURATION
+			reset_player_material()
 
 
 # TODO: make this interface with player select screen to allow for multiple players
