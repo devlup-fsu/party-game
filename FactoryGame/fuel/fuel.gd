@@ -4,6 +4,7 @@ class_name Fuel
 var parent_generator: FuelGenerator = null
 var carrier: FactoryPlayer = null
 var being_carried: bool = false
+var ifDangerous: bool = false # check for if a fuel cell can stun a player
 
 enum FuelType {
 	RED,
@@ -18,7 +19,7 @@ const FUEL_COLORS = [
 	Color('#0000FF'),
 	Color('#FFFF00'),
 	Color('#00FF00')
-]
+]	
 
 func set_type(new_type: FuelType):
 	type = new_type
@@ -30,4 +31,3 @@ func set_type(new_type: FuelType):
 	
 	$Core.set_surface_override_material(0, material)
 	$OmniLight3D.light_color = fuel_color
-	

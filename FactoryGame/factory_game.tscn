@@ -17,8 +17,7 @@
 script = ExtResource("1_iji3h")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.300706, 0.953717, 0, -0.953717, 0.300706, 0, 32.248, 13.4725)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 0.300706, 0.953717, 0, -0.953717, 0.300706, 0, 32.248, 13.473)
 current = true
 
 [node name="Lights" type="Node3D" parent="."]
@@ -141,4 +140,3 @@ text = "Scores:"
 [node name="MazeGen" type="Node3D" parent="."]
 script = ExtResource("9_ajj37")
 wall_thickness = 0.5
-maze_translation = Vector3(-15, 0, -15)

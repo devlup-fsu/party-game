@@ -12,3 +12,9 @@ func _on_body_entered(body: Node3D) -> void:
 		parent.carrier = body
 		parent.being_carried = true
 		parent.rotation = Vector3(0, 0, 0)
+	
+	if body is FactoryPlayer and body.carried_fuel_node.ifDangerous == true:
+		body.isStunned = true
+		body.carried_fuel_node.ifDangerous = false
+	if body is CSGBox3D: # Floor and walls. Would like for a better check here as later this may be an issue
+		parent.ifDangerous = false

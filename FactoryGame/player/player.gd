@@ -32,6 +32,7 @@ const MAX_THROW_CHARGE = 0.75
 const THROW_STRENGTH = 20
 const THROW_BAR_SCALE = 1000
 const THROW_BAR_SMOOTHING_SPEED: float = 0.35
+const STUN_DURATION = 2 
 
 
 # TODO: swap this out with right stick input later on or something more intuitive
@@ -42,6 +43,8 @@ var points = 0
 var carried_fuel_node: Fuel = null
 var current_pickup_cooldown = 0
 var throw_charge = 0.0
+var isStunned: bool = false # gets stunned when a dangerous fuel cell collides with player
+var currentStunDuration = STUN_DURATION
 
 func _ready() -> void:
 	var material := StandardMaterial3D.new()
@@ -67,6 +70,11 @@ func get_direction() -> Vector3:
 
 
 func update_velocity(direction: Vector3):
+	if isStunned: # wont update velocity when stunned
+		velocity.x = 0
+		velocity.y = 0
+		velocity.z = 0
+		return
 	if direction.x:
 		velocity.x = clamp(velocity.x + direction.x * ACCELERATION, -MAX_VELOCITY, MAX_VELOCITY)
 	else:
@@ -101,6 +109,7 @@ func throw_tick(delta: float):
 			carried_fuel_node.linear_velocity = throw_direction * throw_charge * THROW_STRENGTH
 			var angular_vector = throw_direction.rotated(Vector3(0, 1, 0), PI/4) * throw_charge * 10
 			carried_fuel_node.angular_velocity = angular_vector
+			carried_fuel_node.ifDangerous = true # sets if dangerous to true once the fuel cell is thrown
 			carried_fuel_node.being_carried = false
 			carried_fuel_node = null
 			reset_throw_charge()
@@ -143,6 +152,12 @@ func _process(delta: float) -> void:
 	if carried_fuel_node != null:
 		carried_fuel_node.global_position = global_position + $CarriedFuelPosition.position
 	current_pickup_cooldown = move_toward(current_pickup_cooldown, 0, delta)
+	
+	if isStunned == true:
+		currentStunDuration = move_toward(currentStunDuration, 0, delta) # reduces current stun duration by delta until 0
+		if currentStunDuration == 0:
+			isStunned = 0
+			currentStunDuration = STUN_DURATION
 
 
 # TODO: make this interface with player select screen to allow for multiple players
