@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://buoetfpmvsj3r" path="res://FactoryGame/resources/materials/dull-metal-bl/dull-metal.tres" id="3_ta5d5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vh1ty"]
-friction = 3.0
+friction = 10.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3552d"]
 radius = 0.6
