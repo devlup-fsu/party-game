@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Controls="*res://Core/Controls/controls.gd"
-Commands="*res://Core/Debug/commands.gd"
 Console="*res://Core/Console/console.tscn"
 
 [display]
