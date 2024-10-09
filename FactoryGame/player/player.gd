@@ -160,7 +160,6 @@ func _physics_process(delta: float) -> void:
 	update_velocity(direction)
 	move_and_slide()
 	throw_tick(delta)
-	update_strength_bar_position()
 
 
 func _process(delta: float) -> void:
@@ -174,6 +173,8 @@ func _process(delta: float) -> void:
 			isStunned = false
 			currentStunDuration = STUN_DURATION
 			reset_player_material()
+	
+	update_strength_bar_position()
 
 
 # TODO: make this interface with player select screen to allow for multiple players
