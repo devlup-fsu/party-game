@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 
-signal help_command(full_command: String)
+signal list_command(full_command: String)
 signal enable_toggle_command(full_command: String)
 signal disable_toggle_command(full_command: String)
 
@@ -21,8 +21,8 @@ var _toggles: Dictionary = {}
 func _ready() -> void:
 	visible = false
 	
-	register_command("help", help_command)
-	help_command.connect(_on_help_command)
+	register_command("list", list_command)
+	list_command.connect(_on_list_command)
 	
 	register_command("enable", enable_toggle_command)
 	enable_toggle_command.connect(_on_enable_toggle_command)
@@ -31,14 +31,28 @@ func _ready() -> void:
 	disable_toggle_command.connect(_on_disable_toggle_command)
 
 
-func _on_help_command(_full_command: String) -> void:
-	write("===== Registered Commands =====")
+func _on_list_command(full_command: String) -> void:
+	var parts = full_command.split(" ")
 	
-	var command_names = _commands.keys()
-	for i in range(command_names.size()):
-		write("%d. %s" % [i + 1, command_names[i]])
-	
-	write()
+	if parts.size() <= 1 or (parts[1] != "commands" and parts[1] != "toggles"):
+		warn("To list commands, run 'list commands'.")
+		warn("To list toggles, run 'list toggles'.")
+	elif parts[1] == "commands":
+		write("===== Registered Commands =====")
+
+		var command_names = _commands.keys()
+		for i in range(command_names.size()):
+			write("%d. %s" % [i + 1, command_names[i]])
+
+		write()
+	elif parts[1] == "toggles":
+		write("===== Registered Toggles =====")
+
+		var toggle_names = _toggles.keys()
+		for i in range(toggle_names.size()):
+			write("%d. %s" % [i + 1, toggle_names[i]])
+
+		write()
 
 
 func _on_enable_toggle_command(full_command: String) -> void:
