@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://btk8giyy1rwge"]
+
+[ext_resource type="Script" path="res://lasar.gd" id="1_klhgg"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a7yv4"]
+radius = 0.1
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33onb"]
+albedo_color = Color(1, 0.07, 0.07, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w4qo8"]
+radius = 0.1
+height = 1.0
+
+[node name="Area3D" type="Area3D"]
+script = ExtResource("1_klhgg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_a7yv4")
+surface_material_override/0 = SubResource("StandardMaterial3D_33onb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_w4qo8")
