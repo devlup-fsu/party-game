@@ -3,15 +3,15 @@
 importer="wavefront_obj"
 importer_version=1
 type="Mesh"
-uid="uid://cjbafu3mlyl35"
-path="res://.godot/imported/lightcage.obj-5729883d1c31ae56cb21924533cc2a82.mesh"
+uid="uid://d2tpaxdciy8yl"
+path="res://.godot/imported/LightCage.obj-8ddda13b55a3656c9726bce8cb76de58.mesh"
 
 [deps]
 
-files=["res://.godot/imported/lightcage.obj-5729883d1c31ae56cb21924533cc2a82.mesh"]
+files=["res://.godot/imported/LightCage.obj-8ddda13b55a3656c9726bce8cb76de58.mesh"]
 
-source_file="res://FactoryGame/resources/models/lightcage.obj"
-dest_files=["res://.godot/imported/lightcage.obj-5729883d1c31ae56cb21924533cc2a82.mesh", "res://.godot/imported/lightcage.obj-5729883d1c31ae56cb21924533cc2a82.mesh"]
+source_file="res://FactoryGame/resources/models/LightCage.obj"
+dest_files=["res://.godot/imported/LightCage.obj-8ddda13b55a3656c9726bce8cb76de58.mesh", "res://.godot/imported/LightCage.obj-8ddda13b55a3656c9726bce8cb76de58.mesh"]
 
 [params]
 

@@ -30,16 +30,16 @@ light_indirect_energy = 0.2
 shadow_enabled = true
 
 [node name="Lamp1" parent="Lights" instance=ExtResource("2_dgur4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5, 5, 0)
 
 [node name="Lamp2" parent="Lights" instance=ExtResource("2_dgur4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21.5, 5, 0)
 
 [node name="Lamp3" parent="Lights" instance=ExtResource("2_dgur4")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -20)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 5, -21.5)
 
 [node name="Lamp4" parent="Lights" instance=ExtResource("2_dgur4")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 20)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, 21.5)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_pjdpf")
