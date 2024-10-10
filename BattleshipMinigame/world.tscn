@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bt56kwwqia5eo"]
 
-[ext_resource type="PackedScene" uid="uid://bhaa373vhoku1" path="res://player_1.tscn" id="1_ya70w"]
-[ext_resource type="PackedScene" uid="uid://rb4paqs6tnnq" path="res://player_2.tscn" id="2_sklks"]
+[ext_resource type="PackedScene" uid="uid://bhaa373vhoku1" path="res://BattleshipMinigame/player_1.tscn" id="1_ya70w"]
+[ext_resource type="PackedScene" uid="uid://rb4paqs6tnnq" path="res://BattleshipMinigame/player_2.tscn" id="2_sklks"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jf7rn"]
 size = Vector2(80, 45)
@@ -108,6 +108,8 @@ environment = SubResource("Environment_dg5a0")
 
 [node name="player_1" parent="." instance=ExtResource("1_ya70w")]
 transform = Transform3D(0.994151, 0, 0.107999, 0, 1, 0, -0.107999, 0, 0.994151, -35, 1, -15)
+script = null
 
 [node name="player_2" parent="." instance=ExtResource("2_sklks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 1, -15)
+script = null

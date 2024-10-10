@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bhaa373vhoku1"]
 
-[ext_resource type="Script" path="res://player_1.gd" id="1_ea0br"]
+[ext_resource type="Script" path="res://BattleshipMinigame/player_1.gd" id="1_ahrti"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_wjgbf"]
 size = Vector3(4, 4, 0.3)
@@ -16,7 +16,7 @@ albedo_color = Color(0.757333, 0.09, 1, 1)
 
 [node name="player_1" type="CharacterBody3D"]
 transform = Transform3D(0.994151, 0, 0.107999, 0, 1, 0, -0.107999, 0, 0.994151, 0, 0, 0)
-script = ExtResource("1_ea0br")
+script = ExtResource("1_ahrti")
 
 [node name="Main Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
