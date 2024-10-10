@@ -140,3 +140,14 @@ text = "Scores:"
 [node name="MazeGen" type="Node3D" parent="."]
 script = ExtResource("9_ajj37")
 wall_thickness = 0.5
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="TimerLabel" type="Label" parent="Timer"]
+offset_top = 71.0
+offset_right = 43.0
+offset_bottom = 94.0
+text = "Time:"
+
+[connection signal="timeout" from="Timer" to="ScoreDisplay" method="_on_timer_timeout"]
