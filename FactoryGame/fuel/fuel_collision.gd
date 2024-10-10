@@ -18,6 +18,9 @@ func _on_body_entered(body: Node3D) -> void:
 		if parent.ifDangerous == true and parent.carrier != body:
 			body.set_stunned_material()
 			body.isStunned = true
+			if body.carried_fuel_node != null:
+				body.carried_fuel_node.being_carried = false
+				body.carried_fuel_node = null
 			parent.ifDangerous = false
 	if body is CSGBox3D: # Floor and walls. Would like for a better check here as later this may be an issue
 		parent.ifDangerous = false
