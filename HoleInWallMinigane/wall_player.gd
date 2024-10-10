@@ -21,17 +21,32 @@ func _ready() -> void:
 func _physics_process(delta):
 	if player == Controls.Player.ONE:
 		if Input.is_action_pressed("wall_p1_up") and velocity.y < maxSpeed:
-			velocity.y += SPEED*delta
+			if (velocity.y < 0):
+				velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
+			else:
+				velocity.y += SPEED*delta
 		elif Input.is_action_pressed("wall_p1_down") and velocity.y > -maxSpeed:
-			velocity.y += -SPEED*delta
+			if (velocity.y > 0):
+				velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
+			else:
+				velocity.y += -SPEED*delta
 		else:
 			velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
-		print(velocity.y)
+		
 	if player == Controls.Player.TWO:
 		if Input.is_action_pressed("wall_p2_up"):
-			velocity.y += SPEED*delta
-		if Input.is_action_pressed("wall_p2_down"):
-			velocity.y += -SPEED*delta
+			if (velocity.y < 0):
+				velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
+			else:
+				velocity.y += SPEED*delta
+		elif Input.is_action_pressed("wall_p2_down"):
+			if (velocity.y > 0):
+				velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
+			else:
+				velocity.y += -SPEED*delta
+		else:
+			velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
+	
 			
 	var input_dir = Controls.get_vector(player, "core_player_left", "core_player_right", "core_player_up", "core_player_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
