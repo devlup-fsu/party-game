@@ -17,10 +17,10 @@ class_name FactoryPlayer
 var stunned_material = preload("res://FactoryGame/resources/materials/temp_stunned_material.tres")
 
 const PLAYER_COLORS = [
-	Color(1, 0.1, 0.1),
-	Color(0.1, 0.1, 1),
-	Color(1, 1, 0.1),
-	Color(0.1, 1, 0.1)
+	Color(1, 0.5, 0),
+	Color(0, 0.6, 0.9),
+	Color(1, 0, 0.8),
+	Color(0.5, 0.5, 1)
 ]
 
 const MAX_VELOCITY = 9
