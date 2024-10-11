@@ -36,9 +36,6 @@ func _physics_process(_delta: float) -> void:
 	
 	for player in range(Player.ONE, Player.size()):
 		_immediate_player_actions_buffer[player].clear()
-	
-	if is_action_just_pressed(Player.ONE, "core_player_jump"):
-		print("Jumped")
 
 
 func _input(event: InputEvent) -> void:
