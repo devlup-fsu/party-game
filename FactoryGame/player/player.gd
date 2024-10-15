@@ -165,6 +165,7 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if carried_fuel_node != null:
 		carried_fuel_node.global_position = global_position + $CarriedFuelPosition.position
+		carried_fuel_node.rotation = Vector3.ZERO
 	current_pickup_cooldown = move_toward(current_pickup_cooldown, 0, delta)
 	
 	if isStunned == true:

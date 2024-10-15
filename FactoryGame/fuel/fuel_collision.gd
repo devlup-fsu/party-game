@@ -13,7 +13,7 @@ func _on_body_entered(body: Node3D) -> void:
 			body.carried_fuel_node = parent
 			parent.carrier = body
 			parent.being_carried = true
-			parent.rotation = Vector3(0, 0, 0)
+			parent.rotation = Vector3.ZERO
 		
 		if parent.ifDangerous == true and parent.carrier != body:
 			body.set_stunned_material()
