@@ -1,11 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://cchk8dtc054e5"]
 
-[ext_resource type="ArrayMesh" uid="uid://d2tpaxdciy8yl" path="res://FactoryGame/resources/models/LightCage.obj" id="1_xvdj6"]
+[ext_resource type="ArrayMesh" uid="uid://d2tpaxdciy8yl" path="res://FactoryGame/resources/models/lightcage.obj" id="1_xvdj6"]
 [ext_resource type="Material" uid="uid://buoetfpmvsj3r" path="res://FactoryGame/resources/materials/dull-metal-bl/dull-metal.tres" id="2_fb8ub"]
-[ext_resource type="ArrayMesh" uid="uid://p2thfy2kfg4d" path="res://FactoryGame/resources/models/LightBulb.obj" id="3_cr4ir"]
+[ext_resource type="ArrayMesh" uid="uid://p2thfy2kfg4d" path="res://FactoryGame/resources/models/lightbulb.obj" id="3_cr4ir"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_solsq"]
 albedo_color = Color(0.878431, 0.654902, 0.239216, 1)
+emission_enabled = true
+emission = Color(0.878431, 0.654902, 0.239216, 1)
+emission_energy_multiplier = 10.0
 
 [node name="Lamp" type="Node3D"]
 

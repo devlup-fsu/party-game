@@ -12,3 +12,5 @@ sky_material = SubResource("ProceduralSkyMaterial_q4y6n")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_ecvje")
+glow_enabled = true
+glow_hdr_threshold = 0.3
