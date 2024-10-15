@@ -73,11 +73,13 @@ func create_dynamic_wall(size_multiplier: float, half_maze_size: float, dynamic_
 	var wall_segment = dynamic_wall_data[1]
 	var wall = create_wall_from_segment(size_multiplier, half_maze_size, wall_segment)
 	wall.set_script(dynamic_wall_script)
+	
 	wall.type = dynamic_wall_data[0] as DynamicWallType
 	if wall.type == DynamicWallType.OSCILLATE:
 		wall.oscillate_vector = vector3_from_array(dynamic_wall_data[2])
 		wall.oscillate_speed = dynamic_wall_data[3]
 		wall.oscillate_amplitude = dynamic_wall_data[4]
+	
 	elif wall.type == DynamicWallType.ROTATE:
 		var center = dynamic_wall_data[2]
 		wall.rotate_center = Vector2(

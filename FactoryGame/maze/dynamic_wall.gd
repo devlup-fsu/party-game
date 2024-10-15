@@ -24,33 +24,17 @@ func move_oscillate(delta: float):
 
 
 func move_rotate(delta: float):
-	# Convert current position to 2D for rotation calculation
 	var current_pos_2d = Vector2(global_transform.origin.x, global_transform.origin.z)
-	
-	# Calculate the radius (distance from center)
 	var radius = current_pos_2d.distance_to(rotate_center)
 	
-	# Check if center is (approximately) on the wall's axis
-	var forward = -global_transform.basis.z # Wall's forward direction
-	var to_center = Vector3(rotate_center.x - current_pos_2d.x, 0, rotate_center.y - current_pos_2d.y)
-	var center_distance_from_axis = to_center.cross(forward).length()
-	
-	if center_distance_from_axis < 0.01:
+	if radius < 0.01:
 		rotate_y(rotate_speed * delta)
 	else:
-		# Calculate current angle and new angle for orbital rotation
 		var current_angle = (current_pos_2d - rotate_center).angle()
 		var new_angle = current_angle + rotate_speed * delta
-		
-		# Calculate new position in 2D
 		var new_pos_2d = rotate_center + Vector2(cos(new_angle), sin(new_angle)) * radius
-		
-		# Convert back to 3D position, maintaining Y coordinate
-		var new_position = Vector3(new_pos_2d.x, global_transform.origin.y, new_pos_2d.y)
-		global_transform.origin = new_position
-		
-		# Make the wall face the center point
-		look_at(Vector3(rotate_center.x, global_transform.origin.y, rotate_center.y), Vector3.UP)
+		global_transform.origin = Vector3(new_pos_2d.x, global_transform.origin.y, new_pos_2d.y)
+		rotate_y(-rotate_speed * delta)
 
 
 func _process(delta: float) -> void:
