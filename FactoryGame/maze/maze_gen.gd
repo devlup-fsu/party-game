@@ -11,7 +11,9 @@ const MAZE_JSON_PATH = "res://FactoryGame/maze/mazes.json"
 const MAZE_SIZE_MULTIPLIER = 10
 
 var wall_material = preload("res://FactoryGame/resources/wall_material.tres")
-var dynamic_wall_script = preload("res://FactoryGame/maze/dynamic_wall.gd")
+var oscillate_wall_script = preload("res://FactoryGame/maze/dynamic_wall_oscillate.gd")
+var rotate_wall_script = preload("res://FactoryGame/maze/dynamic_wall_rotate.gd")
+
 
 enum DynamicWallType {
 	OSCILLATE,
@@ -72,15 +74,16 @@ func create_wall_from_segment(size_multiplier: float, half_maze_size: float, seg
 func create_dynamic_wall(size_multiplier: float, half_maze_size: float, dynamic_wall_data: Array):
 	var wall_segment = dynamic_wall_data[1]
 	var wall = create_wall_from_segment(size_multiplier, half_maze_size, wall_segment)
-	wall.set_script(dynamic_wall_script)
 	
-	wall.type = dynamic_wall_data[0] as DynamicWallType
-	if wall.type == DynamicWallType.OSCILLATE:
+	var wall_type = dynamic_wall_data[0] as DynamicWallType
+	if wall_type == DynamicWallType.OSCILLATE:
+		wall.set_script(oscillate_wall_script)
 		wall.oscillate_vector = vector3_from_array(dynamic_wall_data[2])
 		wall.oscillate_speed = dynamic_wall_data[3]
 		wall.oscillate_amplitude = dynamic_wall_data[4]
 	
-	elif wall.type == DynamicWallType.ROTATE:
+	elif wall_type == DynamicWallType.ROTATE:
+		wall.set_script(rotate_wall_script)
 		var center = dynamic_wall_data[2]
 		wall.rotate_center = Vector2(
 			center[0] * size_multiplier - half_maze_size,
