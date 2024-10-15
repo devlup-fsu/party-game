@@ -1,10 +1,13 @@
+class_name Main
 extends Node
 
 @onready var _player_select_screen_scene: PackedScene = load("res://Core/Controls/player_select_screen.tscn")
+@onready var _debug_select_screen_scene: PackedScene = load("res://Core/Minigames/DebugSelectScreen/debug_select_screen.tscn")
 
 @onready var _all_minigames: Array[Minigame] = get_all_minigames()
 
 var _player_select_screen: PlayerSelectScreen = null
+var _debug_select_screen: DebugSelectScreen = null
 var _current_minigame: Minigame = null
 var _current_minigame_scene: Node = null
 
@@ -18,11 +21,20 @@ func _on_player_select_screen_start_pressed() -> void:
 		_player_select_screen.queue_free()
 		_player_select_screen = null
 		
-		# TODO: Open game board instead
-		if _all_minigames.size() > 0:
-			_current_minigame = _all_minigames[0]
-			_current_minigame_scene = _current_minigame.scene.instantiate()
-			add_child(_current_minigame_scene)
+		_debug_select_screen = _debug_select_screen_scene.instantiate()
+		add_child(_debug_select_screen)
+		_debug_select_screen.initialize(_all_minigames)
+		_debug_select_screen.load_minigame.connect(_on_debug_select_screen_load_minigame)
+
+
+func _on_debug_select_screen_load_minigame(minigame: Minigame) -> void:
+	if _debug_select_screen != null:
+		_debug_select_screen.queue_free()
+		_debug_select_screen = null
+		
+		_current_minigame = minigame
+		_current_minigame_scene = minigame.scene.instantiate()
+		add_child(_current_minigame_scene)
 
 
 func get_all_minigames() -> Array[Minigame]:
