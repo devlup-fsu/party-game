@@ -43,6 +43,10 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	var player = _player_controllers.find_key(event.device)
+	
+	if event is InputEventKey:
+		player = Player.ONE
+	
 	if player != null:
 		for action: StringName in InputMap.get_actions():
 			if event.is_action_pressed(action):
