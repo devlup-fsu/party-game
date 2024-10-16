@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://ywlbgl2hhb30"]
 
 [ext_resource type="Script" path="res://FactoryGame/fuel/fuel.gd" id="1_dcd1w"]
-[ext_resource type="ArrayMesh" uid="uid://c0rvdafqn1ytd" path="res://FactoryGame/resources/models/PowerCoreShell.obj" id="2_2vcei"]
 [ext_resource type="Script" path="res://FactoryGame/fuel/fuel_collision.gd" id="2_8ssu2"]
 [ext_resource type="Material" uid="uid://buoetfpmvsj3r" path="res://FactoryGame/resources/materials/dull-metal-bl/dull-metal.tres" id="3_ta5d5"]
+[ext_resource type="ArrayMesh" uid="uid://cuhp34b4rrggn" path="res://FactoryGame/resources/models/PowerCoreShell.obj" id="5_3qroe"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vh1ty"]
 friction = 10.0
@@ -15,6 +15,7 @@ radius = 0.6
 top_radius = 0.2
 bottom_radius = 0.2
 height = 0.85
+radial_segments = 16
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_semkm"]
 radius = 0.65
@@ -27,14 +28,6 @@ script = ExtResource("1_dcd1w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_3552d")
-
-[node name="Shell" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-layers = 2
-mesh = ExtResource("2_2vcei")
-surface_material_override/0 = ExtResource("3_ta5d5")
-surface_material_override/1 = ExtResource("3_ta5d5")
-surface_material_override/2 = ExtResource("3_ta5d5")
 
 [node name="Core" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_h5xx6")
@@ -51,5 +44,10 @@ script = ExtResource("2_8ssu2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_semkm")
+
+[node name="PowerCoreShell" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = ExtResource("5_3qroe")
+surface_material_override/0 = ExtResource("3_ta5d5")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
