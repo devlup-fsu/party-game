@@ -3,15 +3,15 @@
 importer="wavefront_obj"
 importer_version=1
 type="Mesh"
-uid="uid://p2thfy2kfg4d"
-path="res://.godot/imported/lightbulb.obj-5e60dd2bbd95c396347e672417dbfe3a.mesh"
+uid="uid://bdb7cxlbdxcva"
+path="res://.godot/imported/LightBulb.obj-130b62dbfa5679906b821b00d21829d6.mesh"
 
 [deps]
 
-files=["res://.godot/imported/lightbulb.obj-5e60dd2bbd95c396347e672417dbfe3a.mesh"]
+files=["res://.godot/imported/LightBulb.obj-130b62dbfa5679906b821b00d21829d6.mesh"]
 
-source_file="res://FactoryGame/resources/models/lightbulb.obj"
-dest_files=["res://.godot/imported/lightbulb.obj-5e60dd2bbd95c396347e672417dbfe3a.mesh", "res://.godot/imported/lightbulb.obj-5e60dd2bbd95c396347e672417dbfe3a.mesh"]
+source_file="res://FactoryGame/resources/models/LightBulb.obj"
+dest_files=["res://.godot/imported/LightBulb.obj-130b62dbfa5679906b821b00d21829d6.mesh", "res://.godot/imported/LightBulb.obj-130b62dbfa5679906b821b00d21829d6.mesh"]
 
 [params]
 

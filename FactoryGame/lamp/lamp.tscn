@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cchk8dtc054e5"]
 
-[ext_resource type="ArrayMesh" uid="uid://d2tpaxdciy8yl" path="res://FactoryGame/resources/models/lightcage.obj" id="1_xvdj6"]
 [ext_resource type="Material" uid="uid://buoetfpmvsj3r" path="res://FactoryGame/resources/materials/dull-metal-bl/dull-metal.tres" id="2_fb8ub"]
-[ext_resource type="ArrayMesh" uid="uid://p2thfy2kfg4d" path="res://FactoryGame/resources/models/lightbulb.obj" id="3_cr4ir"]
+[ext_resource type="ArrayMesh" uid="uid://bdb7cxlbdxcva" path="res://FactoryGame/resources/models/LightBulb.obj" id="3_8uuck"]
+[ext_resource type="ArrayMesh" uid="uid://b527w3rhoyd3b" path="res://FactoryGame/resources/models/LightCage.obj" id="4_igq6c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_solsq"]
 albedo_color = Color(0.878431, 0.654902, 0.239216, 1)
@@ -18,12 +18,12 @@ light_color = Color(0.88, 0.65516, 0.2376, 1)
 light_energy = 30.0
 omni_range = 25.0
 
-[node name="LightCage" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, 0, 0, 0, 0.25, 0.225627, -0.225627, 0)
-mesh = ExtResource("1_xvdj6")
+[node name="LightCageSimple" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, 0, 0, 0, 0.25, 0.226, -0.226, 0)
+mesh = ExtResource("4_igq6c")
 surface_material_override/0 = ExtResource("2_fb8ub")
 
-[node name="LightBulb" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, 0, 0, 0, 0.25, -0.225627, -0.225627, 0)
-mesh = ExtResource("3_cr4ir")
+[node name="LightBulbSimple" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, 0, 0, 0, 0.25, -0.247978, -0.226, 0)
+mesh = ExtResource("3_8uuck")
 surface_material_override/0 = SubResource("StandardMaterial3D_solsq")
