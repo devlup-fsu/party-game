@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0cn33u0jbrf7"]
+
+[ext_resource type="Script" path="res://AsteroidDodge/rigid_body_3d.gd" id="1_ptmij"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v23ts"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_744lj"]
+
+[node name="RigidBody3D" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 4
+gravity_scale = 0.0
+script = ExtResource("1_ptmij")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_v23ts")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_744lj")

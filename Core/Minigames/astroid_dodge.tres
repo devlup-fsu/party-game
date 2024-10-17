@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Minigame" load_steps=3 format=3 uid="uid://c245ru78mptmk"]
+
+[ext_resource type="Script" path="res://Core/Minigames/minigame.gd" id="1_2y0th"]
+[ext_resource type="PackedScene" uid="uid://vvw1kiuugmv8" path="res://AsteroidDodge/main.tscn" id="1_jyttq"]
+
+[resource]
+script = ExtResource("1_2y0th")
+name = "Astroid Dodge"
+description = ""
+scene = ExtResource("1_jyttq")
