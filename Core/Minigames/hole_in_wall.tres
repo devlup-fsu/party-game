@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Minigame" load_steps=3 format=3 uid="uid://c33um3ac1fjh3"]
+
+[ext_resource type="Script" path="res://Core/Minigames/minigame.gd" id="1_5niyx"]
+[ext_resource type="PackedScene" uid="uid://4hxfda0fvecm" path="res://HoleInWallMinigane/Wall_Minigame.tscn" id="1_me0wk"]
+
+[resource]
+script = ExtResource("1_5niyx")
+name = "Hole in the Wall"
+description = ""
+scene = ExtResource("1_me0wk")
