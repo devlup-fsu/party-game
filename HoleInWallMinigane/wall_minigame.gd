@@ -13,3 +13,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_line.curve.set_point_position(0, _p1.position)
 	_line.curve.set_point_position(1, _p2.position)
+
+
+
+func _on_area_3d_body_entered(body):
+	print("Collision Occured!")
+
+
+func _on_area_3d_area_entered(area):
+	print("Area collision occured!")
