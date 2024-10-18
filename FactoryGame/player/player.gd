@@ -176,10 +176,3 @@ func _process(delta: float) -> void:
 			reset_player_material()
 	
 	update_strength_bar_position()
-
-
-# TODO: make this interface with player select screen to allow for multiple players
-# THIS IS TEMPORARY
-func _input(event: InputEvent):
-	if player_number == Controls.Player.ONE:
-		Controls.try_assign_player_controller(player_number, event.device)

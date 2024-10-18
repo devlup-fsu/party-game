@@ -52,7 +52,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 1.498, -16)
 [node name="Player2" parent="Players" instance=ExtResource("1_00avj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1.498, -16)
 player_number = 1
-debug_input = true
 
 [node name="Player3" parent="Players" instance=ExtResource("1_00avj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 1.498, 16)

@@ -46,6 +46,10 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	var player = _player_controllers.find_key(event.device)
+	
+	if event is InputEventKey:
+		player = Player.ONE
+	
 	if player == null:
 		return
 	
