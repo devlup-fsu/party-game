@@ -1,0 +1,63 @@
+[gd_scene load_steps=14 format=3 uid="uid://vvw1kiuugmv8"]
+
+[ext_resource type="PackedScene" uid="uid://diiuqn2uet6kd" path="res://AsteroidDodge/player.tscn" id="1_jwg6j"]
+[ext_resource type="PackedScene" uid="uid://bnxvaff83bjk4" path="res://AsteroidDodge/topWall.tscn" id="2_i4n6c"]
+[ext_resource type="PackedScene" uid="uid://dfqu28jk70f3i" path="res://AsteroidDodge/camera.tscn" id="3_lqgec"]
+[ext_resource type="PackedScene" uid="uid://dqxtqd6mqfwqv" path="res://AsteroidDodge/bottomWall.tscn" id="3_vvdis"]
+[ext_resource type="PackedScene" uid="uid://bxss6hsco6yxa" path="res://AsteroidDodge/leftWall.tscn" id="4_wddu8"]
+[ext_resource type="PackedScene" uid="uid://dgb4ykuvs11e2" path="res://AsteroidDodge/rightWall.tscn" id="5_1m3hc"]
+[ext_resource type="PackedScene" uid="uid://d0cn33u0jbrf7" path="res://AsteroidDodge/asteroid.tscn" id="7_kpcte"]
+[ext_resource type="PackedScene" uid="uid://dqkxawtm5hf32" path="res://AsteroidDodge/floor.tscn" id="8_b5al4"]
+[ext_resource type="PackedScene" uid="uid://c56hskqtwl6we" path="res://AsteroidDodge/Player2.tscn" id="9_of70t"]
+
+[sub_resource type="GDScript" id="GDScript_4mudm"]
+script/source = "extends Node3D
+"
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qmb18"]
+
+[sub_resource type="Sky" id="Sky_xbfw2"]
+sky_material = SubResource("ProceduralSkyMaterial_qmb18")
+
+[sub_resource type="Environment" id="Environment_xpoei"]
+background_mode = 2
+sky = SubResource("Sky_xbfw2")
+
+[node name="Node" type="Node3D"]
+script = SubResource("GDScript_4mudm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_jwg6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="topWall" parent="." instance=ExtResource("2_i4n6c")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.839, 1, -8.73504)
+
+[node name="bottomWall" parent="." instance=ExtResource("3_vvdis")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 9.23704)
+
+[node name="leftWall" parent="." instance=ExtResource("4_wddu8")]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -15.887, 1, -1.29185)
+
+[node name="rightWall" parent="." instance=ExtResource("5_1m3hc")]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 16.6065, 1, -1.29185)
+
+[node name="Camera3D" parent="." instance=ExtResource("3_lqgec")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 13, 0)
+current = true
+fov = 76.4523
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xpoei")
+
+[node name="Asteroid" parent="." instance=ExtResource("7_kpcte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8209, 1, -13.5123)
+
+[node name="floor" parent="." instance=ExtResource("8_b5al4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.545496, 1.07674, 0.0949044)
+
+[node name="Player2" parent="." instance=ExtResource("9_of70t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)

@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://c56hskqtwl6we"]
+
+[sub_resource type="GDScript" id="GDScript_p6hgv"]
+script/source = "extends CharacterBody3D
+
+signal hit
+const SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+
+func owned():
+	hit.emit()
+	queue_free()
+
+func _physics_process(delta: float) -> void:
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var collision_info = move_and_collide(velocity * delta)
+	var input_dir := Input.get_vector(\"A\", \"D\", \"W\", \"S\")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+	if collision_info:
+		velocity = velocity.bounce(collision_info.get_normal())
+
+
+	move_and_slide()
+	
+func _on_detect_asteroid_body_entered(body: Node3D) -> void:
+	owned()
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5ae5p"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_gsfbk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itx15"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n0lnm"]
+radius = 0.439705
+
+[node name="Player2" type="CharacterBody3D"]
+collision_layer = 3
+collision_mask = 3
+script = SubResource("GDScript_p6hgv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_5ae5p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_gsfbk")
+skeleton = NodePath("../CollisionShape3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_itx15")
+
+[node name="detectAsteroid" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="detectAsteroid"]
+shape = SubResource("SphereShape3D_n0lnm")
+
+[connection signal="body_entered" from="detectAsteroid" to="." method="_on_detect_asteroid_body_entered"]
