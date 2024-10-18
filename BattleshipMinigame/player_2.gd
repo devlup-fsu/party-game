@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	# Apply rotational velocity
 	rotation.y += rotational_velo * delta
 	
-	print(str(rotational_velo))
+	# print(str(rotational_velo))
 	# Based on forward direction vector, set directional velocity
 	var forward_direction = -transform.basis.z.normalized()
 	velocity.x = forward_direction.x * lin_velo
