@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://ywlbgl2hhb30"]
+
+[ext_resource type="Script" path="res://FactoryGame/fuel/fuel.gd" id="1_dcd1w"]
+[ext_resource type="Script" path="res://FactoryGame/fuel/fuel_collision.gd" id="2_8ssu2"]
+[ext_resource type="Material" uid="uid://buoetfpmvsj3r" path="res://FactoryGame/resources/materials/dull-metal-bl/dull-metal.tres" id="3_ta5d5"]
+[ext_resource type="ArrayMesh" uid="uid://cuhp34b4rrggn" path="res://FactoryGame/resources/models/PowerCoreShell.obj" id="5_3qroe"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vh1ty"]
+friction = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3552d"]
+radius = 0.6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h5xx6"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.85
+radial_segments = 16
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_semkm"]
+radius = 0.65
+
+[node name="Fuel" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_vh1ty")
+script = ExtResource("1_dcd1w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_3552d")
+
+[node name="Core" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_h5xx6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 2.0
+light_size = 0.5
+light_cull_mask = 4294967293
+shadow_enabled = true
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("2_8ssu2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_semkm")
+
+[node name="PowerCoreShell" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = ExtResource("5_3qroe")
+surface_material_override/0 = ExtResource("3_ta5d5")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

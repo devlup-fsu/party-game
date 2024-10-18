@@ -1,0 +1,152 @@
+[gd_scene load_steps=13 format=3 uid="uid://c6jvsgy5x4q3"]
+
+[ext_resource type="PackedScene" uid="uid://ges8lqnwpw11" path="res://FactoryGame/player/player.tscn" id="1_00avj"]
+[ext_resource type="Script" path="res://FactoryGame/factory_game.gd" id="1_iji3h"]
+[ext_resource type="PackedScene" uid="uid://cchk8dtc054e5" path="res://FactoryGame/lamp/lamp.tscn" id="2_dgur4"]
+[ext_resource type="Environment" uid="uid://dg6l0wqbnceet" path="res://FactoryGame/resources/sky.tres" id="2_pjdpf"]
+[ext_resource type="PackedScene" uid="uid://dt1gyjiqt10pe" path="res://FactoryGame/furnace/furnace.tscn" id="4_6j1yc"]
+[ext_resource type="Material" uid="uid://brqxm3henxq7l" path="res://FactoryGame/resources/materials/clean-concrete-bl/concrete_material.tres" id="4_atkfc"]
+[ext_resource type="Material" uid="uid://bw05a2hcnvpse" path="res://FactoryGame/resources/materials/brick-wall-bl/brick_material.tres" id="5_q47ng"]
+[ext_resource type="PackedScene" uid="uid://8im326ay6uie" path="res://FactoryGame/fuel gen/fuel_generator.tscn" id="6_64uwv"]
+[ext_resource type="Script" path="res://FactoryGame/ui/fps_label.gd" id="7_ppaln"]
+[ext_resource type="Script" path="res://FactoryGame/ui/score_display.gd" id="8_ekchf"]
+[ext_resource type="Script" path="res://FactoryGame/fuel gen/fuel_generator_container.gd" id="8_nqspd"]
+[ext_resource type="Script" path="res://FactoryGame/maze/maze_gen.gd" id="9_ajj37"]
+
+[node name="Root" type="Node3D"]
+script = ExtResource("1_iji3h")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.300706, 0.953717, 0, -0.953717, 0.300706, 0, 32.248, 13.473)
+current = true
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.707107, -0.640856, -0.298836, 0, -0.422619, 0.906308, -0.707107, -0.640856, -0.298836, 0, 10, 0)
+light_color = Color(1, 0.821416, 0.614923, 1)
+light_energy = 0.3
+light_indirect_energy = 0.2
+shadow_enabled = true
+
+[node name="Lamp1" parent="Lights" instance=ExtResource("2_dgur4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5, 5, 0)
+
+[node name="Lamp2" parent="Lights" instance=ExtResource("2_dgur4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21.5, 5, 0)
+
+[node name="Lamp3" parent="Lights" instance=ExtResource("2_dgur4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 5, -21.5)
+
+[node name="Lamp4" parent="Lights" instance=ExtResource("2_dgur4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, 21.5)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_pjdpf")
+
+[node name="Players" type="Node3D" parent="."]
+
+[node name="Player1" parent="Players" instance=ExtResource("1_00avj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 1.498, -16)
+
+[node name="Player2" parent="Players" instance=ExtResource("1_00avj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1.498, -16)
+player_number = 1
+
+[node name="Player3" parent="Players" instance=ExtResource("1_00avj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 1.498, 16)
+player_number = 2
+
+[node name="Player4" parent="Players" instance=ExtResource("1_00avj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1.498, 16)
+player_number = 3
+
+[node name="LevelGeometry" type="Node3D" parent="."]
+transform = Transform3D(0.995106, 0, 0, 0, 0.995106, 0, 0, 0, 0.995106, 0, 0, 0)
+
+[node name="Floor" type="CSGBox3D" parent="LevelGeometry"]
+use_collision = true
+collision_layer = 4
+collision_mask = 7
+size = Vector3(45, 1, 45)
+material = ExtResource("4_atkfc")
+
+[node name="OuterWall1" type="CSGBox3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 45, -22.5, 3.5, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 4
+material = ExtResource("5_q47ng")
+
+[node name="OuterWall2" type="CSGBox3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 45, 22.5, 3.5, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 4
+material = ExtResource("5_q47ng")
+
+[node name="OuterWall3" type="CSGBox3D" parent="LevelGeometry"]
+transform = Transform3D(-4.37114e-08, 0, -45, 0, 6, 0, 1, 0, -1.96701e-06, 0, 3.5, -22.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 4
+material = ExtResource("5_q47ng")
+
+[node name="OuterWall4" type="CSGBox3D" parent="LevelGeometry"]
+transform = Transform3D(-4.37114e-08, 0, -45, 0, 6, 0, 1, 0, -1.96701e-06, 0, 3.5, 22.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 4
+material = ExtResource("5_q47ng")
+
+[node name="Furnaces" type="Node3D" parent="."]
+
+[node name="Furnace1" parent="Furnaces" instance=ExtResource("4_6j1yc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2, -19)
+
+[node name="Furnace2" parent="Furnaces" instance=ExtResource("4_6j1yc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, -19)
+type = 1
+
+[node name="Furnace3" parent="Furnaces" instance=ExtResource("4_6j1yc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2, 19)
+type = 2
+
+[node name="Furnace4" parent="Furnaces" instance=ExtResource("4_6j1yc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, 19)
+type = 3
+
+[node name="Generators" type="Node3D" parent="."]
+script = ExtResource("8_nqspd")
+
+[node name="FuelGenerator" parent="Generators" instance=ExtResource("6_64uwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.4302, 0)
+
+[node name="FpsLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("7_ppaln")
+
+[node name="ScoreDisplay" type="Node2D" parent="."]
+script = ExtResource("8_ekchf")
+
+[node name="ScoreLabel" type="Label" parent="ScoreDisplay"]
+offset_top = 20.0
+offset_right = 55.0
+offset_bottom = 43.0
+text = "Scores:"
+
+[node name="MazeGen" type="Node3D" parent="."]
+script = ExtResource("9_ajj37")
+wall_thickness = 0.5
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="TimerLabel" type="Label" parent="Timer"]
+offset_top = 71.0
+offset_right = 43.0
+offset_bottom = 94.0
+text = "Time:"
+
+[connection signal="timeout" from="Timer" to="ScoreDisplay" method="_on_timer_timeout"]

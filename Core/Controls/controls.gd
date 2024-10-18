@@ -21,6 +21,9 @@ var _immediate_player_actions_buffer: Dictionary = {}
 var _player_action_strength: Dictionary = {}
 
 
+const JOYSTICK_DEADZONE = 0.05
+
+
 func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
 	
@@ -47,18 +50,23 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		player = Player.ONE
 	
-	if player != null:
-		for action: StringName in InputMap.get_actions():
+	if player == null:
+		return
+	
+	for action: StringName in InputMap.get_actions():
+		if event is InputEventJoypadMotion:
+			if event.is_action(action):
+				var stick_moved = abs(event.axis_value) > JOYSTICK_DEADZONE
+				_player_actions[player][action] = stick_moved
+				_player_action_strength[player][action] = event.axis_value if stick_moved else 0.0
+		else:
 			if event.is_action_pressed(action):
 				if not _player_actions[player].get_or_add(action, false):
 					_player_actions[player][action] = true
 					_immediate_player_actions_buffer[player][action] = true
-				if event is InputEventJoypadMotion:
-					_player_action_strength[player][action] = event.axis_value
 			elif event.is_action_released(action):
 				_player_actions[player][action] = false
 				_immediate_player_actions_buffer[player][action] = false
-				_player_action_strength[player][action] = 0.0
 
 
 func _on_joy_connection_changed(controller: int, connected: bool) -> void:
@@ -124,6 +132,8 @@ func get_action_strength(player: Player, action: StringName) -> float:
 
 
 func get_axis(player: Player, negative_action: StringName, positive_action: StringName) -> float:
+	if get_controller_of_player(player) != -1:  # If using a controller
+		return get_action_strength(player, positive_action)
 	return abs(get_action_strength(player, positive_action)) - abs(get_action_strength(player, negative_action))
 
 
