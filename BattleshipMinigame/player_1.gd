@@ -4,14 +4,16 @@ extends CharacterBody3D
 const MAX_LIN_SPEED = 20.0 # m/sec
 const LIN_ACCEL = 40.0 # m/sec^2
 const MAX_ROTATIONAL_VELO = 5.0 # rads/sec
-const ROTATIONAL_ACCEL = 15.0 # rads/sec^2
+const ROTATIONAL_ACCEL = 20.0 # rads/sec^2
 const TARGET_CENTRIP_ACCEL = 75.0 # m/sec^2
 const CROSS_PROD_DEADZONE = 0.0001 # unitless
+const INPUT_VECTOR_DEADZONE = 0.2 # unitless
 
 var target_lin_velo : float = 0.0 # m/sec
 var lin_velo : float = 0.0 # m/sec
 var target_rotational_velo : float = 0.0 # rads/sec
 var rotational_velo : float = 0.0 # rads/sec
+var cycle_num : int = 0
 
 
 @export var player: Controls.Player
@@ -35,18 +37,23 @@ func _physics_process(delta: float) -> void:
 	# Apply rotational velocity
 	rotation.y += rotational_velo * delta
 	
-	print(str(rotational_velo))
+	if (cycle_num % 10 == 0):
+		print("Target lim velo: " + str(target_lin_velo) +
+			  "\nCurrent input vector" + str(input_dir) +
+			  "\nInput vector length: " + str(input_dir.length()) +
+			  "\nCalced target velo: " + str(input_dir.length() * MAX_LIN_SPEED) +
+			  "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 	# Based on forward direction vector, set directional velocity
 	
 	velocity.x = forward_dir.x * lin_velo
 	velocity.z = forward_dir.y * lin_velo # forward_dir is a Vector2, so grab the y
 
-
+	cycle_num += 1
 	move_and_slide()
 
 func set_target_rotational_velo(input_vector: Vector2, forward_vector: Vector2):
 	var cross_prod : float = input_vector.cross(forward_vector)
-	if (input_vector.length() == 0) or ((abs(cross_prod) < CROSS_PROD_DEADZONE) and (input_vector.dot(forward_vector) > 0)):
+	if (input_vector.length() < INPUT_VECTOR_DEADZONE) or ((abs(cross_prod) < CROSS_PROD_DEADZONE) and (input_vector.dot(forward_vector) > 0)):
 		target_rotational_velo = 0
 		return
 
@@ -56,4 +63,7 @@ func set_target_rotational_velo(input_vector: Vector2, forward_vector: Vector2):
 		target_rotational_velo = -1 * MAX_ROTATIONAL_VELO * sqrt(abs(cross_prod))
 
 func set_target_lin_velo(input_vector: Vector2):
-	target_lin_velo = input_vector.normalized().length() * MAX_LIN_SPEED
+	if (input_vector.length() > INPUT_VECTOR_DEADZONE):
+		target_lin_velo = input_vector.length() * MAX_LIN_SPEED
+	else:
+		target_lin_velo = 0

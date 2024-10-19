@@ -28,7 +28,6 @@ shape = SubResource("ConvexPolygonShape3D_i21m7")
 
 [node name="Tip" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.2, -1.5)
-visible = false
 mesh = SubResource("PrismMesh_d448w")
 surface_material_override/0 = SubResource("StandardMaterial3D_g555e")
 
