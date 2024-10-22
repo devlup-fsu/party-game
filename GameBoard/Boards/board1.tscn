@@ -1,19 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca4paejg6uk5i"]
+[gd_scene load_steps=5 format=3 uid="uid://ca4paejg6uk5i"]
 
 [ext_resource type="PackedScene" uid="uid://b4e0e5iuxhesc" path="res://GameBoard/SolarSystem/solar_system.tscn" id="1_3d0jk"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1o5qp"]
-load_path = "res://.godot/imported/starmap_2020_4k_print.jpg-1b8268b26989b1a2c482084a36f94c34.s3tc.ctex"
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_r705j"]
-panorama = SubResource("CompressedTexture2D_1o5qp")
-
-[sub_resource type="Sky" id="Sky_fafyd"]
-sky_material = SubResource("PanoramaSkyMaterial_r705j")
+[sub_resource type="Sky" id="Sky_2njlf"]
 
 [sub_resource type="Environment" id="Environment_47eid"]
-background_mode = 1
-sky = SubResource("Sky_fafyd")
+background_mode = 2
+sky = SubResource("Sky_2njlf")
 
 [sub_resource type="BoxMesh" id="BoxMesh_2i0jj"]
 
