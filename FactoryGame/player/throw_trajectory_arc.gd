@@ -3,17 +3,16 @@ extends MeshInstance3D
  
 @onready var parent: FactoryPlayer = get_parent()
  
-var num_points = 30
+var num_points = 50
 var dot_length = 0.01
 var gap_length = 0.02
-var gravity = 10
+var gravity = 20
 
 var immediate_mesh: ImmediateMesh
  
 func _ready() -> void:
 	immediate_mesh = ImmediateMesh.new()
 	mesh = immediate_mesh
-	mesh.surface_set_color(Color(1.0, 0.1, 0.1))
  
  
 func _process(delta: float) -> void:
@@ -24,12 +23,13 @@ func _process(delta: float) -> void:
 	rotation = Vector3(0.0, -atan2(parent.facing_direction.z, parent.facing_direction.x), 0.0)
 	mesh.clear_surfaces()
 	mesh.surface_begin(Mesh.PRIMITIVE_LINES)
+	mesh.surface_set_color(Color(1.0, 0.1, 0.1))
  	
 	
 	var parent_lateral_velocity = Vector2(parent.velocity.x, parent.velocity.z).abs()
-	var initial_velocity = Vector2(parent.facing_direction.length(), 0.05) \
+	var initial_velocity = Vector2(parent.facing_direction.length(), parent.THROW_STRENGTH_VERTICAL) \
 		* parent.throw_charge \
-		* parent.THROW_STRENGTH \
+		* parent.THROW_STRENGTH_HORIZONTAL \
 		+ (parent_lateral_velocity * parent.THROW_STRENGTH_PLAYER_VELOCITY_INFLUENCE)
 	var x = 0.0
  

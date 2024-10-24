@@ -24,6 +24,7 @@ radius = 0.8
 collision_layer = 2
 collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_vh1ty")
+gravity_scale = 2.0
 script = ExtResource("1_dcd1w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -45,10 +46,11 @@ surface_material_override/0 = ExtResource("3_ta5d5")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 8
-collision_mask = 5
+collision_mask = 21
 script = ExtResource("2_8ssu2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_semkm")
 
+[connection signal="area_entered" from="Area3D" to="Area3D" method="_on_area_entered"]
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
