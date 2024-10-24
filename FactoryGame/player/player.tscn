@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ges8lqnwpw11"]
+[gd_scene load_steps=11 format=3 uid="uid://ges8lqnwpw11"]
 
 [ext_resource type="Script" path="res://FactoryGame/player/player.gd" id="1_4pf3t"]
 [ext_resource type="Texture2D" uid="uid://dpxpv5wrj44gt" path="res://FactoryGame/resources/textures/throw_bar/over.png" id="2_nsf7m"]
+[ext_resource type="Script" path="res://FactoryGame/player/throw_trajectory_arc.gd" id="3_xyrkj"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2ad30"]
 
@@ -19,6 +20,11 @@ resource_local_to_scene = true
 gradient = SubResource("Gradient_wlc5i")
 width = 60
 height = 14
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2fmq"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_bwi2l"]
 
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 13
@@ -43,3 +49,9 @@ offset_bottom = 16.0
 texture_over = ExtResource("2_nsf7m")
 texture_progress = SubResource("GradientTexture2D_ychfj")
 texture_progress_offset = Vector2(2, 1)
+
+[node name="TrajectoryArc" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+material_override = SubResource("StandardMaterial3D_m2fmq")
+mesh = SubResource("ImmediateMesh_bwi2l")
+script = ExtResource("3_xyrkj")
