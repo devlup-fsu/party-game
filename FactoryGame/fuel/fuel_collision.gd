@@ -30,4 +30,3 @@ func _on_area_entered(area: Area3D) -> void:
 	if area.get_collision_layer_value(5):  # Hit fall boundary
 		parent.parent_generator.parent.amount_fuel_objects -= 1
 		queue_free()
-		print("fuel fell out")
