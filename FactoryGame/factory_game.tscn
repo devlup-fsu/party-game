@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6jvsgy5x4q3"]
+[gd_scene load_steps=14 format=3 uid="uid://c6jvsgy5x4q3"]
 
 [ext_resource type="PackedScene" uid="uid://ges8lqnwpw11" path="res://FactoryGame/player/player.tscn" id="1_00avj"]
 [ext_resource type="Script" path="res://FactoryGame/factory_game.gd" id="1_iji3h"]
@@ -12,6 +12,9 @@
 [ext_resource type="Script" path="res://FactoryGame/ui/score_display.gd" id="8_ekchf"]
 [ext_resource type="Script" path="res://FactoryGame/fuel gen/fuel_generator_container.gd" id="8_nqspd"]
 [ext_resource type="Script" path="res://FactoryGame/maze/maze_gen.gd" id="9_ajj37"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r47md"]
+size = Vector3(75, 5, 75)
 
 [node name="Root" type="Node3D"]
 script = ExtResource("1_iji3h")
@@ -100,6 +103,14 @@ collision_layer = 4
 collision_mask = 4
 material = ExtResource("5_q47ng")
 
+[node name="FallBoundary" type="Area3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0730696, -10, 0.00274092)
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/FallBoundary"]
+shape = SubResource("BoxShape3D_r47md")
+
 [node name="Furnaces" type="Node3D" parent="."]
 
 [node name="Furnace1" parent="Furnaces" instance=ExtResource("4_6j1yc")]
@@ -138,6 +149,7 @@ offset_bottom = 43.0
 text = "Scores:"
 
 [node name="MazeGen" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0238609, 0.0426254, 0.0298872)
 script = ExtResource("9_ajj37")
 maze_size = 30.0
 wall_height = 4.0
