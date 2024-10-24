@@ -34,7 +34,7 @@ func _ready() -> void:
 		_player_action_strength[player] = {}
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	_immediate_player_actions = _immediate_player_actions_buffer.duplicate(true)
 	
 	for player in range(Player.ONE, Player.size()):
@@ -46,6 +46,10 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	var player = _player_controllers.find_key(event.device)
+	
+	if event is InputEventKey:
+		player = Player.ONE
+	
 	if player == null:
 		return
 	

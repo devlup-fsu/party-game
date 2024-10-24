@@ -3,7 +3,7 @@ extends Node2D
 var labels = []
 var timePos # location of timer
 var totalTime: int = 2 * 60 # total time in seconds
-var min: int 
+var minute: int 
 var sec: int
 
 
@@ -28,12 +28,12 @@ func _process(_delta: float) -> void:
 
 func _on_timer_timeout() -> void: # connects to Timer node (1s) signals when hit 0
 	if totalTime > 0:
-		min = totalTime/60
+		minute = totalTime/60
 		sec = totalTime%60
 		if sec <10: # for formatting
-			$"../Timer/TimerLabel".text = "Time: %d:0%d" % [min, sec]
+			$"../Timer/TimerLabel".text = "Time: %d:0%d" % [minute, sec]
 		else:
-			$"../Timer/TimerLabel".text = "Time: %d:%d" % [min, sec]
+			$"../Timer/TimerLabel".text = "Time: %d:%d" % [minute, sec]
 		totalTime -= 1
 	else:
 		get_tree().change_scene_to_file("res://FactoryGame/EndCard/EndCard.tscn") # swaps to end card scene

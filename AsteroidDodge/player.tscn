@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://diiuqn2uet6kd"]
+
+[ext_resource type="Script" path="res://AsteroidDodge/player.gd" id="1_t7bje"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5ae5p"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_gsfbk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1knv"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n0lnm"]
+radius = 0.439705
+
+[node name="Player1" type="CharacterBody3D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_t7bje")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_5ae5p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_gsfbk")
+skeleton = NodePath("../CollisionShape3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_d1knv")
+
+[node name="detectAsteroid" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="detectAsteroid"]
+shape = SubResource("SphereShape3D_n0lnm")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[connection signal="body_entered" from="detectAsteroid" to="." method="_on_detect_asteroid_body_entered"]
