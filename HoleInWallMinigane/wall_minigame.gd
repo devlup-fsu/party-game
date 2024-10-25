@@ -1,6 +1,6 @@
 extends Node3D
-@onready var _p1 := $WorldEnvironment/Wall_Player
-@onready var _p2 := $WorldEnvironment/Wall_Player2
+@onready var _p1 := $Wall_Player3
+@onready var _p2 := $Wall_Player4
 @onready var _line: Path3D = $Path3D
 
 # Called when the node enters the scene tree for the first time.

@@ -39,18 +39,15 @@ data = PackedVector3Array(0, 10.9055, 0.1, 0.0098, 10.9055, 0.0995, 0, 6.5433, 0
 [node name="WallMinigameMain" type="Node3D"]
 script = ExtResource("1_i7wdh")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_yvyvf")
-
-[node name="Camera3D" type="Camera3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, 0, 3.6901, 10.5326)
-
-[node name="Wall_Player" parent="WorldEnvironment" instance=ExtResource("1_6ps5w")]
+[node name="Wall_Player3" parent="." instance=ExtResource("1_6ps5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.266, 3, 0)
 
-[node name="Wall_Player2" parent="WorldEnvironment" instance=ExtResource("1_6ps5w")]
+[node name="Wall_Player4" parent="." instance=ExtResource("1_6ps5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.768, 3, 0)
 player = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yvyvf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.749014, 0.662555, 0, -0.662555, 0.749014, 0, 0, 25.8418)
@@ -76,6 +73,36 @@ shape = SubResource("ConcavePolygonShape3D_gd680")
 
 [node name="Astroid" parent="." instance=ExtResource("3_yxe72")]
 transform = Transform3D(2.025, 0, 0, 0, 2.025, 0, 0, 0, 2.025, 6.54085, 3.26562, -13.7047)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
+size = Vector2i(576, 648)
+
+[node name="Camera3D" type="Camera3D" parent="HBoxContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, -11.4575, 4.87746, 10.5326)
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2"]
+size = Vector2i(576, 648)
+
+[node name="Camera3D2" type="Camera3D" parent="HBoxContainer/SubViewportContainer2/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, 6.96886, 4.83887, 10.5326)
 
 [connection signal="area_entered" from="Path3D/PathFollow3D/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Path3D/PathFollow3D/Area3D" to="." method="_on_area_3d_body_entered"]
