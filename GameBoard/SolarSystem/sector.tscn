@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw8g20x00hghm"]
+
+[ext_resource type="Script" path="res://GameBoard/SolarSystem/sector.gd" id="1_xrq5w"]
+
+[node name="Sector" type="Marker3D"]
+script = ExtResource("1_xrq5w")

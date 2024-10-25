@@ -1,28 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca4paejg6uk5i"]
+[gd_scene load_steps=7 format=3 uid="uid://ca4paejg6uk5i"]
 
 [ext_resource type="PackedScene" uid="uid://b4e0e5iuxhesc" path="res://GameBoard/SolarSystem/solar_system.tscn" id="1_3d0jk"]
+[ext_resource type="Script" path="res://GameBoard/Boards/board.gd" id="1_b7vr7"]
+[ext_resource type="PackedScene" uid="uid://c0y78andl5ugq" path="res://GameBoard/Player/player.tscn" id="3_55h77"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d7bte"]
 
 [sub_resource type="Sky" id="Sky_2njlf"]
+sky_material = SubResource("ProceduralSkyMaterial_d7bte")
 
 [sub_resource type="Environment" id="Environment_47eid"]
 background_mode = 2
 sky = SubResource("Sky_2njlf")
 
-[sub_resource type="BoxMesh" id="BoxMesh_2i0jj"]
-
 [node name="Board" type="Node3D"]
+script = ExtResource("1_b7vr7")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_47eid")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.960201, 0.27931, 0, -0.27931, 0.960201, 0, 2.15845, 5.98499)
+transform = Transform3D(1, 0, 0, 0, 0.0279212, 0.99961, 0, -0.99961, 0.0279212, 0, 17.6868, 6.32131)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_2i0jj")
+[node name="SolarSystems" type="Node3D" parent="."]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.0650548, 0.997882, 0, -0.997882, 0.0650548, 0, 18.1132, 0)
+[node name="SolarSystem" parent="SolarSystems" instance=ExtResource("1_3d0jk")]
 
-[node name="SolarSystem" parent="." instance=ExtResource("1_3d0jk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.30246)
+[node name="SolarSystem2" parent="SolarSystems" instance=ExtResource("1_3d0jk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.31341, 0, 13.7143)
+orbit_radius = 3.0
+num_sectors = 8
+radial_offset = 7.152
+
+[node name="Player" parent="." instance=ExtResource("3_55h77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.02851, 0)
