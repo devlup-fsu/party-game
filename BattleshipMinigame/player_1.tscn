@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhaa373vhoku1"]
+[gd_scene load_steps=7 format=3 uid="uid://bhaa373vhoku1"]
 
 [ext_resource type="Script" path="res://BattleshipMinigame/player_1.gd" id="1_ahrti"]
+[ext_resource type="PackedScene" uid="uid://b72rwtf2bcpuu" path="res://BattleshipMinigame/laser.tscn" id="2_8qjj7"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_wjgbf"]
 size = Vector3(4, 4, 0.3)
@@ -17,6 +18,7 @@ albedo_color = Color(0.757333, 0.09, 1, 1)
 [node name="player_1" type="CharacterBody3D"]
 transform = Transform3D(0.994151, 0, 0.107999, 0, 1, 0, -0.107999, 0, 0.994151, 0, 0, 0)
 script = ExtResource("1_ahrti")
+laser_scene = ExtResource("2_8qjj7")
 
 [node name="MainBody" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
@@ -32,3 +34,4 @@ mesh = SubResource("PrismMesh_d448w")
 surface_material_override/0 = SubResource("StandardMaterial3D_g555e")
 
 [node name="LaserStartPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0866404, 0, -0.797541)
