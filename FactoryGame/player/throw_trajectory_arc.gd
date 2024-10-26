@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 	rotation = Vector3(0.0, -atan2(parent.facing_direction.z, parent.facing_direction.x), 0.0)
 	mesh.clear_surfaces()
 	mesh.surface_begin(Mesh.PRIMITIVE_LINES)
-	mesh.surface_set_color(Color(1.0, 0.1, 0.1))
+	mesh.surface_set_color(Color(1.0, 1.0, 1.0))
  	
 	
 	var parent_lateral_velocity = Vector2(parent.velocity.x, parent.velocity.z).abs()
