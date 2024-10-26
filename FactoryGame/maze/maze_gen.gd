@@ -7,6 +7,11 @@ class_name FactoryMazeGen
 @export var maze_translation: Vector3 = Vector3.ZERO
 @export var amount_moving_walls: int = 3
 
+## If set, this maze will always be loaded.
+## Must be the entire file name. Ex: "level1.json"
+@export var debug_selected_maze: String = ""
+
+
 const MAZE_DIRECTORY = "res://FactoryGame/maze/Mazes"
 const MAZE_SIZE_MULTIPLIER = 10
 
@@ -35,7 +40,11 @@ func _ready():
 			level_files.append(level_file)
 	maze_directory.list_dir_end()
 	
-	var chosen_level_file: String = level_files[randi_range(0, len(level_files)-1)]
+	var chosen_level_file: String;
+	if debug_selected_maze in level_files:
+		chosen_level_file = debug_selected_maze
+	else:
+		chosen_level_file = level_files[randi_range(0, len(level_files)-1)]
 	var json_string = FileAccess.get_file_as_string(MAZE_DIRECTORY + '/' + chosen_level_file)
 	var chosen_maze_data = JSON.parse_string(json_string)
 	create_maze_walls(chosen_maze_data)
