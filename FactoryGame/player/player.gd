@@ -3,8 +3,12 @@ class_name FactoryPlayer
 
 @export var player_number: Controls.Player
 
-# Enables keyboard controls. Enable if you don't have 2 controllers
-@export var debug_input: bool = false
+
+@onready var throw_strength_bar = $ThrowStrengthBar
+@onready var camera = $"../../Camera3D"
+@onready var player_mesh = $MeshInstance3D
+@onready var carried_fuel_position = $CarriedFuelPosition
+
 
 var stunned_material = preload("res://FactoryGame/resources/materials/temp_stunned_material.tres")
 
@@ -47,10 +51,10 @@ var player_material: StandardMaterial3D
 
 
 func reset_player_material():
-	$MeshInstance3D.set_surface_override_material(0, player_material)
+	player_mesh.set_surface_override_material(0, player_material)
 
 func set_stunned_material():
-	$MeshInstance3D.set_surface_override_material(0, stunned_material)
+	player_mesh.set_surface_override_material(0, stunned_material)
 
 
 func _ready() -> void:
@@ -60,9 +64,9 @@ func _ready() -> void:
 	reset_player_material()
 	
 	# Setup throw strength bar
-	$ThrowStrengthBar.max_value = MAX_THROW_CHARGE * THROW_BAR_SCALE
-	$ThrowStrengthBar.visible = false
-	$ThrowStrengthBar.modulate = Color(1, 1, 1, 0.8)
+	throw_strength_bar.max_value = MAX_THROW_CHARGE * THROW_BAR_SCALE
+	throw_strength_bar.visible = false
+	throw_strength_bar.modulate = Color(1, 1, 1, 0.8)
 
 
 func get_direction() -> Vector3:
@@ -92,8 +96,8 @@ func update_velocity(direction: Vector3):
 func reset_throw_charge():
 	current_pickup_cooldown = PICKUP_COOLDOWN
 	throw_charge = 0.0
-	$ThrowStrengthBar.visible = false
-	$ThrowStrengthBar.value = 0
+	throw_strength_bar.visible = false
+	throw_strength_bar.value = 0
 
 func throw_tick(delta: float):
 	var current_throwbutton_state: bool
@@ -102,8 +106,8 @@ func throw_tick(delta: float):
 	if carried_fuel_node != null:
 		if current_throwbutton_state:
 			throw_charge = move_toward(throw_charge, MAX_THROW_CHARGE, delta)
-			$ThrowStrengthBar.visible = true
-			$ThrowStrengthBar.value = throw_charge * THROW_BAR_SCALE
+			throw_strength_bar.visible = true
+			throw_strength_bar.value = throw_charge * THROW_BAR_SCALE
 		
 		elif prev_throwbutton_state:
 			var throw_direction = Vector3(facing_direction.x, THROW_STRENGTH_VERTICAL, facing_direction.z)
@@ -122,7 +126,7 @@ func throw_tick(delta: float):
 
 func get_strength_bar_target_position():
 	var player_pos = global_transform.origin
-	var screen_pos = $"../../Camera3D".unproject_position(player_pos)
+	var screen_pos = camera.unproject_position(player_pos)
 	var viewport_rect = get_viewport().get_visible_rect()
 	var target_position = screen_pos + Vector2(10, -20)
 	target_position.x = clamp(target_position.x, 0, viewport_rect.size.x)
@@ -131,7 +135,6 @@ func get_strength_bar_target_position():
 
 func update_strength_bar_position():
 	var target_position = get_strength_bar_target_position()
-	var throw_strength_bar = $ThrowStrengthBar
 	throw_strength_bar.global_position = throw_strength_bar.global_position.lerp(
 		target_position, THROW_BAR_SMOOTHING_SPEED
 	)
@@ -152,7 +155,7 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	if carried_fuel_node != null:
-		carried_fuel_node.global_position = global_position + $CarriedFuelPosition.position
+		carried_fuel_node.global_position = global_position + carried_fuel_position.position
 		carried_fuel_node.rotation = Vector3.ZERO
 	current_pickup_cooldown = move_toward(current_pickup_cooldown, 0, delta)
 	
