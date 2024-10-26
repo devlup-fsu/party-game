@@ -54,6 +54,6 @@ func generate_fuel():
 func _process(delta: float) -> void:
 	generate_timer -= delta
 	if generate_timer <= 0:
-		generate_timer = generate_interval + randi_range(0, generate_interval_variance)
+		generate_timer = generate_interval + randf_range(0, generate_interval_variance)
 		if parent.amount_fuel_objects < parent.fuel_object_limit:
 			generate_fuel()
