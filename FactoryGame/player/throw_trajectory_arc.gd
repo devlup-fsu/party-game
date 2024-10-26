@@ -15,7 +15,7 @@ func _ready() -> void:
 	mesh = immediate_mesh
  
  
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if parent.throw_charge == 0.0:
 		mesh.clear_surfaces()
 		return
