@@ -28,7 +28,9 @@ func vector3_from_array(arr: Array) -> Vector3:
 func _ready():
 	var json_string = FileAccess.get_file_as_string(MAZE_JSON_PATH)
 	var mazes_data = JSON.parse_string(json_string)
-	var random_maze_data = mazes_data[randi_range(0, len(mazes_data)-1)]
+	# var random_maze_data = mazes_data[randi_range(0, len(mazes_data)-1)]
+	# test case
+	var random_maze_data = mazes_data[1]
 	create_maze_walls(random_maze_data)
 
 

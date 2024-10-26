@@ -23,10 +23,12 @@ const JOYSTICK_CARDINAL_SNAP_ANGLE = 0.075
 
 const PICKUP_COOLDOWN = 0.2  # seconds
 const MAX_THROW_CHARGE = 0.75
-const THROW_STRENGTH = 15
+const THROW_STRENGTH_HORIZONTAL = 20
+const THROW_STRENGTH_VERTICAL = 0.2
+
 const THROW_BAR_SCALE = 1000
 const THROW_BAR_SMOOTHING_SPEED: float = 0.35
-const THROW_STRENGTH_PLAYER_VELOCITY_INFLUENCE = 0.5
+const THROW_STRENGTH_PLAYER_VELOCITY_INFLUENCE = 0.3
 const STUN_DURATION = 2.0
 
 
@@ -104,9 +106,9 @@ func throw_tick(delta: float):
 			$ThrowStrengthBar.value = throw_charge * THROW_BAR_SCALE
 		
 		elif prev_throwbutton_state:
-			var throw_direction = Vector3(facing_direction.x, 0.05, facing_direction.z)
+			var throw_direction = Vector3(facing_direction.x, THROW_STRENGTH_VERTICAL, facing_direction.z)
 			carried_fuel_node.linear_velocity = throw_direction * throw_charge \
-				* THROW_STRENGTH \
+				* THROW_STRENGTH_HORIZONTAL \
 				+ (velocity * THROW_STRENGTH_PLAYER_VELOCITY_INFLUENCE)
 			var angular_vector = throw_direction.rotated(Vector3(0, 1, 0), PI/4) * throw_charge * 10
 			carried_fuel_node.angular_velocity = angular_vector
