@@ -6,14 +6,6 @@ class_name FactoryPlayer
 # Enables keyboard controls. Enable if you don't have 2 controllers
 @export var debug_input: bool = false
 
-@onready var DEBUG_INPUT_ACTIONS = {
-	"up": "debug_player%d_up" % (player_number + 1),
-	"down": "debug_player%d_down" % (player_number + 1),
-	"left": "debug_player%d_left" % (player_number + 1),
-	"right": "debug_player%d_right" % (player_number + 1),
-	"jump": "debug_player%d_jump" % (player_number + 1),
-}
-
 var stunned_material = preload("res://FactoryGame/resources/materials/temp_stunned_material.tres")
 
 const PLAYER_COLORS = [
@@ -73,12 +65,9 @@ func _ready() -> void:
 
 func get_direction() -> Vector3:
 	var input_dir: Vector2
-	if debug_input:
-		input_dir = Input.get_vector(DEBUG_INPUT_ACTIONS['left'], DEBUG_INPUT_ACTIONS['right'], DEBUG_INPUT_ACTIONS['up'], DEBUG_INPUT_ACTIONS['down'])
-	else:
-		input_dir = Controls.get_vector(player_number, "core_player_left", "core_player_right", "core_player_up", "core_player_down")
-		input_dir.x = 0.0 if abs(input_dir.x) < JOYSTICK_CARDINAL_SNAP_ANGLE else input_dir.x
-		input_dir.y = 0.0 if abs(input_dir.y) < JOYSTICK_CARDINAL_SNAP_ANGLE else input_dir.y
+	input_dir = Controls.get_vector(player_number, "core_player_left", "core_player_right", "core_player_up", "core_player_down")
+	input_dir.x = 0.0 if abs(input_dir.x) < JOYSTICK_CARDINAL_SNAP_ANGLE else input_dir.x
+	input_dir.y = 0.0 if abs(input_dir.y) < JOYSTICK_CARDINAL_SNAP_ANGLE else input_dir.y
 	return (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 
@@ -106,10 +95,7 @@ func reset_throw_charge():
 
 func throw_tick(delta: float):
 	var current_throwbutton_state: bool
-	if debug_input:
-		current_throwbutton_state = Input.is_action_pressed(DEBUG_INPUT_ACTIONS['jump'])
-	else:
-		current_throwbutton_state = Controls.is_action_pressed(player_number, 'core_player_jump')
+	current_throwbutton_state = Controls.is_action_pressed(player_number, 'core_player_jump')
 	
 	if carried_fuel_node != null:
 		if current_throwbutton_state:
