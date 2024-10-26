@@ -5,7 +5,6 @@ class_name FactoryPlayer
 
 
 @onready var throw_strength_bar = $ThrowStrengthBar
-@onready var camera = $"../../Camera3D"
 @onready var player_mesh = $MeshInstance3D
 @onready var carried_fuel_position = $CarriedFuelPosition
 
@@ -126,7 +125,7 @@ func throw_tick(delta: float):
 
 func get_strength_bar_target_position():
 	var player_pos = global_transform.origin
-	var screen_pos = camera.unproject_position(player_pos)
+	var screen_pos = %Camera.unproject_position(player_pos)
 	var viewport_rect = get_viewport().get_visible_rect()
 	var target_position = screen_pos + Vector2(10, -20)
 	target_position.x = clamp(target_position.x, 0, viewport_rect.size.x)
