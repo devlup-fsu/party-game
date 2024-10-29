@@ -1,15 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://bt56kwwqia5eo"]
+[gd_scene load_steps=11 format=3 uid="uid://bt56kwwqia5eo"]
 
 [ext_resource type="PackedScene" uid="uid://bhaa373vhoku1" path="res://BattleshipMinigame/player_1.tscn" id="1_ya70w"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_jf7rn"]
-size = Vector2(80, 45)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6weto"]
-albedo_color = Color(0.116181, 0.128302, 0.134362, 1)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2pksv"]
-data = PackedVector3Array(80, 0, 45, -80, 0, 45, 80, 0, -45, -80, 0, 45, -80, 0, -45, 80, 0, -45)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7wqxk"]
 size = Vector3(1, 10, 45)
@@ -40,16 +31,6 @@ background_color = Color(0.2627, 0.314562, 0.37, 1)
 sky = SubResource("Sky_pjaw7")
 
 [node name="world" type="Node3D"]
-
-[node name="Floor (RigidBody3D)" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor (RigidBody3D)"]
-mesh = SubResource("PlaneMesh_jf7rn")
-surface_material_override/0 = SubResource("StandardMaterial3D_6weto")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor (RigidBody3D)"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032135, 0.100632, 0)
-shape = SubResource("ConcavePolygonShape3D_2pksv")
 
 [node name="Right Wall (RididBody3D)" type="StaticBody3D" parent="."]
 
@@ -105,5 +86,19 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 65.
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dg5a0")
 
-[node name="player_1" parent="." instance=ExtResource("1_ya70w")]
-transform = Transform3D(0.994151, 0, 0.107999, 0, 1, 0, -0.107999, 0, 0.994151, -33.8145, 3.55533, -15.7797)
+[node name="Player1" parent="." instance=ExtResource("1_ya70w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1.5, -15)
+color = Color(1, 0, 0, 1)
+
+[node name="Player2" parent="." instance=ExtResource("1_ya70w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 1.5, -15)
+player = 1
+color = Color(0, 1, 0, 1)
+
+[node name="Player3" parent="." instance=ExtResource("1_ya70w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 1.5, 15)
+player = 2
+
+[node name="Player4" parent="." instance=ExtResource("1_ya70w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1.5, 15)
+player = 3
