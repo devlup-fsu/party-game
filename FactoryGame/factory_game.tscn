@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6jvsgy5x4q3"]
+[gd_scene load_steps=14 format=3 uid="uid://c6jvsgy5x4q3"]
 
 [ext_resource type="PackedScene" uid="uid://ges8lqnwpw11" path="res://FactoryGame/player/player.tscn" id="1_00avj"]
 [ext_resource type="Script" path="res://FactoryGame/factory_game.gd" id="1_iji3h"]
@@ -13,10 +13,14 @@
 [ext_resource type="Script" path="res://FactoryGame/fuel gen/fuel_generator_container.gd" id="8_nqspd"]
 [ext_resource type="Script" path="res://FactoryGame/maze/maze_gen.gd" id="9_ajj37"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_r47md"]
+size = Vector3(75, 5, 75)
+
 [node name="Root" type="Node3D"]
 script = ExtResource("1_iji3h")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera" type="Camera3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.300706, 0.953717, 0, -0.953717, 0.300706, 0, 32.248, 13.473)
 current = true
 
@@ -45,20 +49,21 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, 
 environment = ExtResource("2_pjdpf")
 
 [node name="Players" type="Node3D" parent="."]
+unique_name_in_owner = true
 
 [node name="Player1" parent="Players" instance=ExtResource("1_00avj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 1.498, -16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2.29755, -16)
 
 [node name="Player2" parent="Players" instance=ExtResource("1_00avj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1.498, -16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2.29755, -16)
 player_number = 1
 
 [node name="Player3" parent="Players" instance=ExtResource("1_00avj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 1.498, 16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2.29755, 16)
 player_number = 2
 
 [node name="Player4" parent="Players" instance=ExtResource("1_00avj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1.498, 16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2.29755, 16)
 player_number = 3
 
 [node name="LevelGeometry" type="Node3D" parent="."]
@@ -99,6 +104,14 @@ collision_layer = 4
 collision_mask = 4
 material = ExtResource("5_q47ng")
 
+[node name="FallBoundary" type="Area3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0730696, -10, 0.00274092)
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/FallBoundary"]
+shape = SubResource("BoxShape3D_r47md")
+
 [node name="Furnaces" type="Node3D" parent="."]
 
 [node name="Furnace1" parent="Furnaces" instance=ExtResource("4_6j1yc")]
@@ -137,7 +150,10 @@ offset_bottom = 43.0
 text = "Scores:"
 
 [node name="MazeGen" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0238609, 0.0426254, 0.0298872)
 script = ExtResource("9_ajj37")
+maze_size = 30.0
+wall_height = 4.0
 wall_thickness = 0.5
 
 [node name="Timer" type="Timer" parent="."]

@@ -7,7 +7,12 @@ class_name FactoryMazeGen
 @export var maze_translation: Vector3 = Vector3.ZERO
 @export var amount_moving_walls: int = 3
 
-const MAZE_JSON_PATH = "res://FactoryGame/maze/mazes.json"
+## If set, this maze will always be loaded.
+## Must be the entire file name. Ex: "level1.json"
+@export var debug_selected_maze: String = ""
+
+
+const MAZE_DIRECTORY = "res://FactoryGame/maze/Mazes"
 const MAZE_SIZE_MULTIPLIER = 10
 
 var wall_material = preload("res://FactoryGame/resources/wall_material.tres")
@@ -26,12 +31,23 @@ func vector3_from_array(arr: Array) -> Vector3:
 
 
 func _ready():
-	var json_string = FileAccess.get_file_as_string(MAZE_JSON_PATH)
-	var mazes_data = JSON.parse_string(json_string)
-	var random_maze_data = mazes_data[randi_range(0, len(mazes_data)-1)]
-	## test case
-	# var random_maze_data = mazes_data[1]
-	create_maze_walls(random_maze_data)
+	# List all files in the Mazes directory
+	var maze_directory = DirAccess.open(MAZE_DIRECTORY)
+	maze_directory.list_dir_begin()
+	var level_files = []
+	for level_file: String in maze_directory.get_files():
+		if level_file.ends_with('.json'):
+			level_files.append(level_file)
+	maze_directory.list_dir_end()
+	
+	var chosen_level_file: String;
+	if debug_selected_maze in level_files:
+		chosen_level_file = debug_selected_maze
+	else:
+		chosen_level_file = level_files[randi_range(0, len(level_files)-1)]
+	var json_string = FileAccess.get_file_as_string(MAZE_DIRECTORY + '/' + chosen_level_file)
+	var chosen_maze_data = JSON.parse_string(json_string)
+	create_maze_walls(chosen_maze_data)
 
 
 func create_wall(wall_position: Vector3, wall_size: Vector3, wall_rotation: float) -> StaticBody3D:

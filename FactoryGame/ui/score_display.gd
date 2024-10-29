@@ -1,5 +1,10 @@
 extends Node2D
 
+
+@onready var players_list: Array = %Players.get_children()
+@onready var timer_label: Label = $"../Timer/TimerLabel"
+
+
 var labels = []
 var timePos # location of timer
 var totalTime: int = 2 * 60 # total time in seconds
@@ -8,20 +13,19 @@ var sec: int
 
 
 func _ready() -> void:
-	for i in range(len($"../Players".get_children())):
+	for i in range(len(players_list)):
 		var label = Label.new()
 		label.text = "  Player %d:" % (i+1)
 		label.position = Vector2(0, 20*i+40)
 		labels.append(label)
 		add_child(label)
 		timePos = (i+1)*20+40
-	$"../Timer/TimerLabel".position = Vector2(0, timePos) # to keep in line with everything else
+	timer_label.position = Vector2(0, timePos) # to keep in line with everything else
 
 
 func _process(_delta: float) -> void:
-	var players = $"../Players".get_children()
 	for i in range(len(labels)):
-		labels[i].text = "  Player %d: %d" % [i+1, players[i].points]
+		labels[i].text = "  Player %d: %d" % [i+1, players_list[i].points]
 	# $"../Timer/TimerLabel".text = "Time: %d:%d" % [min, sec]
 	
 
