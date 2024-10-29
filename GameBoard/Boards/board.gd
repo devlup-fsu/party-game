@@ -5,17 +5,27 @@ extends Node3D
 
 
 func _ready() -> void:
-	for source_system: SolarSystem in solar_systems.get_children():
-		for dest_system: SolarSystem in solar_systems.get_children():
-			if source_system == dest_system:
+	for src_system: SolarSystem in solar_systems.get_children():
+		for dst_system: SolarSystem in solar_systems.get_children():
+			if src_system == dst_system:
 				continue
 			
-			var distance = source_system.global_position.distance_to(dest_system.global_position)
+			var distance = src_system.global_position.distance_to(dst_system.global_position)
 			
-			if distance < source_system.orbit_radius + dest_system.orbit_radius + 1:
-				#var closest_dest_sector: Sector = null
+			if distance < src_system.orbit_radius + dst_system.orbit_radius + 5:
+				var closest_src_sector: Sector = null
+				var closest_dst_sector: Sector = null
+				var closest_distance = null
 				
-				for source_sector: Sector in source_system.sectors.get_children():
-					for dest_sector: Sector in dest_system.sectors.get_children():
-						pass
-						# TODO
+				for src_sector: Sector in src_system.sectors.get_children():
+					for dst_sector: Sector in dst_system.sectors.get_children():
+						if false:
+							continue
+						var sector_distance = src_sector.global_position.distance_to(dst_sector.global_position)
+						if closest_distance == null or sector_distance < closest_distance:
+							closest_src_sector = src_sector
+							closest_dst_sector = dst_sector
+							closest_distance = sector_distance
+				
+				closest_src_sector.next.append(closest_dst_sector)
+				print("(%s, %s)" %[closest_src_sector.index, closest_dst_sector.index])

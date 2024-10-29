@@ -2,8 +2,8 @@
 class_name Sector
 extends Marker3D
 
-var index: int = 0
-var next: Array[Sector] = []
+@export var index: int = 0
+@export var next: Array[Sector] = []
 
 
 func _ready() -> void:	

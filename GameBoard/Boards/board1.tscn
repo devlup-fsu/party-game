@@ -25,12 +25,15 @@ transform = Transform3D(1, 0, 0, 0, 0.0279212, 0.99961, 0, -0.99961, 0.0279212, 
 [node name="SolarSystems" type="Node3D" parent="."]
 
 [node name="SolarSystem" parent="SolarSystems" instance=ExtResource("1_3d0jk")]
+transform = Transform3D(0.993495, 0, -0.113879, 0, 1, 0, 0.113879, 0, 0.993495, -0.0291291, 4.76837e-07, -3.2455)
+orbit_radius = 8.0
+orbit_width = 2.5
+num_sectors = 20
+radial_offset = -2.385
+clockwise = false
 
 [node name="SolarSystem2" parent="SolarSystems" instance=ExtResource("1_3d0jk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.31341, 0, 13.7143)
-orbit_radius = 3.0
-num_sectors = 8
-radial_offset = 7.152
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.415008, 15.0475)
 
 [node name="Player" parent="." instance=ExtResource("3_55h77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.02851, 0)

@@ -48,7 +48,7 @@ func _ready():
 
 
 func _update_solar_system():
-	if not is_node_ready() or not Engine.is_editor_hint():
+	if not is_node_ready():
 		return
 	
 	if star_mesh and star_mesh.get_surface_override_material(0) is ShaderMaterial:
