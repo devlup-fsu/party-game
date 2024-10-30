@@ -7,9 +7,11 @@ const LIN_ACCEL = 40.0 # m/sec^2
 const MAX_ROTATIONAL_VELO = 5.0 # rads/sec
 const ROTATIONAL_ACCEL = 30.0 # rads/sec^2
 const TARGET_CENTRIP_ACCEL = 75.0 # m/sec^2
-const CROSS_PROD_DEADZONE = 0.0001 # unitless
+const CROSS_PROD_DEADZONE = 0.01 # unitless
 const INPUT_VECTOR_DEADZONE = 0.2 # unitless
 const LASER_COOLDOWN_TIME = 0.25 # sec
+const MAX_TILT = 3.14 / 6 # rads
+const TILT_ACCEL = 3.14 / 3 # rads/sec^2
 
 var target_lin_velo : float = 0.0 # m/sec
 var lin_velo : float = 0.0 # m/sec
@@ -44,18 +46,24 @@ func _physics_process(delta: float) -> void:
 	# Apply rotational velocity
 	rotation.y += rotational_velo * delta
 	
-	'''if (cycle_num % 10 == 0):
-		print("Target lim velo: " + str(target_lin_velo) +
+	# Apply tilt
+	# rotation.z = move_toward((rotational_velo / MAX_ROTATIONAL_VELO) * MAX_TILT, rotation.z, TILT_ACCEL * delta)
+	rotation.z = (rotational_velo / MAX_ROTATIONAL_VELO) * MAX_TILT
+	
+	if (cycle_num % 10 == 0) and (input_dir.length() > 0.1):
+		print("Target lin velo: " + str(target_lin_velo) +
 			  "\nCurrent input vector" + str(input_dir) +
 			  "\nInput vector length: " + str(input_dir.length()) +
 			  "\nCalced target velo: " + str(input_dir.length() * MAX_LIN_SPEED) +
+			  "\nCurrent rotational velo: " + str(rotational_velo) +
+			  "\nCurrent tilt: " + str(rotation.z) +
 			  "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-	# Based on forward direction vector, set directional velocity'''
+	# Based on forward direction vector, set directional velocity
 	
 	velocity.x = forward_dir.x * lin_velo
 	velocity.z = forward_dir.y * lin_velo # forward_dir is a Vector2, so grab the y
 
-	print(str(position.y))
+	# print(str(position.y))
 
 	cycle_num += 1
 	move_and_slide()
