@@ -34,4 +34,4 @@ func _link_solar_systems():
 							closest_distance = sector_distance
 				
 				closest_src_sector.next.append(closest_dst_sector)
-				print("(%s, %s)" %[closest_src_sector.index, closest_dst_sector.index])
+				#print("(%s, %s)" %[closest_src_sector.index, closest_dst_sector.index])
