@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0y78andl5ugq"]
+[gd_scene load_steps=4 format=3 uid="uid://c0y78andl5ugq"]
+
+[ext_resource type="Script" path="res://GameBoard/Player/player.gd" id="1_hr5vq"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_om114"]
 
@@ -7,6 +9,7 @@ size = Vector3(0.75, 0.5, 0.25)
 
 [node name="Player" type="MeshInstance3D"]
 mesh = SubResource("CapsuleMesh_om114")
+script = ExtResource("1_hr5vq")
 
 [node name="Face" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -0.375)

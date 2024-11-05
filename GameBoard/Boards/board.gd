@@ -5,6 +5,10 @@ extends Node3D
 
 
 func _ready() -> void:
+	_link_solar_systems()
+
+
+func _link_solar_systems():
 	for src_system: SolarSystem in solar_systems.get_children():
 		for dst_system: SolarSystem in solar_systems.get_children():
 			if src_system == dst_system:
@@ -19,8 +23,10 @@ func _ready() -> void:
 				
 				for src_sector: Sector in src_system.sectors.get_children():
 					for dst_sector: Sector in dst_system.sectors.get_children():
-						if false:
+						# Skips dst_sectors behind src_sector.
+						if ((src_sector.global_position) - (dst_sector.global_position)).dot(src_sector.basis.z) < 0:
 							continue
+						
 						var sector_distance = src_sector.global_position.distance_to(dst_sector.global_position)
 						if closest_distance == null or sector_distance < closest_distance:
 							closest_src_sector = src_sector
