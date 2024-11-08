@@ -1,10 +1,20 @@
 @tool
 extends Node3D
 
+
+@onready var conveyor_material = $ConveyorMesh.get_surface_override_material(0)
+
+
 @export var length: int = 1:
 	set(value):
 		length = value
 		update_node_lengths()
+
+
+@export var preview_scroll: bool = false:
+	set(value):
+		preview_scroll = value
+		conveyor_material.uv1_offset.x = 0
 
 
 func update_node_lengths():
@@ -12,7 +22,7 @@ func update_node_lengths():
 		$ConveyorMesh.mesh.size.x = length
 		$StaticBody3D/Shape.shape.size.x = length
 		$ForceArea/Shape.shape.size.x = length
-		$ConveyorMesh.get_surface_override_material(0).uv1_scale.x = length*2
+		conveyor_material.uv1_scale.x = length*2
 
 
 func _ready() -> void:
@@ -20,5 +30,5 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	var conveyor_material = $ConveyorMesh.get_surface_override_material(0)
-	conveyor_material.uv1_offset.x = wrap(conveyor_material.uv1_offset.x+0.01, 0, 1)
+	if preview_scroll:
+		conveyor_material.uv1_offset.x = wrap(conveyor_material.uv1_offset.x+0.01, 0, 1)
