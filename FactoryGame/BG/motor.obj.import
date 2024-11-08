@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dt1r5jsbph7p6"
+path="res://.godot/imported/motor.obj-fd9b5caa2952912ca647e94bf587b61a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/motor.obj-fd9b5caa2952912ca647e94bf587b61a.mesh"]
+
+source_file="res://FactoryGame/BG/motor.obj"
+dest_files=["res://.godot/imported/motor.obj-fd9b5caa2952912ca647e94bf587b61a.mesh", "res://.godot/imported/motor.obj-fd9b5caa2952912ca647e94bf587b61a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
