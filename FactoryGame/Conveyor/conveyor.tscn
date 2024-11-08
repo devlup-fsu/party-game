@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://pfuwki2d02i0"]
+
+[ext_resource type="Script" path="res://FactoryGame/Conveyor/conveyor.gd" id="1_e80us"]
+[ext_resource type="Texture2D" uid="uid://hdcu0hkip6gh" path="res://FactoryGame/resources/models/belt.png" id="2_k0lml"]
+[ext_resource type="Script" path="res://FactoryGame/Conveyor/force_area.gd" id="2_wrkeu"]
+[ext_resource type="PackedScene" uid="uid://ywlbgl2hhb30" path="res://FactoryGame/fuel/fuel.tscn" id="4_wdlj1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7ersl"]
+lightmap_size_hint = Vector2i(24, 31)
+size = Vector3(10, 0.1, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_212go"]
+albedo_texture = ExtResource("2_k0lml")
+uv1_scale = Vector3(20, 2, 0)
+uv1_offset = Vector3(0.528881, 0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ufrnu"]
+size = Vector3(10, 0.1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n8hre"]
+size = Vector3(10, 0.5, 2)
+
+[node name="Conveyor" type="Node3D"]
+script = ExtResource("1_e80us")
+length = 10
+
+[node name="ConveyorMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_7ersl")
+surface_material_override/0 = SubResource("StandardMaterial3D_212go")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 32
+collision_mask = 4
+
+[node name="Shape" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_ufrnu")
+
+[node name="ForceArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("2_wrkeu")
+
+[node name="Shape" type="CollisionShape3D" parent="ForceArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("BoxShape3D_n8hre")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.922302, 0.38647, 0, -0.38647, 0.922302, 0, 1.41799, 2.4676)
+
+[node name="Fuel" parent="." instance=ExtResource("4_wdlj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27052, -0.133834)
