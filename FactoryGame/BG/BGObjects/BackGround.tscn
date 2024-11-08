@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://ma2132hoyxdb"]
+
+[ext_resource type="Material" uid="uid://brqxm3henxq7l" path="res://FactoryGame/resources/materials/clean-concrete-bl/concrete_material.tres" id="2_iy5ag"]
+[ext_resource type="Material" uid="uid://bw05a2hcnvpse" path="res://FactoryGame/resources/materials/brick-wall-bl/brick_material.tres" id="3_clyco"]
+[ext_resource type="PackedScene" uid="uid://dlws7k1m7ae7l" path="res://FactoryGame/BG/BGObjects/funnel.tscn" id="4_761w3"]
+[ext_resource type="PackedScene" uid="uid://c4ii18rh34o4b" path="res://FactoryGame/BG/BGObjects/conveyor_mid.tscn" id="4_mbu13"]
+[ext_resource type="PackedScene" uid="uid://c3xjiokea2llt" path="res://FactoryGame/BG/BGObjects/conveyorEnd.tscn" id="6_gkt5j"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="BackGround" type="Node3D" parent="."]
+
+[node name="BGFloor" type="Node3D" parent="BackGround"]
+
+[node name="Floor3" type="CSGBox3D" parent="BackGround/BGFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00822353, 0, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 7
+size = Vector3(49, 1, 45)
+material = ExtResource("2_iy5ag")
+
+[node name="BGWalls" type="Node3D" parent="BackGround"]
+
+[node name="OuterWall5" type="CSGBox3D" parent="BackGround/BGWalls"]
+transform = Transform3D(-4.37114e-08, 0, -45, 0, 6, 0, 1, 0, -1.96701e-06, 0.141778, 3.5, -23.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 4
+size = Vector3(3, 1, 1.1)
+material = ExtResource("3_clyco")
+
+[node name="OuterWall6" type="CSGBox3D" parent="BackGround/BGWalls"]
+transform = Transform3D(-4.37114e-08, 0, -45, 0, 6, 0, 1, 0, -1.96701e-06, 0.141778, 3.5, 22.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 4
+size = Vector3(1, 1, 1.1)
+material = ExtResource("3_clyco")
+
+[node name="OuterWall2" type="CSGBox3D" parent="BackGround/BGWalls"]
+transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 45, -24.977, 3.5, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 4
+material = ExtResource("3_clyco")
+
+[node name="BGMachines" type="Node3D" parent="BackGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="belt sections" type="Node3D" parent="BackGround/BGMachines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6047, 50.6911, 33.7174)
+
+[node name="ConveyorEnd" parent="BackGround/BGMachines/belt sections" instance=ExtResource("6_gkt5j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6301, -49.5707, -54.695)
+
+[node name="Funnel" parent="BackGround/BGMachines/belt sections/ConveyorEnd" instance=ExtResource("4_761w3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, -1)
+
+[node name="ConveyorMid" parent="BackGround/BGMachines/belt sections" instance=ExtResource("4_mbu13")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6301, -49.5707, -52.2648)
+
+[node name="wallsforplacement" type="Node3D" parent="."]
+
+[node name="OuterWall1" type="CSGBox3D" parent="wallsforplacement"]
+transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 45, 24.8918, 3.5, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 4
+material = ExtResource("3_clyco")
