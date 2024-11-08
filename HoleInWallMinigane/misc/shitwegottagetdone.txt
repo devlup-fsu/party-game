@@ -1,0 +1,13 @@
+1. Spawn another astroid
+-Can we keep using the one node to handle multiple astroids? Would it be easier to have
+them all already-existing and just move them when appropriate, in a loop? or some sort
+of list that goes through multiple models and then chooses one at random? Probably
+a dictionary since information about the orientation of those astroids would need to be kept
+in order for the game to be winnable
+
+2. Get the astroid to spawn tilted wihtin a certain range that ensures it will have rotated enough
+to be winnable
+3. Get players 1-2 & 3-4 to work together (make the cameras work first)
+4. Get more than one astroids and ensure that these alsso rrotate to a winnable  state
+5. UI elements in the center of the screen that disguise the disgusting solution we came up with for the 
+split screen
