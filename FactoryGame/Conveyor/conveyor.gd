@@ -30,5 +30,5 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if preview_scroll:
+	if preview_scroll or not Engine.is_editor_hint():
 		conveyor_material.uv1_offset.x = wrap(conveyor_material.uv1_offset.x+0.01, 0, 1)
