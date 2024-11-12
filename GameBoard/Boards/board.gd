@@ -1,10 +1,22 @@
 extends Node3D
 
+@export var continue_movement_texture: Texture
+@export var alternative_movement_texture: Texture
+
 @onready var solar_systems: Node3D = $SolarSystems
-@onready var player: MeshInstance3D = $Player
+
+# TODO: Type as Dictionary[Controls.Player, BoardPlayer]
+var players: Dictionary = {}
 
 
 func _ready() -> void:
+	for player in $Players.get_children():
+		if player is BoardPlayer:
+			players[player.player] = player
+			player.choosing_next_sector.connect(_on_player_choosing_next_sector)
+	
+	assert(players.keys().size() == 4)
+	
 	_link_solar_systems()
 
 
@@ -16,7 +28,7 @@ func _link_solar_systems():
 			
 			var distance = src_system.global_position.distance_to(dst_system.global_position)
 			
-			if distance < src_system.orbit_radius + dst_system.orbit_radius + 5:
+			if distance < src_system.orbit_radius + dst_system.orbit_radius + 10:
 				var closest_src_sector: Sector = null
 				var closest_dst_sector: Sector = null
 				var closest_distance = null
@@ -35,3 +47,22 @@ func _link_solar_systems():
 				
 				closest_src_sector.next.append(closest_dst_sector)
 				#print("(%s, %s)" %[closest_src_sector.index, closest_dst_sector.index])
+
+
+func _on_player_choosing_next_sector(player: BoardPlayer, current_sector: Sector) -> void:
+	var continue_sprite: Sprite3D = Sprite3D.new()
+	continue_sprite.texture = continue_movement_texture
+	continue_sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	continue_sprite.pixel_size = 0.025
+	current_sector.next[0].add_child(continue_sprite)
+	
+	var alternative_sprite: Sprite3D = Sprite3D.new()
+	alternative_sprite.texture = alternative_movement_texture
+	alternative_sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	alternative_sprite.pixel_size = 0.025
+	current_sector.next[1].add_child(alternative_sprite)
+	
+	await player.chose_next_sector
+	
+	continue_sprite.queue_free()
+	alternative_sprite.queue_free()

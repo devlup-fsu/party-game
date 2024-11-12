@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca4paejg6uk5i"]
+[gd_scene load_steps=10 format=3 uid="uid://ca4paejg6uk5i"]
 
 [ext_resource type="PackedScene" uid="uid://b4e0e5iuxhesc" path="res://GameBoard/SolarSystem/solar_system.tscn" id="1_3d0jk"]
 [ext_resource type="Script" path="res://GameBoard/Boards/board.gd" id="1_b7vr7"]
+[ext_resource type="Texture2D" uid="uid://djfrbr7gwv4sc" path="res://Core/Controls/Assets/button_color_a.svg" id="2_iofjk"]
+[ext_resource type="Texture2D" uid="uid://b351xgyx3tfek" path="res://Core/Controls/Assets/button_color_b.svg" id="3_1bpcn"]
 [ext_resource type="PackedScene" uid="uid://c0y78andl5ugq" path="res://GameBoard/Player/player.tscn" id="3_55h77"]
+[ext_resource type="PackedScene" uid="uid://bk01xchcfcm6c" path="res://GameBoard/Camera/camera.tscn" id="4_2ngwn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d7bte"]
 
@@ -15,12 +18,15 @@ sky = SubResource("Sky_2njlf")
 
 [node name="Board" type="Node3D"]
 script = ExtResource("1_b7vr7")
+continue_movement_texture = ExtResource("2_iofjk")
+alternative_movement_texture = ExtResource("3_1bpcn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_47eid")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-3.50111e-08, -0.598716, 0.800961, -2.61707e-08, 0.800961, 0.598716, -1, -1.77636e-15, -4.37114e-08, 15.0243, 12, -9.44559)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shadow_enabled = true
 
 [node name="SolarSystems" type="Node3D" parent="."]
 
@@ -33,9 +39,31 @@ radial_offset = -2.385
 clockwise = false
 
 [node name="SolarSystem2" parent="SolarSystems" instance=ExtResource("1_3d0jk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.862, 0.415008, -20.0045)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44017, 0, -20.3036)
 
-[node name="Player" parent="." node_paths=PackedStringArray("starting_solar_system") instance=ExtResource("3_55h77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.02851, 0)
-starting_solar_system = NodePath("../SolarSystems/SolarSystem")
-starting_index = 6
+[node name="SolarSystem3" parent="SolarSystems" instance=ExtResource("1_3d0jk")]
+transform = Transform3D(0.971288, 0, 0.237906, 0, 1, 0, -0.237906, 0, 0.971288, -18.9254, 0, -20.3944)
+clockwise = false
+
+[node name="Players" type="Node3D" parent="."]
+
+[node name="Player1" parent="Players" node_paths=PackedStringArray("starting_solar_system") instance=ExtResource("3_55h77")]
+starting_solar_system = NodePath("../../SolarSystems/SolarSystem")
+starting_index = 1
+
+[node name="Player2" parent="Players" node_paths=PackedStringArray("starting_solar_system") instance=ExtResource("3_55h77")]
+player = 1
+starting_solar_system = NodePath("../../SolarSystems/SolarSystem")
+starting_index = 13
+
+[node name="Player3" parent="Players" node_paths=PackedStringArray("starting_solar_system") instance=ExtResource("3_55h77")]
+player = 2
+starting_solar_system = NodePath("../../SolarSystems/SolarSystem2")
+starting_index = 3
+
+[node name="Player4" parent="Players" node_paths=PackedStringArray("starting_solar_system") instance=ExtResource("3_55h77")]
+player = 3
+starting_solar_system = NodePath("../../SolarSystems/SolarSystem3")
+
+[node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_2ngwn")]
+target = NodePath("../Players/Player1")

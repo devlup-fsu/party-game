@@ -7,13 +7,20 @@
 [sub_resource type="BoxMesh" id="BoxMesh_uxckd"]
 size = Vector3(0.75, 0.5, 0.25)
 
-[node name="Player" type="MeshInstance3D"]
-mesh = SubResource("CapsuleMesh_om114")
+[node name="Player" type="Node3D"]
 script = ExtResource("1_hr5vq")
 
-[node name="Face" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -0.375)
-mesh = SubResource("BoxMesh_uxckd")
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_om114")
 
-[node name="MoveTimer" type="Timer" parent="."]
-one_shot = true
+[node name="Face" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -0.375)
+mesh = SubResource("BoxMesh_uxckd")
+skeleton = NodePath("../Body")
+
+[node name="MoveCounter" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+billboard = 1
+font_size = 128
+outline_size = 32
