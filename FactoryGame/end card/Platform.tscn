@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdok6yvjwfqq6"]
+[gd_scene load_steps=5 format=3 uid="uid://bdok6yvjwfqq6"]
+
+[ext_resource type="Script" path="res://FactoryGame/end card/scorePlatforms.gd" id="1_5ngev"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5nyat"]
 height = 1.0
@@ -13,7 +15,8 @@ top_radius = 5.0
 bottom_radius = 5.0
 height = 1.0
 
-[node name="AnimatableBody3D" type="AnimatableBody3D"]
+[node name="Platform" type="AnimatableBody3D"]
+script = ExtResource("1_5ngev")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_5nyat")

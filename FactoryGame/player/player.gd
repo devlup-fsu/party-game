@@ -166,3 +166,6 @@ func _process(delta: float) -> void:
 			reset_player_material()
 	
 	update_strength_bar_position()
+
+func getScore() -> int:
+	return points

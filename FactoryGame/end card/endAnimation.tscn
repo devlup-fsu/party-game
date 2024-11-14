@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://durs6583cngx0"]
+[gd_scene load_steps=9 format=3 uid="uid://durs6583cngx0"]
 
-[ext_resource type="Script" path="res://FactoryGame/end card/platform.gd" id="1_28uxv"]
+[ext_resource type="Script" path="res://FactoryGame/end card/mainPlatformDrop.gd" id="1_28uxv"]
 [ext_resource type="PackedScene" uid="uid://bdok6yvjwfqq6" path="res://FactoryGame/end card/Platform.tscn" id="1_43wp5"]
+[ext_resource type="Script" path="res://FactoryGame/end card/camera_rotate_pivot.gd" id="3_uknxh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_anih8"]
 height = 0.5
@@ -12,16 +13,18 @@ top_radius = 45.0
 bottom_radius = 45.0
 height = 0.5
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wweyg"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wa4a1"]
+sky_top_color = Color(0.583039, 0.402838, 0.267843, 1)
+sky_curve = 0.15
 
-[sub_resource type="Sky" id="Sky_ptnjg"]
-sky_material = SubResource("PanoramaSkyMaterial_wweyg")
+[sub_resource type="Sky" id="Sky_aamx1"]
+sky_material = SubResource("ProceduralSkyMaterial_wa4a1")
 
-[sub_resource type="Environment" id="Environment_qheye"]
-background_color = Color(0.835294, 0, 0, 1)
-sky = SubResource("Sky_ptnjg")
+[sub_resource type="Environment" id="Environment_l7dgi"]
+background_mode = 2
+sky = SubResource("Sky_aamx1")
 
-[node name="Node3D" type="Node3D"]
+[node name="endRoot" type="Node3D"]
 
 [node name="BasePlatform" type="StaticBody3D" parent="."]
 script = ExtResource("1_28uxv")
@@ -30,23 +33,30 @@ script = ExtResource("1_28uxv")
 shape = SubResource("CylinderShape3D_anih8")
 
 [node name="BasePlatformMesh" type="MeshInstance3D" parent="BasePlatform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0442963, -0.0985603, 0.0275726)
 mesh = SubResource("CylinderMesh_rjvoe")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="CameraRotatePivot" type="Node3D" parent="."]
+script = ExtResource("3_uknxh")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRotatePivot"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 45, 10, 45)
 fov = 60.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_qheye")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CameraRotatePivot/Camera3D"]
+transform = Transform3D(0.841662, 0, -0.540005, 0, 1, 0, 0.540005, 0, 0.841662, 0, 5.10672, 0)
 
-[node name="AnimatableBody3D" parent="." instance=ExtResource("1_43wp5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 15)
-
-[node name="AnimatableBody3D2" parent="." instance=ExtResource("1_43wp5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.25, -15)
-
-[node name="AnimatableBody3D3" parent="." instance=ExtResource("1_43wp5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.25, -15)
-
-[node name="AnimatableBody3D4" parent="." instance=ExtResource("1_43wp5")]
+[node name="Platform" parent="." instance=ExtResource("1_43wp5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 15)
+
+[node name="Platform2" parent="." instance=ExtResource("1_43wp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.053, 15.444)
+
+[node name="Platform3" parent="." instance=ExtResource("1_43wp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -15)
+
+[node name="Platform4" parent="." instance=ExtResource("1_43wp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -15)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l7dgi")
