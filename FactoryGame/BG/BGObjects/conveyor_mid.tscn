@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4ii18rh34o4b"]
+
+[ext_resource type="ArrayMesh" uid="uid://cjpjtt73wnwa7" path="res://FactoryGame/BG/beltmid.obj" id="1_4gcd6"]
+[ext_resource type="Texture2D" uid="uid://cugcqpgnq0bub" path="res://FactoryGame/BG/belt.png" id="1_cfhpm"]
+[ext_resource type="ArrayMesh" uid="uid://c6cihylw37lvv" path="res://FactoryGame/BG/motormid.obj" id="2_vov3c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mxe0"]
+albedo_texture = ExtResource("1_cfhpm")
+uv1_scale = Vector3(0.598, 0.598, 0.598)
+uv1_offset = Vector3(0.5, 0, 0)
+uv1_triplanar = true
+
+[node name="ConveyorMid" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_3mxe0")
+mesh = ExtResource("1_4gcd6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_vov3c")
