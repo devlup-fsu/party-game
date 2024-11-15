@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://btyj6owlw3kl8"]
+
+[ext_resource type="Texture2D" uid="uid://hdcu0hkip6gh" path="res://FactoryGame/resources/models/belt.png" id="1_m7t4j"]
+
+[resource]
+resource_local_to_scene = true
+albedo_texture = ExtResource("1_m7t4j")
+uv1_scale = Vector3(7.5, 2, 0)
