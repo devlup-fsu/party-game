@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c1r4vrrpf7usc" path="res://HoleInWallMinigane/wall_player.tscn" id="1_6ps5w"]
 [ext_resource type="Script" path="res://HoleInWallMinigane/wall_minigame.gd" id="1_i7wdh"]
-[ext_resource type="PackedScene" uid="uid://mm5d6q4l6b40" path="res://HoleInWallMinigane/Astroid.tscn" id="3_yxe72"]
+[ext_resource type="Script" path="res://HoleInWallMinigane/astroid_spawner.gd" id="3_hiaym"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uomkt"]
 sky_top_color = Color(0.0474158, 0.0894499, 0.15262, 1)
@@ -71,9 +71,6 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 1.02445e-08, -1.86265e-09, 3.72529e-09, 1, 0, -1.86265e-09, 0, 1, -3.72529e-08, 4.76837e-07, 5.96046e-08)
 shape = SubResource("ConcavePolygonShape3D_gd680")
 
-[node name="Astroid" parent="." instance=ExtResource("3_yxe72")]
-transform = Transform3D(2.025, 0, 0, 0, 2.025, 0, 0, 0, 2.025, 6.54085, 3.26562, -13.7047)
-
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,7 +85,9 @@ size_flags_horizontal = 3
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
+handle_input_locally = false
 size = Vector2i(576, 648)
+render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="HBoxContainer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, -11.4575, 4.87746, 10.5326)
@@ -99,10 +98,21 @@ size_flags_horizontal = 3
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2"]
+handle_input_locally = false
 size = Vector2i(576, 648)
+render_target_update_mode = 4
 
 [node name="Camera3D2" type="Camera3D" parent="HBoxContainer/SubViewportContainer2/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, 6.96886, 4.83887, 10.5326)
+
+[node name="Score" type="Label" parent="HBoxContainer/SubViewportContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Score"
+
+[node name="Astroid Spawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.63927, 4.21563, -16.1533)
+script = ExtResource("3_hiaym")
 
 [connection signal="area_entered" from="Path3D/PathFollow3D/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Path3D/PathFollow3D/Area3D" to="." method="_on_area_3d_body_entered"]

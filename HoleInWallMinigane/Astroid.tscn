@@ -43,6 +43,7 @@ size = Vector3(1, 0.663704, 1)
 size = Vector3(1, 0.504333, 1)
 
 [node name="Astroid" type="Area3D"]
+transform = Transform3D(2.03, 0, 0, 0, 2.03, 0, 0, 0, 2.03, 0, 0, 0)
 script = ExtResource("1_v5gbg")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
