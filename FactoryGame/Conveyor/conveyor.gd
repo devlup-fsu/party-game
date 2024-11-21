@@ -2,7 +2,7 @@
 extends Node3D
 
 
-@onready var conveyor_material = $ConveyorMesh.get_surface_override_material(0)
+@onready var conveyor_material = $Mesh.get_surface_override_material(0)
 
 
 @export var length: int = 1:
@@ -19,14 +19,16 @@ extends Node3D
 
 func update_node_lengths():
 	if is_node_ready():
-		$ConveyorMesh.mesh.size.x = length
+		$Mesh.mesh.size.x = length
 		$StaticBody3D/Shape.shape.size.x = length
 		$ForceArea/Shape.shape.size.x = length
-		conveyor_material.uv1_scale.x = length*2
+		conveyor_material.uv1_scale.x = length * 0.75
 
 
 func _ready() -> void:
 	update_node_lengths()
+	if not Engine.is_editor_hint():
+		$ArrowSprite.visible = false
 
 
 func _process(delta: float) -> void:

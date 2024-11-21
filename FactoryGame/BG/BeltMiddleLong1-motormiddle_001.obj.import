@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://70ocnlt6grqn"
+path="res://.godot/imported/BeltMiddleLong1-motormiddle_001.obj-168b766e8df561fe73e4d8e466395d39.mesh"
+
+[deps]
+
+files=["res://.godot/imported/BeltMiddleLong1-motormiddle_001.obj-168b766e8df561fe73e4d8e466395d39.mesh"]
+
+source_file="res://FactoryGame/BG/BeltMiddleLong1-motormiddle_001.obj"
+dest_files=["res://.godot/imported/BeltMiddleLong1-motormiddle_001.obj-168b766e8df561fe73e4d8e466395d39.mesh", "res://.godot/imported/BeltMiddleLong1-motormiddle_001.obj-168b766e8df561fe73e4d8e466395d39.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

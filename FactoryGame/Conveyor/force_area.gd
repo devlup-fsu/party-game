@@ -1,12 +1,16 @@
 extends Area3D
 
+
 @onready var parent: Node3D = get_parent()
 
 
-func _process(delta: float) -> void:
-	var force_vector = Vector3(1, 0, 0)
-	force_vector.y = 0
+const MOVE_SPEED = 2
+
+
+func _process(_delta: float) -> void:
+	var velocity_vector := Vector3.RIGHT.rotated(Vector3(0, 1, 0), parent.rotation.y) * MOVE_SPEED
 	for body in get_overlapping_bodies():
 		if body is Fuel:
-			body.apply_central_force(force_vector)
+			body.linear_velocity.x = velocity_vector.x
+			body.linear_velocity.z = velocity_vector.z
 		
