@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6jvsgy5x4q3"]
+[gd_scene load_steps=17 format=3 uid="uid://c6jvsgy5x4q3"]
 
 [ext_resource type="PackedScene" uid="uid://ges8lqnwpw11" path="res://FactoryGame/player/player.tscn" id="1_00avj"]
 [ext_resource type="Script" path="res://FactoryGame/factory_game.gd" id="1_iji3h"]
@@ -6,12 +6,17 @@
 [ext_resource type="Environment" uid="uid://dg6l0wqbnceet" path="res://FactoryGame/resources/sky.tres" id="2_pjdpf"]
 [ext_resource type="PackedScene" uid="uid://dt1gyjiqt10pe" path="res://FactoryGame/furnace/furnace.tscn" id="4_6j1yc"]
 [ext_resource type="Material" uid="uid://brqxm3henxq7l" path="res://FactoryGame/resources/materials/clean-concrete-bl/concrete_material.tres" id="4_atkfc"]
+[ext_resource type="Texture2D" uid="uid://4an807npuiia" path="res://FactoryGame/BG/Sprite-1.png" id="5_08k5x"]
 [ext_resource type="Material" uid="uid://bw05a2hcnvpse" path="res://FactoryGame/resources/materials/brick-wall-bl/brick_material.tres" id="5_q47ng"]
 [ext_resource type="PackedScene" uid="uid://8im326ay6uie" path="res://FactoryGame/fuel gen/fuel_generator.tscn" id="6_64uwv"]
 [ext_resource type="Script" path="res://FactoryGame/ui/fps_label.gd" id="7_ppaln"]
 [ext_resource type="Script" path="res://FactoryGame/ui/score_display.gd" id="8_ekchf"]
 [ext_resource type="Script" path="res://FactoryGame/fuel gen/fuel_generator_container.gd" id="8_nqspd"]
 [ext_resource type="Script" path="res://FactoryGame/maze/maze_gen.gd" id="9_ajj37"]
+[ext_resource type="PackedScene" uid="uid://ma2132hoyxdb" path="res://FactoryGame/BG/BGObjects/BackGround.tscn" id="13_di267"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7wt6"]
+albedo_texture = ExtResource("5_08k5x")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r47md"]
 size = Vector3(75, 5, 75)
@@ -70,6 +75,7 @@ player_number = 3
 transform = Transform3D(0.995106, 0, 0, 0, 0.995106, 0, 0, 0, 0.995106, 0, 0, 0)
 
 [node name="Floor" type="CSGBox3D" parent="LevelGeometry"]
+material_override = SubResource("StandardMaterial3D_f7wt6")
 use_collision = true
 collision_layer = 4
 collision_mask = 7
@@ -165,5 +171,8 @@ offset_top = 71.0
 offset_right = 43.0
 offset_bottom = 94.0
 text = "Time:"
+
+[node name="Node3D" parent="." instance=ExtResource("13_di267")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
 
 [connection signal="timeout" from="Timer" to="ScoreDisplay" method="_on_timer_timeout"]
