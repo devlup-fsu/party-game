@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bh46fxxufdfep"
+path="res://.godot/imported/walkway2-7_007.obj-8681cf3e2fdc1036bed0603881a0ad46.mesh"
+
+[deps]
+
+files=["res://.godot/imported/walkway2-7_007.obj-8681cf3e2fdc1036bed0603881a0ad46.mesh"]
+
+source_file="res://FactoryGame/BG/walkway2-7_007.obj"
+dest_files=["res://.godot/imported/walkway2-7_007.obj-8681cf3e2fdc1036bed0603881a0ad46.mesh", "res://.godot/imported/walkway2-7_007.obj-8681cf3e2fdc1036bed0603881a0ad46.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
