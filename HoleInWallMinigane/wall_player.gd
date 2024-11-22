@@ -19,37 +19,45 @@ func _ready() -> void:
 
 
 func _physics_process(delta):
-	if player == Controls.Player.ONE:
-		if Input.is_action_pressed("wall_p1_up") and velocity.y < maxSpeed:
-			if (velocity.y < 0):
-				velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
-			else:
-				velocity.y += SPEED*delta
-		elif Input.is_action_pressed("wall_p1_down") and velocity.y > -maxSpeed:
-			if (velocity.y > 0):
-				velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
-			else:
-				velocity.y += -SPEED*delta
-		else:
-			velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
+	#if player == Controls.Player.ONE:
+		#if Input.is_action_pressed("wall_p1_up") and velocity.y < maxSpeed:
+			#if (velocity.y < 0):
+				#velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
+			#else:
+				#velocity.y += SPEED*delta
+		#elif Input.is_action_pressed("wall_p1_down") and velocity.y > -maxSpeed:
+			#if (velocity.y > 0):
+				#velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
+			#else:
+				#velocity.y += -SPEED*delta
+		#else:
+			#velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
 		
-	if player == Controls.Player.TWO:
-		if Input.is_action_pressed("wall_p2_up"):
-			if (velocity.y < 0):
-				velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
-			else:
-				velocity.y += SPEED*delta
-		elif Input.is_action_pressed("wall_p2_down"):
-			if (velocity.y > 0):
-				velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
-			else:
-				velocity.y += -SPEED*delta
-		else:
-			velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
-	
+	#if player == Controls.Player.TWO:
+		#if Input.is_action_pressed("wall_p2_up"):
+			#if (velocity.y < 0):
+				#velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
+			#else:
+				#velocity.y += SPEED*delta
+		#elif Input.is_action_pressed("wall_p2_down"):
+			#if (velocity.y > 0):
+				#velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
+			#else:
+				#velocity.y += -SPEED*delta
+		#else:
+			#velocity.y = move_toward(velocity.y, 0.0, FRICTION * delta)
 			
-	var input_dir = Controls.get_vector(player, "core_player_left", "core_player_right", "core_player_up", "core_player_down")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var input_dir = Controls.get_axis(player, "core_player_down", "core_player_up")
+	if input_dir != 0.0:
+		velocity.y -= input_dir * SPEED * delta
+	else:
+		velocity.y = move_toward(velocity.y, 0.0, SPEED * delta)
+	
+	velocity.y = clamp(velocity.y, -SPEED, SPEED)
+	
+	
+	#var input_dir = Controls.get_vector(player, "core_player_left", "core_player_right", "core_player_up", "core_player_down")
+	#var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	#if direction:
 		#velocity.x = direction.x * SPEED
 		#velocity.z = direction.z * SPEED
