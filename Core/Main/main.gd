@@ -14,6 +14,8 @@ var _current_minigame_scene: Node = null
 
 func _ready() -> void:
 	open_player_select_screen()
+	
+	Input.joy_connection_changed.connect(func (controller: int, connected: bool): open_player_select_screen())
 
 
 func _on_player_select_screen_start_pressed() -> void:
@@ -21,10 +23,15 @@ func _on_player_select_screen_start_pressed() -> void:
 		_player_select_screen.queue_free()
 		_player_select_screen = null
 		
-		_debug_select_screen = _debug_select_screen_scene.instantiate()
-		add_child(_debug_select_screen)
-		_debug_select_screen.initialize(_all_minigames)
-		_debug_select_screen.load_minigame.connect(_on_debug_select_screen_load_minigame)
+		if _current_minigame_scene != null:
+			_current_minigame_scene.process_mode = Node.PROCESS_MODE_INHERIT
+		elif _debug_select_screen != null:
+			_debug_select_screen.process_mode = Node.PROCESS_MODE_INHERIT
+		else:
+			_debug_select_screen = _debug_select_screen_scene.instantiate()
+			add_child(_debug_select_screen)
+			_debug_select_screen.initialize(_all_minigames)
+			_debug_select_screen.load_minigame.connect(_on_debug_select_screen_load_minigame)
 
 
 func _on_debug_select_screen_load_minigame(minigame: Minigame) -> void:
@@ -58,8 +65,14 @@ func get_all_minigames() -> Array[Minigame]:
 
 
 func open_player_select_screen() -> void:
+	print("Open")
 	if _player_select_screen != null:
 		return
+	
+	if _current_minigame_scene != null:
+		_current_minigame_scene.process_mode = Node.PROCESS_MODE_DISABLED
+	elif _debug_select_screen != null:
+		_debug_select_screen.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	_player_select_screen = _player_select_screen_scene.instantiate()
 	add_child(_player_select_screen)
