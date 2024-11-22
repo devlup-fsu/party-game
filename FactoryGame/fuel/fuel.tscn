@@ -35,7 +35,6 @@ mesh = SubResource("CylinderMesh_h5xx6")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_energy = 2.0
-light_size = 0.5
 light_cull_mask = 4294967293
 shadow_enabled = true
 

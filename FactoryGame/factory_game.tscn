@@ -57,7 +57,7 @@ environment = ExtResource("2_pjdpf")
 unique_name_in_owner = true
 
 [node name="Player1" parent="Players" instance=ExtResource("1_00avj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.298, -19)
+transform = Transform3D(0.999838, -0.0179934, 0, 0.0179934, 0.999838, 0, 0, 0, 1, 0, 2.298, -19)
 
 [node name="Player2" parent="Players" instance=ExtResource("1_00avj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2.298, 0)
@@ -122,18 +122,18 @@ shape = SubResource("BoxShape3D_r47md")
 [node name="Furnaces" type="Node3D" parent="."]
 
 [node name="Furnace1" parent="Furnaces" instance=ExtResource("4_6j1yc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2, -19)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -20, 2, -20)
 
 [node name="Furnace2" parent="Furnaces" instance=ExtResource("4_6j1yc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, -19)
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 20, 2, -20)
 type = 1
 
 [node name="Furnace3" parent="Furnaces" instance=ExtResource("4_6j1yc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2, 19)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -20, 2, 20)
 type = 2
 
 [node name="Furnace4" parent="Furnaces" instance=ExtResource("4_6j1yc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, 19)
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 20, 2, 20)
 type = 3
 
 [node name="Generators" type="Node3D" parent="."]
@@ -162,6 +162,7 @@ script = ExtResource("9_ajj37")
 maze_size = 30.0
 wall_height = 4.0
 wall_thickness = 0.5
+amount_moving_walls = 4
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -173,6 +174,9 @@ offset_bottom = 94.0
 text = "Time:"
 
 [node name="Node3D" parent="." instance=ExtResource("13_di267")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+
+[node name="Node3D2" parent="." instance=ExtResource("13_di267")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.1, 0, 0)
 
 [connection signal="timeout" from="Timer" to="ScoreDisplay" method="_on_timer_timeout"]
