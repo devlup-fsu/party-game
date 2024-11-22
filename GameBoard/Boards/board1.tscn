@@ -32,6 +32,8 @@ shadow_enabled = true
 
 [node name="SolarSystem" parent="SolarSystems" instance=ExtResource("1_3d0jk")]
 transform = Transform3D(0.993495, 0, -0.113879, 0, 1, 0, 0.113879, 0, 0.993495, -0.217726, 1.43051e-06, -2.70764)
+star_color = Color(0.397294, 0.161441, 0, 1)
+star_radius = 3.0
 orbit_radius = 8.0
 orbit_width = 2.5
 num_sectors = 20
@@ -40,6 +42,7 @@ clockwise = false
 
 [node name="SolarSystem2" parent="SolarSystems" instance=ExtResource("1_3d0jk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44017, 0, -20.3036)
+star_color = Color(0.262104, 0.427058, 0.457171, 1)
 
 [node name="SolarSystem3" parent="SolarSystems" instance=ExtResource("1_3d0jk")]
 transform = Transform3D(0.971288, 0, 0.237906, 0, 1, 0, -0.237906, 0, 0.971288, -18.9254, 0, -20.3944)

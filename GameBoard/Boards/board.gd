@@ -4,9 +4,11 @@ extends Node3D
 @export var alternative_movement_texture: Texture
 
 @onready var solar_systems: Node3D = $SolarSystems
+@onready var camera: BoardCamera = $Camera
 
 # TODO: Type as Dictionary[Controls.Player, BoardPlayer]
 var players: Dictionary = {}
+var current_player: BoardPlayer
 
 
 func _ready() -> void:
@@ -16,6 +18,8 @@ func _ready() -> void:
 			player.choosing_next_sector.connect(_on_player_choosing_next_sector)
 	
 	assert(players.keys().size() == 4)
+	
+	_next_player()
 	
 	_link_solar_systems()
 
@@ -47,6 +51,29 @@ func _link_solar_systems():
 				
 				closest_src_sector.next.append(closest_dst_sector)
 				#print("(%s, %s)" %[closest_src_sector.index, closest_dst_sector.index])
+
+
+func _next_player() -> void:
+	if current_player == null:
+		current_player = players[Controls.Player.ONE]
+	else:
+		var next_player = current_player.player + 1
+		if next_player == Controls.Player.size():
+			next_player = Controls.Player.ONE
+		current_player = players[next_player]
+	
+	camera.target = current_player
+	current_player.take_control()
+	current_player.finished_turn.connect(_next_player)
+
+
+func _on_player_finished_turn() -> void:
+	var next_player = current_player.player + 1
+	if next_player == Controls.Player.size():
+		next_player = Controls.Player.ONE
+	
+	current_player = players[next_player]
+	camera.target = current_player
 
 
 func _on_player_choosing_next_sector(player: BoardPlayer, current_sector: Sector) -> void:

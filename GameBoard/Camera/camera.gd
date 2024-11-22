@@ -1,3 +1,4 @@
+class_name BoardCamera
 extends Camera3D
 
 @export var target: Node3D
