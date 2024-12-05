@@ -1,0 +1,241 @@
+[gd_scene load_steps=19 format=3 uid="uid://ma2132hoyxdb"]
+
+[ext_resource type="Texture2D" uid="uid://4an807npuiia" path="res://FactoryGame/BG/Sprite-1.png" id="1_ygpbc"]
+[ext_resource type="Material" uid="uid://brqxm3henxq7l" path="res://FactoryGame/resources/materials/clean-concrete-bl/concrete_material.tres" id="2_iy5ag"]
+[ext_resource type="Texture2D" uid="uid://cugcqpgnq0bub" path="res://FactoryGame/BG/belt.png" id="3_2s0rk"]
+[ext_resource type="Material" uid="uid://bw05a2hcnvpse" path="res://FactoryGame/resources/materials/brick-wall-bl/brick_material.tres" id="3_clyco"]
+[ext_resource type="PackedScene" uid="uid://dlws7k1m7ae7l" path="res://FactoryGame/BG/BGObjects/funnel.tscn" id="4_761w3"]
+[ext_resource type="ArrayMesh" uid="uid://cltugrst5tbsg" path="res://FactoryGame/BG/BeltMiddleLong1-belt_001.obj" id="4_vfu14"]
+[ext_resource type="ArrayMesh" uid="uid://70ocnlt6grqn" path="res://FactoryGame/BG/BeltMiddleLong1-motormiddle_001.obj" id="5_seo6r"]
+[ext_resource type="Texture2D" uid="uid://bwxxgg8b0oaoj" path="res://FactoryGame/BG/Sprite-0001.png" id="6_sdyug"]
+[ext_resource type="ArrayMesh" uid="uid://csw2d7ylro3on" path="res://FactoryGame/BG/BeltMiddleLong1-belt_002.obj" id="7_amaqk"]
+[ext_resource type="Texture2D" uid="uid://b4dsvtn7adcst" path="res://FactoryGame/BG/Sprite-0003.png" id="7_hmptj"]
+[ext_resource type="ArrayMesh" uid="uid://bjksku6xdj8d8" path="res://FactoryGame/BG/BeltMiddleLong1-motormiddle_002.obj" id="8_ctib1"]
+[ext_resource type="PackedScene" uid="uid://bv7wnqnu8dv23" path="res://FactoryGame/BG/BGObjects/launcher.tscn" id="9_rvgiv"]
+[ext_resource type="ArrayMesh" uid="uid://bh46fxxufdfep" path="res://FactoryGame/BG/walkway2-7_007.obj" id="13_0fcce"]
+[ext_resource type="ArrayMesh" uid="uid://dar4skwob03dy" path="res://FactoryGame/BG/walkway2-7_019.obj" id="13_gjo4q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnqny"]
+albedo_texture = ExtResource("7_hmptj")
+uv1_scale = Vector3(0.345, 0.345, 0.345)
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 150.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03re4"]
+albedo_texture = ExtResource("1_ygpbc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgj6l"]
+albedo_texture = ExtResource("3_2s0rk")
+uv1_scale = Vector3(0.598, 0.598, 0.17)
+uv1_offset = Vector3(0.5, 0, 0)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 150.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ldvh"]
+albedo_texture = ExtResource("6_sdyug")
+uv1_triplanar = true
+uv1_triplanar_sharpness = 150.0
+
+[node name="BackGround" type="Node3D"]
+
+[node name="BackGround" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="BGFloor" type="Node3D" parent="BackGround"]
+
+[node name="BGWalls" type="Node3D" parent="BackGround"]
+
+[node name="BGMachines" type="Node3D" parent="BackGround"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="belt sections" type="Node3D" parent="BackGround/BGMachines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6047, 50.6911, 33.7174)
+
+[node name="Launcher" type="Node3D" parent="BackGround/BGMachines"]
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="BackGround/BGMachines/Launcher"]
+transform = Transform3D(-8.74232e-08, 0, -2, 0, 2, 0, 2, 0, -8.74232e-08, -29, 7, 0)
+material_override = SubResource("StandardMaterial3D_bnqny")
+mesh = ExtResource("13_gjo4q")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BackGround/BGMachines/Launcher/MeshInstance3D5"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_bnqny")
+mesh = ExtResource("13_0fcce")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="BackGround/BGMachines/Launcher/MeshInstance3D5"]
+material_override = SubResource("StandardMaterial3D_bnqny")
+mesh = ExtResource("13_0fcce")
+
+[node name="BackGround2" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 3, 0, 0)
+
+[node name="BGFloor" type="Node3D" parent="BackGround2"]
+
+[node name="Floor3" type="CSGBox3D" parent="BackGround2/BGFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.4918, 0, 0)
+material_override = SubResource("StandardMaterial3D_03re4")
+use_collision = true
+collision_layer = 4
+collision_mask = 7
+size = Vector3(49, 1, 45)
+material = ExtResource("2_iy5ag")
+
+[node name="BGWalls" type="Node3D" parent="BackGround2"]
+
+[node name="OuterWall5" type="CSGBox3D" parent="BackGround2/BGWalls"]
+transform = Transform3D(-4.37114e-08, 0, -45, 0, 6, 0, 1, 0, -1.96701e-06, 50.6418, 3.5, -23.5)
+use_collision = true
+collision_layer = 4
+collision_mask = 4
+size = Vector3(3, 1, 1.1)
+material = ExtResource("3_clyco")
+
+[node name="OuterWall6" type="CSGBox3D" parent="BackGround2/BGWalls"]
+transform = Transform3D(-4.37114e-08, 0, -45, 0, 6, 0, 1, 0, -1.96701e-06, 50.6418, 3.5, 23)
+use_collision = true
+collision_layer = 4
+collision_mask = 4
+size = Vector3(2, 1, 1.1)
+material = ExtResource("3_clyco")
+
+[node name="OuterWall2" type="CSGBox3D" parent="BackGround2/BGWalls"]
+transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 45, 25.523, 3.5, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 4
+material = ExtResource("3_clyco")
+
+[node name="OuterWall1" type="CSGBox3D" parent="BackGround2/BGWalls"]
+transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 45, 75.3918, 3.5, 0)
+use_collision = true
+collision_layer = 4
+collision_mask = 4
+material = ExtResource("3_clyco")
+
+[node name="BGMachines" type="Node3D" parent="BackGround2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="belt sections" type="Node3D" parent="BackGround2/BGMachines"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6047, 50.6911, 33.7174)
+
+[node name="Funnel" parent="BackGround2/BGMachines/belt sections" instance=ExtResource("4_761w3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 43.8699, -48.5707, -55.695)
+
+[node name="Funnel2" parent="BackGround2/BGMachines/belt sections" instance=ExtResource("4_761w3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50.8699, -48.5707, -55.695)
+
+[node name="Funnel4" parent="BackGround2/BGMachines/belt sections" instance=ExtResource("4_761w3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 57.8699, -48.5707, -55.695)
+
+[node name="Funnel5" parent="BackGround2/BGMachines/belt sections" instance=ExtResource("4_761w3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 71.2699, -48.5707, -11.8664)
+
+[node name="Funnel6" parent="BackGround2/BGMachines/belt sections" instance=ExtResource("4_761w3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 64.2699, -48.5707, -11.8664)
+
+[node name="Funnel8" parent="BackGround2/BGMachines/belt sections" instance=ExtResource("4_761w3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 57.8699, -48.5707, -11.695)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.8699, -49.5707, -40.3648)
+material_override = SubResource("StandardMaterial3D_vgj6l")
+mesh = ExtResource("4_vfu14")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 43.8699, -49.5707, -40.3648)
+material_override = SubResource("StandardMaterial3D_0ldvh")
+mesh = ExtResource("5_seo6r")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60.4699, -42.5707, -33.8648)
+material_override = SubResource("StandardMaterial3D_vgj6l")
+mesh = ExtResource("4_vfu14")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 60.4699, -42.5707, -33.8648)
+material_override = SubResource("StandardMaterial3D_0ldvh")
+mesh = ExtResource("5_seo6r")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 46.1699, -49.5707, -14.1648)
+material_override = SubResource("StandardMaterial3D_vgj6l")
+mesh = ExtResource("7_amaqk")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 46.1699, -49.5707, -14.1648)
+material_override = SubResource("StandardMaterial3D_0ldvh")
+mesh = ExtResource("8_ctib1")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.8699, -49.5707, -37.8982)
+material_override = SubResource("StandardMaterial3D_vgj6l")
+mesh = ExtResource("4_vfu14")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.8699, -49.5707, -37.8982)
+material_override = SubResource("StandardMaterial3D_0ldvh")
+mesh = ExtResource("5_seo6r")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 71.2699, -49.5707, -27.1966)
+material_override = SubResource("StandardMaterial3D_vgj6l")
+mesh = ExtResource("4_vfu14")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 71.2699, -49.5707, -27.1966)
+material_override = SubResource("StandardMaterial3D_0ldvh")
+mesh = ExtResource("5_seo6r")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.8699, -49.5707, -33.3648)
+material_override = SubResource("StandardMaterial3D_vgj6l")
+mesh = ExtResource("4_vfu14")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 57.8699, -49.5707, -33.3648)
+material_override = SubResource("StandardMaterial3D_0ldvh")
+mesh = ExtResource("5_seo6r")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 68.9699, -49.5707, -53.3966)
+material_override = SubResource("StandardMaterial3D_vgj6l")
+mesh = ExtResource("7_amaqk")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 68.9699, -49.5707, -53.3966)
+material_override = SubResource("StandardMaterial3D_0ldvh")
+mesh = ExtResource("8_ctib1")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 64.2699, -49.5707, -29.6632)
+material_override = SubResource("StandardMaterial3D_vgj6l")
+mesh = ExtResource("4_vfu14")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="BackGround2/BGMachines/belt sections"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 64.2699, -49.5707, -29.6632)
+material_override = SubResource("StandardMaterial3D_0ldvh")
+mesh = ExtResource("5_seo6r")
+skeleton = NodePath("")
+
+[node name="Launcher" type="Node3D" parent="BackGround2/BGMachines"]
+
+[node name="Launcher" parent="BackGround2/BGMachines/Launcher" instance=ExtResource("9_rvgiv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21, 8, 0)

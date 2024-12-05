@@ -22,5 +22,11 @@ func _on_body_entered(body: Node3D) -> void:
 				body.carried_fuel_node.being_carried = false
 				body.carried_fuel_node = null
 			parent.ifDangerous = false
-	if body is CSGBox3D: # Floor and walls. Would like for a better check here as later this may be an issue
+	elif body is CSGBox3D: # Floor and walls. Would like for a better check here as later this may be an issue
 		parent.ifDangerous = false
+
+
+func _on_area_entered(area: Area3D) -> void:
+	if area.get_collision_layer_value(5):  # Hit fall boundary
+		parent.parent_generator.parent.amount_fuel_objects -= 1
+		queue_free()

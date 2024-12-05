@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://pfuwki2d02i0"]
+
+[ext_resource type="Script" path="res://FactoryGame/Conveyor/conveyor.gd" id="1_e80us"]
+[ext_resource type="Texture2D" uid="uid://hdcu0hkip6gh" path="res://FactoryGame/resources/models/belt.png" id="2_su027"]
+[ext_resource type="Script" path="res://FactoryGame/Conveyor/force_area.gd" id="2_wrkeu"]
+[ext_resource type="Texture2D" uid="uid://d3p7lfbdci5dt" path="res://FactoryGame/resources/textures/arrow.png" id="5_t2fdq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7ersl"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(24, 31)
+size = Vector3(10, 0.5, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2ud5"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_su027")
+uv1_scale = Vector3(7.5, 2, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ufrnu"]
+resource_local_to_scene = true
+size = Vector3(10, 0.5, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n8hre"]
+resource_local_to_scene = true
+size = Vector3(10, 0.5, 2)
+
+[node name="Conveyor" type="Node3D"]
+script = ExtResource("1_e80us")
+length = 10
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_7ersl")
+surface_material_override/0 = SubResource("StandardMaterial3D_o2ud5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 32
+collision_mask = 4
+
+[node name="Shape" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_ufrnu")
+
+[node name="ForceArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("2_wrkeu")
+
+[node name="Shape" type="CollisionShape3D" parent="ForceArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_n8hre")
+
+[node name="ArrowSprite" type="Sprite3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 0.5, 0)
+texture = ExtResource("5_t2fdq")
