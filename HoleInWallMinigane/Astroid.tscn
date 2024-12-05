@@ -37,12 +37,13 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lfouu")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xgr71"]
-size = Vector3(1, 0.663704, 1)
+size = Vector3(1, 4.93164, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ix5rf"]
-size = Vector3(1, 0.504333, 1)
+size = Vector3(1, 7, 1)
 
 [node name="Astroid" type="Area3D"]
+transform = Transform3D(2.03, 0, 0, 0, 2.03, 0, 0, 0, 2.03, 0, -1.04683, 0)
 script = ExtResource("1_v5gbg")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
@@ -50,9 +51,13 @@ mesh = SubResource("ArrayMesh_ux2es")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12705, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.32938, 0)
 shape = SubResource("BoxShape3D_xgr71")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0445862, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.20325, 0)
 shape = SubResource("BoxShape3D_ix5rf")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.634309, 0)
+omni_range = 1.984
