@@ -6,7 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://cxyrgedx3jbr8" path="res://Core/Controls/Assets/button_color_x_outline.svg" id="3_x7sbj"]
 [ext_resource type="Texture2D" uid="uid://bjbssi8a005j8" path="res://Core/Controls/Assets/button_color_y_outline.svg" id="4_ode0b"]
 
-[node name="PlayerSelectScreen" type="VBoxContainer"]
+[node name="PlayerSelectScreen" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.162066, 0.162066, 0.162066, 1)
+script = ExtResource("1_81omw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,94 +24,93 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 64
 alignment = 1
-script = ExtResource("1_81omw")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="Player1" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Player1" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/Player1"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Player1"]
 layout_mode = 2
 text = "Player 1"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Player1"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Player1"]
 layout_mode = 2
 texture = ExtResource("1_g240e")
 stretch_mode = 3
 
-[node name="Selected" type="Label" parent="HBoxContainer/Player1"]
+[node name="Selected" type="Label" parent="VBoxContainer/HBoxContainer/Player1"]
 layout_mode = 2
 text = "Selected"
 horizontal_alignment = 1
 
-[node name="Player2" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Player2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/Player2"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Player2"]
 layout_mode = 2
 text = "Player 2"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Player2"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Player2"]
 layout_mode = 2
 texture = ExtResource("2_au23s")
 stretch_mode = 3
 
-[node name="Selected" type="Label" parent="HBoxContainer/Player2"]
+[node name="Selected" type="Label" parent="VBoxContainer/HBoxContainer/Player2"]
 layout_mode = 2
 text = "Selected"
 horizontal_alignment = 1
 
-[node name="Player3" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Player3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/Player3"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Player3"]
 layout_mode = 2
 text = "Player 3"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Player3"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Player3"]
 layout_mode = 2
 texture = ExtResource("3_x7sbj")
 stretch_mode = 3
 
-[node name="Selected" type="Label" parent="HBoxContainer/Player3"]
+[node name="Selected" type="Label" parent="VBoxContainer/HBoxContainer/Player3"]
 layout_mode = 2
 text = "Selected"
 horizontal_alignment = 1
 
-[node name="Player4" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Player4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/Player4"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Player4"]
 layout_mode = 2
 text = "Player 4"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Player4"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Player4"]
 layout_mode = 2
 texture = ExtResource("4_ode0b")
 stretch_mode = 3
 
-[node name="Selected" type="Label" parent="HBoxContainer/Player4"]
+[node name="Selected" type="Label" parent="VBoxContainer/HBoxContainer/Player4"]
 layout_mode = 2
 text = "Selected"
 horizontal_alignment = 1
 
-[node name="StartGameLabel" type="Label" parent="."]
+[node name="StartGameLabel" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Press START to play the game!"

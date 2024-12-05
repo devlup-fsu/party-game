@@ -75,7 +75,7 @@ func _on_joy_connection_changed(controller: int, connected: bool) -> void:
 	print("Controller %s was %s" % [controller, "connected" if connected else "disconnected"])
 	
 	if not connected:
-		var player: Controls.Player = _player_controllers.find_key(controller)
+		var player = _player_controllers.find_key(controller)
 		if player != null:
 			_player_controllers.erase(player)
 

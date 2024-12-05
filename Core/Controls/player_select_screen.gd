@@ -1,5 +1,5 @@
 class_name PlayerSelectScreen
-extends VBoxContainer
+extends ColorRect
 
 signal pressed_start
 
