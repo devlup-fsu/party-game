@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c44h6r35ta2cg"
-valid=false
+path="res://.godot/imported/Astroid.blend-da3275ac2ddf59e7c9865e2719a9c4a8.scn"
 
 [deps]
 
 source_file="res://HoleInWallMinigane/Models/Astroid.blend"
+dest_files=["res://.godot/imported/Astroid.blend-da3275ac2ddf59e7c9865e2719a9c4a8.scn"]
 
 [params]
 

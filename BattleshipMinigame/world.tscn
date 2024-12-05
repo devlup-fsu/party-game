@@ -88,17 +88,19 @@ environment = SubResource("Environment_dg5a0")
 
 [node name="Player1" parent="." instance=ExtResource("1_ya70w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1.5, -15)
-color = Color(1, 0, 0, 1)
+color = Color(0.0166667, 1, 0, 1)
 
 [node name="Player2" parent="." instance=ExtResource("1_ya70w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 1.5, -15)
 player = 1
-color = Color(0, 1, 0, 1)
+color = Color(1, 0, 0, 1)
 
 [node name="Player3" parent="." instance=ExtResource("1_ya70w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 1.5, 15)
 player = 2
+color = Color(0, 0, 1, 1)
 
 [node name="Player4" parent="." instance=ExtResource("1_ya70w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1.5, 15)
 player = 3
+color = Color(1, 1, 0, 1)

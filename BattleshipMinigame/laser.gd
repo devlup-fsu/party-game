@@ -3,7 +3,11 @@ extends Area3D
 const LASER_SPEED = 50.0 # Speed of the laser
 
 var direction : Vector3 = Vector3()
-var shooter : CharacterBody3D
+var shooter : BSMPlayer
+
+func _ready() -> void:
+	$MeshInstance3D.get_surface_override_material(0).albedo_color = shooter.color
+
 
 func _physics_process(delta: float) -> void:
 	# Move the laser forward

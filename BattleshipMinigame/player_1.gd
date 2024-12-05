@@ -96,17 +96,17 @@ func set_target_lin_velo(input_vector: Vector2):
 		target_lin_velo = input_vector.length() * MAX_LIN_SPEED
 	else:
 		target_lin_velo = 0
-		
+	
 func shoot_laser():
 	var laser_spawn_point = $LaserStartPosition  # Get the marker position for laser spawning
 	var laser = laser_scene.instantiate() as Area3D # Instance the laser
 	
+	laser.shooter = self
 	get_parent().add_child(laser) # Add laser to the scene
 	
 	# Set the laser's position at the marker position
 	laser.global_transform.origin = laser_spawn_point.global_transform.origin
 	laser.rotation = self.rotation
-	laser.shooter = self
 
 	# Set the laser's direction (same as the forward direction of the spaceship)
 	laser.set_direction(-transform.basis.z.normalized())
