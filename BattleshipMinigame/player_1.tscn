@@ -2,19 +2,21 @@
 
 [ext_resource type="Script" path="res://BattleshipMinigame/player_1.gd" id="1_ahrti"]
 [ext_resource type="PackedScene" uid="uid://b72rwtf2bcpuu" path="res://BattleshipMinigame/laser.tscn" id="2_8qjj7"]
+[ext_resource type="ArrayMesh" uid="uid://w446wgc58vm4" path="res://GameBoard/Player/ship.obj" id="3_ut4mo"]
 
-[sub_resource type="PrismMesh" id="PrismMesh_wjgbf"]
-size = Vector3(4, 4, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5flq"]
+resource_local_to_scene = true
+albedo_color = Color(0.0788773, 0.523406, 0.779539, 1)
+metallic = 1.0
+roughness = 0.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhgf6"]
+albedo_color = Color(0.712129, 0.712129, 0.712129, 1)
+metallic = 1.0
+roughness = 0.75
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i21m7"]
 points = PackedVector3Array(0, 2, 0.15, 2, -2, 0.15, 0, 2, -0.15, -2, -2, 0.15, 2, -2, -0.15, -2, -2, -0.15)
-
-[sub_resource type="PrismMesh" id="PrismMesh_d448w"]
-size = Vector3(1, 1, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g555e"]
-resource_local_to_scene = true
-albedo_color = Color(0.757333, 0.09, 1, 1)
 
 [node name="player_1" type="CharacterBody3D"]
 axis_lock_linear_y = true
@@ -22,17 +24,14 @@ script = ExtResource("1_ahrti")
 laser_scene = ExtResource("2_8qjj7")
 
 [node name="MainBody" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-mesh = SubResource("PrismMesh_wjgbf")
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0.487152)
+mesh = ExtResource("3_ut4mo")
+surface_material_override/0 = SubResource("StandardMaterial3D_a5flq")
+surface_material_override/1 = SubResource("StandardMaterial3D_nhgf6")
 
 [node name="MainBodyCollision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(0.75, 0, 0, 0, -3.27835e-08, 0.75, 0, -0.75, -3.27835e-08, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_i21m7")
-
-[node name="Tip" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.55, -1.5)
-mesh = SubResource("PrismMesh_d448w")
-surface_material_override/0 = SubResource("StandardMaterial3D_g555e")
 
 [node name="LaserStartPosition" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0866404, 0, -0.797541)

@@ -18,6 +18,11 @@ func _ready() -> void:
 	Input.joy_connection_changed.connect(func (controller: int, connected: bool): open_player_select_screen())
 
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("core_debug_restart"):
+		get_tree().change_scene_to_file("res://Core/Main/main.tscn")
+
+
 func _on_player_select_screen_start_pressed() -> void:
 	if _player_select_screen != null:
 		_player_select_screen.queue_free()

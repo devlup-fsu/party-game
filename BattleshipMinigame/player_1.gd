@@ -27,7 +27,7 @@ var lives_remaining : int = 3
 @export var laser_scene : PackedScene
 
 func _ready() -> void:
-	var tip_material = $Tip.get_surface_override_material(0)
+	var tip_material = $MainBody.get_surface_override_material(0)
 	if tip_material is StandardMaterial3D:
 		tip_material.albedo_color = color
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ca4paejg6uk5i"]
+[gd_scene load_steps=11 format=3 uid="uid://ca4paejg6uk5i"]
 
 [ext_resource type="PackedScene" uid="uid://b4e0e5iuxhesc" path="res://GameBoard/SolarSystem/solar_system.tscn" id="1_3d0jk"]
 [ext_resource type="Script" path="res://GameBoard/Boards/board.gd" id="1_b7vr7"]
@@ -6,11 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://b351xgyx3tfek" path="res://Core/Controls/Assets/button_color_b.svg" id="3_1bpcn"]
 [ext_resource type="PackedScene" uid="uid://c0y78andl5ugq" path="res://GameBoard/Player/player.tscn" id="3_55h77"]
 [ext_resource type="PackedScene" uid="uid://bk01xchcfcm6c" path="res://GameBoard/Camera/camera.tscn" id="4_2ngwn"]
+[ext_resource type="Texture2D" uid="uid://bqknk7cydt5ga" path="res://eqsky.png" id="4_7clfo"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d7bte"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_14fc8"]
+panorama = ExtResource("4_7clfo")
 
 [sub_resource type="Sky" id="Sky_2njlf"]
-sky_material = SubResource("ProceduralSkyMaterial_d7bte")
+sky_material = SubResource("PanoramaSkyMaterial_14fc8")
 
 [sub_resource type="Environment" id="Environment_47eid"]
 background_mode = 2

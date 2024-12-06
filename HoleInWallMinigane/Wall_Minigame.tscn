@@ -1,25 +1,37 @@
-[gd_scene load_steps=7 format=3 uid="uid://4hxfda0fvecm"]
+[gd_scene load_steps=10 format=3 uid="uid://4hxfda0fvecm"]
 
 [ext_resource type="Script" path="res://HoleInWallMinigane/wall_minigame.gd" id="1_i7wdh"]
+[ext_resource type="Texture2D" uid="uid://bqknk7cydt5ga" path="res://eqsky.png" id="2_bb1kj"]
 [ext_resource type="PackedScene" uid="uid://c068idoo7nx73" path="res://HoleInWallMinigane/wall_players_rope.tscn" id="3_gi4f8"]
 [ext_resource type="Script" path="res://HoleInWallMinigane/astroid_spawner.gd" id="3_hiaym"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uomkt"]
-sky_top_color = Color(0.0474158, 0.0894499, 0.15262, 1)
-sky_horizon_color = Color(0.0823529, 0.0862745, 0.109804, 1)
-sky_curve = 0.126134
-ground_bottom_color = Color(0.134164, 0.163229, 0.203355, 1)
-ground_horizon_color = Color(0.0756164, 0.0910377, 0.103178, 1)
-ground_curve = 0.16
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eowsk"]
+panorama = ExtResource("2_bb1kj")
 
 [sub_resource type="Sky" id="Sky_fmlju"]
-sky_material = SubResource("ProceduralSkyMaterial_uomkt")
+sky_material = SubResource("PanoramaSkyMaterial_eowsk")
 
 [sub_resource type="Environment" id="Environment_yvyvf"]
 background_mode = 2
 sky = SubResource("Sky_fmlju")
 ambient_light_energy = 6.0
 reflected_light_source = 2
+
+[sub_resource type="Curve3D" id="Curve3D_pb6ip"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -3.94532, 0.224436, 1.37998, 0, 0, 0, 0, 0, 0, 2.28151, -0.270014, -1.94057),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_2qf6b"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -3.94532, 0.224436, 1.37998, 0, 0, 0, 0, 0, 0, 2.28151, -0.270014, -1.94057),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [node name="WallMinigameMain" type="Node3D"]
 script = ExtResource("1_i7wdh")
@@ -28,7 +40,7 @@ script = ExtResource("1_i7wdh")
 environment = SubResource("Environment_yvyvf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.749014, 0.662555, 0, -0.662555, 0.749014, 0, 0, 25.8418)
+transform = Transform3D(1, 0, 0, 0, 0.395498, 0.918467, 0, -0.918467, 0.395498, 0, 0, 25.8418)
 light_energy = 1.61
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -50,7 +62,7 @@ size = Vector2i(576, 648)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="HBoxContainer/SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, -11.4575, 4.87746, 10.5326)
+transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, -12, 4.877, 10)
 
 [node name="Score" type="Label" parent="HBoxContainer/SubViewportContainer"]
 layout_mode = 2
@@ -68,7 +80,7 @@ size = Vector2i(576, 648)
 render_target_update_mode = 4
 
 [node name="Camera3D2" type="Camera3D" parent="HBoxContainer/SubViewportContainer2/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, 6.96886, 4.83887, 10.5326)
+transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, 8, 4.839, 10)
 
 [node name="Score" type="Label" parent="HBoxContainer/SubViewportContainer2"]
 layout_mode = 2
@@ -87,9 +99,36 @@ script = ExtResource("3_hiaym")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9321, 0, 0)
 right_player = 1
 
+[node name="Wall_Player1" parent="Wall_Players_rope2" index="0"]
+color = Color(0, 1, 0, 1)
+
+[node name="Wall_Player2" parent="Wall_Players_rope2" index="1"]
+color = Color(1, 0, 0, 1)
+
+[node name="Path3D" parent="Wall_Players_rope2" index="2"]
+curve = SubResource("Curve3D_pb6ip")
+
+[node name="PathFollow3D" parent="Wall_Players_rope2/Path3D" index="0"]
+transform = Transform3D(0.470536, 0.0616731, -0.880211, -1.86262e-09, 0.997542, 0.0698944, 0.882368, -0.0328881, 0.469386, -3.94532, 0.224436, 1.37998)
+
 [node name="Wall_Players_rope" parent="." instance=ExtResource("3_gi4f8")]
 left_player = 2
 right_player = 3
 
+[node name="Wall_Player1" parent="Wall_Players_rope" index="0"]
+color = Color(0, 0, 1, 1)
+
+[node name="Wall_Player2" parent="Wall_Players_rope" index="1"]
+color = Color(1, 1, 0, 1)
+
+[node name="Path3D" parent="Wall_Players_rope" index="2"]
+curve = SubResource("Curve3D_2qf6b")
+
+[node name="PathFollow3D" parent="Wall_Players_rope/Path3D" index="0"]
+transform = Transform3D(0.470536, 0.0616731, -0.880211, -1.86262e-09, 0.997542, 0.0698944, 0.882368, -0.0328881, 0.469386, -3.94532, 0.224436, 1.37998)
+
 [connection signal="astroid_hit" from="Wall_Players_rope2" to="." method="_on_wall_players_rope_2_astroid_hit"]
 [connection signal="astroid_hit" from="Wall_Players_rope" to="." method="_on_wall_players_rope_astroid_hit"]
+
+[editable path="Wall_Players_rope2"]
+[editable path="Wall_Players_rope"]
