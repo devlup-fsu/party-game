@@ -1,3 +1,4 @@
+class_name GameBoard
 extends Node3D
 
 @export var continue_movement_texture: Texture

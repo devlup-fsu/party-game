@@ -70,8 +70,6 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_joy_connection_changed(controller: int, connected: bool) -> void:
-	# TODO: Force open player select screen when controllers change
-	
 	print("Controller %s was %s" % [controller, "connected" if connected else "disconnected"])
 	
 	if not connected:

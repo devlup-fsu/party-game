@@ -1,52 +1,71 @@
 class_name Main
 extends Node
 
+signal reset_game_command(full_command: String)
+
 @onready var _player_select_screen_scene: PackedScene = load("res://Core/Controls/player_select_screen.tscn")
-@onready var _debug_select_screen_scene: PackedScene = load("res://Core/Minigames/DebugSelectScreen/debug_select_screen.tscn")
+@onready var _game_board_scene: PackedScene = load("res://GameBoard/Boards/board1.tscn")
 
 @onready var _all_minigames: Array[Minigame] = get_all_minigames()
 
-var _player_select_screen: PlayerSelectScreen = null
-var _debug_select_screen: DebugSelectScreen = null
-var _current_minigame: Minigame = null
-var _current_minigame_scene: Node = null
+var _scene_stack: Array[Node] = []
 
 
 func _ready() -> void:
 	open_player_select_screen()
 	
 	Input.joy_connection_changed.connect(func (controller: int, connected: bool): open_player_select_screen())
+	
+	Console.replace_command("reset", reset_game_command)
+	reset_game_command.connect(_reset_game_command)
 
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("core_debug_restart"):
-		get_tree().change_scene_to_file("res://Core/Main/main.tscn")
+func _process(_delta: float):
+	if Input.is_action_just_pressed("core_player_select"):
+		open_player_select_screen()
+
+
+func _reset_game_command(full_command: String):
+	get_tree().change_scene_to_file("res://Core/Main/main.tscn")
 
 
 func _on_player_select_screen_start_pressed() -> void:
-	if _player_select_screen != null:
-		_player_select_screen.queue_free()
-		_player_select_screen = null
+	if get_active_scene() is PlayerSelectScreen:
+		_pop_scene()
 		
-		if _current_minigame_scene != null:
-			_current_minigame_scene.process_mode = Node.PROCESS_MODE_INHERIT
-		elif _debug_select_screen != null:
-			_debug_select_screen.process_mode = Node.PROCESS_MODE_INHERIT
-		else:
-			_debug_select_screen = _debug_select_screen_scene.instantiate()
-			add_child(_debug_select_screen)
-			_debug_select_screen.initialize(_all_minigames)
-			_debug_select_screen.load_minigame.connect(_on_debug_select_screen_load_minigame)
+		if get_active_scene() == null:
+			_push_scene(_game_board_scene.instantiate())
 
 
-func _on_debug_select_screen_load_minigame(minigame: Minigame) -> void:
-	if _debug_select_screen != null:
-		_debug_select_screen.queue_free()
-		_debug_select_screen = null
-		
-		_current_minigame = minigame
-		_current_minigame_scene = minigame.scene.instantiate()
-		add_child(_current_minigame_scene)
+func _push_scene(scene: Node):
+	var active_scene = get_active_scene()
+	if active_scene != null:
+		active_scene.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	_scene_stack.push_back(scene)
+	add_child(scene)
+
+
+func _pop_scene():
+	var popped_scene = _scene_stack.pop_back()
+	popped_scene.queue_free()
+	
+	var active_scene = get_active_scene()
+	if active_scene != null:
+		active_scene.process_mode = Node.PROCESS_MODE_INHERIT
+
+
+func open_player_select_screen() -> void:
+	if get_active_scene() is PlayerSelectScreen:
+		return
+	
+	var player_select_screen = _player_select_screen_scene.instantiate()
+	_push_scene(player_select_screen)
+	player_select_screen.pressed_start.connect(_on_player_select_screen_start_pressed)
+
+
+func get_active_scene() -> Node:
+	return null if _scene_stack.is_empty() else _scene_stack[_scene_stack.size() - 1]
 
 
 func get_all_minigames() -> Array[Minigame]:
@@ -67,18 +86,3 @@ func get_all_minigames() -> Array[Minigame]:
 		file_name = dir.get_next()
 	
 	return minigames
-
-
-func open_player_select_screen() -> void:
-	print("Open")
-	if _player_select_screen != null:
-		return
-	
-	if _current_minigame_scene != null:
-		_current_minigame_scene.process_mode = Node.PROCESS_MODE_DISABLED
-	elif _debug_select_screen != null:
-		_debug_select_screen.process_mode = Node.PROCESS_MODE_DISABLED
-	
-	_player_select_screen = _player_select_screen_scene.instantiate()
-	add_child(_player_select_screen)
-	_player_select_screen.pressed_start.connect(_on_player_select_screen_start_pressed)

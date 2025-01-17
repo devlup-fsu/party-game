@@ -141,6 +141,14 @@ func register_command(command_name: StringName, action: Signal) -> void:
 	_commands[command_name] = action
 
 
+func replace_command(command_name: StringName, action: Signal) -> void:
+	assert(command_name == command_name.to_lower(), "Can't register command '%s' with uppercase letters." % command_name)
+	assert(not command_name.contains(" "), "Can't register command '%s' with space characters." % command_name)
+	assert(command_name not in _toggles, "Can't register command '%s' that has already been registered as a toggle." % command_name)
+	
+	_commands[command_name] = action
+
+
 func is_command_registered(command_name: StringName) -> bool:
 	return command_name in _commands
 
