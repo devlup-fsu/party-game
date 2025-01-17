@@ -2,6 +2,7 @@ class_name Main
 extends Node
 
 signal reset_game_command(full_command: String)
+signal minigames_command(full_command: String)
 
 @onready var _player_select_screen_scene: PackedScene = load("res://Core/Controls/player_select_screen.tscn")
 @onready var _game_board_scene: PackedScene = load("res://GameBoard/Boards/board1.tscn")
@@ -18,6 +19,9 @@ func _ready() -> void:
 	
 	Console.replace_command("reset", reset_game_command)
 	reset_game_command.connect(_reset_game_command)
+	
+	Console.replace_command("minigames", minigames_command)
+	minigames_command.connect(_minigames_command)
 
 
 func _process(_delta: float):
@@ -27,6 +31,11 @@ func _process(_delta: float):
 
 func _reset_game_command(full_command: String):
 	get_tree().change_scene_to_file("res://Core/Main/main.tscn")
+
+
+func _minigames_command(full_command: String):
+	var debug_screen = load_minigame(ResourceLoader.load("res://Core/Minigames/debug_select_screen.tres"))
+	debug_screen.initialize(get_all_minigames())
 
 
 func _on_player_select_screen_start_pressed() -> void:
@@ -53,6 +62,17 @@ func _pop_scene():
 	var active_scene = get_active_scene()
 	if active_scene != null:
 		active_scene.process_mode = Node.PROCESS_MODE_INHERIT
+
+
+func _pop_until_board():
+	var active_scene = get_active_scene()
+	if active_scene == null:
+		print("Error: Cannot pop until board with empty stack.")
+		return
+	
+	while active_scene is not GameBoard:
+		_pop_scene()
+		active_scene = get_active_scene()
 
 
 func open_player_select_screen() -> void:
@@ -86,3 +106,10 @@ func get_all_minigames() -> Array[Minigame]:
 		file_name = dir.get_next()
 	
 	return minigames
+
+
+func load_minigame(minigame: Minigame) -> Node:
+	_pop_until_board()
+	var minigame2 = minigame.scene.instantiate()
+	_push_scene(minigame2)
+	return minigame2

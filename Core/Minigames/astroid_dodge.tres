@@ -8,3 +8,4 @@ script = ExtResource("1_2y0th")
 name = "Astroid Dodge"
 description = ""
 scene = ExtResource("1_jyttq")
+published = false
