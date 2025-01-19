@@ -33,7 +33,7 @@ radial_segments = 8
 resource_local_to_scene = true
 albedo_texture = ExtResource("2_su027")
 uv1_scale = Vector3(0.5, 2, 0)
-uv1_offset = Vector3(0.315, 0, 0)
+uv1_offset = Vector3(0.19, 0, 0)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ureoh"]
 top_radius = 0.25
@@ -44,6 +44,7 @@ radial_segments = 8
 [node name="Conveyor" type="Node3D"]
 script = ExtResource("1_e80us")
 length = 10.0
+speed = 2.0
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_7ersl")
