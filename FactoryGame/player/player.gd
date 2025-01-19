@@ -35,7 +35,6 @@ const THROW_STRENGTH_PLAYER_VELOCITY_INFLUENCE = 0.3
 const STUN_DURATION = 2.0
 
 
-# TODO: swap this out with right stick input later on or something more intuitive
 var facing_direction = Vector3(1, 0, 0);
 var prev_throwbutton_state = false;
 
@@ -140,9 +139,6 @@ func update_strength_bar_position():
 
 
 func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-	
 	var direction = get_direction()
 	if direction:
 		facing_direction = direction
