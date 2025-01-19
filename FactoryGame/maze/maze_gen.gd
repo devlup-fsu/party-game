@@ -5,7 +5,6 @@ class_name FactoryMazeGen
 @export var wall_height: float = 3.0
 @export var wall_thickness: float = 0.2
 @export var maze_translation: Vector3 = Vector3.ZERO
-@export var amount_moving_walls: int = 3
 
 ## If set, this maze will always be loaded.
 ## Must be the entire file name. Ex: "level1.json"
