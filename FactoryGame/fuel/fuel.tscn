@@ -22,7 +22,7 @@ radius = 0.8
 
 [node name="Fuel" type="RigidBody3D"]
 collision_layer = 2
-collision_mask = 111
+collision_mask = 239
 physics_material_override = SubResource("PhysicsMaterial_vh1ty")
 gravity_scale = 2.0
 script = ExtResource("1_dcd1w")
