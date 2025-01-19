@@ -5,10 +5,11 @@ var fuel = preload("res://FactoryGame/fuel/fuel.tscn")
 
 @onready var parent: Node3D = get_parent()
 
-@export var generate_interval := 5.0  # seconds
+@export var generate_interval := 10.0  # seconds
 @export var generate_interval_variance := 0.25
+@export var generate_interval_offset := 0.0
 
-const GENERATE_DISTANCE_VARIANCE := 0.75
+const GENERATE_DISTANCE_VARIANCE := 0.5
 
 var generate_timer := 0.0
 
@@ -18,10 +19,9 @@ var fuel_type_bucket: Array = []
 
 
 func _ready():
-	var material: Material = $Pipe.get_active_material(0).duplicate() as StandardMaterial3D
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.albedo_color.a = 0.95
-	$Pipe.set_surface_override_material(0, material)
+	if not Engine.is_editor_hint():
+		$Sprite.visible = false;
+	generate_timer = generate_interval_offset
 
 
 func get_bucket_value(bucket: Array, bucket_size: int) -> int:
@@ -50,6 +50,7 @@ func generate_fuel():
 	
 	add_child(fuel_node)
 	parent.amount_fuel_objects += 1
+
 
 func _process(delta: float) -> void:
 	generate_timer -= delta

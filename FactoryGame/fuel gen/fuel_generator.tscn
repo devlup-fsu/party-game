@@ -1,16 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://8im326ay6uie"]
+[gd_scene load_steps=3 format=3 uid="uid://8im326ay6uie"]
 
 [ext_resource type="Script" path="res://FactoryGame/fuel gen/fuel_generator.gd" id="1_yrj0g"]
-[ext_resource type="ArrayMesh" uid="uid://hsbvpykn7p3t" path="res://FactoryGame/resources/models/pipe.obj" id="2_c3vdh"]
-[ext_resource type="Material" uid="uid://buoetfpmvsj3r" path="res://FactoryGame/resources/materials/dull-metal-bl/dull-metal.tres" id="3_myasb"]
+[ext_resource type="Texture2D" uid="uid://d3hhfgwpgge1m" path="res://FactoryGame/resources/textures/generator.png" id="2_p0xeb"]
 
 [node name="FuelGenerator" type="Node3D"]
 script = ExtResource("1_yrj0g")
 
-[node name="Pipe" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 6, 0)
-mesh = ExtResource("2_c3vdh")
-surface_material_override/0 = ExtResource("3_myasb")
-
 [node name="GenerateLocation" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.60262, 0)
+
+[node name="Sprite" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("2_p0xeb")
