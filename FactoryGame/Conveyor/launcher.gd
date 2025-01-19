@@ -36,7 +36,7 @@ func _process(delta):
 			launch_countdown = -1.0
 	
 	if flipper_animation_state == FlipperAnimationState.FLIP:
-		$FlipperMesh.rotation.x += 0.1;
+		$FlipperMesh.rotation.x += 10.0 * delta;
 		if $FlipperMesh.rotation.x >= deg_to_rad(90.0):
 			flipper_animation_state = FlipperAnimationState.FLIPPED
 			flipper_animation_timer = FLIPPER_FLIPPED_WAIT_TIME
@@ -45,7 +45,7 @@ func _process(delta):
 		if flipper_animation_timer <= 0.0:
 			flipper_animation_state = FlipperAnimationState.RETURN
 	elif flipper_animation_state == FlipperAnimationState.RETURN:
-		$FlipperMesh.rotation.x -= 0.01;
+		$FlipperMesh.rotation.x -= 2.0 * delta;
 		if $FlipperMesh.rotation.x <= 0.0:
 			flipper_animation_state = FlipperAnimationState.IDLE
 
