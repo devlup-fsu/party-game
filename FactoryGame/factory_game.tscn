@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6jvsgy5x4q3"]
+[gd_scene load_steps=19 format=3 uid="uid://c6jvsgy5x4q3"]
 
 [ext_resource type="PackedScene" uid="uid://ges8lqnwpw11" path="res://FactoryGame/player/player.tscn" id="1_00avj"]
 [ext_resource type="Script" path="res://FactoryGame/factory_game.gd" id="1_iji3h"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://FactoryGame/ui/score_display.gd" id="8_ekchf"]
 [ext_resource type="Script" path="res://FactoryGame/fuel gen/fuel_generator_container.gd" id="8_nqspd"]
 [ext_resource type="Script" path="res://FactoryGame/maze/maze_gen.gd" id="9_ajj37"]
+[ext_resource type="PackedScene" uid="uid://pfuwki2d02i0" path="res://FactoryGame/Conveyor/conveyor.tscn" id="11_4kvkj"]
+[ext_resource type="PackedScene" uid="uid://bv7wnqnu8dv23" path="res://FactoryGame/Conveyor/launcher.tscn" id="12_ctq0a"]
 [ext_resource type="PackedScene" uid="uid://ma2132hoyxdb" path="res://FactoryGame/BG/BGObjects/BackGround.tscn" id="13_di267"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7wt6"]
@@ -139,8 +141,34 @@ type = 3
 [node name="Generators" type="Node3D" parent="."]
 script = ExtResource("8_nqspd")
 
-[node name="FuelGenerator" parent="Generators" instance=ExtResource("6_64uwv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.4302, 0)
+[node name="FuelGenerator22" parent="Generators" instance=ExtResource("6_64uwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 10, 0)
+generate_interval_offset = 5.0
+
+[node name="FuelGenerator1" parent="Generators" instance=ExtResource("6_64uwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 10, 0)
+
+[node name="Launchers" type="Node3D" parent="."]
+
+[node name="Right" type="Node3D" parent="Launchers"]
+
+[node name="Conveyor" parent="Launchers/Right" instance=ExtResource("11_4kvkj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 41.371, 8.51536, 0)
+length = 30.0
+speed = 4.0
+
+[node name="Launcher" parent="Launchers/Right" instance=ExtResource("12_ctq0a")]
+transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 24.9141, 8.00234, 0)
+
+[node name="Left" type="Node3D" parent="Launchers"]
+
+[node name="Conveyor" parent="Launchers/Left" instance=ExtResource("11_4kvkj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.371, 8.515, 0)
+length = 30.0
+speed = 4.0
+
+[node name="Launcher" parent="Launchers/Left" instance=ExtResource("12_ctq0a")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.914, 8.002, 0)
 
 [node name="FpsLabel" type="Label" parent="."]
 offset_right = 40.0
@@ -173,10 +201,12 @@ offset_right = 43.0
 offset_bottom = 94.0
 text = "Time:"
 
-[node name="Node3D" parent="." instance=ExtResource("13_di267")]
+[node name="Background" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
 
-[node name="Node3D2" parent="." instance=ExtResource("13_di267")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.1, 0, 0)
+[node name="BackgroundLeft" parent="Background" instance=ExtResource("13_di267")]
+
+[node name="BackgroundRight" parent="Background" instance=ExtResource("13_di267")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.3, 0, 0)
 
 [connection signal="timeout" from="Timer" to="ScoreDisplay" method="_on_timer_timeout"]
