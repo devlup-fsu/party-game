@@ -60,17 +60,21 @@ unique_name_in_owner = true
 
 [node name="Player1" parent="Players" instance=ExtResource("1_00avj")]
 transform = Transform3D(0.999838, -0.0179934, 0, 0.0179934, 0.999838, 0, 0, 0, 1, 0, 2.298, -19)
+safe_margin = 0.05
 
 [node name="Player2" parent="Players" instance=ExtResource("1_00avj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2.298, 0)
+safe_margin = 0.05
 player_number = 1
 
 [node name="Player3" parent="Players" instance=ExtResource("1_00avj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2.298, 0)
+safe_margin = 0.05
 player_number = 2
 
 [node name="Player4" parent="Players" instance=ExtResource("1_00avj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.298, 19)
+safe_margin = 0.05
 player_number = 3
 
 [node name="LevelGeometry" type="Node3D" parent="."]
@@ -190,7 +194,6 @@ script = ExtResource("9_ajj37")
 maze_size = 30.0
 wall_height = 4.0
 wall_thickness = 0.5
-amount_moving_walls = 4
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
