@@ -40,9 +40,8 @@ func generate_fuel():
 	var facing_vector = Vector2.from_angle(rand_angle()) * distance
 	var shift_vector = Vector3(facing_vector.x, 0, facing_vector.y)
 	var angular_velocity = Vector3(randf_range(-2, 2), randf_range(-2, 2), randf_range(-2, 2)) 
-	var fuel_node: Fuel = fuel.instantiate()
 	
-	fuel_node.set_type(get_bucket_value(fuel_type_bucket, 4))
+	var fuel_node: Fuel = fuel.instantiate()
 	fuel_node.position = $GenerateLocation.position
 	fuel_node.translate_object_local(shift_vector)
 	fuel_node.angular_velocity = angular_velocity

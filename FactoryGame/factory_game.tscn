@@ -59,21 +59,21 @@ environment = ExtResource("2_pjdpf")
 unique_name_in_owner = true
 
 [node name="Player1" parent="Players" instance=ExtResource("1_00avj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29755, -19)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2.298, -16)
 safe_margin = 0.05
 
 [node name="Player2" parent="Players" instance=ExtResource("1_00avj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2.298, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 2.298, -16)
 safe_margin = 0.05
 player_number = 1
 
 [node name="Player3" parent="Players" instance=ExtResource("1_00avj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2.298, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2.298, 16)
 safe_margin = 0.05
 player_number = 2
 
 [node name="Player4" parent="Players" instance=ExtResource("1_00avj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.298, 19)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 2.298, 16)
 safe_margin = 0.05
 player_number = 3
 
@@ -127,20 +127,21 @@ shape = SubResource("BoxShape3D_r47md")
 
 [node name="Furnaces" type="Node3D" parent="."]
 
-[node name="Furnace1" parent="Furnaces" instance=ExtResource("4_6j1yc")]
+[node name="Furnace1" parent="Furnaces" node_paths=PackedStringArray("player") instance=ExtResource("4_6j1yc")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -20, 2, -20)
+player = NodePath("../../Players/Player1")
 
-[node name="Furnace2" parent="Furnaces" instance=ExtResource("4_6j1yc")]
+[node name="Furnace2" parent="Furnaces" node_paths=PackedStringArray("player") instance=ExtResource("4_6j1yc")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 20, 2, -20)
-type = 1
+player = NodePath("../../Players/Player2")
 
-[node name="Furnace3" parent="Furnaces" instance=ExtResource("4_6j1yc")]
+[node name="Furnace3" parent="Furnaces" node_paths=PackedStringArray("player") instance=ExtResource("4_6j1yc")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -20, 2, 20)
-type = 2
+player = NodePath("../../Players/Player3")
 
-[node name="Furnace4" parent="Furnaces" instance=ExtResource("4_6j1yc")]
+[node name="Furnace4" parent="Furnaces" node_paths=PackedStringArray("player") instance=ExtResource("4_6j1yc")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 20, 2, 20)
-type = 3
+player = NodePath("../../Players/Player4")
 
 [node name="Generators" type="Node3D" parent="."]
 script = ExtResource("8_nqspd")

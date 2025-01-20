@@ -3,7 +3,7 @@
 Finalizations to Factory Minigame, should be completed by 1-31-25
 
 ## Gameplay Changes
-[ ] Swtich to a "home base" collection system
+[x] Swtich to a "home base" collection system
 	- Each player will now have their own base to bring fuel back to
 	- Now only 1 type of fuel
 	- This is much more intuitive and makes more sense overall
