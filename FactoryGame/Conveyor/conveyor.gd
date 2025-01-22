@@ -13,7 +13,7 @@ extends Node3D
 	set(value):
 		speed = value
 
-@export var scroll_speed: float = 0.005:
+@export var scroll_speed: float = 0.75:
 	set(value):
 		scroll_speed = value
 
@@ -44,7 +44,8 @@ func _ready() -> void:
 		$ForceArea/Shape.disabled = disable_force
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if preview_scroll or not Engine.is_editor_hint():
-		conveyor_material.uv1_offset.x = wrap(conveyor_material.uv1_offset.x+scroll_speed, 0, 1)
-		cylinder_material.uv1_offset.x = wrap(cylinder_material.uv1_offset.x+scroll_speed, 0, 1)
+		var scroll_speed_delta = scroll_speed * delta
+		conveyor_material.uv1_offset.x = wrap(conveyor_material.uv1_offset.x+scroll_speed_delta, 0, 1)
+		cylinder_material.uv1_offset.x = wrap(cylinder_material.uv1_offset.x+scroll_speed_delta, 0, 1)
