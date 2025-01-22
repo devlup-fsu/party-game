@@ -1,21 +1,20 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6jvsgy5x4q3"]
+[gd_scene load_steps=18 format=3 uid="uid://c6jvsgy5x4q3"]
 
-[ext_resource type="PackedScene" uid="uid://ges8lqnwpw11" path="res://FactoryGame/player/player.tscn" id="1_00avj"]
+[ext_resource type="PackedScene" uid="uid://ges8lqnwpw11" path="res://FactoryGame/Player/player.tscn" id="1_00avj"]
 [ext_resource type="Script" path="res://FactoryGame/factory_game.gd" id="1_iji3h"]
-[ext_resource type="PackedScene" uid="uid://cchk8dtc054e5" path="res://FactoryGame/lamp/lamp.tscn" id="2_dgur4"]
-[ext_resource type="Environment" uid="uid://dg6l0wqbnceet" path="res://FactoryGame/resources/sky.tres" id="2_pjdpf"]
-[ext_resource type="PackedScene" uid="uid://dt1gyjiqt10pe" path="res://FactoryGame/furnace/furnace.tscn" id="4_6j1yc"]
-[ext_resource type="Material" uid="uid://brqxm3henxq7l" path="res://FactoryGame/resources/materials/clean-concrete-bl/concrete_material.tres" id="4_atkfc"]
-[ext_resource type="Texture2D" uid="uid://4an807npuiia" path="res://FactoryGame/BG/Sprite-1.png" id="5_08k5x"]
-[ext_resource type="Material" uid="uid://bw05a2hcnvpse" path="res://FactoryGame/resources/materials/brick-wall-bl/brick_material.tres" id="5_q47ng"]
-[ext_resource type="PackedScene" uid="uid://8im326ay6uie" path="res://FactoryGame/fuel gen/fuel_generator.tscn" id="6_64uwv"]
-[ext_resource type="Script" path="res://FactoryGame/ui/fps_label.gd" id="7_ppaln"]
-[ext_resource type="Script" path="res://FactoryGame/ui/score_display.gd" id="8_ekchf"]
-[ext_resource type="Script" path="res://FactoryGame/fuel gen/fuel_generator_container.gd" id="8_nqspd"]
-[ext_resource type="Script" path="res://FactoryGame/maze/maze_gen.gd" id="9_ajj37"]
+[ext_resource type="PackedScene" uid="uid://cchk8dtc054e5" path="res://FactoryGame/Lamp/lamp.tscn" id="2_dgur4"]
+[ext_resource type="Environment" uid="uid://dg6l0wqbnceet" path="res://FactoryGame/Resources/Materials/sky.tres" id="2_pjdpf"]
+[ext_resource type="PackedScene" uid="uid://dt1gyjiqt10pe" path="res://FactoryGame/Receptacle/furnace.tscn" id="4_6j1yc"]
+[ext_resource type="Texture2D" uid="uid://4an807npuiia" path="res://FactoryGame/Resources/Textures/Background/Floor.png" id="5_08k5x"]
+[ext_resource type="Material" uid="uid://bw05a2hcnvpse" path="res://FactoryGame/Resources/Materials/brick-wall-bl/brick_material.tres" id="5_q47ng"]
+[ext_resource type="PackedScene" uid="uid://8im326ay6uie" path="res://FactoryGame/FuelGenerator/fuel_generator.tscn" id="6_64uwv"]
+[ext_resource type="Script" path="res://FactoryGame/UI/fps_label.gd" id="7_ppaln"]
+[ext_resource type="Script" path="res://FactoryGame/UI/score_display.gd" id="8_ekchf"]
+[ext_resource type="Script" path="res://FactoryGame/FuelGenerator/fuel_generator_container.gd" id="8_nqspd"]
+[ext_resource type="Script" path="res://FactoryGame/Maze/maze_gen.gd" id="9_ajj37"]
 [ext_resource type="PackedScene" uid="uid://pfuwki2d02i0" path="res://FactoryGame/Conveyor/conveyor.tscn" id="11_4kvkj"]
 [ext_resource type="PackedScene" uid="uid://bv7wnqnu8dv23" path="res://FactoryGame/Conveyor/launcher.tscn" id="12_ctq0a"]
-[ext_resource type="PackedScene" uid="uid://ma2132hoyxdb" path="res://FactoryGame/BG/BGObjects/BackGround.tscn" id="13_di267"]
+[ext_resource type="PackedScene" uid="uid://ma2132hoyxdb" path="res://FactoryGame/Background/BackGround.tscn" id="13_di267"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7wt6"]
 albedo_texture = ExtResource("5_08k5x")
@@ -81,12 +80,11 @@ player_number = 3
 transform = Transform3D(0.995106, 0, 0, 0, 0.995106, 0, 0, 0, 0.995106, 0, 0, 0)
 
 [node name="Floor" type="CSGBox3D" parent="LevelGeometry"]
-material_override = SubResource("StandardMaterial3D_f7wt6")
 use_collision = true
 collision_layer = 4
 collision_mask = 7
 size = Vector3(45, 1, 45)
-material = ExtResource("4_atkfc")
+material = SubResource("StandardMaterial3D_f7wt6")
 
 [node name="OuterWall1" type="CSGBox3D" parent="LevelGeometry"]
 transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 45, -22.5, 3.5, 0)
@@ -195,6 +193,8 @@ script = ExtResource("9_ajj37")
 maze_size = 30.0
 wall_height = 4.0
 wall_thickness = 0.5
+maze_translation = null
+debug_selected_maze = null
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

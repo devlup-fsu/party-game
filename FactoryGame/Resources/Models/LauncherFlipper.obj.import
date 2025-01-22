@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cj3d0qi4civg4"
+path="res://.godot/imported/LauncherFlipper.obj-d4d5330ab0cd3b42d2d87f3f240a993e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/LauncherFlipper.obj-d4d5330ab0cd3b42d2d87f3f240a993e.mesh"]
+
+source_file="res://FactoryGame/Resources/Models/LauncherFlipper.obj"
+dest_files=["res://.godot/imported/LauncherFlipper.obj-d4d5330ab0cd3b42d2d87f3f240a993e.mesh", "res://.godot/imported/LauncherFlipper.obj-d4d5330ab0cd3b42d2d87f3f240a993e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

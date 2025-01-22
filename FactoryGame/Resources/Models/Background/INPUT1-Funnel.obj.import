@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dy8nnsed8doil"
+path="res://.godot/imported/INPUT1-Funnel.obj-add589b45b53294b12c67b0e429b3f44.mesh"
+
+[deps]
+
+files=["res://.godot/imported/INPUT1-Funnel.obj-add589b45b53294b12c67b0e429b3f44.mesh"]
+
+source_file="res://FactoryGame/Resources/Models/Background/INPUT1-Funnel.obj"
+dest_files=["res://.godot/imported/INPUT1-Funnel.obj-add589b45b53294b12c67b0e429b3f44.mesh", "res://.godot/imported/INPUT1-Funnel.obj-add589b45b53294b12c67b0e429b3f44.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

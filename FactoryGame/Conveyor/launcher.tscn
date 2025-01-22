@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://bv7wnqnu8dv23"]
 
-[ext_resource type="ArrayMesh" uid="uid://c5egfq4fqv266" path="res://FactoryGame/resources/models/LPadBase.obj" id="1_lt0j2"]
+[ext_resource type="ArrayMesh" uid="uid://c5egfq4fqv266" path="res://FactoryGame/Resources/Models/LPadBase.obj" id="1_lt0j2"]
 [ext_resource type="Script" path="res://FactoryGame/Conveyor/launcher.gd" id="1_tbbnt"]
-[ext_resource type="Texture2D" uid="uid://bwxxgg8b0oaoj" path="res://FactoryGame/BG/Sprite-0001.png" id="1_yo2n5"]
-[ext_resource type="Texture2D" uid="uid://dk44otelm3xa6" path="res://FactoryGame/BG/Sprite-0002.png" id="3_o8ijy"]
-[ext_resource type="ArrayMesh" uid="uid://cj3d0qi4civg4" path="res://FactoryGame/resources/models/LauncherFlipper.obj" id="5_i4jy8"]
-[ext_resource type="Texture2D" uid="uid://d3p7lfbdci5dt" path="res://FactoryGame/resources/textures/arrow.png" id="6_x7lws"]
+[ext_resource type="Texture2D" uid="uid://bwxxgg8b0oaoj" path="res://FactoryGame/Resources/Textures/FunnelAndLauncher.png" id="1_yo2n5"]
+[ext_resource type="Texture2D" uid="uid://dk44otelm3xa6" path="res://FactoryGame/Resources/Textures/Background/LauncherPad.png" id="3_o8ijy"]
+[ext_resource type="ArrayMesh" uid="uid://cj3d0qi4civg4" path="res://FactoryGame/Resources/Models/LauncherFlipper.obj" id="5_i4jy8"]
+[ext_resource type="Texture2D" uid="uid://d3p7lfbdci5dt" path="res://FactoryGame/Resources/Textures/arrow.png" id="6_x7lws"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twncy"]
 albedo_texture = ExtResource("1_yo2n5")

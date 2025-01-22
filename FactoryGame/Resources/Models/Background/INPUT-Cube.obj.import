@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b4yy2vpq6r4qo"
+path="res://.godot/imported/INPUT-Cube.obj-e86f5f6f93f1c9883a48fc11e48783fe.mesh"
+
+[deps]
+
+files=["res://.godot/imported/INPUT-Cube.obj-e86f5f6f93f1c9883a48fc11e48783fe.mesh"]
+
+source_file="res://FactoryGame/Resources/Models/Background/INPUT-Cube.obj"
+dest_files=["res://.godot/imported/INPUT-Cube.obj-e86f5f6f93f1c9883a48fc11e48783fe.mesh", "res://.godot/imported/INPUT-Cube.obj-e86f5f6f93f1c9883a48fc11e48783fe.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
