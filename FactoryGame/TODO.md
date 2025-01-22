@@ -9,6 +9,7 @@ Finalizations to Factory Minigame, should be completed by 1-31-25
 	- This is much more intuitive and makes more sense overall
 [x] Punching
 	[ ] Don't let players punch through walls
+	[ ] Lock player direction while punching
 [ ] Reduce throw strength
 [ ] Joystick snapback fix?
 [ ] Remove drop-punch exploit?
@@ -17,6 +18,7 @@ Finalizations to Factory Minigame, should be completed by 1-31-25
 [ ] Increase throw charge time
 [ ] Make throw charge oscillate while button is held
 	- This would make it so players actually have to time their throw to get the maximum strength
+[ ] Reposition receptacle hitbox
 
 ## Graphical Changes
 [ ] Replace brick wall material with something else
