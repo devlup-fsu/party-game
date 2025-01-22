@@ -24,7 +24,7 @@ emission = Color(0, 1, 0, 1)
 emission_energy_multiplier = 10.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_semkm"]
-radius = 0.8
+radius = 0.9
 
 [node name="Fuel" type="RigidBody3D"]
 collision_layer = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ges8lqnwpw11"]
+[gd_scene load_steps=14 format=3 uid="uid://ges8lqnwpw11"]
 
 [ext_resource type="Script" path="res://FactoryGame/player/player.gd" id="1_4pf3t"]
 [ext_resource type="Texture2D" uid="uid://dpxpv5wrj44gt" path="res://FactoryGame/resources/textures/throw_bar/over.png" id="2_nsf7m"]
@@ -31,6 +31,13 @@ gradient = SubResource("Gradient_wlc5i")
 width = 60
 height = 14
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fntdy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gb68g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_el4do"]
+albedo_color = Color(0.466667, 1, 0.466667, 1)
+
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0329933, -4.76837e-07, -0.0111046)
 collision_mask = 13
@@ -61,3 +68,16 @@ offset_bottom = 16.0
 texture_over = ExtResource("2_nsf7m")
 texture_progress = SubResource("GradientTexture2D_ychfj")
 texture_progress_offset = Vector2(2, 1)
+
+[node name="PunchHitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PunchHitbox"]
+shape = SubResource("BoxShape3D_fntdy")
+
+[node name="PunchIndicatorMesh" type="MeshInstance3D" parent="PunchHitbox"]
+mesh = SubResource("BoxMesh_gb68g")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_el4do")
+
+[connection signal="body_entered" from="PunchHitbox" to="." method="_on_punch_hitbox_body_entered"]

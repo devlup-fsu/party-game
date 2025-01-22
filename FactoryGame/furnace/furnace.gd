@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Fuel:
-		if body.carrier.carried_fuel_node == body:  # Walked into furnace
+		if body.carrier != null and body.carrier.carried_fuel_node == body:  # Walked into furnace
 			body.carrier.carried_fuel_node = null
 			body.carrier.reset_throw_charge()
 		player.points += 1

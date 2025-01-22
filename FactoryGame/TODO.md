@@ -7,8 +7,16 @@ Finalizations to Factory Minigame, should be completed by 1-31-25
 	- Each player will now have their own base to bring fuel back to
 	- Now only 1 type of fuel
 	- This is much more intuitive and makes more sense overall
-[ ] Punching
+[x] Punching
+	[ ] Don't let players punch through walls
 [ ] Reduce throw strength
+[ ] Joystick snapback fix?
+[ ] Remove drop-punch exploit?
+	- This is when you drop your held fuel, punch immediately, then pick the fuel back up
+	- This could be a cool tech to keep in if it's made more difficult to perform
+[ ] Increase throw charge time
+[ ] Make throw charge oscillate while button is held
+	- This would make it so players actually have to time their throw to get the maximum strength
 
 ## Graphical Changes
 [ ] Replace brick wall material with something else
@@ -25,6 +33,8 @@ Finalizations to Factory Minigame, should be completed by 1-31-25
 [ ] Music
 
 ## Other
+[ ] Refactoring
+	- Rename directories, files, etc to match convention
 [ ] ACTUAL GAME NAME
 [ ] Intro cutscene
 	- Probably just a 3, 2, 1 countdown
