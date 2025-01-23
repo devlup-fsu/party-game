@@ -19,9 +19,8 @@ func _physics_process(_delta: float) -> void:
 		
 			# Stun check
 			if parent.is_dangerous and parent.carrier != body:
-				var drop_vector = body.position - parent.position
-				drop_vector.y = randf_range(0.0, 1.0)
-				body.stun(drop_vector)
+				var drop_vector = Vector3(randf_range(-1.0, 1.0), randf_range(0.0, 1.0), randf_range(-1.0, 1.0))
+				body.stun(drop_vector, false)
 				parent.is_dangerous = false
 		
 		elif body is CSGBox3D:  # Floor and walls. Would like for a better check here as later this may be an issue

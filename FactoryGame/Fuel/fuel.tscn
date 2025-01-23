@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ywlbgl2hhb30"]
+[gd_scene load_steps=11 format=3 uid="uid://ywlbgl2hhb30"]
 
 [ext_resource type="Script" path="res://FactoryGame/Fuel/fuel.gd" id="1_dcd1w"]
 [ext_resource type="Script" path="res://FactoryGame/Fuel/fuel_collision.gd" id="2_8ssu2"]
 [ext_resource type="Material" uid="uid://buoetfpmvsj3r" path="res://FactoryGame/Resources/Materials/dull-metal-bl/dull-metal.tres" id="3_ta5d5"]
 [ext_resource type="ArrayMesh" uid="uid://cuhp34b4rrggn" path="res://FactoryGame/Resources/Models/PowerCoreShell.obj" id="5_3qroe"]
+[ext_resource type="AudioStream" uid="uid://vvswuvht0jac" path="res://FactoryGame/Resources/Audio/fuel_clank.wav" id="5_shv57"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vh1ty"]
 friction = 10.0
@@ -58,6 +59,13 @@ script = ExtResource("2_8ssu2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_semkm")
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="Clank" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("5_shv57")
+attenuation_model = 3
+volume_db = -3.0
 
 [connection signal="area_entered" from="Area3D" to="Area3D" method="_on_area_entered"]
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

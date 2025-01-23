@@ -25,11 +25,12 @@ enum PunchState {
 
 const MAX_VELOCITY = 10.0
 const ACCELERATION = 2.5
-const FRICTION = 2.0
+const FRICTION = 1.5
+const STUNNED_FRICTION = 0.5  # Friction that is applied when stunned.
 const JUMP_VELOCITY = 4.5
 const JOYSTICK_CARDINAL_SNAP_ANGLE = 0.075
 
-const PICKUP_COOLDOWN = 0.5  # seconds
+const PICKUP_COOLDOWN = 0.5
 const MAX_THROW_CHARGE = 1.0
 const THROW_STRENGTH_HORIZONTAL = 18.0
 const THROW_STRENGTH_VERTICAL = 0.1
@@ -42,6 +43,7 @@ const PUNCH_HITBOX_DISTANCE = 1.5
 const PUNCH_DANGER_TIME = 0.3
 const PUNCH_COOLDOWN_TIME = 0.75
 const PUNCH_SPEED_MODIFIER = 0.3  # Slow down the player while they're punching
+const PUNCH_FORCE = 10.0  # How far the player should be knocked back when punched
 
 const STUN_DURATION = 0.75
 const STUN_DROP_STRENGTH = 5.0
@@ -90,19 +92,15 @@ func get_direction() -> Vector3:
 
 
 func update_velocity(direction: Vector3):
-	if is_stunned: # wont update velocity when stunned
-		velocity.x = 0
-		velocity.y = 0
-		velocity.z = 0
-		return
+	var friction = FRICTION if not is_stunned else STUNNED_FRICTION
 	if direction.x:
 		velocity.x = clamp(velocity.x + direction.x * ACCELERATION, -MAX_VELOCITY, MAX_VELOCITY)
 	else:
-		velocity.x = move_toward(velocity.x, 0, FRICTION)
+		velocity.x = move_toward(velocity.x, 0, friction)
 	if direction.z:
 		velocity.z = clamp(velocity.z + direction.z * ACCELERATION, -MAX_VELOCITY, MAX_VELOCITY)
 	else:
-		velocity.z = move_toward(velocity.z, 0, FRICTION)
+		velocity.z = move_toward(velocity.z, 0, friction)
 	
 	if punch_state != PunchState.IDLE:
 		velocity *= PUNCH_SPEED_MODIFIER
@@ -132,9 +130,13 @@ func throw_tick(delta: float):
 			var angular_vector = throw_direction.rotated(Vector3(0, 1, 0), PI/4) * throw_charge * 10
 			carried_fuel_node.angular_velocity = angular_vector
 			
-			carried_fuel_node.is_dangerous = true  # sets dangerous to true once the fuel cell is thrown
+			carried_fuel_node.is_dangerous = true  # Sets dangerous to true once the fuel cell is thrown
 			carried_fuel_node.being_carried = false
 			carried_fuel_node = null
+			
+			$SFX/Throw.pitch_scale = remap(throw_charge, 0.0, MAX_THROW_CHARGE, 1.0, 2.0)  # Increase pitch with throw charge
+			$SFX/Throw.play()
+			
 			reset_throw_charge()
 	
 	prev_throwbutton_state = current_throwbutton_state
@@ -157,19 +159,29 @@ func update_strength_bar_position():
 
 
 # Stuns this player.
-func stun(drop_vector: Vector3):
+func stun(drop_vector: Vector3, push: bool):
 	set_stunned_material()
 	is_stunned = true
 	stun_timer = STUN_DURATION
 	
+	drop_vector = drop_vector.normalized()
+	
+	# Push player back
+	if push:
+		var push_vector = drop_vector
+		push_vector.y = 0.0
+		velocity = push_vector * PUNCH_FORCE
+	
 	# Drop fuel
 	if carried_fuel_node != null:
 		carried_fuel_node.being_carried = false
-		drop_vector = drop_vector.normalized()
 		var angular_vector = drop_vector.rotated(Vector3(0, 1, 0), PI/4.0)
 		carried_fuel_node.linear_velocity = drop_vector * STUN_DROP_STRENGTH
 		carried_fuel_node.angular_velocity = angular_vector * STUN_DROP_STRENGTH
 		carried_fuel_node = null
+	
+	# Play punch sound
+	$SFX/Punch.play()
 
 func stun_tick(delta: float):
 	if is_stunned:
@@ -188,6 +200,7 @@ func punch_tick(delta: float):
 		punch_state = PunchState.DANGER
 		punch_timer = PUNCH_DANGER_TIME
 		punch_direction = facing_direction
+		$SFX/PunchSwing.play()
 	
 	if punch_state == PunchState.DANGER:
 		punch_timer -= delta
@@ -208,9 +221,9 @@ func punch_tick(delta: float):
 				var raycast_result = space_state.intersect_ray(raycast_params)
 				if raycast_result:  # A wall is between the players
 					continue
-				var drop_vector: Vector3 = body.position - position
+				var drop_vector = body.position - position
 				drop_vector.y = randf_range(0.0, 1.0)
-				body.stun(drop_vector)
+				body.stun(drop_vector, true)
 	
 	var colors = [
 		Color(0.5, 1.0, 0.5),
@@ -226,6 +239,8 @@ func _physics_process(delta: float) -> void:
 	var direction = get_direction()
 	if direction:
 		facing_direction = direction if punch_state == PunchState.IDLE else punch_direction
+	if is_stunned:
+		direction = Vector3.ZERO  # No movement when stunned
 		
 	update_velocity(direction)
 	move_and_slide()

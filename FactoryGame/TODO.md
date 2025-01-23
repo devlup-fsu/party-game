@@ -29,10 +29,12 @@ Finalizations to Factory Minigame, should be completed by 1-31-25
 ## Audio
 [ ] Sound effects
 	[ ] Pickup
-	[ ] Punch
-	[ ] Hit by punch
+	[x] Punch
+	[x] Hit by punch
 	[ ] Deposit fuel
+	[x] Throw fuel
 	[ ] Launch fuel
+	[x] Fuel hit wall
 [ ] Music
 
 ## Other
@@ -42,3 +44,7 @@ Finalizations to Factory Minigame, should be completed by 1-31-25
 [ ] Intro cutscene
 	- Probably just a 3, 2, 1 countdown
 [ ] Ending cutscene
+
+## Bugfixes
+[ ] Players getting stuck when sliding against outer walls
+	- No idea what's causing this, happens at the same point on each wall
