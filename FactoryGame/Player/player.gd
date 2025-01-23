@@ -23,9 +23,9 @@ enum PunchState {
 	COOLDOWN
 }
 
-const MAX_VELOCITY = 9
+const MAX_VELOCITY = 10.0
 const ACCELERATION = 2.5
-const FRICTION = 2
+const FRICTION = 2.0
 const JUMP_VELOCITY = 4.5
 const JOYSTICK_CARDINAL_SNAP_ANGLE = 0.075
 
@@ -41,7 +41,7 @@ const THROW_BAR_SMOOTHING_SPEED: float = 0.35
 const PUNCH_HITBOX_DISTANCE = 1.5
 const PUNCH_DANGER_TIME = 0.3
 const PUNCH_COOLDOWN_TIME = 0.75
-const PUNCH_SPEED_MODIFIER = 0.5  # Slow down the player while they're punching
+const PUNCH_SPEED_MODIFIER = 0.3  # Slow down the player while they're punching
 
 const STUN_DURATION = 0.75
 const STUN_DROP_STRENGTH = 5.0
@@ -55,6 +55,7 @@ var current_pickup_cooldown = 0
 var throw_charge = 0.0
 var punch_state := PunchState.IDLE
 var punch_timer = 0.0
+var punch_direction: Vector3 = Vector3.ZERO
 var is_stunned: bool = false # gets stunned when a dangerous fuel cell collides with player
 var stun_timer = 0.0
 
@@ -186,6 +187,7 @@ func punch_tick(delta: float):
 	and carried_fuel_node == null:
 		punch_state = PunchState.DANGER
 		punch_timer = PUNCH_DANGER_TIME
+		punch_direction = facing_direction
 	
 	if punch_state == PunchState.DANGER:
 		punch_timer -= delta
@@ -200,6 +202,12 @@ func punch_tick(delta: float):
 	if punch_state == PunchState.DANGER:
 		for body in $PunchHitbox.get_overlapping_bodies():
 			if body is FactoryPlayer and body != self and not body.is_stunned:
+				var space_state = get_world_3d().direct_space_state
+				var to = position + facing_direction * PUNCH_HITBOX_DISTANCE
+				var raycast_params = PhysicsRayQueryParameters3D.create(position, to, 4)  # Collision layer 3 only
+				var raycast_result = space_state.intersect_ray(raycast_params)
+				if raycast_result:  # A wall is between the players
+					continue
 				var drop_vector: Vector3 = body.position - position
 				drop_vector.y = randf_range(0.0, 1.0)
 				body.stun(drop_vector)
@@ -217,7 +225,7 @@ func punch_tick(delta: float):
 func _physics_process(delta: float) -> void:
 	var direction = get_direction()
 	if direction:
-		facing_direction = direction
+		facing_direction = direction if punch_state == PunchState.IDLE else punch_direction
 		
 	update_velocity(direction)
 	move_and_slide()

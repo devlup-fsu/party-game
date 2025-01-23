@@ -8,14 +8,15 @@ Finalizations to Factory Minigame, should be completed by 1-31-25
 	- Now only 1 type of fuel
 	- This is much more intuitive and makes more sense overall
 [x] Punching
-	[ ] Don't let players punch through walls
-	[ ] Lock player direction while punching
+	[~] Don't let players punch through walls
+		- Implemented, but needs to be tested
+	[x] Lock player direction while punching
 [ ] Reduce throw strength
 [ ] Joystick snapback fix?
 [ ] Remove drop-punch exploit?
 	- This is when you drop your held fuel, punch immediately, then pick the fuel back up
 	- This could be a cool tech to keep in if it's made more difficult to perform
-[ ] Increase throw charge time
+[x] Increase throw charge time
 [ ] Make throw charge oscillate while button is held
 	- This would make it so players actually have to time their throw to get the maximum strength
 [ ] Reposition receptacle hitbox
