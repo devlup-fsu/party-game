@@ -88,7 +88,6 @@ material = SubResource("StandardMaterial3D_03re4")
 
 [node name="OuterWall5" type="CSGBox3D" parent="FloorAndWalls"]
 transform = Transform3D(-4.37114e-08, 0, -45, 0, 6, 0, 1, 0, -1.96701e-06, 50.6418, 3.5, -23.5)
-use_collision = true
 collision_layer = 4
 collision_mask = 4
 size = Vector3(3, 1, 1.1)
@@ -96,7 +95,6 @@ material = ExtResource("3_clyco")
 
 [node name="OuterWall6" type="CSGBox3D" parent="FloorAndWalls"]
 transform = Transform3D(-4.37114e-08, 0, -45, 0, 6, 0, 1, 0, -1.96701e-06, 50.6418, 3.5, 23)
-use_collision = true
 collision_layer = 4
 collision_mask = 4
 size = Vector3(2, 1, 1.1)
@@ -104,14 +102,12 @@ material = ExtResource("3_clyco")
 
 [node name="OuterWall2" type="CSGBox3D" parent="FloorAndWalls"]
 transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 45, 25.523, 3.5, 0)
-use_collision = true
 collision_layer = 4
 collision_mask = 4
 material = ExtResource("3_clyco")
 
 [node name="OuterWall1" type="CSGBox3D" parent="FloorAndWalls"]
 transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 45, 75.3918, 3.5, 0)
-use_collision = true
 collision_layer = 4
 collision_mask = 4
 material = ExtResource("3_clyco")
