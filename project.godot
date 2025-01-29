@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Console="*res://Core/Console/console.gd"
 Controls="*res://Core/Controls/controls.gd"
-Console="*res://Core/Console/console.tscn"
 SceneManager="*res://Core/SceneManager/scene_manager.gd"
 
 [display]

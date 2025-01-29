@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b250jvyk10q0b"]
 
-[ext_resource type="Script" path="res://Core/Console/console.gd" id="1_vvw74"]
+[ext_resource type="Script" path="res://Core/Console/console_cli.gd" id="1_nd012"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5nje"]
 content_margin_left = 8.0
@@ -13,9 +13,9 @@ bg_color = Color(0.1, 0.1, 0.1, 0.501961)
 content_margin_left = 8.0
 bg_color = Color(0.05, 0.05, 0.05, 0.501961)
 
-[node name="Console" type="CanvasLayer"]
+[node name="ConsoleCLI" type="CanvasLayer"]
 layer = 128
-script = ExtResource("1_vvw74")
+script = ExtResource("1_nd012")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = -1
