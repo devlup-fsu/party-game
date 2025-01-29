@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cja1xcgg1afr8"]
+[gd_scene load_steps=4 format=3 uid="uid://cja1xcgg1afr8"]
 
 [ext_resource type="PackedScene" uid="uid://dcsfryltqfgfw" path="res://Wipeout/platform.tscn" id="1_mx7nd"]
 [ext_resource type="PackedScene" uid="uid://c4daxd53fifgn" path="res://Wipeout/player.tscn" id="2_u6vgm"]
+[ext_resource type="PackedScene" uid="uid://xhycjf7yaii" path="res://Wipeout/sweeper.tscn" id="3_870no"]
 
 [node name="Main" type="Node3D"]
 
@@ -30,6 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 
 [node name="Player1" parent="Players" instance=ExtResource("2_u6vgm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
+player = null
 
 [node name="Player2" parent="Players" instance=ExtResource("2_u6vgm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 8.66)
@@ -42,3 +44,6 @@ player = 2
 [node name="Player4" parent="Players" instance=ExtResource("2_u6vgm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, 0)
 player = 3
+
+[node name="Sweeper" parent="." instance=ExtResource("3_870no")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 0, 0)
