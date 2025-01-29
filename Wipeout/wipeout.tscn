@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://cja1xcgg1afr8"]
+[gd_scene load_steps=2 format=3 uid="uid://cja1xcgg1afr8"]
+
+[ext_resource type="PackedScene" uid="uid://dcsfryltqfgfw" path="res://Wipeout/platform.tscn" id="1_mx7nd"]
 
 [node name="Main" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 8.83, 4, 8.83)
+
+[node name="Platforms" type="Node3D" parent="."]
+
+[node name="Platform1" parent="Platforms" instance=ExtResource("1_mx7nd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("1_mx7nd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 8.6)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("1_mx7nd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.66, 0, 5)
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("1_mx7nd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
