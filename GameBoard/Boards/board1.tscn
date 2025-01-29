@@ -71,4 +71,5 @@ player = 3
 starting_solar_system = NodePath("../../SolarSystems/SolarSystem3")
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_2ngwn")]
+current = true
 target = NodePath("../Players/Player1")
