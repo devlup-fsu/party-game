@@ -81,12 +81,13 @@ func _on_disable_toggle_command(full_command: String) -> void:
 
 func _process(_delta: float) -> void:
 	# TODO: Only launch the console when game is launched from the editor.
-	if Input.is_action_just_pressed("core_debug_console"):
+	if Input.is_action_just_pressed("core_debug_console") or Input.is_action_just_pressed("core_debug_console_close") and visible:
 		visible = not visible
 		
 		if visible:
 			_input.clear()
 			_input.grab_focus()
+			# TODO: Pause game when console is open.
 		else:
 			_input.release_focus()
 			_history_index = _input_history.size()
