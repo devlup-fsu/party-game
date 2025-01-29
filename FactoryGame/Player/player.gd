@@ -31,10 +31,11 @@ const JUMP_VELOCITY = 4.5
 const JOYSTICK_CARDINAL_SNAP_ANGLE = 0.075
 
 const PICKUP_COOLDOWN = 0.5
-const MAX_THROW_CHARGE = 1.0
+const THROW_CHARGE_TIME = 0.8
 const THROW_STRENGTH_HORIZONTAL = 18.0
 const THROW_STRENGTH_VERTICAL = 0.1
-const THROW_STRENGTH_PLAYER_VELOCITY_INFLUENCE = 0.3
+const THROW_STRENGTH_PLAYER_VELOCITY_INFLUENCE = 0.2
+const THROW_STRENGTH_MINIMUM = 0.3
 
 const THROW_BAR_SCALE = 1000
 const THROW_BAR_SMOOTHING_SPEED: float = 0.35
@@ -55,6 +56,7 @@ var points = 0
 var carried_fuel_node: Fuel = null
 var current_pickup_cooldown = 0
 var throw_charge = 0.0
+var throw_charge_increasing = true;
 var punch_state := PunchState.IDLE
 var punch_timer = 0.0
 var punch_direction: Vector3 = Vector3.ZERO
@@ -78,7 +80,7 @@ func _ready() -> void:
 	reset_player_material()
 	
 	# Setup throw strength bar
-	throw_strength_bar.max_value = MAX_THROW_CHARGE * THROW_BAR_SCALE
+	throw_strength_bar.max_value = THROW_CHARGE_TIME * THROW_BAR_SCALE
 	throw_strength_bar.visible = false
 	throw_strength_bar.modulate = Color(1, 1, 1, 0.8)
 
@@ -112,29 +114,38 @@ func reset_throw_charge():
 	throw_strength_bar.visible = false
 	throw_strength_bar.value = 0
 
+func get_throw_strength():
+	return ease(remap(throw_charge, 0.0, THROW_CHARGE_TIME, 0.0, 1.0), 2.0)
+
 func throw_tick(delta: float):
 	var current_throwbutton_state: bool
 	current_throwbutton_state = Controls.is_action_pressed(player_number, 'core_player_jump')
 	
 	if carried_fuel_node != null:
 		if current_throwbutton_state:  # Holding the throw button
-			throw_charge = move_toward(throw_charge, MAX_THROW_CHARGE, delta)
+			throw_charge = move_toward(throw_charge, THROW_CHARGE_TIME * int(throw_charge_increasing), delta)
+			if throw_charge == THROW_CHARGE_TIME:
+				throw_charge_increasing = false;
+			elif throw_charge == 0:
+				throw_charge_increasing = true;
+			
 			throw_strength_bar.visible = true
-			throw_strength_bar.value = throw_charge * THROW_BAR_SCALE
+			throw_strength_bar.value = get_throw_strength() * THROW_BAR_SCALE
 		
 		elif prev_throwbutton_state:  # Released the throw button
+			var throw_strength = get_throw_strength()
 			var throw_direction = Vector3(facing_direction.x, THROW_STRENGTH_VERTICAL, facing_direction.z)
-			carried_fuel_node.linear_velocity = throw_direction * throw_charge \
+			carried_fuel_node.linear_velocity = throw_direction * throw_strength \
 				* THROW_STRENGTH_HORIZONTAL \
 				+ (velocity * THROW_STRENGTH_PLAYER_VELOCITY_INFLUENCE)
-			var angular_vector = throw_direction.rotated(Vector3(0, 1, 0), PI/4) * throw_charge * 10
+			var angular_vector = throw_direction.rotated(Vector3(0, 1, 0), PI/4) * throw_strength * 10
 			carried_fuel_node.angular_velocity = angular_vector
 			
 			carried_fuel_node.is_dangerous = true  # Sets dangerous to true once the fuel cell is thrown
 			carried_fuel_node.being_carried = false
 			carried_fuel_node = null
 			
-			$SFX/Throw.pitch_scale = remap(throw_charge, 0.0, MAX_THROW_CHARGE, 1.0, 2.0)  # Increase pitch with throw charge
+			$SFX/Throw.pitch_scale = throw_strength + 1.0  # Increase pitch with throw charge
 			$SFX/Throw.play()
 			
 			reset_throw_charge()

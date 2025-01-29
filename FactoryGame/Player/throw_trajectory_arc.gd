@@ -26,9 +26,10 @@ func _process(_delta: float) -> void:
 	mesh.surface_set_color(Color(1.0, 1.0, 1.0))
  	
 	
+	var throw_strength = parent.get_throw_strength()
 	var parent_lateral_velocity = Vector2(parent.velocity.x, parent.velocity.z).abs()
 	var initial_velocity = Vector2(parent.facing_direction.length(), parent.THROW_STRENGTH_VERTICAL) \
-		* parent.throw_charge \
+		* throw_strength \
 		* parent.THROW_STRENGTH_HORIZONTAL \
 		+ (parent_lateral_velocity * parent.THROW_STRENGTH_PLAYER_VELOCITY_INFLUENCE)
 	var x = 0.0

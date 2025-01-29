@@ -17,7 +17,7 @@ Finalizations to Factory Minigame, should be completed by 1-31-25
 	- This is when you drop your held fuel, punch immediately, then pick the fuel back up
 	- This could be a cool tech to keep in if it's made more difficult to perform
 [x] Increase throw charge time
-[ ] Make throw charge oscillate while button is held
+[x] Make throw charge oscillate while button is held
 	- This would make it so players actually have to time their throw to get the maximum strength
 [ ] Reposition receptacle hitbox
 
@@ -38,7 +38,7 @@ Finalizations to Factory Minigame, should be completed by 1-31-25
 [ ] Music
 
 ## Other
-[ ] Refactoring
+[x] Refactoring
 	- Rename directories, files, etc to match convention
 [ ] ACTUAL GAME NAME
 [ ] Intro cutscene
@@ -48,3 +48,4 @@ Finalizations to Factory Minigame, should be completed by 1-31-25
 ## Bugfixes
 [ ] Players getting stuck when sliding against outer walls
 	- No idea what's causing this, happens at the same point on each wall
+	- Maybe if we switch out the CSGBoxes, it'll just fix itself?
