@@ -46,7 +46,7 @@ const PUNCH_SPEED_MODIFIER = 0.3  # Slow down the player while they're punching
 const PUNCH_FORCE = 10.0  # How far the player should be knocked back when punched
 
 const STUN_DURATION = 0.75
-const STUN_DROP_STRENGTH = 5.0
+const STUN_DROP_STRENGTH = 6.5
 
 var facing_direction = Vector3(1, 0, 0);
 var prev_throwbutton_state = false;
@@ -58,7 +58,7 @@ var throw_charge = 0.0
 var punch_state := PunchState.IDLE
 var punch_timer = 0.0
 var punch_direction: Vector3 = Vector3.ZERO
-var is_stunned: bool = false # gets stunned when a dangerous fuel cell collides with player
+var is_stunned: bool = false
 var stun_timer = 0.0
 
 var player_material: StandardMaterial3D

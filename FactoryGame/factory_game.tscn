@@ -194,7 +194,6 @@ maze_size = 30.0
 wall_height = 4.0
 wall_thickness = 0.5
 maze_translation = null
-debug_selected_maze = null
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
