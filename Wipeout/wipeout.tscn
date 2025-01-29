@@ -33,9 +33,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
 
 [node name="Player2" parent="Players" instance=ExtResource("2_u6vgm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 8.66)
+player = 1
 
 [node name="Player3" parent="Players" instance=ExtResource("2_u6vgm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.66, 2, 5)
+player = 2
 
-[node name="Player" parent="Players" instance=ExtResource("2_u6vgm")]
+[node name="Player4" parent="Players" instance=ExtResource("2_u6vgm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, 0)
+player = 3
