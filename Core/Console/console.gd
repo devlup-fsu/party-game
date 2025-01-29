@@ -1,26 +1,23 @@
-extends CanvasLayer
+extends Node
 
+signal output_appended(line: String)
 
 signal list_command(full_command: String)
 signal enable_toggle_command(full_command: String)
 signal disable_toggle_command(full_command: String)
 
+@onready var console_cli_scene: PackedScene = load("res://Core/Console/console_cli.tscn")
 
-@onready var _output: RichTextLabel = %Output
-@onready var _input: LineEdit = %Input
-
-
-var _input_history: Array[String] = []
-var _history_index: int = 0
 # TODO: In Godot 4.4, dictionaries can be typed. Will be Dictionary[StringName, Signal]
 var _commands: Dictionary = {}
 # TODO: In Godot 4.4, dictionaries can be typed. Will be Dictionary[StringName, bool]
 var _toggles: Dictionary = {}
 
+var _output: String = ""
+var _input_history: Array[String] = []
+
 
 func _ready() -> void:
-	visible = false
-	
 	register_command("list", list_command)
 	list_command.connect(_on_list_command)
 	
@@ -82,52 +79,13 @@ func _on_disable_toggle_command(full_command: String) -> void:
 func _process(_delta: float) -> void:
 	# TODO: Only launch the console when game is launched from the editor.
 	if Input.is_action_just_pressed("core_debug_console"):
-		visible = not visible
-		
-		if visible:
-			_input.clear()
-			_input.grab_focus()
-		else:
-			_input.release_focus()
-			_history_index = _input_history.size()
+		if SceneManager.get_active_scene() is not ConsoleCLI:
+			SceneManager._push_scene(console_cli_scene.instantiate(), false)
 
 
-func _on_input_text_submitted(full_command: String) -> void:
-	_input.clear()
-	_input_history.push_back(full_command)
-	_history_index = _input_history.size()
-	
-	var parts = full_command.split(" ")
-	
-	if parts.size() <= 0:
-		return
-	
-	var command_name = parts[0]
-	
-	if is_command_registered(command_name):
-		run_command(full_command)
-	elif is_toggle_registered(command_name):
-		toggle_toggle(command_name)
-		write("'%s' has been %s." % [command_name, "enabled" if is_toggle_enabled(command_name) else "disabled"])
-	else:
-		error("'%s' is an invalid command or toggle." % command_name)
-
-
-func _on_input_gui_input(event: InputEvent) -> void:
-	if event is InputEventKey and not event.pressed:
-		if event.keycode == KEY_UP:
-			if _history_index > 0:
-				_history_index -= 1
-				_input.clear()
-				_input.insert_text_at_caret(_input_history[_history_index])
-		elif event.keycode == KEY_DOWN:
-			if _history_index < _input_history.size():
-				_history_index += 1
-				_input.clear()
-				if _history_index < _input_history.size():
-					_input.insert_text_at_caret(_input_history[_history_index])
-		else:
-			_history_index = _input_history.size()
+func _append_output(line: String) -> void:
+	_output += line
+	output_appended.emit(line)
 
 
 ## Registers a command and associates it with a given signal.
@@ -136,6 +94,14 @@ func register_command(command_name: StringName, action: Signal) -> void:
 	assert(command_name == command_name.to_lower(), "Can't register command '%s' with uppercase letters." % command_name)
 	assert(not command_name.contains(" "), "Can't register command '%s' with space characters." % command_name)
 	assert(command_name not in _commands, "Can't register command '%s' that has already been registered." % command_name)
+	assert(command_name not in _toggles, "Can't register command '%s' that has already been registered as a toggle." % command_name)
+	
+	_commands[command_name] = action
+
+
+func replace_command(command_name: StringName, action: Signal) -> void:
+	assert(command_name == command_name.to_lower(), "Can't register command '%s' with uppercase letters." % command_name)
+	assert(not command_name.contains(" "), "Can't register command '%s' with space characters." % command_name)
 	assert(command_name not in _toggles, "Can't register command '%s' that has already been registered as a toggle." % command_name)
 	
 	_commands[command_name] = action
@@ -197,14 +163,26 @@ func disable_toggle(toggle_name: StringName) -> void:
 
 ## Writes the message to the in-game console with no color.
 func write(message: Variant = "", end = "\n") -> void:
-	_output.append_text(str(message).replace("[", "[lb]") + end)
+	_append_output(str(message).replace("[", "[lb]") + end)
 
 
 ## Writes the message to the in-game console with an orange color.
 func warn(message: Variant = "", end = "\n") -> void:
-	_output.append_text("[color=orange]%s[/color]" % str(message).replace("[", "[lb]") + end)
+	_append_output("[color=orange]%s[/color]" % str(message).replace("[", "[lb]") + end)
 
 
 ## Writes the message to the in-game console with a red color.
 func error(message: Variant = "", end = "\n") -> void:
-	_output.append_text("[color=red]%s[/color]" % str(message).replace("[", "[lb]") + end)
+	_append_output("[color=red]%s[/color]" % str(message).replace("[", "[lb]") + end)
+
+
+func get_output() -> String:
+	return _output
+
+
+func get_input_history() -> Array[String]:
+	return _input_history
+
+
+func append_input_history(full_command: String) -> void:
+	_input_history.push_back(full_command)

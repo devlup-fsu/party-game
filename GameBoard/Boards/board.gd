@@ -1,3 +1,4 @@
+class_name GameBoard
 extends Node3D
 
 @export var continue_movement_texture: Texture
@@ -64,7 +65,8 @@ func _next_player() -> void:
 	
 	camera.target = current_player
 	current_player.take_control()
-	current_player.finished_turn.connect(_next_player)
+	if not current_player.finished_turn.is_connected(_next_player):
+		current_player.finished_turn.connect(_next_player)
 
 
 func _on_player_finished_turn() -> void:

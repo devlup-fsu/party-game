@@ -8,3 +8,4 @@ script = ExtResource("1_si128")
 name = "Battleship Minigame"
 description = ""
 scene = ExtResource("1_17epf")
+published = true

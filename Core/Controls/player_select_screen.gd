@@ -1,8 +1,6 @@
 class_name PlayerSelectScreen
 extends ColorRect
 
-signal pressed_start
-
 @onready var _selected_labels: Array[Label] = [
 	%Player1/Selected,
 	%Player2/Selected,
@@ -21,7 +19,7 @@ func _process(_delta: float) -> void:
 	
 	for player in range(Controls.Player.ONE, Controls.Player.size()):
 		if Controls.is_action_just_pressed(player, "core_submit"):
-			pressed_start.emit()
+			SceneManager.close_player_select_screen()
 
 
 func _input(event: InputEvent) -> void:

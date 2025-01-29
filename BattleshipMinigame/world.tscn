@@ -84,6 +84,7 @@ shape = SubResource("ConcavePolygonShape3D_egxer")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 27.0011, 0)
+current = true
 fov = 79.3
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

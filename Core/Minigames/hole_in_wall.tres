@@ -8,3 +8,4 @@ script = ExtResource("1_5niyx")
 name = "Hole in the Wall"
 description = ""
 scene = ExtResource("1_me0wk")
+published = true

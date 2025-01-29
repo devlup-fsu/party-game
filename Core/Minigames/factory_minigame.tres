@@ -8,3 +8,4 @@ script = ExtResource("1_cr0b7")
 name = "Factory Collector"
 description = ""
 scene = ExtResource("1_wbkxu")
+published = true
