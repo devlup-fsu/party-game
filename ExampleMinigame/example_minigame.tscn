@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxdxdtb7hygle"]
+[gd_scene load_steps=8 format=3 uid="uid://bxdxdtb7hygle"]
 
 [ext_resource type="PackedScene" uid="uid://do26dwfxfgvfy" path="res://ExampleMinigame/player.tscn" id="1_4panx"]
+[ext_resource type="Script" path="res://ExampleMinigame/example_minigame.gd" id="1_5baxi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m7ldj"]
 
@@ -18,6 +19,26 @@ size = Vector2(25, 25)
 data = PackedVector3Array(12.5, 0, 12.5, -12.5, 0, 12.5, 12.5, 0, -12.5, -12.5, 0, 12.5, -12.5, 0, -12.5, 12.5, 0, -12.5)
 
 [node name="ExampleMinigame" type="Node3D"]
+script = ExtResource("1_5baxi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CountdownLabel" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="CountdownTimer" type="Timer" parent="CanvasLayer/CountdownLabel"]
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cvidf")
@@ -56,3 +77,5 @@ color = Color(0, 0.0499997, 1, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.59104, 1.51129, 0)
 player = 3
 color = Color(1, 0.933333, 0, 1)
+
+[connection signal="timeout" from="CanvasLayer/CountdownLabel/CountdownTimer" to="." method="_on_countdown_timer_timeout"]

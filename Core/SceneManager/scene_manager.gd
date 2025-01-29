@@ -170,8 +170,29 @@ func get_all_minigames() -> Array[Minigame]:
 	return _all_minigames
 
 
+## Loads the provided minigame ontop of the board.
 func load_minigame(minigame: Minigame) -> void:
 	_pop_to_board()
 	
 	var minigame_scene = minigame.scene.instantiate()
 	_push_scene(minigame_scene)
+
+
+## Returns to the board and appropriately scores each player.
+## Each player receives a "Place" between 1st and 4th. They do not have to be unique.
+func exit_minigame(one: Scores.Place, two: Scores.Place, three: Scores.Place, four: Scores.Place) -> void:
+	_pop_to_board()
+	
+	var placements: Dictionary = {}  # Dictionary[Scores.Place, Array[Controls.Player]]
+	placements.get_or_add(one, []).push_back(Controls.Player.ONE)
+	placements.get_or_add(two, []).push_back(Controls.Player.TWO)
+	placements.get_or_add(three, []).push_back(Controls.Player.THREE)
+	placements.get_or_add(four, []).push_back(Controls.Player.FOUR)
+	
+	for place in range(Scores.Place.FIRST, Scores.Place.size()):
+		for player in placements.get_or_add(place, []):
+			print("%s: Player %s" % [Scores.place_to_string(place), player + 1])
+	print()
+	
+	# TODO: Go to scoring screen to showcase placement.
+	# TODO: Actually count the scores for something.
