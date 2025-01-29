@@ -29,6 +29,7 @@ const FRICTION = 1.5
 const STUNNED_FRICTION = 0.5  # Friction that is applied when stunned.
 const JUMP_VELOCITY = 4.5
 const JOYSTICK_CARDINAL_SNAP_ANGLE = 0.075
+const JOYSTICK_SNAPBACK_ANGLE = 120  # Degrees
 
 const PICKUP_COOLDOWN = 0.5
 const THROW_CHARGE_TIME = 0.8
@@ -49,6 +50,7 @@ const PUNCH_FORCE = 10.0  # How far the player should be knocked back when punch
 const STUN_DURATION = 0.75
 const STUN_DROP_STRENGTH = 6.5
 
+var previous_direction = Vector3(1, 0, 0)
 var facing_direction = Vector3(1, 0, 0);
 var prev_throwbutton_state = false;
 
@@ -249,7 +251,12 @@ func punch_tick(delta: float):
 func _physics_process(delta: float) -> void:
 	var direction = get_direction()
 	if direction:
-		facing_direction = direction if punch_state == PunchState.IDLE else punch_direction
+		if punch_state != PunchState.IDLE:
+			facing_direction = punch_direction
+		else:
+			var angle_change = rad_to_deg(direction.angle_to(previous_direction))
+			if angle_change <= JOYSTICK_SNAPBACK_ANGLE:
+				facing_direction = direction
 	if is_stunned:
 		direction = Vector3.ZERO  # No movement when stunned
 		
@@ -265,6 +272,8 @@ func _physics_process(delta: float) -> void:
 		carried_fuel_node.rotation = Vector3.ZERO
 	
 	current_pickup_cooldown = move_toward(current_pickup_cooldown, 0, delta)
+	
+	previous_direction = direction
 
 
 func _process(delta: float) -> void:
