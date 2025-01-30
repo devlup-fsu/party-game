@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://dt1gyjiqt10pe"]
+
+[ext_resource type="Script" path="res://FactoryGame/Receptacle/furnace.gd" id="1_gvbsa"]
+[ext_resource type="ArrayMesh" uid="uid://dy8nnsed8doil" path="res://FactoryGame/Resources/Models/Background/INPUT1-Funnel.obj" id="2_bbtxl"]
+[ext_resource type="Texture2D" uid="uid://cmrj2esd3obtm" path="res://FactoryGame/Resources/Textures/Funnel.png" id="2_ounds"]
+[ext_resource type="ArrayMesh" uid="uid://c7trmr1707gv1" path="res://FactoryGame/Resources/Models/Background/INPUT1-Box.obj" id="3_o3v1w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xlo1e"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u71t6"]
+albedo_texture = ExtResource("2_ounds")
+metallic = 0.8
+metallic_specular = 0.0
+roughness = 0.55
+uv1_scale = Vector3(0.135, 0.135, 0.135)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 150.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yexjt"]
+size = Vector3(3, 3, 3)
+
+[node name="Furnace" type="Area3D"]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_gvbsa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_xlo1e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Funnel" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.512716, -0.152799, 0, 0.152799, 0.512716, 0, 0, 0, 0.535, -0.4, 0.463717, 0)
+material_override = SubResource("StandardMaterial3D_u71t6")
+mesh = ExtResource("2_bbtxl")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.512716, -0.152799, 0, 0.152799, 0.512716, 0, 0, 0, 0.535, -0.4, 0.463717, 0)
+mesh = ExtResource("3_o3v1w")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_yexjt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

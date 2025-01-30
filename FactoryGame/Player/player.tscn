@@ -1,0 +1,107 @@
+[gd_scene load_steps=17 format=3 uid="uid://ges8lqnwpw11"]
+
+[ext_resource type="Script" path="res://FactoryGame/Player/player.gd" id="1_4pf3t"]
+[ext_resource type="Texture2D" uid="uid://dpxpv5wrj44gt" path="res://FactoryGame/Resources/Textures/ThrowBar/over.png" id="2_nsf7m"]
+[ext_resource type="Script" path="res://FactoryGame/Player/throw_trajectory_arc.gd" id="3_xyrkj"]
+[ext_resource type="AudioStream" uid="uid://cesr1wkcdbvvg" path="res://FactoryGame/Resources/Audio/punch_swing.wav" id="4_m8ieg"]
+[ext_resource type="AudioStream" uid="uid://bfxy4kgtfyvt7" path="res://FactoryGame/Resources/Audio/punch.wav" id="5_mh2vg"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2ad30"]
+radius = 0.75
+height = 3.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_eyunm"]
+height = 3.0
+radius = 0.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4g3ig"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_t3g1m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5rnt4"]
+
+[sub_resource type="Gradient" id="Gradient_wlc5i"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.683099, 1)
+colors = PackedColorArray(1, 0.313726, 0.113725, 1, 1, 0.909804, 0.219608, 1, 0.227451, 0.937255, 0.345098, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ychfj"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_wlc5i")
+width = 60
+height = 14
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fntdy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gb68g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_el4do"]
+albedo_color = Color(0.466667, 1, 0.466667, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xya0c"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("4_m8ieg")
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0329933, -4.76837e-07, -0.0111046)
+collision_mask = 13
+script = ExtResource("1_4pf3t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_2ad30")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+shape = SubResource("CylinderShape3D_eyunm")
+
+[node name="CarriedFuelPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="TrajectoryArc" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+material_override = SubResource("StandardMaterial3D_4g3ig")
+mesh = SubResource("ImmediateMesh_t3g1m")
+script = ExtResource("3_xyrkj")
+
+[node name="ThrowStrengthBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_5rnt4")
+offset_right = 64.0
+offset_bottom = 16.0
+texture_over = ExtResource("2_nsf7m")
+texture_progress = SubResource("GradientTexture2D_ychfj")
+texture_progress_offset = Vector2(2, 1)
+
+[node name="PunchHitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PunchHitbox"]
+shape = SubResource("BoxShape3D_fntdy")
+
+[node name="PunchIndicatorMesh" type="MeshInstance3D" parent="PunchHitbox"]
+mesh = SubResource("BoxMesh_gb68g")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_el4do")
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="PunchSwing" type="AudioStreamPlayer3D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_xya0c")
+attenuation_model = 3
+volume_db = -1.0
+
+[node name="Punch" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("5_mh2vg")
+attenuation_model = 3
+volume_db = -6.0
+
+[node name="Throw" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("4_m8ieg")
+attenuation_model = 3
+volume_db = -1.0
+
+[connection signal="body_entered" from="PunchHitbox" to="." method="_on_punch_hitbox_body_entered"]

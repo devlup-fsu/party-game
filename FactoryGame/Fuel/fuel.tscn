@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://ywlbgl2hhb30"]
+
+[ext_resource type="Script" path="res://FactoryGame/Fuel/fuel.gd" id="1_dcd1w"]
+[ext_resource type="Script" path="res://FactoryGame/Fuel/fuel_collision.gd" id="2_8ssu2"]
+[ext_resource type="Material" uid="uid://buoetfpmvsj3r" path="res://FactoryGame/Resources/Materials/dull-metal-bl/dull-metal.tres" id="3_ta5d5"]
+[ext_resource type="ArrayMesh" uid="uid://cuhp34b4rrggn" path="res://FactoryGame/Resources/Models/PowerCoreShell.obj" id="5_3qroe"]
+[ext_resource type="AudioStream" uid="uid://vvswuvht0jac" path="res://FactoryGame/Resources/Audio/fuel_clank.wav" id="5_shv57"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vh1ty"]
+friction = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3552d"]
+radius = 0.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h5xx6"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 1.4
+radial_segments = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3tvp"]
+albedo_color = Color(0, 1, 0, 1)
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_semkm"]
+radius = 0.9
+
+[node name="Fuel" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 239
+physics_material_override = SubResource("PhysicsMaterial_vh1ty")
+gravity_scale = 2.0
+script = ExtResource("1_dcd1w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_3552d")
+
+[node name="Core" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_h5xx6")
+surface_material_override/0 = SubResource("StandardMaterial3D_b3tvp")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0, 1, 0, 1)
+light_energy = 2.0
+light_cull_mask = 4294967293
+shadow_enabled = true
+
+[node name="PowerCoreShell" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+mesh = ExtResource("5_3qroe")
+surface_material_override/0 = ExtResource("3_ta5d5")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 21
+script = ExtResource("2_8ssu2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_semkm")
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="Clank" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("5_shv57")
+attenuation_model = 3
+volume_db = -3.0
+
+[connection signal="area_entered" from="Area3D" to="Area3D" method="_on_area_entered"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

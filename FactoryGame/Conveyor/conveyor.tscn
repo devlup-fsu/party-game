@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://pfuwki2d02i0"]
+[gd_scene load_steps=12 format=3 uid="uid://pfuwki2d02i0"]
 
 [ext_resource type="Script" path="res://FactoryGame/Conveyor/conveyor.gd" id="1_e80us"]
-[ext_resource type="Texture2D" uid="uid://hdcu0hkip6gh" path="res://FactoryGame/resources/models/belt.png" id="2_su027"]
+[ext_resource type="Texture2D" uid="uid://hdcu0hkip6gh" path="res://FactoryGame/Resources/Textures/belt.png" id="2_su027"]
 [ext_resource type="Script" path="res://FactoryGame/Conveyor/force_area.gd" id="2_wrkeu"]
-[ext_resource type="Texture2D" uid="uid://d3p7lfbdci5dt" path="res://FactoryGame/resources/textures/arrow.png" id="5_t2fdq"]
+[ext_resource type="Texture2D" uid="uid://d3p7lfbdci5dt" path="res://FactoryGame/Resources/Textures/arrow.png" id="5_t2fdq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7ersl"]
 resource_local_to_scene = true
@@ -23,9 +23,28 @@ size = Vector3(10, 0.5, 2)
 resource_local_to_scene = true
 size = Vector3(10, 0.5, 2)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_j5dsy"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 1.999
+radial_segments = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d78y8"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_su027")
+uv1_scale = Vector3(0.5, 2, 0)
+uv1_offset = Vector3(0.19, 0, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ureoh"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 1.999
+radial_segments = 8
+
 [node name="Conveyor" type="Node3D"]
 script = ExtResource("1_e80us")
-length = 10
+length = 10.0
+speed = 2.0
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_7ersl")
@@ -51,3 +70,13 @@ shape = SubResource("BoxShape3D_n8hre")
 [node name="ArrowSprite" type="Sprite3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 0.5, 0)
 texture = ExtResource("5_t2fdq")
+
+[node name="LeftCylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5, 0, 0)
+mesh = SubResource("CylinderMesh_j5dsy")
+surface_material_override/0 = SubResource("StandardMaterial3D_d78y8")
+
+[node name="RightCylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5, 0, 0)
+mesh = SubResource("CylinderMesh_ureoh")
+surface_material_override/0 = SubResource("StandardMaterial3D_d78y8")
