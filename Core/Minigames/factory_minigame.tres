@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Minigame" load_steps=3 format=3 uid="uid://c7y0qorb1oqxf"]
+[gd_resource type="Resource" script_class="Minigame" load_steps=4 format=3 uid="uid://c7y0qorb1oqxf"]
 
+[ext_resource type="Texture2D" uid="uid://dfdqtnhfxsse4" path="res://FactoryGame/portrait.png" id="1_86eop"]
 [ext_resource type="Script" path="res://Core/Minigames/minigame.gd" id="1_cr0b7"]
 [ext_resource type="PackedScene" uid="uid://c6jvsgy5x4q3" path="res://FactoryGame/factory_game.tscn" id="1_wbkxu"]
 
@@ -7,5 +8,6 @@
 script = ExtResource("1_cr0b7")
 name = "Factory Collector"
 description = ""
+portrait = ExtResource("1_86eop")
 scene = ExtResource("1_wbkxu")
 published = true

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dygpbbqqpn6y2"]
+
+[ext_resource type="Texture2D" uid="uid://dm8ni30rrftbb" path="res://Core/Minigames/default_portrait.png" id="1_j7xg1"]
+[ext_resource type="Script" path="res://Core/Minigames/MinigameCarousel/minigame_portrait.gd" id="1_tnot4"]
+
+[node name="MinigamePortrait" type="VBoxContainer"]
+offset_right = 128.0
+offset_bottom = 155.0
+script = ExtResource("1_tnot4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+texture = ExtResource("1_j7xg1")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Minigame"
+horizontal_alignment = 1
