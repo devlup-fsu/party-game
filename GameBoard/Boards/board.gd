@@ -8,19 +8,21 @@ extends Node3D
 @onready var camera: BoardCamera = $Camera
 
 # TODO: Type as Dictionary[Controls.Player, BoardPlayer]
-var players: Dictionary = {}
-var current_player: BoardPlayer
+var _players: Dictionary = {}
+var _current_player: BoardPlayer
+var _minigames_to_play: Array[Minigame] = []
+var _last_minigame: Minigame = null
 
 
 func _ready() -> void:
 	for player in $Players.get_children():
 		if player is BoardPlayer:
-			players[player.player] = player
+			_players[player.player] = player
 			player.choosing_next_sector.connect(_on_player_choosing_next_sector)
 	
-	assert(players.keys().size() == 4)
+	assert(_players.keys().size() == 4)
 	
-	_next_player()
+	_switch_to_next_player()
 	
 	_link_solar_systems()
 
@@ -54,28 +56,40 @@ func _link_solar_systems():
 				#print("(%s, %s)" %[closest_src_sector.index, closest_dst_sector.index])
 
 
-func _next_player() -> void:
-	if current_player == null:
-		current_player = players[Controls.Player.ONE]
+func _switch_to_next_player() -> void:
+	if _current_player == null:
+		_current_player = _players[Controls.Player.ONE]
 	else:
-		var next_player = current_player.player + 1
+		var next_player = _current_player.player + 1
+		
+		# Wrap player over to Player.ONE. Play minigame. Teleport camera
 		if next_player == Controls.Player.size():
 			next_player = Controls.Player.ONE
-		current_player = players[next_player]
+			camera.teleport_to_player(_players[next_player])
+			
+			if _minigames_to_play.is_empty():
+				_minigames_to_play = SceneManager.get_published_minigames()
+				_minigames_to_play.erase(_last_minigame)
+			
+			_last_minigame = _minigames_to_play.pick_random()
+			_minigames_to_play.erase(_last_minigame)
+			SceneManager.load_minigame(_last_minigame)
+			
+		_current_player = _players[next_player]
 	
-	camera.target = current_player
-	current_player.take_control()
-	if not current_player.finished_turn.is_connected(_next_player):
-		current_player.finished_turn.connect(_next_player)
+	camera.target = _current_player
+	_current_player.take_control()
+	if not _current_player.finished_turn.is_connected(_switch_to_next_player):
+		_current_player.finished_turn.connect(_switch_to_next_player)
 
 
 func _on_player_finished_turn() -> void:
-	var next_player = current_player.player + 1
+	var next_player = _current_player.player + 1
 	if next_player == Controls.Player.size():
 		next_player = Controls.Player.ONE
 	
-	current_player = players[next_player]
-	camera.target = current_player
+	_current_player = _players[next_player]
+	camera.target = _current_player
 
 
 func _on_player_choosing_next_sector(player: BoardPlayer, current_sector: Sector) -> void:

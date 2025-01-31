@@ -12,3 +12,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	global_position = global_position.lerp(target.global_position + target_offset, delta * lerp_speed)
+
+
+func teleport_to_player(player: Node3D) -> void:
+	global_position = player.global_position + target_offset

@@ -29,7 +29,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	move_counter_label.text = str(ongoing_moves) if ongoing_moves > 0 else ""
+	var move_counter = ongoing_moves - 1
+	move_counter_label.text = str(move_counter) if move_counter > 0 else ""
 	
 	if not has_control:
 		return

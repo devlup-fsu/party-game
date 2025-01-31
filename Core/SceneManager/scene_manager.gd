@@ -170,6 +170,17 @@ func get_all_minigames() -> Array[Minigame]:
 	return _all_minigames
 
 
+func get_published_minigames() -> Array[Minigame]:
+	get_all_minigames()
+	
+	var published_minigames: Array[Minigame] = []
+	for minigame in _all_minigames:
+		if minigame.published:
+			published_minigames.push_back(minigame)
+	
+	return published_minigames
+
+
 ## Loads the provided minigame ontop of the board.
 func load_minigame(minigame: Minigame) -> void:
 	_pop_to_board()
