@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://diu00o8qqxckl"]
+
+[node name="DragonMinigame" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10978, 0)
+text = "DRAGON MINIGAME
+(todo)"
