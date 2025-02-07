@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://duxpxpfqdmwnl"]
 
-[ext_resource type="PackedScene" uid="uid://dygpbbqqpn6y2" path="res://Core/Minigames/MinigameCarousel/minigame_portrait.tscn" id="1_ch0jh"]
+[ext_resource type="Script" path="res://Core/Minigames/MinigameCarousel/minigame_carousel.gd" id="1_ydm5g"]
 
 [node name="MinigameCarousel" type="Control"]
 layout_mode = 3
@@ -9,45 +9,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -569.0
-offset_top = -99.0
-offset_right = 2754.0
-offset_bottom = 128.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 16
-
-[node name="MinigamePortrait" parent="HBoxContainer" instance=ExtResource("1_ch0jh")]
-layout_mode = 2
-
-[node name="MinigamePortrait2" parent="HBoxContainer" instance=ExtResource("1_ch0jh")]
-layout_mode = 2
-
-[node name="MinigamePortrait3" parent="HBoxContainer" instance=ExtResource("1_ch0jh")]
-layout_mode = 2
-
-[node name="MinigamePortrait4" parent="HBoxContainer" instance=ExtResource("1_ch0jh")]
-layout_mode = 2
-
-[node name="MinigamePortrait5" parent="HBoxContainer" instance=ExtResource("1_ch0jh")]
-layout_mode = 2
-
-[node name="MinigamePortrait6" parent="HBoxContainer" instance=ExtResource("1_ch0jh")]
-layout_mode = 2
-
-[node name="MinigamePortrait7" parent="HBoxContainer" instance=ExtResource("1_ch0jh")]
-layout_mode = 2
-
-[node name="MinigamePortrait8" parent="HBoxContainer" instance=ExtResource("1_ch0jh")]
-layout_mode = 2
-
-[node name="MinigamePortrait9" parent="HBoxContainer" instance=ExtResource("1_ch0jh")]
-layout_mode = 2
+script = ExtResource("1_ydm5g")

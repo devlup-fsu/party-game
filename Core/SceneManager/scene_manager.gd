@@ -5,6 +5,7 @@ signal board_command(full_command: String)
 
 @onready var _player_select_screen_scene: PackedScene = load("res://Core/Controls/player_select_screen.tscn")
 @onready var _debug_select_screen: PackedScene = load("res://Core/Minigames/DebugSelectScreen/debug_select_screen.tscn")
+@onready var _minigame_carousel_scene: PackedScene = load("res://Core/Minigames/MinigameCarousel/minigame_carousel.tscn")
 
 var _root: Root
 var _scene_stack: Array[Node] = []
@@ -182,11 +183,16 @@ func get_published_minigames() -> Array[Minigame]:
 
 
 ## Loads the provided minigame ontop of the board.
-func load_minigame(minigame: Minigame) -> void:
+func load_minigame(minigame: Minigame, show_carousel: bool = false) -> void:
 	_pop_to_board()
 	
-	var minigame_scene = minigame.scene.instantiate()
-	_push_scene(minigame_scene)
+	if show_carousel:
+		var carousel_scene: MinigameCarousel = _minigame_carousel_scene.instantiate()
+		carousel_scene.initialize(minigame)
+		_push_scene(carousel_scene, false)
+	else:
+		var minigame_scene = minigame.scene.instantiate()
+		_push_scene(minigame_scene)
 
 
 ## Returns to the board and appropriately scores each player.

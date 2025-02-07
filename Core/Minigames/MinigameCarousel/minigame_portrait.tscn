@@ -4,8 +4,10 @@
 [ext_resource type="Script" path="res://Core/Minigames/MinigameCarousel/minigame_portrait.gd" id="1_tnot4"]
 
 [node name="MinigamePortrait" type="VBoxContainer"]
-offset_right = 128.0
-offset_bottom = 155.0
+anchors_preset = -1
+offset_right = 355.0
+offset_bottom = 227.0
+size_flags_horizontal = 0
 script = ExtResource("1_tnot4")
 
 [node name="TextureRect" type="TextureRect" parent="."]
