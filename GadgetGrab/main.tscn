@@ -38,62 +38,55 @@ mesh = SubResource("BoxMesh_gpkpt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0710357, -0.0187528, -0.0837393)
 shape = SubResource("ConcavePolygonShape3D_fc1ln")
 
-[node name="RigidBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D_North" type="StaticBody3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D_North"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 49.5)
 mesh = SubResource("BoxMesh_julpw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D_North"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 49.5)
 shape = SubResource("ConcavePolygonShape3D_f7aol")
 
-[node name="RigidBody3D2" type="StaticBody3D" parent="."]
+[node name="StaticBody3D2_South" type="StaticBody3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2_South"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, -49.5)
 mesh = SubResource("BoxMesh_julpw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2_South"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, -49.5)
 shape = SubResource("ConcavePolygonShape3D_wfujb")
 
-[node name="RigidBody3D3" type="StaticBody3D" parent="."]
+[node name="StaticBody3D3_West" type="StaticBody3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3_West"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 49.5, 5.5, 0)
 mesh = SubResource("BoxMesh_julpw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3_West"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 49.5, 5.5, 0)
 shape = SubResource("ConcavePolygonShape3D_hkevh")
 
-[node name="RigidBody3D4" type="StaticBody3D" parent="."]
+[node name="StaticBody3D4_East" type="StaticBody3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4_East"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -49.5, 5.5, 0)
 mesh = SubResource("BoxMesh_julpw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4_East"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -49.5, 5.5, 0)
 shape = SubResource("ConcavePolygonShape3D_l2jat")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.1824, 0)
 
-[node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(-0.0540788, 0.998537, 0, -0.998537, -0.0540788, 0, 0, 0, 1, 0, 28.603, 0)
-
-[node name="Camera3D3" type="Camera3D" parent="."]
-transform = Transform3D(-0.926759, -0.0893095, 0.364887, 0.356299, 0.0988105, 0.929133, -0.119035, 0.99109, -0.0597526, 0, 100, 0)
-
-[node name="Camera3D4" type="Camera3D" parent="."]
-transform = Transform3D(-0.976672, -0.197665, 0.0839037, 0, 0.390731, 0.920505, -0.214735, 0.899032, -0.381616, 0, 17.1824, 19.1107)
-
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999619, -0.0275902, 0, 0.0275902, 0.999619, 0, 1.1674, 0.460904)
+disable_mode = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10182, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66675, 0)
 mesh = SubResource("CapsuleMesh_s870q")
 surface_material_override/0 = SubResource("StandardMaterial3D_o7tkg")
 
