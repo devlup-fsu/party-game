@@ -1,10 +1,58 @@
-[gd_scene format=3 uid="uid://diu00o8qqxckl"]
+[gd_scene load_steps=2 format=3 uid="uid://diu00o8qqxckl"]
+
+[ext_resource type="PackedScene" uid="uid://crjbb0qonbuwt" path="res://DragonMinigame/Player/player.tscn" id="1_p57v6"]
 
 [node name="DragonMinigame" type="Node3D"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 7.57887, 0)
 
-[node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10978, 0)
-text = "DRAGON MINIGAME
-(todo)"
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.982402, 0.186781, 0, -0.186781, 0.982402, 0, 5.9032, 7.51183)
+
+[node name="Platforms" type="Node3D" parent="."]
+
+[node name="Cylinder1" type="CSGCylinder3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+use_collision = true
+radius = 1.5
+height = 0.25
+sides = 16
+
+[node name="Cylinder2" type="CSGCylinder3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+use_collision = true
+radius = 1.5
+height = 0.25
+sides = 16
+
+[node name="Cylinder3" type="CSGCylinder3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+use_collision = true
+radius = 1.5
+height = 0.25
+sides = 16
+
+[node name="Cylinder4" type="CSGCylinder3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+use_collision = true
+radius = 1.5
+height = 0.25
+sides = 16
+
+[node name="Players" type="Node3D" parent="."]
+
+[node name="Player1" parent="Players" instance=ExtResource("1_p57v6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.125, 0)
+
+[node name="Player2" parent="Players" instance=ExtResource("1_p57v6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.125, 0)
+player_number = 1
+
+[node name="Player3" parent="Players" instance=ExtResource("1_p57v6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.125, 0)
+player_number = 2
+
+[node name="Player4" parent="Players" instance=ExtResource("1_p57v6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.125, 0)
+player_number = 3
