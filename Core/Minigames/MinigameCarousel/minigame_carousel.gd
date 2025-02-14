@@ -14,21 +14,21 @@ func initialize(target_minigame: Minigame) -> void:
 		await ready
 	
 	var minigames = SceneManager.get_published_minigames()
+	minigames += minigames + minigames
+	minigames.erase(target_minigame)
 	minigames.shuffle()
-	minigames = minigames + minigames + minigames + minigames
+	minigames = minigames.slice(0, 3)  # Get three random minigames.
+	minigames.append(target_minigame)
+	minigames.shuffle()
 	
-	var initial_y = get_viewport().size.y / 2
-	
-	for i in range(minigames.size()):
-		var minigame = minigames[i]
-		
+	for minigame in minigames:
 		var portrait: MinigamePortrait = _portrait_scene.instantiate()
 		_portraits.push_back(portrait)
-		add_child(portrait)
+		%Portraits.add_child(portrait)
 		
 		portrait.set_minigame(minigame)
-		portrait.position.y = initial_y - (portrait.size.y / 2)
-		portrait.position.x = i * (portrait.size.x + spacing) + get_viewport().size.x
+	
+	%Selector.size = _portraits[0].size
 
 
 #func _process(delta: float) -> void:
@@ -36,4 +36,4 @@ func initialize(target_minigame: Minigame) -> void:
 		#portrait.position.x -= portrait_vel * delta
 		#
 		#if portrait.position.x < -portrait.size.x:
-			#portrait.position.x = minigames.size() * (portrait.size.x + spacing) + get_viewport().size.x
+			#portrait.position.x = (_portraits.size() - 1) * (portrait.size.x + spacing)# + get_viewport().size.x
