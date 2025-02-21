@@ -167,6 +167,8 @@ func get_all_minigames() -> Array[Minigame]:
 				_all_minigames.append(resource)
 		file_name = dir.get_next()
 	
+	dir.list_dir_end()
+	
 	return _all_minigames
 
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr3cs64vxs33x"]
+
+[ext_resource type="PackedScene" uid="uid://dxruynudxpyce" path="res://SharedAssets/Ships/UFO/FinalUFO.blend" id="1_ixuop"]
+[ext_resource type="Script" path="res://SharedAssets/Ships/UFO/ufo_model.gd" id="1_u4jq5"]
+
+[node name="UfoModel" type="Node3D"]
+script = ExtResource("1_u4jq5")
+emission_dir = "res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss"
+properties_dir = "res://SharedAssets/Ships/UFO/UFO Assests/UFO r.Rough.g.Diff.b.Emstr.a.Metal"
+
+[node name="FinalUFO" parent="." instance=ExtResource("1_ixuop")]
