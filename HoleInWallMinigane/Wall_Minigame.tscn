@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://4hxfda0fvecm"]
 
 [ext_resource type="Script" path="res://HoleInWallMinigane/wall_minigame.gd" id="1_i7wdh"]
-[ext_resource type="Texture2D" uid="uid://bqknk7cydt5ga" path="res://eqsky.png" id="2_bb1kj"]
+[ext_resource type="Texture2D" uid="uid://d0ae4qnwxba2h" path="res://GameBoard/eq_sky.png" id="2_n24t5"]
 [ext_resource type="PackedScene" uid="uid://c068idoo7nx73" path="res://HoleInWallMinigane/wall_players_rope.tscn" id="3_gi4f8"]
 [ext_resource type="Script" path="res://HoleInWallMinigane/astroid_spawner.gd" id="3_hiaym"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eowsk"]
-panorama = ExtResource("2_bb1kj")
+panorama = ExtResource("2_n24t5")
 
 [sub_resource type="Sky" id="Sky_fmlju"]
 sky_material = SubResource("PanoramaSkyMaterial_eowsk")
@@ -36,9 +36,6 @@ point_count = 2
 [node name="WallMinigameMain" type="Node3D"]
 script = ExtResource("1_i7wdh")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_yvyvf")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.395498, 0.918467, 0, -0.918467, 0.395498, 0, 0, 25.8418)
 light_energy = 1.61
@@ -63,6 +60,7 @@ render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="HBoxContainer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, -12, 4.877, 10)
+environment = SubResource("Environment_yvyvf")
 
 [node name="Score" type="Label" parent="HBoxContainer/SubViewportContainer"]
 layout_mode = 2
@@ -81,6 +79,7 @@ render_target_update_mode = 4
 
 [node name="Camera3D2" type="Camera3D" parent="HBoxContainer/SubViewportContainer2/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, 8, 4.839, 10)
+environment = SubResource("Environment_yvyvf")
 
 [node name="Score" type="Label" parent="HBoxContainer/SubViewportContainer2"]
 layout_mode = 2

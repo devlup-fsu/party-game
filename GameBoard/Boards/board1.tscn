@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://b351xgyx3tfek" path="res://Core/Controls/Assets/button_color_b.svg" id="3_1bpcn"]
 [ext_resource type="PackedScene" uid="uid://c0y78andl5ugq" path="res://GameBoard/Player/player.tscn" id="3_55h77"]
 [ext_resource type="PackedScene" uid="uid://bk01xchcfcm6c" path="res://GameBoard/Camera/camera.tscn" id="4_2ngwn"]
-[ext_resource type="Texture2D" uid="uid://bqknk7cydt5ga" path="res://eqsky.png" id="4_7clfo"]
+[ext_resource type="Texture2D" uid="uid://d0ae4qnwxba2h" path="res://GameBoard/eq_sky.png" id="7_8j41g"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_14fc8"]
-panorama = ExtResource("4_7clfo")
+panorama = ExtResource("7_8j41g")
 
 [sub_resource type="Sky" id="Sky_2njlf"]
 sky_material = SubResource("PanoramaSkyMaterial_14fc8")
@@ -17,14 +17,13 @@ sky_material = SubResource("PanoramaSkyMaterial_14fc8")
 [sub_resource type="Environment" id="Environment_47eid"]
 background_mode = 2
 sky = SubResource("Sky_2njlf")
+sky_rotation = Vector3(0, -1.07338, 3.59014)
+adjustment_enabled = true
 
 [node name="Board" type="Node3D"]
 script = ExtResource("1_b7vr7")
 continue_movement_texture = ExtResource("2_iofjk")
 alternative_movement_texture = ExtResource("3_1bpcn")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_47eid")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
@@ -71,5 +70,6 @@ player = 3
 starting_solar_system = NodePath("../../SolarSystems/SolarSystem3")
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_2ngwn")]
+environment = SubResource("Environment_47eid")
 current = true
 target = NodePath("../Players/Player1")
