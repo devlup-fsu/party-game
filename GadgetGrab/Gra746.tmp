@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=4 uid="uid://su85vcmwb7f"]
 
-[ext_resource type="Script" path="res://GadgetGrab/grab_player.gd" id="1_2np2r"]
+[ext_resource type="Script" path="res://GadgetGrab/Grab_Player.gd" id="1_rj2fa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7kd3b"]
 
@@ -438,7 +438,9 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ok8sk")
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
-script = ExtResource("1_2np2r")
+script = ExtResource("1_rj2fa")
+player = null
+color = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_7kd3b")

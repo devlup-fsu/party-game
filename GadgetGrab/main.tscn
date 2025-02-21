@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bt56kwwqia5eo"]
 
-[ext_resource type="PackedScene" uid="uid://d1m07phg3v08x" path="res://GadgetGrab/Grab_Player.tscn" id="1_q3mhu"]
+[ext_resource type="PackedScene" uid="uid://su85vcmwb7f" path="res://GadgetGrab/grab_player.tscn" id="1_q3mhu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gpkpt"]
 size = Vector3(100, 1, 100)
@@ -26,7 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0710357, -0.0187528, -0.08
 shape = SubResource("ConcavePolygonShape3D_fc1ln")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.999991, -0.00330107, 0.00279951, -2.6054e-15, 0.64679, 0.762668, -0.00432832, 0.762661, -0.646784, 0, 12, -16)
+transform = Transform3D(1, 0, 0, 0, 0.64679, 0.762668, 0, -0.762668, 0.64679, 0, 12, 16)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.79653, 0.534324, -0.28291, 0, 0.46793, 0.883766, 0.604599, 0.703946, -0.37272, 0, 55.727, 0)
@@ -37,15 +37,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5447, 12.8375)
 
 [node name="Player2" parent="." instance=ExtResource("1_q3mhu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0788, 2.64109, 0)
-player = 1
 
 [node name="Player3" parent="." instance=ExtResource("1_q3mhu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5636, 5.12269, 0)
-player = 2
 
 [node name="Player4" parent="." instance=ExtResource("1_q3mhu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.14803, -8.37454)
-player = 3
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.5)

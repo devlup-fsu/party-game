@@ -1,49 +1,85 @@
 class_name GrabPlayer
 extends CharacterBody3D
 
-#const SPEED = 5.0
-const JUMP_VELOCITY = 4.0 # m/s
-const GRAVITY = -2.5 #m/s^2
-const MAX_LINEAR_SPEED = 10.0 #m/s
-const CROSS_PROD_DEADZONE = 0.01 #unitless
-const INPUT_VECTOR_DEADZONE = 0.2 #unitless
+const GRAVITY_ACCEL = -2.5 # m/s^2
+const JUMP_VELO = 4 # m/s
+const MAX_LIN_SPEED = 10.0 # m/s
+const LIN_ACCEL = 20.0 # m/s^2
+const MAX_ROTATIONAL_VELO = 10.0 # rads/s
+const ROTATIONAL_ACCEL = 30.0 # rads/s^2
+const TARGET_CENTRIP_ACCEL = 75.0 # m/s^2
+const CROSS_PROD_DEADZONE = 0.2 # unitless
+const INPUT_VECTOR_DEADZONE = 0.2 # unitless
 
-var  linear_acceleration = 20.0 # m/s^2
 var target_lin_velo : float = 0.0 # m/s
 var lin_velo : float = 0.0 # m/s
+var target_rotational_velo : float = 0.0 # rads/s
+var rotational_velo : float = 0.0 # rads/s
+var cycle_num : int = 0 # used for debug printing
+
 
 @export var player: Controls.Player
-@export var color : Color
+
+func _ready() -> void:
+	pass
 
 func _physics_process(delta: float) -> void:
+	# ! Physics Processing
+	
 	if not is_on_floor():
-		velocity += Vector3(0,GRAVITY,0) * delta
+		velocity += Vector3(0,GRAVITY_ACCEL,0) * delta
 	
 	if Controls.is_action_just_pressed(player, "core_player_jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		
-	var input_direction : Vector2 = Controls.get_vector(player, "core_player_left", "core_player_right", "core_player_up" , "core_player_down")
-	var forward_direction: Vector2 = Vector2(-transform.basis.z.normalized().x, -transform.basis.z.normalized().z)
+		velocity.y = JUMP_VELO
 	
-	if input_direction.length() > INPUT_VECTOR_DEADZONE:
-		rotation.y = atan2(input_direction[1], input_direction[0])
+	var input_dir : Vector2 = Controls.get_vector(player, "core_player_left", "core_player_right", "core_player_up", "core_player_down")
+	var forward_dir : Vector2 = Vector2(-transform.basis.z.normalized().x, -transform.basis.z.normalized().z)
+	set_target_rotational_velo(input_dir, forward_dir)
+	set_target_lin_velo(input_dir)
 	
-	set_target_lin_velo(input_direction)
-	
-	if not is_on_floor():
-		linear_acceleration = 0.0003
-	
-	lin_velo = move_toward(lin_velo, target_lin_velo, delta * linear_acceleration)
-	
-	velocity.x = forward_direction.y * lin_velo
-	velocity.z = forward_direction.x * lin_velo 
-	
-	linear_acceleration = 20.0
-	move_and_slide()
+	# Handle rotational/linear velocity
+	if is_on_floor():
+		rotational_velo = move_toward(rotational_velo, target_rotational_velo, ROTATIONAL_ACCEL * delta)
+	else:
+		rotational_velo = move_toward(rotational_velo, target_rotational_velo, ROTATIONAL_ACCEL * delta * 0.3)
+	lin_velo = move_toward(lin_velo, target_lin_velo, LIN_ACCEL * delta)
 
+
+	
+	#if (cycle_num % 10 == 0) and (input_dir.length() > 0.1):
+		#print("Target lin velo: " + str(target_lin_velo) +
+			  #"\nCurrent input vector" + str(input_dir) +
+			  #"\nInput vector length: " + str(input_dir.length()) +
+			  #"\nCalced target velo: " + str(input_dir.length() * MAX_LIN_SPEED) +
+			  #"\nCurrent rotational velo: " + str(rotational_velo) +
+			  #"\nCurrent tilt: " + str(rotation.z) +
+			  #"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+	
+	rotation.y += rotational_velo * delta
+	velocity.x = forward_dir.x * lin_velo
+	velocity.z = forward_dir.y * lin_velo # forward_dir is a Vector2, so grab the y
+
+	# print(str(position.y))
+
+	cycle_num += 1
+	move_and_slide()
+	
+
+
+func set_target_rotational_velo(input_vector: Vector2, forward_vector: Vector2):
+	var cross_prod : float = input_vector.cross(forward_vector)
+	if (input_vector.length() < INPUT_VECTOR_DEADZONE):
+		target_rotational_velo = 0
+		if (abs(cross_prod) < CROSS_PROD_DEADZONE) and (input_vector.dot(forward_vector) > 0):
+			rotational_velo = 0
+		return
+	if (cross_prod > 0):
+		target_rotational_velo = MAX_ROTATIONAL_VELO * sqrt(cross_prod)
+	else:
+		target_rotational_velo = -1 * MAX_ROTATIONAL_VELO * sqrt(abs(cross_prod))
 
 func set_target_lin_velo(input_vector: Vector2):
-	if(input_vector.length() > INPUT_VECTOR_DEADZONE):
-		target_lin_velo = input_vector.length() * MAX_LINEAR_SPEED
+	if (input_vector.length() > INPUT_VECTOR_DEADZONE):
+		target_lin_velo = input_vector.length() * MAX_LIN_SPEED
 	else:
 		target_lin_velo = 0
