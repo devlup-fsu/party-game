@@ -8,7 +8,7 @@ const LIN_ACCEL = 20.0 # m/s^2
 const MAX_ROTATIONAL_VELO = 10.0 # rads/s
 const ROTATIONAL_ACCEL = 30.0 # rads/s^2
 const TARGET_CENTRIP_ACCEL = 75.0 # m/s^2
-const CROSS_PROD_DEADZONE = 0.2 # unitless
+const CROSS_PROD_DEADZONE = 0.05 # unitless
 const INPUT_VECTOR_DEADZONE = 0.2 # unitless
 
 var target_lin_velo : float = 0.0 # m/s
@@ -38,7 +38,9 @@ func _physics_process(delta: float) -> void:
 	set_target_lin_velo(input_dir)
 	
 	# Handle rotational/linear velocity
-	if is_on_floor():
+	if abs(input_dir.cross(forward_dir)) < CROSS_PROD_DEADZONE and input_dir.dot(forward_dir) > 0:
+		rotational_velo *= 0.1
+	elif is_on_floor():
 		rotational_velo = move_toward(rotational_velo, target_rotational_velo, ROTATIONAL_ACCEL * delta)
 	else:
 		rotational_velo = move_toward(rotational_velo, target_rotational_velo, ROTATIONAL_ACCEL * delta * 0.3)
@@ -68,10 +70,8 @@ func _physics_process(delta: float) -> void:
 
 func set_target_rotational_velo(input_vector: Vector2, forward_vector: Vector2):
 	var cross_prod : float = input_vector.cross(forward_vector)
-	if (input_vector.length() < INPUT_VECTOR_DEADZONE):
+	if (input_vector.length() < INPUT_VECTOR_DEADZONE) and ((abs(cross_prod) < CROSS_PROD_DEADZONE) and (input_vector.dot(forward_vector) > 0)):
 		target_rotational_velo = 0
-		if (abs(cross_prod) < CROSS_PROD_DEADZONE) and (input_vector.dot(forward_vector) > 0):
-			rotational_velo = 0
 		return
 	if (cross_prod > 0):
 		target_rotational_velo = MAX_ROTATIONAL_VELO * sqrt(cross_prod)
