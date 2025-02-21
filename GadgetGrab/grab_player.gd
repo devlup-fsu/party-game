@@ -2,14 +2,13 @@ class_name GrabPlayer
 extends CharacterBody3D
 
 #const SPEED = 5.0
-const JUMP_VELOCITY = 2.0 # m/s
-const GRAVITY = -1.6 #m/s^2
+const JUMP_VELOCITY = 4.0 # m/s
+const GRAVITY = -2.5 #m/s^2
 const MAX_LINEAR_SPEED = 10.0 #m/s
-const LINEAR_ACCELERATION = 20.0 # m/s^2
 const CROSS_PROD_DEADZONE = 0.01 #unitless
 const INPUT_VECTOR_DEADZONE = 0.2 #unitless
 
-
+var  linear_acceleration = 20.0 # m/s^2
 var target_lin_velo : float = 0.0 # m/s
 var lin_velo : float = 0.0 # m/s
 
@@ -31,12 +30,15 @@ func _physics_process(delta: float) -> void:
 	
 	set_target_lin_velo(input_direction)
 	
-	lin_velo = move_toward(lin_velo, target_lin_velo, delta * LINEAR_ACCELERATION)
+	if not is_on_floor():
+		linear_acceleration = 0.0003
+	
+	lin_velo = move_toward(lin_velo, target_lin_velo, delta * linear_acceleration)
 	
 	velocity.x = forward_direction.y * lin_velo
 	velocity.z = forward_direction.x * lin_velo 
 	
-	
+	linear_acceleration = 20.0
 	move_and_slide()
 
 
