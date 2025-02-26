@@ -62,7 +62,12 @@ func _physics_process(delta: float) -> void:
 	velocity.z = forward_dir.y * lin_velo # forward_dir is a Vector2, so grab the y
 
 	# print(str(position.y))
-
+	if(not is_on_floor()):
+		velocity.x = velocity.x *.5
+		velocity.z = velocity.z *.5
+		rotation.z = rotation.z *.5
+		rotation.x = rotation.x *.5
+		
 	cycle_num += 1
 	move_and_slide()
 	
