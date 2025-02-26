@@ -1,7 +1,7 @@
 class_name GrabPlayer
 extends CharacterBody3D
 
-const GRAVITY_ACCEL = -2.5 # m/s^2
+const GRAVITY_ACCEL = -5 # m/s^2
 const JUMP_VELO = 4 # m/s
 const MAX_LIN_SPEED = 10.0 # m/s
 const LIN_ACCEL = 20.0 # m/s^2
