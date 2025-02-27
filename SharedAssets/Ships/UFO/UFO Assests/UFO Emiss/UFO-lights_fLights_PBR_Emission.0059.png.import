@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dr6u7gaw8823i"
+path="res://.godot/imported/UFO-lights_fLights_PBR_Emission.0059.png-e6a0e792fae2cf5cfb31f65b04a712d9.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0059.png"
+dest_files=["res://.godot/imported/UFO-lights_fLights_PBR_Emission.0059.png-e6a0e792fae2cf5cfb31f65b04a712d9.ctex"]
+
+[params]
+
+compress/mode=3
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

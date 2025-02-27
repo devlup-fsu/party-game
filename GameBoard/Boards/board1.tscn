@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b351xgyx3tfek" path="res://Core/Controls/Assets/button_color_b.svg" id="3_1bpcn"]
 [ext_resource type="PackedScene" uid="uid://c0y78andl5ugq" path="res://GameBoard/Player/player.tscn" id="3_55h77"]
 [ext_resource type="PackedScene" uid="uid://bk01xchcfcm6c" path="res://GameBoard/Camera/camera.tscn" id="4_2ngwn"]
-[ext_resource type="Texture2D" uid="uid://d0ae4qnwxba2h" path="res://GameBoard/eq_sky.png" id="7_8j41g"]
+[ext_resource type="Texture2D" uid="uid://d0ae4qnwxba2h" path="res://SharedAssets/eq_sky.png" id="7_8j41g"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_14fc8"]
 panorama = ExtResource("7_8j41g")

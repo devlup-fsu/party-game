@@ -1,7 +1,8 @@
+class_name AnimatedTextureBuilder
 extends Node
 
 
-func build_animated_texture(directory: String):
+static func build_animated_texture(directory: String):
 	var dir = DirAccess.open(directory)
 	
 	var frame_files = []
@@ -23,8 +24,7 @@ func build_animated_texture(directory: String):
 	var animated_texture = AnimatedTexture.new()
 	animated_texture.frames = frame_files.size()
 	for i in range(frame_files.size()):
-		var image = Image.load_from_file(directory + "/" + frame_files[i] + ".png")
-		animated_texture.set_frame_texture(i, ImageTexture.create_from_image(image))
+		animated_texture.set_frame_texture(i, load(directory + "/" + frame_files[i] + ".png"))
 		animated_texture.set_frame_duration(i, 1.0 / 30.0)
 	
 	return animated_texture

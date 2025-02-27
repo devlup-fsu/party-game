@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bt56kwwqia5eo"]
 
 [ext_resource type="PackedScene" uid="uid://bhaa373vhoku1" path="res://BattleshipMinigame/player_1.tscn" id="1_ya70w"]
-[ext_resource type="Texture2D" uid="uid://d0ae4qnwxba2h" path="res://GameBoard/eq_sky.png" id="1_yrbxa"]
+[ext_resource type="Texture2D" uid="uid://d0ae4qnwxba2h" path="res://SharedAssets/eq_sky.png" id="1_yrbxa"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7wqxk"]
 size = Vector3(1, 10, 45)

@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b134p4ig0vjy7"
-path.s3tc="res://.godot/imported/UFO-body_Bake1_PBR_Diffuse.png-44140458aead3721340bd1ed6543c504.s3tc.ctex"
+path="res://.godot/imported/UFO-body_Bake1_PBR_Diffuse.png-44140458aead3721340bd1ed6543c504.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://SharedAssets/Ships/UFO/UFO Assests/UFO-body_Bake1_PBR_Diffuse.png"
-dest_files=["res://.godot/imported/UFO-body_Bake1_PBR_Diffuse.png-44140458aead3721340bd1ed6543c504.s3tc.ctex"]
+dest_files=["res://.godot/imported/UFO-body_Bake1_PBR_Diffuse.png-44140458aead3721340bd1ed6543c504.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
