@@ -1,15 +1,17 @@
 class_name MinigameCarousel
 extends Control
 
-@export var portrait_vel: float = 1000.0
-@export var spacing: float = 16
+const BORDER_WIDTH: Vector2 = Vector2.ONE * 8
 
 var _portrait_scene: PackedScene = load("res://Core/Minigames/MinigameCarousel/minigame_portrait.tscn")
 
 var _portraits: Array[MinigamePortrait] = []
-
+var _target_minigame: Minigame
+var _selector_idx: int = 0
+var _time: float = 0
 
 func initialize(target_minigame: Minigame) -> void:
+	_target_minigame = target_minigame
 	if not is_node_ready():
 		await ready
 	
@@ -26,14 +28,22 @@ func initialize(target_minigame: Minigame) -> void:
 		_portraits.push_back(portrait)
 		%Portraits.add_child(portrait)
 		
-		portrait.set_minigame(minigame)
+		portrait.minigame = minigame
 	
-	%Selector.size = _portraits[0].size
+	%Selector.size = _portraits[0].size + BORDER_WIDTH * 2
+	_on_move_selector_timer_timeout()
 
+func _process(delta: float) -> void:
+	_time += delta
 
-#func _process(delta: float) -> void:
-	#for portrait in _portraits:
-		#portrait.position.x -= portrait_vel * delta
-		#
-		#if portrait.position.x < -portrait.size.x:
-			#portrait.position.x = (_portraits.size() - 1) * (portrait.size.x + spacing)# + get_viewport().size.x
+func interpolation_fun(time: float) -> float:
+	return 0.5/(1+exp((time - 2) * -2)) + 0.05
+
+func _on_move_selector_timer_timeout() -> void:
+	%Selector.global_position = _portraits[_selector_idx].global_position - BORDER_WIDTH
+	_selector_idx = (_selector_idx + 1) % 4
+	
+	if _time >= 5 and _portraits[_selector_idx].minigame == _target_minigame:
+		pass
+	else:
+		get_tree().create_timer(interpolation_fun(_time)).timeout.connect(_on_move_selector_timer_timeout, CONNECT_ONE_SHOT)

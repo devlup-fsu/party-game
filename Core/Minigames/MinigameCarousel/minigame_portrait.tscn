@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://Core/Minigames/MinigameCarousel/minigame_portrait.gd" id="1_tnot4"]
 
 [node name="MinigamePortrait" type="VBoxContainer"]
-anchors_preset = -1
 offset_right = 355.0
 offset_bottom = 227.0
 size_flags_horizontal = 0
@@ -18,5 +17,7 @@ expand_mode = 3
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 text = "Minigame"
 horizontal_alignment = 1
