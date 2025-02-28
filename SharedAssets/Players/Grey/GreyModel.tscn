@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc4dsexhtc3ys"]
+
+[ext_resource type="PackedScene" uid="uid://qqse3lvjryql" path="res://SharedAssets/Players/Grey/GreyGameReady.blend" id="1_us16x"]
+[ext_resource type="Script" path="res://SharedAssets/Players/Grey/grey_model.gd" id="1_vlx3m"]
+
+[node name="GreyModel" type="Node3D"]
+script = ExtResource("1_vlx3m")
+
+[node name="GreyGameReady" parent="." instance=ExtResource("1_us16x")]
