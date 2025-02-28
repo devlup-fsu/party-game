@@ -30,7 +30,13 @@ func _physics_process(delta: float) -> void:
 		velocity += Vector3(0,GRAVITY_ACCEL,0) * delta
 	
 	if Controls.is_action_just_pressed(player, "core_player_jump") and is_on_floor():
+		
+		$GadgetGrabber/AnimationPlayer.play("Cube_009Action", 0, .52)
+		$GadgetGrabber/AnimationPlayer.play("Cube_010Action",1)
+		await get_tree().create_timer(.05).timeout
 		velocity.y = JUMP_VELO
+		
+
 	
 	var input_dir : Vector2 = Controls.get_vector(player, "core_player_left", "core_player_right", "core_player_up", "core_player_down")
 	var forward_dir : Vector2 = Vector2(-transform.basis.z.normalized().x, -transform.basis.z.normalized().z)

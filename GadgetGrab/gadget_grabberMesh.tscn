@@ -1,0 +1,197 @@
+[gd_scene load_steps=10 format=3 uid="uid://b2kpeha0lugga"]
+
+[ext_resource type="PackedScene" uid="uid://juwbx1qllri1" path="res://GadgetGrab/GadgetGrabber.blend" id="1_wrl2j"]
+
+[sub_resource type="Animation" id="Animation_3pxnb"]
+resource_name = "CubeAction"
+length = 0.0416667
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_009")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.150927, 0.0398505, -0.0391795)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_010")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.166416, 0.0540831, 1.13276)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_010")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, -0.0728828, 0.997341)
+
+[sub_resource type="Animation" id="Animation_73ug4"]
+resource_name = "Cube_001Action"
+length = 0.0416667
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_009")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.150927, 0.0398505, -0.0391795)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_010")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.166416, 0.0540831, 1.13276)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_010")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, -0.0728828, 0.997341)
+
+[sub_resource type="Animation" id="Animation_7dp6w"]
+resource_name = "Cube_002Action"
+length = 0.0416667
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_009")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.150927, 0.0398505, -0.0391795)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_010")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.166416, 0.0540831, 1.13276)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_010")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, -0.0728828, 0.997341)
+
+[sub_resource type="Animation" id="Animation_ui3an"]
+resource_name = "CylinderAction"
+length = 0.0416667
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_009")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.150927, 0.0398505, -0.0391795)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_010")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.166416, 0.0540831, 1.13276)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_010")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, -0.0728828, 0.997341)
+
+[sub_resource type="Animation" id="Animation_ft1j7"]
+resource_name = "Cube_009Action"
+length = 0.833333
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_009")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.150927, 0.0398505, -0.0391795, 0.0333333, 1, -0.150927, 0.0398505, -0.0391795, 0.0666667, 1, -0.150927, -0.0292758, -0.0391795, 0.1, 1, -0.150927, -0.19057, -0.0391795, 0.133333, 1, -0.150927, -0.438273, -0.0391795, 0.2, 1, -0.150927, -1.03737, -0.0391795, 0.233333, 1, -0.150927, -1.28507, -0.0391795, 0.266667, 1, -0.150927, -1.44636, -0.0391795, 0.3, 1, -0.150927, -1.5103, -0.0391795, 0.333333, 1, -0.150927, -1.48953, -0.0391795, 0.366667, 1, -0.150927, -1.43172, -0.0391795, 0.4, 1, -0.150927, -1.35118, -0.0391795, 0.433333, 1, -0.150927, -1.25128, -0.0391795, 0.466667, 1, -0.150927, -1.13538, -0.0391795, 0.5, 1, -0.150927, -1.00685, -0.0391795, 0.533333, 1, -0.150927, -0.868224, -0.0391795, 0.6, 1, -0.150927, -0.586755, -0.0391795, 0.633333, 1, -0.150927, -0.450652, -0.0391795, 0.666667, 1, -0.150927, -0.322124, -0.0391795, 0.7, 1, -0.150927, -0.210435, -0.0391795, 0.733333, 1, -0.150927, -0.116425, -0.0391795, 0.766667, 1, -0.150927, -0.0434624, -0.0391795, 0.8, 1, -0.150927, 0.00508599, -0.0391795, 0.833333, 1, -0.150927, 0.0258524, -0.0391795)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_010")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.166416, 0.0540831, 1.13276)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_010")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, -0.0728828, 0.997341)
+
+[sub_resource type="Animation" id="Animation_wglhi"]
+resource_name = "Cube_010Action"
+length = 0.833333
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_010")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.166416, 0.0540831, 1.13276, 0.0333333, 1, -0.166416, 0.0540831, 1.13276, 0.0666667, 1, -0.166416, -0.0150432, 1.13276, 0.1, 1, -0.166416, -0.176338, 1.13276, 0.133333, 1, -0.166416, -0.42404, 1.13276, 0.2, 1, -0.166416, -1.02313, 1.13276, 0.233333, 1, -0.166416, -1.27084, 1.13276, 0.266667, 1, -0.166416, -1.43213, 1.13276, 0.3, 1, -0.166416, -1.49607, 1.13276, 0.333333, 1, -0.166416, -1.4753, 1.13276, 0.366667, 1, -0.166416, -1.41749, 1.13276, 0.4, 1, -0.166416, -1.33695, 1.13276, 0.433333, 1, -0.166416, -1.23705, 1.13276, 0.466667, 1, -0.166416, -1.12115, 1.13276, 0.5, 1, -0.166416, -0.992621, 1.13276, 0.533333, 1, -0.166416, -0.853992, 1.13276, 0.6, 1, -0.166416, -0.572523, 1.13276, 0.633333, 1, -0.166416, -0.436419, 1.13276, 0.666667, 1, -0.166416, -0.307892, 1.13276, 0.7, 1, -0.166416, -0.196203, 1.13276, 0.733333, 1, -0.166416, -0.102193, 1.13276, 0.766667, 1, -0.166416, -0.0292298, 1.13276, 0.8, 1, -0.166416, 0.0193186, 1.13276, 0.833333, 1, -0.166416, 0.0400851, 1.13276)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_010")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, -0.0728828, 0.997341, 0.0333333, 1, 0, 0, -0.0728828, 0.997341, 0.0666667, 1, 0, 0, -0.117668, 0.993053, 0.1, 1, 0, 0, -0.231443, 0.972849, 0.133333, 1, 0, 0, -0.416281, 0.909236, 0.166667, 1, 0, 0, -0.643274, 0.765636, 0.2, 1, 0, 0, -0.869041, 0.49474, 0.233333, 1, 0, 0, -0.99406, 0.108834, 0.266667, 1, 0, 0, 0.940436, 0.33997, 0.3, 1, 0, 0, 0.664686, 0.747123, 0.333333, 1, 0, 0, 0.194628, 0.980877, 0.366667, 1, 0, 0, -0.359788, 0.933034, 0.4, 1, 0, 0, -0.811482, 0.584377, 0.433333, 1, 0, 0, -0.999305, 0.0372793, 0.466667, 1, 0, 0, 0.851911, 0.523686, 0.5, 1, 0, 0, 0.422382, 0.906418, 0.533333, 1, 0, 0, -0.127499, 0.991839, 0.566667, 1, 0, 0, -0.618807, 0.785543, 0.6, 1, 0, 0, -0.922888, 0.385069, 0.633333, 1, 0, 0, -0.997161, -0.0753048, 0.666667, 1, 0, 0, 0.87669, 0.481056, 0.7, 1, 0, 0, 0.655195, 0.755459, 0.733333, 1, 0, 0, 0.411187, 0.911551, 0.766667, 1, 0, 0, 0.202025, 0.97938, 0.8, 1, 0, 0, 0.0599547, 0.998201, 0.833333, 1, 0, 0, 0, 1)
+tracks/2/type = "position_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_009")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.150927, 0.0398505, -0.0391795)
+
+[sub_resource type="Animation" id="Animation_epclk"]
+resource_name = "SphereAction"
+length = 0.0416667
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_009")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.150927, 0.0398505, -0.0391795)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_010")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.166416, 0.0540831, 1.13276)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_010")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, -0.0728828, 0.997341)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iqxfw"]
+_data = {
+"CubeAction": SubResource("Animation_3pxnb"),
+"Cube_001Action": SubResource("Animation_73ug4"),
+"Cube_002Action": SubResource("Animation_7dp6w"),
+"Cube_009Action": SubResource("Animation_ft1j7"),
+"Cube_010Action": SubResource("Animation_wglhi"),
+"CylinderAction": SubResource("Animation_ui3an"),
+"SphereAction": SubResource("Animation_epclk")
+}
+
+[node name="GadgetGrabber" instance=ExtResource("1_wrl2j")]
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="12"]
+root_node = NodePath("../AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_iqxfw")
+}
