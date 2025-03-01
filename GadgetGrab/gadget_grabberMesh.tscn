@@ -77,31 +77,6 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, -0.0728828, 0.997341)
 
-[sub_resource type="Animation" id="Animation_ui3an"]
-resource_name = "CylinderAction"
-length = 0.0416667
-tracks/0/type = "position_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cube_009")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.150927, 0.0398505, -0.0391795)
-tracks/1/type = "position_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cube_010")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.166416, 0.0540831, 1.13276)
-tracks/2/type = "rotation_3d"
-tracks/2/imported = true
-tracks/2/enabled = true
-tracks/2/path = NodePath("Cube_010")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, -0.0728828, 0.997341)
-
 [sub_resource type="Animation" id="Animation_ft1j7"]
 resource_name = "Cube_009Action"
 length = 0.833333
@@ -151,6 +126,31 @@ tracks/2/path = NodePath("Cube_009")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, -0.150927, 0.0398505, -0.0391795)
+
+[sub_resource type="Animation" id="Animation_ui3an"]
+resource_name = "CylinderAction"
+length = 0.0416667
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_009")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.150927, 0.0398505, -0.0391795)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_010")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.166416, 0.0540831, 1.13276)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_010")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, -0.0728828, 0.997341)
 
 [sub_resource type="Animation" id="Animation_epclk"]
 resource_name = "SphereAction"

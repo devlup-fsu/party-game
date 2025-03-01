@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bt56kwwqia5eo"]
+[gd_scene load_steps=7 format=3 uid="uid://bt56kwwqia5eo"]
 
+[ext_resource type="Script" path="res://GadgetGrab/main.gd" id="1_esxul"]
 [ext_resource type="PackedScene" uid="uid://su85vcmwb7f" path="res://GadgetGrab/Grab_Player.tscn" id="1_q3mhu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gpkpt"]
@@ -15,6 +16,7 @@ size = Vector3(30, 10, 1)
 data = PackedVector3Array(-15, 5, 0.5, 15, 5, 0.5, -15, -5, 0.5, 15, 5, 0.5, 15, -5, 0.5, -15, -5, 0.5, 15, 5, -0.5, -15, 5, -0.5, 15, -5, -0.5, -15, 5, -0.5, -15, -5, -0.5, 15, -5, -0.5, 15, 5, 0.5, 15, 5, -0.5, 15, -5, 0.5, 15, 5, -0.5, 15, -5, -0.5, 15, -5, 0.5, -15, 5, -0.5, -15, 5, 0.5, -15, -5, -0.5, -15, 5, 0.5, -15, -5, 0.5, -15, -5, -0.5, 15, 5, 0.5, -15, 5, 0.5, 15, 5, -0.5, -15, 5, 0.5, -15, 5, -0.5, 15, 5, -0.5, -15, -5, 0.5, 15, -5, 0.5, -15, -5, -0.5, 15, -5, 0.5, 15, -5, -0.5, -15, -5, -0.5)
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_esxul")
 
 [node name="Floor_RigidBody3D" type="StaticBody3D" parent="."]
 
