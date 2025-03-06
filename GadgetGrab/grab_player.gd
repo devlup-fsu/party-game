@@ -40,6 +40,10 @@ func _physics_process(delta: float) -> void:
 	
 	var input_dir : Vector2 = Controls.get_vector(player, "core_player_left", "core_player_right", "core_player_up", "core_player_down")
 	var forward_dir : Vector2 = Vector2(-transform.basis.z.normalized().x, -transform.basis.z.normalized().z)
+	
+	if (input_dir.length() > 1.0):
+		input_dir = input_dir.normalized()
+	
 	set_target_rotational_velo(input_dir, forward_dir)
 	set_target_lin_velo(input_dir)
 	
@@ -69,10 +73,8 @@ func _physics_process(delta: float) -> void:
 
 	# print(str(position.y))
 	if(not is_on_floor()):
-		velocity.x = velocity.x *.5
-		velocity.z = velocity.z *.5
-		rotation.z = rotation.z *.5
-		rotation.x = rotation.x *.5
+		velocity.x = velocity.x * 0.7
+		velocity.z = velocity.z * 0.7
 		
 	cycle_num += 1
 	move_and_slide()
