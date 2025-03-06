@@ -31,7 +31,7 @@ shape = SubResource("ConcavePolygonShape3D_fc1ln")
 transform = Transform3D(1, 0, 0, 0, 0.64679, 0.762668, 0, -0.762668, 0.64679, 0, 12, 16)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.79653, 0.534324, -0.28291, 0, 0.46793, 0.883766, 0.604599, 0.703946, -0.37272, 0, 55.727, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 55.727, 0)
 shadow_enabled = true
 
 [node name="Player1" parent="." instance=ExtResource("1_q3mhu")]
