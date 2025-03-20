@@ -28,7 +28,7 @@ var lane_location = LaneLocation.MIDDLE
 func _ready() -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 	
@@ -54,7 +54,7 @@ func jump_tick(delta: float):
 	prev_jump_button_state = jump_button_state
 	
 
-func duck_tick(delta: float):
+func duck_tick(_delta: float):
 	is_ducking = Controls.is_action_pressed(player_number, 'core_player_jump')
 	if is_ducking:
 		$CollisionShape.disabled = true
@@ -68,7 +68,7 @@ func duck_tick(delta: float):
 		$DuckingMesh.visible = false
 
 
-func lane_change_tick(delta: float):
+func lane_change_tick(_delta: float):
 	if is_on_floor():
 		var west = Controls.is_action_pressed(player_number, 'core_player_west')
 		var east = Controls.is_action_pressed(player_number, 'core_player_east')
@@ -87,7 +87,6 @@ func lane_change_tick(delta: float):
 			position = origin_position
 		else:
 			position = origin_position + Vector3.RIGHT
-		
 
 
 func _physics_process(delta: float) -> void:

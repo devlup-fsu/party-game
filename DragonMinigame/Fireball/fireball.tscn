@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://n1ckyxcsek7u"]
+
+[ext_resource type="Script" path="res://DragonMinigame/Fireball/fireball.gd" id="1_nmdhf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ff6an"]
+radius = 0.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2qopn"]
+albedo_color = Color(0.411765, 0, 0.658824, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ifpxm"]
+material = SubResource("StandardMaterial3D_2qopn")
+radius = 0.75
+height = 1.5
+radial_segments = 16
+rings = 8
+
+[node name="Fireball" type="Area3D"]
+script = ExtResource("1_nmdhf")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ff6an")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ifpxm")

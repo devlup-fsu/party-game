@@ -1,14 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://diu00o8qqxckl"]
+[gd_scene load_steps=3 format=3 uid="uid://diu00o8qqxckl"]
 
 [ext_resource type="PackedScene" uid="uid://crjbb0qonbuwt" path="res://DragonMinigame/Player/player.tscn" id="1_p57v6"]
+[ext_resource type="Script" uid="uid://dn0kx4fff12ja" path="res://DragonMinigame/dragon_minigame.gd" id="1_y042p"]
 
 [node name="DragonMinigame" type="Node3D"]
+script = ExtResource("1_y042p")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 7.57887, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.982402, 0.186781, 0, -0.186781, 0.982402, 0, 5.9032, 7.51183)
+transform = Transform3D(1, 0, 0, 0, 0.999666, 0.0258451, 0, -0.0258451, 0.999666, 0, 5.12098, 9.87843)
 
 [node name="Platforms" type="Node3D" parent="."]
 
@@ -56,3 +58,22 @@ player_number = 2
 [node name="Player4" parent="Players" instance=ExtResource("1_p57v6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.125, 0)
 player_number = 3
+
+[node name="Fireballs" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="FireballSpawners" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+
+[node name="SpawnLoc1" type="Node3D" parent="FireballSpawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
+
+[node name="SpawnLoc2" type="Node3D" parent="FireballSpawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
+
+[node name="SpawnLoc3" type="Node3D" parent="FireballSpawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
+
+[node name="SpawnLoc4" type="Node3D" parent="FireballSpawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0)
