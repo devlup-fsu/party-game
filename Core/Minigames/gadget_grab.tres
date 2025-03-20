@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Minigame" load_steps=3 format=3 uid="uid://dagcdf8ytbxd3"]
+
+[ext_resource type="PackedScene" uid="uid://bt56kwwqia5eo" path="res://GadgetGrab/main.tscn" id="1_ftdyp"]
+[ext_resource type="Script" path="res://Core/Minigames/minigame.gd" id="1_gneht"]
+
+[resource]
+script = ExtResource("1_gneht")
+name = "Gadget Grab"
+description = ""
+scene = ExtResource("1_ftdyp")
+published = true
