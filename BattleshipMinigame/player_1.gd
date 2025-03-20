@@ -42,6 +42,7 @@ func _physics_process(delta: float) -> void:
 	# Handle rotational/linear velocity
 	rotational_velo = move_toward(rotational_velo, target_rotational_velo, ROTATIONAL_ACCEL * delta)
 	lin_velo = move_toward(lin_velo, target_lin_velo, LIN_ACCEL * delta)
+
 	
 	# Apply rotational velocity
 	rotation.y += rotational_velo * delta
