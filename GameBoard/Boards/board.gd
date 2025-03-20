@@ -1,6 +1,8 @@
 class_name GameBoard
 extends Node3D
 
+signal next_minigame_command(full_command: String)
+
 @export var continue_movement_texture: Texture
 @export var alternative_movement_texture: Texture
 
@@ -25,6 +27,13 @@ func _ready() -> void:
 	_switch_to_next_player()
 	
 	_link_solar_systems()
+	
+	Console.replace_command("next_minigame", next_minigame_command)
+	next_minigame_command.connect(_on_next_minigame_command)
+
+
+func _on_next_minigame_command(_full_command: String) -> void:
+	_load_random_minigame()
 
 
 func _link_solar_systems():
@@ -56,6 +65,16 @@ func _link_solar_systems():
 				#print("(%s, %s)" %[closest_src_sector.index, closest_dst_sector.index])
 
 
+func _load_random_minigame() -> void:
+	if _minigames_to_play.is_empty():
+		_minigames_to_play = SceneManager.get_published_minigames()
+		_minigames_to_play.erase(_last_minigame)
+	
+	_last_minigame = _minigames_to_play.pick_random()
+	_minigames_to_play.erase(_last_minigame)
+	SceneManager.load_minigame(_last_minigame, true)
+
+
 func _switch_to_next_player() -> void:
 	if _current_player == null:
 		_current_player = _players[Controls.Player.ONE]
@@ -67,13 +86,7 @@ func _switch_to_next_player() -> void:
 			next_player = Controls.Player.ONE
 			camera.teleport_to_player(_players[next_player])
 			
-			if _minigames_to_play.is_empty():
-				_minigames_to_play = SceneManager.get_published_minigames()
-				_minigames_to_play.erase(_last_minigame)
-			
-			_last_minigame = _minigames_to_play.pick_random()
-			_minigames_to_play.erase(_last_minigame)
-			SceneManager.load_minigame(_last_minigame)
+			_load_random_minigame()
 			
 		_current_player = _players[next_player]
 	
