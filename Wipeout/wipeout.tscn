@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cja1xcgg1afr8"]
 
-[ext_resource type="Script" path="res://Wipeout/wipeout.gd" id="1_a1rfy"]
+[ext_resource type="Script" uid="uid://tattwtjud7p3" path="res://Wipeout/wipeout.gd" id="1_a1rfy"]
 [ext_resource type="PackedScene" uid="uid://dcsfryltqfgfw" path="res://Wipeout/platform.tscn" id="1_mx7nd"]
 [ext_resource type="PackedScene" uid="uid://c4daxd53fifgn" path="res://Wipeout/player.tscn" id="2_u6vgm"]
 [ext_resource type="PackedScene" uid="uid://xhycjf7yaii" path="res://Wipeout/sweeper.tscn" id="3_870no"]

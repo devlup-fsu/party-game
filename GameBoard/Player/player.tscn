@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c0y78andl5ugq"]
 
-[ext_resource type="Script" path="res://GameBoard/Player/player.gd" id="1_hr5vq"]
+[ext_resource type="Script" uid="uid://h1phtycqe1ba" path="res://GameBoard/Player/player.gd" id="1_hr5vq"]
 [ext_resource type="ArrayMesh" uid="uid://w446wgc58vm4" path="res://GameBoard/Player/ship.obj" id="2_f4fuv"]
 [ext_resource type="PackedScene" uid="uid://cr3cs64vxs33x" path="res://SharedAssets/Ships/UFO/UfoModel.tscn" id="3_ma6lj"]
 

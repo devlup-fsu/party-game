@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4daxd53fifgn"]
 
-[ext_resource type="Script" path="res://Wipeout/player.gd" id="1_1wa41"]
+[ext_resource type="Script" uid="uid://ylfhqy2061lg" path="res://Wipeout/player.gd" id="1_1wa41"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xawqm"]
 

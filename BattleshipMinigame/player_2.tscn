@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://rb4paqs6tnnq"]
 
-[ext_resource type="Script" path="res://BattleshipMinigame/player_2.gd" id="1_xy0hg"]
+[ext_resource type="Script" uid="uid://bit6ebbgw5vaj" path="res://BattleshipMinigame/player_2.gd" id="1_xy0hg"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_11afw"]
 size = Vector3(4, 4, 0.3)

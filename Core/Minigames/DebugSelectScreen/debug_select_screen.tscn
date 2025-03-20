@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2hwem2y0sme7"]
 
-[ext_resource type="Script" path="res://Core/Minigames/DebugSelectScreen/debug_select_screen.gd" id="1_tt6gj"]
+[ext_resource type="Script" uid="uid://dpf7obbd8y1uv" path="res://Core/Minigames/DebugSelectScreen/debug_select_screen.gd" id="1_tt6gj"]
 
 [node name="DebugSelectScreen" type="ColorRect"]
 anchors_preset = 15

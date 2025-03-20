@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1r4vrrpf7usc"]
 
-[ext_resource type="Script" path="res://HoleInWallMinigane/wall_player.gd" id="1_m3bat"]
+[ext_resource type="Script" uid="uid://dym6anhd6wmu6" path="res://HoleInWallMinigane/wall_player.gd" id="1_m3bat"]
 [ext_resource type="ArrayMesh" uid="uid://w446wgc58vm4" path="res://GameBoard/Player/ship.obj" id="2_3v1dr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_td31j"]

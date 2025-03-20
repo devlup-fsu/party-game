@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dygpbbqqpn6y2"]
 
 [ext_resource type="Texture2D" uid="uid://dm8ni30rrftbb" path="res://Core/Minigames/default_portrait.png" id="1_j7xg1"]
-[ext_resource type="Script" path="res://Core/Minigames/MinigameCarousel/minigame_portrait.gd" id="1_tnot4"]
+[ext_resource type="Script" uid="uid://dnfcfp5qnxm41" path="res://Core/Minigames/MinigameCarousel/minigame_portrait.gd" id="1_tnot4"]
 
 [node name="MinigamePortrait" type="VBoxContainer"]
 offset_right = 355.0

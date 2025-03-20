@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bdok6yvjwfqq6"]
 
-[ext_resource type="Script" path="res://FactoryGame/EndCard/platform.gd" id="1_qye4g"]
+[ext_resource type="Script" uid="uid://o402ploperob" path="res://FactoryGame/EndCard/platform.gd" id="1_qye4g"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5nyat"]
 height = 1.0

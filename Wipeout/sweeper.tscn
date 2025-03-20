@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://xhycjf7yaii"]
 
-[ext_resource type="Script" path="res://Wipeout/sweeper.gd" id="1_xjwk6"]
+[ext_resource type="Script" uid="uid://bhvh1x7lhv7xy" path="res://Wipeout/sweeper.gd" id="1_xjwk6"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yrgb6"]
 top_radius = 1.5

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://mm5d6q4l6b40"]
 
-[ext_resource type="Script" path="res://HoleInWallMinigane/astroid.gd" id="1_v5gbg"]
+[ext_resource type="Script" uid="uid://c4mxbkmwdeg0" path="res://HoleInWallMinigane/astroid.gd" id="1_v5gbg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ambhr"]
 

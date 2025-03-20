@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://8im326ay6uie"]
 
-[ext_resource type="Script" path="res://FactoryGame/FuelGenerator/fuel_generator.gd" id="1_yrj0g"]
+[ext_resource type="Script" uid="uid://bxjak52ad35hm" path="res://FactoryGame/FuelGenerator/fuel_generator.gd" id="1_yrj0g"]
 [ext_resource type="Texture2D" uid="uid://d3hhfgwpgge1m" path="res://FactoryGame/Resources/Textures/generator.png" id="2_p0xeb"]
 
 [node name="FuelGenerator" type="Node3D"]

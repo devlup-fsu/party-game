@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Minigame" load_steps=3 format=3 uid="uid://b4wg4sk82j2w5"]
 
 [ext_resource type="PackedScene" uid="uid://cja1xcgg1afr8" path="res://Wipeout/wipeout.tscn" id="1_ky250"]
-[ext_resource type="Script" path="res://Core/Minigames/minigame.gd" id="1_vfdca"]
+[ext_resource type="Script" uid="uid://j5u61pxsb46s" path="res://Core/Minigames/minigame.gd" id="1_vfdca"]
 
 [resource]
 script = ExtResource("1_vfdca")

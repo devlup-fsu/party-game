@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bt56kwwqia5eo"]
 
-[ext_resource type="Script" path="res://GadgetGrab/main.gd" id="1_esxul"]
+[ext_resource type="Script" uid="uid://dtcp40qdfm33m" path="res://GadgetGrab/main.gd" id="1_esxul"]
 [ext_resource type="PackedScene" uid="uid://su85vcmwb7f" path="res://GadgetGrab/Grab_Player.tscn" id="1_q3mhu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gpkpt"]

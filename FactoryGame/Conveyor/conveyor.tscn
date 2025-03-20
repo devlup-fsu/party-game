@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://pfuwki2d02i0"]
 
-[ext_resource type="Script" path="res://FactoryGame/Conveyor/conveyor.gd" id="1_e80us"]
+[ext_resource type="Script" uid="uid://21jpwrda2l40" path="res://FactoryGame/Conveyor/conveyor.gd" id="1_e80us"]
 [ext_resource type="Texture2D" uid="uid://hdcu0hkip6gh" path="res://FactoryGame/Resources/Textures/belt.png" id="2_su027"]
-[ext_resource type="Script" path="res://FactoryGame/Conveyor/force_area.gd" id="2_wrkeu"]
+[ext_resource type="Script" uid="uid://d1y6ga8nfxvny" path="res://FactoryGame/Conveyor/force_area.gd" id="2_wrkeu"]
 [ext_resource type="Texture2D" uid="uid://d3p7lfbdci5dt" path="res://FactoryGame/Resources/Textures/arrow.png" id="5_t2fdq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7ersl"]

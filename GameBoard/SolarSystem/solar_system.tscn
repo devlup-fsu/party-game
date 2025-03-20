@@ -1,9 +1,9 @@
 [gd_scene load_steps=25 format=3 uid="uid://b4e0e5iuxhesc"]
 
-[ext_resource type="Script" path="res://GameBoard/SolarSystem/solar_system.gd" id="1_cxh0b"]
-[ext_resource type="Shader" path="res://GameBoard/SolarSystem/star.gdshader" id="2_8ukix"]
+[ext_resource type="Script" uid="uid://bd7rd6fhk5qur" path="res://GameBoard/SolarSystem/solar_system.gd" id="1_cxh0b"]
+[ext_resource type="Shader" uid="uid://ct0ctomadg3ew" path="res://GameBoard/SolarSystem/star.gdshader" id="2_8ukix"]
 [ext_resource type="PackedScene" uid="uid://dw8g20x00hghm" path="res://GameBoard/SolarSystem/sector.tscn" id="3_dpaxe"]
-[ext_resource type="Script" path="res://GameBoard/SolarSystem/sector.gd" id="4_4ipq8"]
+[ext_resource type="Script" uid="uid://pgsy4qxc87xq" path="res://GameBoard/SolarSystem/sector.gd" id="4_4ipq8"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_xba6t"]
 resource_local_to_scene = true
@@ -35,12 +35,12 @@ shader = ExtResource("2_8ukix")
 shader_parameter/Glow_Power = 6.0
 shader_parameter/Lightness_Difference = 10.0
 shader_parameter/Sun_Color = Color(0.642562, 0.264988, 0, 1)
+shader_parameter/voronoi_noise = SubResource("NoiseTexture2D_3a233")
+shader_parameter/emission_noise = SubResource("NoiseTexture2D_2axmb")
 shader_parameter/waveSpeed = 0.1
 shader_parameter/fresnel = 1.0
 shader_parameter/scale = 1.0
 shader_parameter/blendSharpness = 0.0
-shader_parameter/voronoi_noise = SubResource("NoiseTexture2D_3a233")
-shader_parameter/emission_noise = SubResource("NoiseTexture2D_2axmb")
 
 [sub_resource type="TorusMesh" id="TorusMesh_cg2im"]
 resource_local_to_scene = true

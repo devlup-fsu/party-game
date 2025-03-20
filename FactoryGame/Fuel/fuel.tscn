@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ywlbgl2hhb30"]
 
-[ext_resource type="Script" path="res://FactoryGame/Fuel/fuel.gd" id="1_dcd1w"]
-[ext_resource type="Script" path="res://FactoryGame/Fuel/fuel_collision.gd" id="2_8ssu2"]
+[ext_resource type="Script" uid="uid://dr24tbu3ray6o" path="res://FactoryGame/Fuel/fuel.gd" id="1_dcd1w"]
+[ext_resource type="Script" uid="uid://2jrj4uirlxts" path="res://FactoryGame/Fuel/fuel_collision.gd" id="2_8ssu2"]
 [ext_resource type="Material" uid="uid://buoetfpmvsj3r" path="res://FactoryGame/Resources/Materials/dull-metal-bl/dull-metal.tres" id="3_ta5d5"]
 [ext_resource type="ArrayMesh" uid="uid://cuhp34b4rrggn" path="res://FactoryGame/Resources/Models/PowerCoreShell.obj" id="5_3qroe"]
 [ext_resource type="AudioStream" uid="uid://vvswuvht0jac" path="res://FactoryGame/Resources/Audio/fuel_clank.wav" id="5_shv57"]

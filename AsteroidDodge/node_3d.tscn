@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://d3ltf63bf4lue"]
 
-[ext_resource type="Script" path="res://AsteroidDodge/character_body_3d.gd" id="1_6at67"]
+[ext_resource type="Script" uid="uid://bbn8ojr6wqdu2" path="res://AsteroidDodge/character_body_3d.gd" id="1_6at67"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_67fuo"]
 

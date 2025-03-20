@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dt1gyjiqt10pe"]
 
-[ext_resource type="Script" path="res://FactoryGame/Receptacle/furnace.gd" id="1_gvbsa"]
+[ext_resource type="Script" uid="uid://4vbl7b1xm4a4" path="res://FactoryGame/Receptacle/furnace.gd" id="1_gvbsa"]
 [ext_resource type="ArrayMesh" uid="uid://dy8nnsed8doil" path="res://FactoryGame/Resources/Models/Background/INPUT1-Funnel.obj" id="2_bbtxl"]
 [ext_resource type="Texture2D" uid="uid://cmrj2esd3obtm" path="res://FactoryGame/Resources/Textures/Funnel.png" id="2_ounds"]
 [ext_resource type="ArrayMesh" uid="uid://c7trmr1707gv1" path="res://FactoryGame/Resources/Models/Background/INPUT1-Box.obj" id="3_o3v1w"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://4hxfda0fvecm"]
 
-[ext_resource type="Script" path="res://HoleInWallMinigane/wall_minigame.gd" id="1_i7wdh"]
+[ext_resource type="Script" uid="uid://dd5al6116aheh" path="res://HoleInWallMinigane/wall_minigame.gd" id="1_i7wdh"]
 [ext_resource type="Texture2D" uid="uid://d0ae4qnwxba2h" path="res://SharedAssets/eq_sky.png" id="2_n24t5"]
 [ext_resource type="PackedScene" uid="uid://c068idoo7nx73" path="res://HoleInWallMinigane/wall_players_rope.tscn" id="3_gi4f8"]
-[ext_resource type="Script" path="res://HoleInWallMinigane/astroid_spawner.gd" id="3_hiaym"]
+[ext_resource type="Script" uid="uid://vuubfis0atky" path="res://HoleInWallMinigane/astroid_spawner.gd" id="3_hiaym"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eowsk"]
 panorama = ExtResource("2_n24t5")

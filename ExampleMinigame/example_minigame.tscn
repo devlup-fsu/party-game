@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bxdxdtb7hygle"]
 
 [ext_resource type="PackedScene" uid="uid://do26dwfxfgvfy" path="res://ExampleMinigame/player.tscn" id="1_4panx"]
-[ext_resource type="Script" path="res://ExampleMinigame/example_minigame.gd" id="1_5baxi"]
+[ext_resource type="Script" uid="uid://ce86s5ahhjrts" path="res://ExampleMinigame/example_minigame.gd" id="1_5baxi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m7ldj"]
 

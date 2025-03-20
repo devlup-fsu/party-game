@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://duxpxpfqdmwnl"]
 
-[ext_resource type="Script" path="res://Core/Minigames/MinigameCarousel/minigame_carousel.gd" id="1_ydm5g"]
+[ext_resource type="Script" uid="uid://dnidm4l0qlxs0" path="res://Core/Minigames/MinigameCarousel/minigame_carousel.gd" id="1_ydm5g"]
 
 [node name="MinigameCarousel" type="Control"]
 layout_mode = 3

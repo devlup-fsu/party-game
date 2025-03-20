@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ca4paejg6uk5i"]
 
 [ext_resource type="PackedScene" uid="uid://b4e0e5iuxhesc" path="res://GameBoard/SolarSystem/solar_system.tscn" id="1_3d0jk"]
-[ext_resource type="Script" path="res://GameBoard/Boards/board.gd" id="1_b7vr7"]
+[ext_resource type="Script" uid="uid://xikbo00wd7a1" path="res://GameBoard/Boards/board.gd" id="1_b7vr7"]
 [ext_resource type="Texture2D" uid="uid://djfrbr7gwv4sc" path="res://Core/Controls/Assets/button_color_a.svg" id="2_iofjk"]
 [ext_resource type="Texture2D" uid="uid://b351xgyx3tfek" path="res://Core/Controls/Assets/button_color_b.svg" id="3_1bpcn"]
 [ext_resource type="PackedScene" uid="uid://c0y78andl5ugq" path="res://GameBoard/Player/player.tscn" id="3_55h77"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c068idoo7nx73"]
 
-[ext_resource type="Script" path="res://wall_players_rope.gd" id="1_vt6lp"]
+[ext_resource type="Script" uid="uid://bxyg27wr06lmj" path="res://wall_players_rope.gd" id="1_vt6lp"]
 [ext_resource type="PackedScene" uid="uid://c1r4vrrpf7usc" path="res://HoleInWallMinigane/wall_player.tscn" id="2_c4c1g"]
 
 [sub_resource type="Curve3D" id="Curve3D_kd0wn"]
