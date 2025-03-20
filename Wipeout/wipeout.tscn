@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://cja1xcgg1afr8"]
+
+[ext_resource type="Script" path="res://Wipeout/wipeout.gd" id="1_a1rfy"]
+[ext_resource type="PackedScene" uid="uid://dcsfryltqfgfw" path="res://Wipeout/platform.tscn" id="1_mx7nd"]
+[ext_resource type="PackedScene" uid="uid://c4daxd53fifgn" path="res://Wipeout/player.tscn" id="2_u6vgm"]
+[ext_resource type="PackedScene" uid="uid://xhycjf7yaii" path="res://Wipeout/sweeper.tscn" id="3_870no"]
+
+[node name="Wipeout" type="Node3D"]
+script = ExtResource("1_a1rfy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 9, 4.5, 9)
+current = true
+
+[node name="Platforms" type="Node3D" parent="."]
+
+[node name="Platform1" parent="Platforms" instance=ExtResource("1_mx7nd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("1_mx7nd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 8.6)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("1_mx7nd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.66, 0, 5)
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("1_mx7nd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="Players" type="Node3D" parent="."]
+
+[node name="Player1" parent="Players" instance=ExtResource("2_u6vgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
+
+[node name="Player2" parent="Players" instance=ExtResource("2_u6vgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 8.66)
+player = 1
+
+[node name="Player3" parent="Players" instance=ExtResource("2_u6vgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.66, 2, 5)
+player = 2
+
+[node name="Player4" parent="Players" instance=ExtResource("2_u6vgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, 0)
+player = 3
+
+[node name="Sweeper" parent="." instance=ExtResource("3_870no")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 0, 0)
