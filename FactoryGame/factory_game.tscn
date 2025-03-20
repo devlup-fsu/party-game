@@ -1,13 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6jvsgy5x4q3"]
+[gd_scene load_steps=17 format=3 uid="uid://c6jvsgy5x4q3"]
 
 [ext_resource type="PackedScene" uid="uid://ges8lqnwpw11" path="res://FactoryGame/Player/player.tscn" id="1_00avj"]
 [ext_resource type="Script" path="res://FactoryGame/factory_game.gd" id="1_iji3h"]
 [ext_resource type="PackedScene" uid="uid://cchk8dtc054e5" path="res://FactoryGame/Lamp/lamp.tscn" id="2_dgur4"]
 [ext_resource type="Environment" uid="uid://dg6l0wqbnceet" path="res://FactoryGame/Resources/Materials/sky.tres" id="2_pjdpf"]
 [ext_resource type="PackedScene" uid="uid://dt1gyjiqt10pe" path="res://FactoryGame/Receptacle/furnace.tscn" id="4_6j1yc"]
-[ext_resource type="Texture2D" uid="uid://4an807npuiia" path="res://FactoryGame/Resources/Textures/Background/Floor.png" id="5_08k5x"]
-[ext_resource type="Material" uid="uid://bw05a2hcnvpse" path="res://FactoryGame/Resources/Materials/brick-wall-bl/brick_material.tres" id="5_q47ng"]
+[ext_resource type="Material" uid="uid://brqxm3henxq7l" path="res://FactoryGame/Resources/Materials/clean-concrete-bl/concrete_material.tres" id="5_5uikl"]
 [ext_resource type="PackedScene" uid="uid://8im326ay6uie" path="res://FactoryGame/FuelGenerator/fuel_generator.tscn" id="6_64uwv"]
+[ext_resource type="Material" uid="uid://bcovub7rjd8ri" path="res://FactoryGame/Resources/Materials/factory-wall/factory_wall.tres" id="6_wa17k"]
 [ext_resource type="Script" path="res://FactoryGame/UI/fps_label.gd" id="7_ppaln"]
 [ext_resource type="Script" path="res://FactoryGame/UI/score_display.gd" id="8_ekchf"]
 [ext_resource type="Script" path="res://FactoryGame/FuelGenerator/fuel_generator_container.gd" id="8_nqspd"]
@@ -15,9 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://pfuwki2d02i0" path="res://FactoryGame/Conveyor/conveyor.tscn" id="11_4kvkj"]
 [ext_resource type="PackedScene" uid="uid://bv7wnqnu8dv23" path="res://FactoryGame/Conveyor/launcher.tscn" id="12_ctq0a"]
 [ext_resource type="PackedScene" uid="uid://ma2132hoyxdb" path="res://FactoryGame/Background/BackGround.tscn" id="13_di267"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7wt6"]
-albedo_texture = ExtResource("5_08k5x")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r47md"]
 size = Vector3(75, 5, 75)
@@ -77,43 +74,45 @@ safe_margin = 0.05
 player_number = 3
 
 [node name="LevelGeometry" type="Node3D" parent="."]
-transform = Transform3D(0.995106, 0, 0, 0, 0.995106, 0, 0, 0, 0.995106, 0, 0, 0)
 
 [node name="Floor" type="CSGBox3D" parent="LevelGeometry"]
 use_collision = true
 collision_layer = 4
 collision_mask = 7
 size = Vector3(45, 1, 45)
-material = SubResource("StandardMaterial3D_f7wt6")
+material = ExtResource("5_5uikl")
 
 [node name="OuterWall1" type="CSGBox3D" parent="LevelGeometry"]
-transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 45, -22.5, 3.5, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -22.5, 3.5, 0)
 use_collision = true
 collision_layer = 4
 collision_mask = 4
-material = ExtResource("5_q47ng")
+size = Vector3(45, 6, 1)
+material = ExtResource("6_wa17k")
 
 [node name="OuterWall2" type="CSGBox3D" parent="LevelGeometry"]
-transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 45, 22.5, 3.5, 0)
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 22.5, 3.5, 0)
 use_collision = true
 collision_layer = 4
 collision_mask = 4
-material = ExtResource("5_q47ng")
+size = Vector3(45, 6, 1)
+material = ExtResource("6_wa17k")
 
 [node name="OuterWall3" type="CSGBox3D" parent="LevelGeometry"]
-transform = Transform3D(-4.37114e-08, 0, -45, 0, 6, 0, 1, 0, -1.96701e-06, 4.37114e-08, 3.5, -23.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -22.5)
 use_collision = true
 collision_layer = 4
 collision_mask = 4
-size = Vector3(3, 1, 1)
-material = ExtResource("5_q47ng")
+size = Vector3(45, 6, 1)
+material = ExtResource("6_wa17k")
 
 [node name="OuterWall4" type="CSGBox3D" parent="LevelGeometry"]
-transform = Transform3D(-4.37114e-08, 0, -45, 0, 6, 0, 1, 0, -1.96701e-06, 0, 3.5, 22.5)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 3.5, 22.5)
 use_collision = true
 collision_layer = 4
 collision_mask = 4
-material = ExtResource("5_q47ng")
+size = Vector3(45, 6, 1)
+material = ExtResource("6_wa17k")
 
 [node name="FallBoundary" type="Area3D" parent="LevelGeometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0730696, -10, 0.00274092)

@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bcovub7rjd8ri"]
+
+[ext_resource type="Texture2D" uid="uid://dncm4b0xhtjlf" path="res://FactoryGame/Resources/Materials/factory-wall/albedo.png" id="1_8b75k"]
+[ext_resource type="Texture2D" uid="uid://drj408xbeeln2" path="res://FactoryGame/Resources/Materials/factory-wall/normal.png" id="2_dd0e1"]
+
+[resource]
+albedo_texture = ExtResource("1_8b75k")
+normal_enabled = true
+normal_texture = ExtResource("2_dd0e1")
+uv1_scale = Vector3(6, 1, 1)
+uv1_offset = Vector3(0, 0.1, 0)
