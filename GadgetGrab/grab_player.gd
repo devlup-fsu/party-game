@@ -20,8 +20,43 @@ var cycle_num : int = 0 # used for debug printing
 
 @export var player: Controls.Player
 
+@onready var eyes_balls: MeshInstance3D = $GadgetGrabber/EyesBalls
+@onready var hair: MeshInstance3D = $GadgetGrabber/Hair
+@onready var rubys: MeshInstance3D = $GadgetGrabber/Rubys
+
+static var prev_player_mat: Material
+
+func make_material_unique(mesh: MeshInstance3D, index: int):
+	mesh.mesh.resource_local_to_scene = true
+	mesh.mesh = mesh.mesh.duplicate(true)
+	mesh.mesh.surface_get_material(index).resource_local_to_scene = true
+	mesh.mesh.surface_set_material(index, mesh.mesh.surface_get_material(index).duplicate())
+
+
 func _ready() -> void:
-	pass
+	make_material_unique(eyes_balls, 0)
+	make_material_unique(hair, 0)
+	make_material_unique(rubys, 0)
+	
+	prev_player_mat = eyes_balls.mesh.surface_get_material(0)
+	
+	match player:
+		Controls.Player.ONE:
+			eyes_balls.mesh.surface_get_material(0).albedo_color = Color.GREEN
+			hair.mesh.surface_get_material(0).albedo_color = Color.GREEN
+			rubys.mesh.surface_get_material(0).albedo_color = Color.GREEN
+		Controls.Player.TWO:
+			eyes_balls.mesh.surface_get_material(0).albedo_color = Color.RED
+			hair.mesh.surface_get_material(0).albedo_color = Color.RED
+			rubys.mesh.surface_get_material(0).albedo_color = Color.RED
+		Controls.Player.THREE:
+			eyes_balls.mesh.surface_get_material(0).albedo_color = Color.BLUE
+			hair.mesh.surface_get_material(0).albedo_color = Color.BLUE
+			rubys.mesh.surface_get_material(0).albedo_color = Color.BLUE
+		Controls.Player.FOUR:
+			eyes_balls.mesh.surface_get_material(0).albedo_color = Color.SILVER
+			hair.mesh.surface_get_material(0).albedo_color = Color.SILVER
+			rubys.mesh.surface_get_material(0).albedo_color = Color.SILVER
 
 func _physics_process(delta: float) -> void:
 	# ! Physics Processing

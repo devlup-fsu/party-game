@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt56kwwqia5eo"]
+[gd_scene load_steps=8 format=3 uid="uid://bt56kwwqia5eo"]
 
 [ext_resource type="Script" uid="uid://dtcp40qdfm33m" path="res://GadgetGrab/main.gd" id="1_esxul"]
 [ext_resource type="PackedScene" uid="uid://su85vcmwb7f" path="res://GadgetGrab/Grab_Player.tscn" id="1_q3mhu"]
+[ext_resource type="PackedScene" uid="uid://pnpg6gf8dmvc" path="res://GadgetGrab/astroid_arena.tscn" id="3_wyg58"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gpkpt"]
 size = Vector3(100, 1, 100)
@@ -19,6 +20,7 @@ data = PackedVector3Array(-15, 5, 0.5, 15, 5, 0.5, -15, -5, 0.5, 15, 5, 0.5, 15,
 script = ExtResource("1_esxul")
 
 [node name="Floor_RigidBody3D" type="StaticBody3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor_RigidBody3D"]
 mesh = SubResource("BoxMesh_gpkpt")
@@ -52,6 +54,7 @@ player = 3
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.5)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_4ckl1")
@@ -61,6 +64,7 @@ shape = SubResource("ConcavePolygonShape3D_w2lik")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.5, 0, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
 mesh = SubResource("BoxMesh_4ckl1")
@@ -70,6 +74,7 @@ shape = SubResource("ConcavePolygonShape3D_w2lik")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 0, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
 mesh = SubResource("BoxMesh_4ckl1")
@@ -79,9 +84,13 @@ shape = SubResource("ConcavePolygonShape3D_w2lik")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.5)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4"]
 mesh = SubResource("BoxMesh_4ckl1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
 shape = SubResource("ConcavePolygonShape3D_w2lik")
+
+[node name="astroidArena" parent="." instance=ExtResource("3_wyg58")]
+transform = Transform3D(5.905, 0, 0, 0, 5.905, 0, 0, 0, 5.905, -2.12042, -3.15844, -2.34966)
