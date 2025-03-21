@@ -123,6 +123,8 @@ func _pop_scene() -> Node:
 func _pop_to_board() -> void:
 	while _scene_stack.size() > 1:
 		_pop_scene().queue_free()
+	
+	(get_active_scene() as GameBoard).returned_to()
 
 
 ## Returns the scene at the top of the stack. Can be null if the stack is empty.

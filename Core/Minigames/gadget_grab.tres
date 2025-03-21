@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Minigame" load_steps=3 format=3 uid="uid://dagcdf8ytbxd3"]
+[gd_resource type="Resource" script_class="Minigame" load_steps=4 format=3 uid="uid://dagcdf8ytbxd3"]
 
+[ext_resource type="Texture2D" uid="uid://riqpsnw6fweb" path="res://GadgetGrab/portrait.png" id="1_3x8c3"]
 [ext_resource type="PackedScene" uid="uid://bt56kwwqia5ea" path="res://GadgetGrab/main.tscn" id="1_ftdyp"]
 [ext_resource type="Script" uid="uid://j5u61pxsb46s" path="res://Core/Minigames/minigame.gd" id="1_gneht"]
 
@@ -7,5 +8,6 @@
 script = ExtResource("1_gneht")
 name = "Gadget Grab"
 description = ""
+portrait = ExtResource("1_3x8c3")
 scene = ExtResource("1_ftdyp")
 published = true

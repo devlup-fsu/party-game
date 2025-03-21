@@ -32,6 +32,10 @@ func _ready() -> void:
 	next_minigame_command.connect(_on_next_minigame_command)
 
 
+func returned_to() -> void:
+	camera.teleport_to_player(_current_player)
+
+
 func _on_next_minigame_command(_full_command: String) -> void:
 	_load_random_minigame()
 
@@ -84,7 +88,6 @@ func _switch_to_next_player() -> void:
 		# Wrap player over to Player.ONE. Play minigame. Teleport camera
 		if next_player == Controls.Player.size():
 			next_player = Controls.Player.ONE
-			camera.teleport_to_player(_players[next_player])
 			
 			_load_random_minigame()
 			
@@ -105,7 +108,7 @@ func _on_player_finished_turn() -> void:
 	camera.target = _current_player
 
 
-func _on_player_choosing_next_sector(player: BoardPlayer, current_sector: Sector) -> void:
+func _on_player_choosing_next_sector(player: BoardPlayer, current_sector: Sector) -> void:	
 	var continue_sprite: Sprite3D = Sprite3D.new()
 	continue_sprite.texture = continue_movement_texture
 	continue_sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
