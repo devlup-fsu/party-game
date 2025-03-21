@@ -15,7 +15,11 @@ var target_lin_velo : float = 0.0 # m/s
 var lin_velo : float = 0.0 # m/s
 var target_rotational_velo : float = 0.0 # rads/s
 var rotational_velo : float = 0.0 # rads/s
+
+var objs_collected : int = 0 # how many  
 var cycle_num : int = 0 # used for debug printing
+
+
 
 
 @export var player: Controls.Player

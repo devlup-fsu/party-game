@@ -1,5 +1,7 @@
 extends Node3D
+
 @export var falling_orb_scene = preload("res://GadgetGrab/falling_objs/falling_orb.tscn")
+@export var a_falling_obj = preload("res://GadgetGrab/falling_objs_scenes/a_falling_obj.tscn")
 
 var rng = RandomNumberGenerator.new()
 
@@ -8,9 +10,9 @@ func _ready():
 
 
 func spawn_random_object(position: Vector3):
-	var instance = falling_orb_scene.instantiate()
-	add_child(instance)
-	instance.position = position
+	var falling_obj_instance = a_falling_obj.instantiate()
+	add_child(falling_obj_instance)
+	falling_obj_instance.position = position
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	var pos : Vector3

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://blfwin2n4whdg"]
+
+[ext_resource type="Script" uid="uid://dqopakp1xtyuh" path="res://GadgetGrab/falling_objs_scenes/a_falling_obj.gd" id="1_60ewa"]
+[ext_resource type="Resource" uid="uid://d2eeto28rukqh" path="res://GadgetGrab/GradgetGrabResources/fallingOrb.tres" id="2_ajypl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ajypl"]
+resource_local_to_scene = true
+
+[node name="AFallingObj" type="Area3D"]
+script = ExtResource("1_60ewa")
+falling_obj_res = ExtResource("2_ajypl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ajypl")
