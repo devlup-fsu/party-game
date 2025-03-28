@@ -113,12 +113,14 @@ func _on_player_choosing_next_sector(player: BoardPlayer, current_sector: Sector
 	continue_sprite.texture = continue_movement_texture
 	continue_sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	continue_sprite.pixel_size = 0.025
+	continue_sprite.position.y += 2.5
 	current_sector.next[0].add_child(continue_sprite)
 	
 	var alternative_sprite: Sprite3D = Sprite3D.new()
 	alternative_sprite.texture = alternative_movement_texture
 	alternative_sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	alternative_sprite.pixel_size = 0.025
+	alternative_sprite.position.y += 2
 	current_sector.next[1].add_child(alternative_sprite)
 	
 	await player.chose_next_sector
