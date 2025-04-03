@@ -12,3 +12,5 @@ falling_obj_res = ExtResource("2_ajypl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ajypl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
