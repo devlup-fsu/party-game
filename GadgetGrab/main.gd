@@ -40,9 +40,9 @@ func spawn_random_object(position: Vector3):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	var pos : Vector3
-	pos.x = randf_range(-20,20)
+	pos.x = randf_range(-100,100)
 	pos.y = 10
-	pos.z = randf_range(-20,20)
+	pos.z = randf_range(-100,100)
 	#var random = randf_range(0,800)
 	if (((pos.x*pos.x) +(pos.z*pos.z)) <= 225):
 		spawn_random_object(pos)

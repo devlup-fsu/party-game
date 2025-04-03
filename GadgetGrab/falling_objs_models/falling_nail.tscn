@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdphcucnjt3ru"]
+
+[ext_resource type="PackedScene" uid="uid://cd2mnsqiyh74l" path="res://GadgetGrab/models/nail.blend" id="1_borql"]
+
+[node name="falling_nail" instance=ExtResource("1_borql")]

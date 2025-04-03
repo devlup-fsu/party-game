@@ -31,7 +31,6 @@ func _physics_process(delta: float) -> void:
 	
 	
 func _on_body_entered(body: Node3D) -> void:
-	print("Ping!")
 	if body is GrabPlayer:
 		body.objs_collected += 1
 		queue_free()
