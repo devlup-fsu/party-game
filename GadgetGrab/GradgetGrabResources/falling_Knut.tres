@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FallingObjRes" load_steps=3 format=3 uid="uid://cvk6uw54r3cwd"]
+
+[ext_resource type="PackedScene" uid="uid://bne2uckolr72s" path="res://GadgetGrab/falling_objs_models/falling_knut.tscn" id="1_giaq3"]
+[ext_resource type="Script" uid="uid://cqpxxlci1bgsv" path="res://GadgetGrab/GradgetGrabResources/FallingObjRes.gd" id="1_kae7c"]
+
+[resource]
+script = ExtResource("1_kae7c")
+objModel = ExtResource("1_giaq3")
+collision_size = 1.0

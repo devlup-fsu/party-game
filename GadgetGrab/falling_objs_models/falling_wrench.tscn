@@ -1,5 +1,5 @@
-[gd_scene format=3 uid="uid://cvcgh8nsneqj2"]
+[gd_scene load_steps=2 format=3 uid="uid://di8kkoocaycbc"]
 
-[node name="FallingWrench_tscn" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://dpedu1o0bu8aa" path="res://GadgetGrab/models/wrench.blend" id="1_yqoaw"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="wrench" instance=ExtResource("1_yqoaw")]
