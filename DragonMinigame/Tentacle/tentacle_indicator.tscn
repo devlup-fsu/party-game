@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dewigmbs5audk"]
+
+[ext_resource type="Material" uid="uid://bpjqxmci8o34u" path="res://DragonMinigame/Tentacle/Materials/tentacle_indicator_material.tres" id="1_3p2wl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3p2wl"]
+material = ExtResource("1_3p2wl")
+size = Vector3(1.5, 0.05, 4)
+
+[node name="TentacleIndicator" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_3p2wl")
