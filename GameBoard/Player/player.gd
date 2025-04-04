@@ -17,6 +17,7 @@ var current_sector: Sector
 var next_sector: Sector
 var has_control: bool = false
 var ongoing_moves: int = 0
+var rand_hover_offset = randf_range(0, 10)
 
 
 func _ready() -> void:
@@ -29,6 +30,9 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	global_position.y = current_sector.global_position.y
+	global_position.y += sin(PI * (Time.get_unix_time_from_system() + rand_hover_offset) / 2) / 4
+	
 	var move_counter = ongoing_moves - 1
 	move_counter_label.text = str(move_counter) if move_counter > 0 else ""
 	
@@ -37,9 +41,10 @@ func _physics_process(delta: float) -> void:
 	
 	if ongoing_moves > 0:
 		if next_sector != null:
-			global_position = global_position.lerp(next_sector.get_player_position(), delta * 10)
+			global_position.x = lerp(global_position.x, next_sector.get_player_position().x, delta * 10)
+			global_position.z = lerp(global_position.z, next_sector.get_player_position().z, delta * 10)
 			global_rotation.y = lerp_angle(global_rotation.y, next_sector.global_rotation.y, delta * 10)
-			if global_position.distance_to(next_sector.get_player_position()) <= 0.1:
+			if abs(global_position.x - next_sector.global_position.x) <= 0.1 && abs(global_position.z - next_sector.global_position.z) <= 0.1:
 				current_sector = next_sector
 				if not current_sector.is_occupied():
 					ongoing_moves -= 1
