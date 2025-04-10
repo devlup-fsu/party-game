@@ -1,9 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://diu00o8qqxckl"]
+[gd_scene load_steps=10 format=3 uid="uid://diu00o8qqxckl"]
 
 [ext_resource type="PackedScene" uid="uid://crjbb0qonbuwt" path="res://DragonMinigame/Player/player.tscn" id="1_p57v6"]
 [ext_resource type="Script" uid="uid://dn0kx4fff12ja" path="res://DragonMinigame/dragon_minigame.gd" id="1_y042p"]
 [ext_resource type="PackedScene" uid="uid://cfrrp0jbxei0g" path="res://DragonMinigame/Tentacle/tentacle.tscn" id="3_c303u"]
 [ext_resource type="PackedScene" uid="uid://dewigmbs5audk" path="res://DragonMinigame/Tentacle/tentacle_indicator.tscn" id="4_bw0i0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75syo"]
+transparency = 1
+albedo_color = Color(0.627451, 0, 0, 0.501961)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bw0i0"]
+material = SubResource("StandardMaterial3D_75syo")
+size = Vector3(1.5, 0.05, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bx8g8"]
+material = SubResource("StandardMaterial3D_75syo")
+size = Vector3(1.5, 0.05, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_deh0k"]
+material = SubResource("StandardMaterial3D_75syo")
+size = Vector3(1.5, 0.05, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1u2uo"]
+material = SubResource("StandardMaterial3D_75syo")
+size = Vector3(1.5, 0.05, 4)
 
 [node name="DragonMinigame" type="Node3D"]
 script = ExtResource("1_y042p")
@@ -115,37 +135,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.617922, 0.478031, 0.0684509)
 
 [node name="TentacleIndicatorsLeft" type="Node3D" parent="TentacleIndicators"]
-unique_name_in_owner = true
-visible = false
 
 [node name="TentacleIndicator1" parent="TentacleIndicators/TentacleIndicatorsLeft" instance=ExtResource("4_bw0i0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.625, -0.328, 0)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.383, -0.328, 0)
+
+[node name="TentacleIndicator2" parent="TentacleIndicators/TentacleIndicatorsLeft" instance=ExtResource("4_bw0i0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.359, -0.328, 0)
 
 [node name="TentacleIndicator3" parent="TentacleIndicators/TentacleIndicatorsLeft" instance=ExtResource("4_bw0i0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.625, -0.328, 0)
 
-[node name="TentacleIndicator5" parent="TentacleIndicators/TentacleIndicatorsLeft" instance=ExtResource("4_bw0i0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.35929, -0.328, 0)
-
-[node name="TentacleIndicator7" parent="TentacleIndicators/TentacleIndicatorsLeft" instance=ExtResource("4_bw0i0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.38261, -0.328, 0)
+[node name="TentacleIndicator4" parent="TentacleIndicators/TentacleIndicatorsLeft" instance=ExtResource("4_bw0i0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.625, -0.328, 0)
 
 [node name="TentacleIndicatorsRight" type="Node3D" parent="TentacleIndicators"]
+
+[node name="TentacleIndicator5" parent="TentacleIndicators/TentacleIndicatorsRight" instance=ExtResource("4_bw0i0")]
 unique_name_in_owner = true
-visible = false
-
-[node name="TentacleIndicator2" parent="TentacleIndicators/TentacleIndicatorsRight" instance=ExtResource("4_bw0i0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.125, -0.328, 0)
-skeleton = NodePath("../../TentacleIndicatorsLeft")
-
-[node name="TentacleIndicator4" parent="TentacleIndicators/TentacleIndicatorsRight" instance=ExtResource("4_bw0i0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.125, -0.328, 0)
-skeleton = NodePath("../../TentacleIndicatorsLeft")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.88261, -0.328, 0)
+mesh = SubResource("BoxMesh_bw0i0")
 
 [node name="TentacleIndicator6" parent="TentacleIndicators/TentacleIndicatorsRight" instance=ExtResource("4_bw0i0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85929, -0.328, 0)
-skeleton = NodePath("../../TentacleIndicatorsLeft")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.859, -0.328, 0)
+mesh = SubResource("BoxMesh_bx8g8")
+
+[node name="TentacleIndicator7" parent="TentacleIndicators/TentacleIndicatorsRight" instance=ExtResource("4_bw0i0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.125, -0.328, 0)
+mesh = SubResource("BoxMesh_deh0k")
 
 [node name="TentacleIndicator8" parent="TentacleIndicators/TentacleIndicatorsRight" instance=ExtResource("4_bw0i0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.88261, -0.328, 0)
-skeleton = NodePath("../../TentacleIndicatorsLeft")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.125, -0.328, 0)
+mesh = SubResource("BoxMesh_1u2uo")

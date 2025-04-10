@@ -3,16 +3,10 @@ extends Node3D
 
 @export var fireball_travel_time = 1.25
 
-
 @onready var FIREBALL_MATERIALS = [
 	preload("res://DragonMinigame/Fireball/Materials/up_material.tres"),
 	preload("res://DragonMinigame/Fireball/Materials/down_material.tres")
 ]
-
-
-@onready var fireball = preload("res://DragonMinigame/Fireball/fireball.tscn")
-
-@onready var tentacle_indicator_material = preload("res://DragonMinigame/Tentacle/Materials/tentacle_indicator_material.tres")
 
 
 enum WaveAction {
@@ -23,17 +17,6 @@ enum WaveAction {
 	TENTACLE_INDICATE_LEFT,
 	TENTACLE_INDICATE_RIGHT
 }
-
-enum IndicatorFadeState {
-	FADE_IN,
-	FADE_OUT,
-	FADED_IN,
-	FADED_OUT
-}
-
-const INDICATOR_FADE_DURATION = 0.2
-const INDICATOR_MAX_ALPHA = 0.5
-const INDICATOR_DELAY = 1.0
 
 
 const FIREBALL_OFFSETS = [
@@ -50,9 +33,6 @@ var wave_objects = []
 
 var cumulative_time = 0.0
 var action_queue = []
-
-var indicator_fade_state = IndicatorFadeState.FADED_OUT
-var indicator_fade_timer = 0.0
 
 
 func get_amount_wave_objects() -> int:
@@ -76,7 +56,7 @@ func new_wave(base_time: float):
 			action_queue.append([activate_time, obj])
 		else:  # tentacle
 			var activate_time = hit_time - DragonGameTentacle.SLAM_DURATION
-			var indicate_time = activate_time - INDICATOR_DELAY
+			var indicate_time = activate_time - DragonGameIndicator.INDICATOR_DELAY
 			action_queue.append([indicate_time, obj+2])
 			action_queue.append([activate_time, obj])
 	action_queue.sort_custom(func(a, b): return a[0] < b[0])
@@ -89,7 +69,7 @@ func spawn_fireballs(direction_int: int):
 	var material = FIREBALL_MATERIALS[direction_int]
 	var spawner_position = %FireballSpawners.position.z
 	for spawn_location in %FireballSpawners.get_children():
-		var new_fireball = fireball.instantiate()
+		var new_fireball = DragonGameFireball.create()
 		new_fireball.position = spawn_location.global_position + offset
 		new_fireball.speed = -spawner_position / DragonGameFireball.TRAVEL_TIME
 		var fireball_mesh: MeshInstance3D = new_fireball.get_child(1)
@@ -106,19 +86,11 @@ func slam_tentacles(direction_int: int):
 
 
 func fade_tentacle_indicators(direction_int: int, fade_in: bool):
-	if direction_int == 0:
-		%TentacleIndicatorsLeft.visible = true
-		%TentacleIndicatorsRight.visible = false
+	print('fading ', direction_int, ' ', fade_in)
+	if direction_int == 0:  # left
+		%TentacleIndicator1.fade(fade_in)
 	else:
-		%TentacleIndicatorsLeft.visible = false
-		%TentacleIndicatorsRight.visible = true
-	
-	if fade_in:
-		#tentacle_indicator_material.albedo_color.a = 0.0
-		indicator_fade_state = IndicatorFadeState.FADE_IN
-	else:
-		#tentacle_indicator_material.albedo_color.a = INDICATOR_MAX_ALPHA
-		indicator_fade_state = IndicatorFadeState.FADE_OUT
+		%TentacleIndicator5.fade(fade_in)
 
 
 func _ready() -> void:
@@ -140,23 +112,5 @@ func _physics_process(delta: float) -> void:
 			else:  # tentacle indicator
 				fade_tentacle_indicators(action_obj-4, true)
 	else:
-		print('creating new wave')
 		new_wave(cumulative_time + wave_cooldown_interval)
-	
-	# Fade tentacle indicators
-	if indicator_fade_state == IndicatorFadeState.FADE_IN:
-		indicator_fade_timer = move_toward(indicator_fade_timer, INDICATOR_FADE_DURATION, delta)
-		var new_alpha = remap(indicator_fade_timer, 0.0, INDICATOR_FADE_DURATION, 0.0, INDICATOR_MAX_ALPHA)
-		tentacle_indicator_material.albedo_color.a = new_alpha
-		if indicator_fade_timer == INDICATOR_FADE_DURATION:
-			indicator_fade_state = IndicatorFadeState.FADED_IN
-			indicator_fade_timer = 0.0
-	
-	elif indicator_fade_state == IndicatorFadeState.FADE_OUT:
-		indicator_fade_timer = move_toward(indicator_fade_timer, INDICATOR_FADE_DURATION, delta)
-		var new_alpha = remap(indicator_fade_timer, 0.0, INDICATOR_FADE_DURATION, INDICATOR_MAX_ALPHA, 0.0)
-		tentacle_indicator_material.albedo_color.a = new_alpha
-		if indicator_fade_timer == INDICATOR_FADE_DURATION:
-			indicator_fade_state = IndicatorFadeState.FADED_OUT
-			indicator_fade_timer = 0.0
 	
