@@ -15,3 +15,10 @@ shape = SubResource("CapsuleShape3D_7kd3b")
 
 [node name="GadgetGrabber" parent="." instance=ExtResource("2_dnlfr")]
 transform = Transform3D(-3.93403e-08, 0, 0.9, 0, 0.9, 0, -0.9, 0, -3.93403e-08, 6.26735e-09, -0.422006, -0.14338)
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.492525, 0)
+hit_from_inside = true
+collide_with_areas = true
+debug_shape_custom_color = Color(1, 0.380392, 0, 1)
+debug_shape_thickness = 5

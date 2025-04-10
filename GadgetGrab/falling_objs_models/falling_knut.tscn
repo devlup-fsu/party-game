@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bne2uckolr72s"]
+
+[ext_resource type="PackedScene" uid="uid://dipqk2k2g31ds" path="res://GadgetGrab/models/OdyssyKnut.blend" id="1_6ana5"]
+
+[node name="OdyssyKnut" instance=ExtResource("1_6ana5")]

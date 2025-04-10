@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FallingObjRes" load_steps=3 format=3 uid="uid://dtfiwt37fcpg5"]
+
+[ext_resource type="PackedScene" uid="uid://dpedu1o0bu8aa" path="res://GadgetGrab/models/wrench.blend" id="1_theyp"]
+[ext_resource type="Script" uid="uid://cqpxxlci1bgsv" path="res://GadgetGrab/GradgetGrabResources/FallingObjRes.gd" id="2_v3550"]
+
+[resource]
+script = ExtResource("2_v3550")
+objModel = ExtResource("1_theyp")
+collision_size = 1.0

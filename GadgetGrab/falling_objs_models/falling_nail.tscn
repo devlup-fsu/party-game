@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cd2mnsqiyh74l" path="res://GadgetGrab/models/nail.blend" id="1_borql"]
 
 [node name="falling_nail" instance=ExtResource("1_borql")]
+
+[node name="Cylinder_001" parent="." index="0"]
+transform = Transform3D(0.38, 0, 0, 0, 0.033, 0, 0, 0, 0.369, 0, 0.61612, -0.031)
