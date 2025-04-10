@@ -90,7 +90,6 @@ func slam_tentacles(direction_int: int):
 
 
 func fade_tentacle_indicators(direction_int: int, fade_in: bool):
-	print('fading ', direction_int, ' ', fade_in)
 	if direction_int == 0:  # left
 		%TentacleIndicator1.fade(fade_in)
 	else:
@@ -115,10 +114,8 @@ func _physics_process(delta: float) -> void:
 				slam_tentacles(action_obj-2)
 			elif action_obj < 6:  # fade in indicator
 				fade_tentacle_indicators(action_obj-4, true)
-				print('fading in')
 			else:  # fade out indicator
 				fade_tentacle_indicators(action_obj-6, false)
-				print('fading out')
 	else:
 		new_wave(cumulative_time + wave_cooldown_interval)
 	
