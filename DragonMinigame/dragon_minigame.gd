@@ -14,9 +14,13 @@ enum WaveAction {
 	FIREBALL_DOWN,
 	TENTACLE_LEFT,
 	TENTACLE_RIGHT,
-	TENTACLE_INDICATE_LEFT,
-	TENTACLE_INDICATE_RIGHT
+	INDICATOR_FADEIN_LEFT,
+	INDICATOR_FADEIN_RIGHT,
+	INDICATOR_FADEOUT_LEFT,
+	INDICATOR_FADEOUT_RIGHT
 }
+
+const INDICATOR_FADE_HOLD_TIME = 0.25
 
 
 const FIREBALL_OFFSETS = [
@@ -56,8 +60,10 @@ func new_wave(base_time: float):
 			action_queue.append([activate_time, obj])
 		else:  # tentacle
 			var activate_time = hit_time - DragonGameTentacle.SLAM_DURATION
-			var indicate_time = activate_time - DragonGameIndicator.INDICATOR_DELAY
-			action_queue.append([indicate_time, obj+2])
+			var fadein_time = activate_time - DragonGameIndicator.INDICATOR_DELAY
+			var fadeout_time = fadein_time + DragonGameIndicator.FADE_DURATION + INDICATOR_FADE_HOLD_TIME
+			action_queue.append([fadein_time, obj+2])
+			action_queue.append([fadeout_time, obj+4])
 			action_queue.append([activate_time, obj])
 	action_queue.sort_custom(func(a, b): return a[0] < b[0])
 
@@ -81,8 +87,6 @@ func slam_tentacles(direction_int: int):
 	var tentacles_to_slam = %Tentacles.get_child(direction_int)
 	for tentacle in tentacles_to_slam.get_children():
 		tentacle.slam()
-	
-	fade_tentacle_indicators(direction_int, false)  # fade out indicators
 
 
 func fade_tentacle_indicators(direction_int: int, fade_in: bool):
@@ -109,8 +113,12 @@ func _physics_process(delta: float) -> void:
 				spawn_fireballs(action_obj)
 			elif action_obj < 4:  # tentacle
 				slam_tentacles(action_obj-2)
-			else:  # tentacle indicator
+			elif action_obj < 6:  # fade in indicator
 				fade_tentacle_indicators(action_obj-4, true)
+				print('fading in')
+			else:  # fade out indicator
+				fade_tentacle_indicators(action_obj-6, false)
+				print('fading out')
 	else:
 		new_wave(cumulative_time + wave_cooldown_interval)
 	
