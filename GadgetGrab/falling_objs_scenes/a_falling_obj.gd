@@ -3,7 +3,7 @@ extends Area3D
 
 @export var falling_obj_res: FallingObjRes
 
-const FALLING_SPEED : float = -0.8
+const FALLING_SPEED : float = -1.2
 
 var rng = RandomNumberGenerator.new()
 var x_rot_velo : float # rad/s
@@ -19,9 +19,9 @@ func _ready():
 	#y_rot_velo = rng.randf_range(3.14 * -2, 3.14 * 2)
 	#z_rot_velo = rng.randf_range(3.14 * -2, 3.14 * 2)
 	
-	x_rot_velo = rng.randfn(0, 3.14 * 1.5)
-	y_rot_velo = rng.randfn(0, 3.14 * 1.5)
-	z_rot_velo = rng.randfn(0, 3.14 * 1.5)
+	x_rot_velo = rng.randfn(0, 3.14 * 0.5)
+	y_rot_velo = rng.randfn(0, 3.14 * 0.5)
+	z_rot_velo = rng.randfn(0, 3.14 * 0.5)
 
 func _physics_process(delta: float) -> void:
 	position.y += FALLING_SPEED * delta
