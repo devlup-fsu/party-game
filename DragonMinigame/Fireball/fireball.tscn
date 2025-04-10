@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cx8x2few33nbk" path="res://DragonMinigame/Fireball/fireball.gd" id="1_nmdhf"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_ff6an"]
-radius = 0.75
+[sub_resource type="BoxShape3D" id="BoxShape3D_1xhhv"]
+size = Vector3(1, 0.75, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2qopn"]
 albedo_color = Color(0.411765, 0, 0.658824, 1)
@@ -19,7 +19,7 @@ rings = 8
 script = ExtResource("1_nmdhf")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_ff6an")
+shape = SubResource("BoxShape3D_1xhhv")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_ifpxm")
