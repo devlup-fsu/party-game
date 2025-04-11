@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://cldewd7ijfuyg"]
+
+[ext_resource type="ArrayMesh" uid="uid://w446wgc58vm4" path="res://GameBoard/Player/ship.obj" id="1_67qms"]
+[ext_resource type="Material" uid="uid://becbh0lmdjqtv" path="res://Core/EndScene/Resources/ship1_material.tres" id="2_71yjr"]
+[ext_resource type="Material" uid="uid://dohtlhqoer28o" path="res://Core/EndScene/Resources/ship_body_material.tres" id="3_a0bvf"]
+[ext_resource type="Script" uid="uid://c3gs2isfylqnq" path="res://Core/EndScene/ship.gd" id="4_a0bvf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhrxa"]
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+billboard_mode = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jvbny"]
+material = SubResource("StandardMaterial3D_yhrxa")
+size = Vector2(0.75, 0.75)
+orientation = 2
+
+[sub_resource type="Gradient" id="Gradient_ruu8m"]
+colors = PackedColorArray(1, 0.796524, 0.260269, 1, 1, 0.137255, 0.176471, 1)
+
+[node name="Ship" type="MeshInstance3D"]
+mesh = ExtResource("1_67qms")
+surface_material_override/0 = ExtResource("2_71yjr")
+surface_material_override/1 = ExtResource("3_a0bvf")
+script = ExtResource("4_a0bvf")
+
+[node name="Particles" type="CPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 3.82137e-15, 0, 8.74228e-08, -1, 0, -2.53541, 0)
+visible = false
+amount = 30
+randomness = 0.25
+lifetime_randomness = 0.2
+mesh = SubResource("PlaneMesh_jvbny")
+spread = 21.37
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 15.0
+damping_min = 10.0
+damping_max = 20.0
+scale_amount_min = 0.25
+color_ramp = SubResource("Gradient_ruu8m")
+
+[node name="ScoreLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.0553, 0)
+visible = false
+pixel_size = 0.05
+modulate = Color(1, 0.717647, 0.188235, 1)
+text = "100"
+font_size = 64
