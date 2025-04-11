@@ -13,9 +13,9 @@ enum EndSceneState {
 }
 
 const TIMINGS = [
-	1.0,
-	3.0,
-	7.5,
+	1.0,    # Wait
+	3.0,    # Blast off
+	7.5,    # Fly
 	-1.0
 ]
 
