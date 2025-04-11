@@ -22,6 +22,7 @@ Console="*res://Core/Console/console.gd"
 Controls="*res://Core/Controls/controls.gd"
 SceneManager="*res://Core/SceneManager/scene_manager.gd"
 Screenshotter="*res://Core/Screenshotter/screenshotter.gd"
+ScreenTransitions="*res://Core/ScreenTransitions/screen_transitions.gd"
 
 [debug]
 
