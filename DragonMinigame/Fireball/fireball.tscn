@@ -16,6 +16,7 @@ radial_segments = 16
 rings = 8
 
 [node name="Fireball" type="Area3D"]
+collision_layer = 2
 script = ExtResource("1_nmdhf")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
@@ -23,3 +24,5 @@ shape = SubResource("BoxShape3D_1xhhv")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_ifpxm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

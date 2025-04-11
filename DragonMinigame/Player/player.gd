@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name DragonGamePlayer
 
 
 @export var player_number: Controls.Player
@@ -24,12 +25,13 @@ var is_ducking = false
 
 var lane_location = LaneLocation.MIDDLE
 
+var eliminated = false
 
-func _ready() -> void:
-	pass
 
-func _process(_delta: float) -> void:
-	pass
+## Eliminate this player.
+func eliminate():
+	eliminated = true
+	visible = false
 	
 	
 func jump_tick(delta: float):
@@ -90,6 +92,9 @@ func lane_change_tick(_delta: float):
 
 
 func _physics_process(delta: float) -> void:
+	if eliminated:
+		return
+	
 	if not is_jumping:
 		if is_ducking:
 			velocity.y += STOMP_GRAVITY

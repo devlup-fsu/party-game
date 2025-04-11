@@ -14,7 +14,13 @@ static func create() -> DragonGameFireball:
 	var fireball = self_scene.instantiate()
 	return fireball
 
+
 func _physics_process(delta: float) -> void:
 	global_position += Vector3.BACK * speed * delta
 	if global_position.z > DESTROY_POSITION_Z:
 		queue_free()
+		
+
+func _on_body_entered(body: Node3D) -> void:
+	if body is DragonGamePlayer:
+		body.eliminate()

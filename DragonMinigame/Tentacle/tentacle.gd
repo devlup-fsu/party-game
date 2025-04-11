@@ -32,3 +32,7 @@ func _physics_process(delta: float) -> void:
 			slam_state = SlamState.IDLE
 			slam_timer = 0.0
 	
+
+func _on_body_entered(body: Node3D) -> void:
+	if body is DragonGamePlayer:
+		body.eliminate()
