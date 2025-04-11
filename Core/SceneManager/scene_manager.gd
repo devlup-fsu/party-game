@@ -203,6 +203,8 @@ func load_minigame(minigame: Minigame, show_carousel: bool = false) -> void:
 ## Each player receives a "Place" between 1st and 4th. They do not have to be unique.
 func exit_minigame(one: Scores.Place, two: Scores.Place, three: Scores.Place, four: Scores.Place) -> void:
 	_pop_to_board()
+	var end_scene: EndScene = EndScene.create([one, two, three, four])
+	_push_scene(end_scene)
 	
 	var placements: Dictionary = {}  # Dictionary[Scores.Place, Array[Controls.Player]]
 	placements.get_or_add(one, []).push_back(Controls.Player.ONE)

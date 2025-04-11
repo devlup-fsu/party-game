@@ -52,13 +52,12 @@ surface_material_override/0 = ExtResource("6_c8s2b")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.8159, 60.7043)
+environment = SubResource("Environment_xhy3c")
+current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.755179, 0.289887, 0.587937, -0.655519, 0.33396, 0.677323, -1.24351e-08, -0.896904, 0.442226, 0, 21.7812, 2.66494)
 shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_xhy3c")
 
 [node name="ContinueLabel" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 77, 0)

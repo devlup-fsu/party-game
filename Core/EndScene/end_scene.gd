@@ -44,7 +44,7 @@ static func create(placements: Array[Scores.Place]) -> EndScene:
 func _physics_process(delta: float) -> void:
 	if state == EndSceneState.IDLE:
 		if Controls.is_action_just_pressed(Controls.Player.ONE, 'core_player_jump'):
-			print('exit now!!!!')
+			SceneManager._pop_scene()
 	
 	else:
 		cumulative_time += delta
