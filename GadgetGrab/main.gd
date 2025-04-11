@@ -9,14 +9,6 @@ var total_time_elapsed : float = 0
 var spawn_timer : float = 0
 
 
-var total_time_elapsed : float = 0
-var spawn_timer : float = 0
-
-
-var total_time_elapsed : float = 0
-var spawn_timer : float = 0
-
-
 func get_all_resources() -> Array[FallingObjRes]:
 
 	
@@ -58,26 +50,9 @@ func _get_spawn_time(time_elapsed: float):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-	var pos : Vector3
-	pos.x = randf_range(-25,25)
-	pos.y = 10
-	pos.z = randf_range(-25,25)
-	#var random = randf_range(0,800)
-	if (((pos.x*pos.x) +(pos.z*pos.z)) <= 225):
-		spawn_random_object(pos)
 	for i in range(0, 4, 1):
 		scores[i].text = str(players[i].objs_collected)
 
-
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 	total_time_elapsed += _delta
 	spawn_timer += _delta
 	
@@ -90,15 +65,3 @@ func _process(_delta: float) -> void:
 		pos.z = randf_range(-12.5,12.5)
 		_spawn_random_object(pos)
 		spawn_timer = 0
-	
-		
-	
-	
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-	
