@@ -25,12 +25,11 @@ var is_ducking = false
 
 var lane_location = LaneLocation.MIDDLE
 
-var eliminated = false
-
+var elimination_time: float = -1.0
 
 ## Eliminate this player.
 func eliminate():
-	eliminated = true
+	elimination_time = get_physics_process_delta_time()
 	visible = false
 	
 	
@@ -92,7 +91,7 @@ func lane_change_tick(_delta: float):
 
 
 func _physics_process(delta: float) -> void:
-	if eliminated:
+	if elimination_time != -1.0:
 		return
 	
 	if not is_jumping:

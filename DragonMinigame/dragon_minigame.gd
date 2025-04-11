@@ -96,6 +96,40 @@ func fade_tentacle_indicators(direction_int: int, fade_in: bool):
 		%TentacleIndicator5.fade(fade_in)
 
 
+func check_win():
+	var players = $Players.get_children()
+	var remaining_players: Array = [0, 1, 2, 3]
+	var elim_times: Dictionary[Controls.Player, float]
+	
+	var i = 0
+	for player: DragonGamePlayer in players:
+		var elim_time = player.elimination_time
+		if elim_time != -1.0:
+			remaining_players.remove_at(i)
+			i -= 1
+			elim_times[player.player_number] = elim_time
+		i += 1
+	
+	var amount_remaining = len(remaining_players)
+	if amount_remaining <= 1:
+		if amount_remaining == 1:
+			elim_times[remaining_players[0]] = cumulative_time + 100.0  # add a big number so they win
+		
+		var unique_elim_times: Array[float] = []
+		for elim_time in elim_times.values():
+			if elim_time not in unique_elim_times:
+				unique_elim_times.append(elim_time)
+		unique_elim_times.sort()
+		unique_elim_times.reverse()
+		
+		var placements: Array[Scores.Place] = [0, 0, 0, 0]
+		for player_number in elim_times:
+			var elim_time = elim_times[player_number]
+			placements[player_number] = unique_elim_times.find(elim_time)
+		
+		SceneManager.exit_minigame(placements[0], placements[1], placements[2], placements[3])
+
+
 func _ready() -> void:
 	new_wave(wave_cooldown_interval)
 
@@ -119,3 +153,4 @@ func _physics_process(delta: float) -> void:
 	else:
 		new_wave(cumulative_time + wave_cooldown_interval)
 	
+	check_win()
