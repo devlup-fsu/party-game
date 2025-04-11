@@ -62,6 +62,6 @@ func _process(_delta: float) -> void:
 		var pos : Vector3
 		pos.x = randf_range(-12.5,12.5)
 		pos.y = 10
-		pos.z = randf_range(-12.5,12.5)
+		pos.z = randf_range(-10,10)
 		_spawn_random_object(pos)
 		spawn_timer = 0

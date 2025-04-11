@@ -15,6 +15,7 @@ func _ready():
 	add_child(falling_obj_res.objModel.instantiate())
 	$CollisionShape3D.shape.size = Vector3.ONE * falling_obj_res.collision_size
 	
+	
 	#rng.randomize()
 	#x_rot_velo = rng.randf_range(3.14 * -2, 3.14 * 2)
 	#y_rot_velo = rng.randf_range(3.14 * -2, 3.14 * 2)
@@ -44,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	
 func _on_body_entered(body: Node3D) -> void:
 	if body is GrabPlayer:
-		body.objs_collected += 1
+		body.objs_collected += falling_obj_res.player_points
 		queue_free()
 	elif body is not AFallingObj:
 		start_physics_sim = true

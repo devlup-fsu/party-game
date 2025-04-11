@@ -7,4 +7,5 @@
 script = ExtResource("1_r4iu8")
 objModel = ExtResource("1_ye054")
 collision_size = 1.0
+player_points = -1
 metadata/_custom_type_script = "uid://cqpxxlci1bgsv"
