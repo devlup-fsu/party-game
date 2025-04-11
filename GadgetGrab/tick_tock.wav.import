@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< Updated upstream
 uid="uid://q664hnmo68c7"
+=======
+uid="uid://citsdyta6chbk"
+>>>>>>> Stashed changes
 path="res://.godot/imported/tick_tock.wav-b1362e94aed5975fc183c6476cf17445.sample"
 
 [deps]

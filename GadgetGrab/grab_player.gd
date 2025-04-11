@@ -67,7 +67,7 @@ func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
 		velocity += Vector3(0,GRAVITY_ACCEL,0) * delta
-	print($RayCast3D.get_collider())
+	#print($RayCast3D.get_collider())
 	if Controls.is_action_just_pressed(player, "core_player_jump") and is_on_floor() and not $RayCast3D.get_collider() is GrabPlayer:
 		
 		$GadgetGrabber/AnimationPlayer.play("Cube_009Action", 0, .52)

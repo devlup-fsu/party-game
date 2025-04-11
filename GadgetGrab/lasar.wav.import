@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< Updated upstream
 uid="uid://doq4j8ggtst8s"
+=======
+uid="uid://dqt2yhkfredxi"
+>>>>>>> Stashed changes
 path="res://.godot/imported/lasar.wav-bda0cc755acf5a7d6c34b9d17df2f88a.sample"
 
 [deps]

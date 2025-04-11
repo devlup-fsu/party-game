@@ -5,6 +5,10 @@ extends Node3D
 @export var scores: Array[Label]
 
 
+var total_time_elapsed : float = 0
+var spawn_timer : float = 0
+
+
 func get_all_resources() -> Array[FallingObjRes]:
 
 	
@@ -35,15 +39,19 @@ func _ready():
 	rng.randomize()
 
 
-func spawn_random_object(position: Vector3):
+func _spawn_random_object(position: Vector3):
 	var falling_obj_instance = a_falling_obj.instantiate()
 	falling_obj_instance.falling_obj_res = resources.pick_random()
 	add_child(falling_obj_instance)
 	falling_obj_instance.position = position
 
+func _get_spawn_time(time_elapsed: float):
+	return (-1 * time_elapsed / 22) + 3
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	
+<<<<<<< Updated upstream
 	var pos : Vector3
 	pos.x = randf_range(-25,25)
 	pos.y = 10
@@ -55,4 +63,22 @@ func _process(_delta: float) -> void:
 		scores[i].text = str(players[i].objs_collected)
 
 
+=======
+	total_time_elapsed += _delta
+	spawn_timer += _delta
+	
+	print(spawn_timer)
+	
+	if (spawn_timer > _get_spawn_time(total_time_elapsed)):
+		var pos : Vector3
+		pos.x = randf_range(-12.5,12.5)
+		pos.y = 10
+		pos.z = randf_range(-12.5,12.5)
+		_spawn_random_object(pos)
+		spawn_timer = 0
+	
+		
+	
+	
+>>>>>>> Stashed changes
 	
