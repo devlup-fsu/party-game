@@ -1,6 +1,9 @@
 extends Node3D
 
 @export var a_falling_obj = preload("res://GadgetGrab/falling_objs_scenes/a_falling_obj.tscn")
+@export var players: Array[GrabPlayer]
+@export var scores: Array[Label]
+
 
 func get_all_resources() -> Array[FallingObjRes]:
 
@@ -39,6 +42,7 @@ func spawn_random_object(position: Vector3):
 	falling_obj_instance.position = position
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	
 	var pos : Vector3
 	pos.x = randf_range(-200,200)
 	pos.y = 10
@@ -46,4 +50,8 @@ func _process(_delta: float) -> void:
 	#var random = randf_range(0,800)
 	if (((pos.x*pos.x) +(pos.z*pos.z)) <= 225):
 		spawn_random_object(pos)
+	for i in range(0, 4, 1):
+		scores[i].text = str(players[i].objs_collected)
+
+
 	
