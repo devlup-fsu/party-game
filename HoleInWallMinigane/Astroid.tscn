@@ -1,6 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://mm5d6q4l6b40"]
+[gd_scene load_steps=9 format=4 uid="uid://mm5d6q4l6b40"]
 
 [ext_resource type="Script" uid="uid://c4mxbkmwdeg0" path="res://HoleInWallMinigane/astroid.gd" id="1_v5gbg"]
+[ext_resource type="Texture2D" uid="uid://c7ogwxdibwfyo" path="res://HoleInWallMinigane/Models/uhhhhhhhrock thing.png" id="2_ptpkn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ie37"]
+albedo_texture = ExtResource("2_ptpkn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ambhr"]
 
@@ -47,6 +51,7 @@ transform = Transform3D(2.03, 0, 0, 0, 2.03, 0, 0, 0, 2.03, 0, -1.04683, 0)
 script = ExtResource("1_v5gbg")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_5ie37")
 mesh = SubResource("ArrayMesh_ux2es")
 skeleton = NodePath("")
 

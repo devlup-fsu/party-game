@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://4hxfda0fvecm"]
+[gd_scene load_steps=16 format=3 uid="uid://4hxfda0fvecm"]
 
 [ext_resource type="Script" uid="uid://dd5al6116aheh" path="res://HoleInWallMinigane/wall_minigame.gd" id="1_i7wdh"]
 [ext_resource type="Texture2D" uid="uid://d0ae4qnwxba2h" path="res://SharedAssets/eq_sky.png" id="2_n24t5"]
+[ext_resource type="Texture2D" uid="uid://cc2lmascxicv5" path="res://HoleInWallMinigane/heart.png" id="3_4xmll"]
 [ext_resource type="PackedScene" uid="uid://c068idoo7nx73" path="res://HoleInWallMinigane/wall_players_rope.tscn" id="3_gi4f8"]
 [ext_resource type="Script" uid="uid://vuubfis0atky" path="res://HoleInWallMinigane/astroid_spawner.gd" id="3_hiaym"]
+[ext_resource type="Texture2D" uid="uid://c7ogwxdibwfyo" path="res://HoleInWallMinigane/Models/uhhhhhhhrock thing.png" id="5_3ekm7"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eowsk"]
 panorama = ExtResource("2_n24t5")
@@ -11,9 +13,17 @@ panorama = ExtResource("2_n24t5")
 [sub_resource type="Sky" id="Sky_fmlju"]
 sky_material = SubResource("PanoramaSkyMaterial_eowsk")
 
-[sub_resource type="Environment" id="Environment_yvyvf"]
+[sub_resource type="Environment" id="Environment_4xmll"]
 background_mode = 2
 sky = SubResource("Sky_fmlju")
+sky_rotation = Vector3(5.68977, -1.06465, 0)
+ambient_light_energy = 6.0
+reflected_light_source = 2
+
+[sub_resource type="Environment" id="Environment_6yrb3"]
+background_mode = 2
+sky = SubResource("Sky_fmlju")
+sky_rotation = Vector3(1.82736, -2.74191, 0)
 ambient_light_energy = 6.0
 reflected_light_source = 2
 
@@ -25,6 +35,9 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xmll"]
+albedo_texture = ExtResource("5_3ekm7")
+
 [sub_resource type="Curve3D" id="Curve3D_2qf6b"]
 resource_local_to_scene = true
 _data = {
@@ -33,8 +46,16 @@ _data = {
 }
 point_count = 2
 
-[node name="WallMinigameMain" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6yrb3"]
+albedo_texture = ExtResource("5_3ekm7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ekm7"]
+size = Vector3(53.5674, 1, 41.0209)
+
+[node name="WallMinigameMain" type="Node3D" node_paths=PackedStringArray("lives1", "lives2")]
 script = ExtResource("1_i7wdh")
+lives1 = [NodePath("HBoxContainer/SubViewportContainer/Sprite2D2"), NodePath("HBoxContainer/SubViewportContainer/Sprite2D3"), NodePath("HBoxContainer/SubViewportContainer/Sprite2D")]
+lives2 = [NodePath("HBoxContainer/SubViewportContainer2/Sprite2D4"), NodePath("HBoxContainer/SubViewportContainer2/Sprite2D6"), NodePath("HBoxContainer/SubViewportContainer2/Sprite2D5")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.395498, 0.918467, 0, -0.918467, 0.395498, 0, 0, 25.8418)
@@ -60,12 +81,22 @@ render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="HBoxContainer/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, -12, 4.877, 10)
-environment = SubResource("Environment_yvyvf")
+environment = SubResource("Environment_4xmll")
 
-[node name="Score" type="Label" parent="HBoxContainer/SubViewportContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 60
-text = "Score"
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/SubViewportContainer"]
+position = Vector2(173, 61.8)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("3_4xmll")
+
+[node name="Sprite2D2" type="Sprite2D" parent="HBoxContainer/SubViewportContainer"]
+position = Vector2(393.2, 64.8)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("3_4xmll")
+
+[node name="Sprite2D3" type="Sprite2D" parent="HBoxContainer/SubViewportContainer"]
+position = Vector2(283.2, 64)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("3_4xmll")
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -79,12 +110,22 @@ render_target_update_mode = 4
 
 [node name="Camera3D2" type="Camera3D" parent="HBoxContainer/SubViewportContainer2/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, 8, 4.839, 10)
-environment = SubResource("Environment_yvyvf")
+environment = SubResource("Environment_6yrb3")
 
-[node name="Score" type="Label" parent="HBoxContainer/SubViewportContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 60
-text = "Score"
+[node name="Sprite2D4" type="Sprite2D" parent="HBoxContainer/SubViewportContainer2"]
+position = Vector2(181, 61.8)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("3_4xmll")
+
+[node name="Sprite2D5" type="Sprite2D" parent="HBoxContainer/SubViewportContainer2"]
+position = Vector2(401.2, 64.8)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("3_4xmll")
+
+[node name="Sprite2D6" type="Sprite2D" parent="HBoxContainer/SubViewportContainer2"]
+position = Vector2(291.2, 64)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("3_4xmll")
 
 [node name="Astroid Spawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.53616, 4.21563, -16.1533)
@@ -110,6 +151,9 @@ curve = SubResource("Curve3D_pb6ip")
 [node name="PathFollow3D" parent="Wall_Players_rope2/Path3D" index="0"]
 transform = Transform3D(0.470536, 0.0616731, -0.880211, -1.86262e-09, 0.997542, 0.0698944, 0.882368, -0.0328881, 0.469386, -3.94532, 0.224436, 1.37998)
 
+[node name="MeshInstance3D" parent="Wall_Players_rope2/Path3D/PathFollow3D/Area3D" index="0"]
+material_override = SubResource("StandardMaterial3D_4xmll")
+
 [node name="Wall_Players_rope" parent="." instance=ExtResource("3_gi4f8")]
 left_player = 2
 right_player = 3
@@ -125,6 +169,27 @@ curve = SubResource("Curve3D_2qf6b")
 
 [node name="PathFollow3D" parent="Wall_Players_rope/Path3D" index="0"]
 transform = Transform3D(0.470536, 0.0616731, -0.880211, -1.86262e-09, 0.997542, 0.0698944, 0.882368, -0.0328881, 0.469386, -3.94532, 0.224436, 1.37998)
+
+[node name="MeshInstance3D" parent="Wall_Players_rope/Path3D/PathFollow3D/Area3D" index="0"]
+material_override = SubResource("StandardMaterial3D_6yrb3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.33545, 8.38437, 0.165977)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.09562, 0)
+shape = SubResource("BoxShape3D_3ekm7")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.33545, -10.0633, 0.165977)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.09562, 0)
+shape = SubResource("BoxShape3D_3ekm7")
 
 [connection signal="astroid_hit" from="Wall_Players_rope2" to="." method="_on_wall_players_rope_2_astroid_hit"]
 [connection signal="astroid_hit" from="Wall_Players_rope" to="." method="_on_wall_players_rope_astroid_hit"]
