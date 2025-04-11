@@ -1,13 +1,16 @@
-[gd_resource type="Resource" script_class="Minigame" load_steps=4 format=3 uid="uid://8noacgc88dxr"]
+[gd_resource type="Resource" script_class="Minigame" load_steps=6 format=3 uid="uid://8noacgc88dxr"]
 
 [ext_resource type="Texture2D" uid="uid://dos4ootlmduyu" path="res://BattleshipMinigame/portrait.png" id="1_06ic0"]
 [ext_resource type="Script" uid="uid://j5u61pxsb46s" path="res://Core/Minigames/minigame.gd" id="1_si128"]
+[ext_resource type="Texture2D" uid="uid://bnyhh4nh6ps4o" path="res://Core/Controls/Assets/steamdeck_stick_l.svg" id="1_tssmg"]
 [ext_resource type="PackedScene" uid="uid://bt56kwwqia5eo" path="res://BattleshipMinigame/world.tscn" id="2_3wgr5"]
+[ext_resource type="Texture2D" uid="uid://djfrbr7gwv4sc" path="res://Core/Controls/Assets/button_color_a.svg" id="2_8f21l"]
 
 [resource]
 script = ExtResource("1_si128")
-name = "Battleship Minigame"
-description = ""
+name = "Galaxy Fighter"
+description = "Battle to the death in a free-for-all fightership battle minigame! Shoot lasers out the front of your battleship and try to hit the other players. Each player has 3 lives, and the last one standing wins!"
 portrait = ExtResource("1_06ic0")
 scene = ExtResource("2_3wgr5")
 published = true
+controls = Array[Texture2D]([ExtResource("1_tssmg"), ExtResource("2_8f21l")])

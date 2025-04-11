@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="Minigame" load_steps=4 format=3 uid="uid://c7y0qorb1oqxf"]
+[gd_resource type="Resource" script_class="Minigame" load_steps=7 format=3 uid="uid://c7y0qorb1oqxf"]
 
 [ext_resource type="Texture2D" uid="uid://dfdqtnhfxsse4" path="res://FactoryGame/portrait.png" id="1_86eop"]
+[ext_resource type="Texture2D" uid="uid://bnyhh4nh6ps4o" path="res://Core/Controls/Assets/steamdeck_stick_l.svg" id="1_c5yas"]
 [ext_resource type="Script" uid="uid://j5u61pxsb46s" path="res://Core/Minigames/minigame.gd" id="1_cr0b7"]
 [ext_resource type="PackedScene" uid="uid://c6jvsgy5x4q3" path="res://FactoryGame/factory_game.tscn" id="1_wbkxu"]
+[ext_resource type="Texture2D" uid="uid://djfrbr7gwv4sc" path="res://Core/Controls/Assets/button_color_a.svg" id="2_e3x53"]
+[ext_resource type="Texture2D" uid="uid://b351xgyx3tfek" path="res://Core/Controls/Assets/button_color_b.svg" id="3_motg1"]
 
 [resource]
 script = ExtResource("1_cr0b7")
-name = "Factory Collector"
+name = "Fuel Rush"
 description = ""
 portrait = ExtResource("1_86eop")
 scene = ExtResource("1_wbkxu")
 published = true
+controls = Array[Texture2D]([ExtResource("1_c5yas"), ExtResource("2_e3x53"), ExtResource("3_motg1")])
