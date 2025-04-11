@@ -212,6 +212,11 @@ func load_minigame_for_real_this_time(minigame: Minigame) -> void:
 ## Returns to the board and appropriately scores each player.
 ## Each player receives a "Place" between 1st and 4th. They do not have to be unique.
 func exit_minigame(one: Scores.Place, two: Scores.Place, three: Scores.Place, four: Scores.Place) -> void:
+	var active_scene = get_active_scene()
+	if active_scene is TutorialScreen:
+		active_scene.restart_practice_minigame()
+		return
+	
 	_pop_to_board()
 	
 	var placements: Dictionary = {}  # Dictionary[Scores.Place, Array[Controls.Player]]
