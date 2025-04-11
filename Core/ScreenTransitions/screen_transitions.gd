@@ -26,3 +26,17 @@ func fade(next_scene: Node):
 	
 	var fade_out_scene = create_fade_scene(true, fade_out_exit)
 	SceneManager._push_scene(fade_out_scene, false)
+
+
+## Fades back to the board.
+func fade_to_board():
+	var fade_in_exit = func():
+		SceneManager._pop_scene().queue_free()
+	
+	var fade_out_exit = func():
+		var fade_in_scene = create_fade_scene(false, fade_in_exit)
+		SceneManager._pop_to_board()
+		SceneManager._push_scene(fade_in_scene, false)
+	
+	var fade_out_scene = create_fade_scene(true, fade_out_exit)
+	SceneManager._push_scene(fade_out_scene, false)
