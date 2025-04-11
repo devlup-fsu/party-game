@@ -44,7 +44,7 @@ func get_amount_wave_objects() -> int:
 
 
 func get_obstacle_interval() -> float:
-	return max(-0.1*wave_number + 1.5, 0.7)
+	return clamp(-1.05*(log(wave_number) / log(10)) + 1.8, 0.5, 2)
 
 ## Fills the action queue with pairs of times and actions, indicating the time at which each action should be performed.
 ## base_time is the exact time at which the first obstacle will hit the players
