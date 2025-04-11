@@ -199,8 +199,14 @@ func load_minigame(minigame: Minigame, show_carousel: bool = false) -> void:
 		var tutorial_scene = _tutorial_scene.instantiate()
 		tutorial_scene.initialize(minigame)
 		_push_scene(tutorial_scene)
-		#var minigame_scene = minigame.scene.instantiate()
-		#_push_scene(minigame_scene)
+
+
+
+func load_minigame_for_real_this_time(minigame: Minigame) -> void:
+	_pop_to_board()
+	
+	var minigame_scene = minigame.scene.instantiate()
+	_push_scene(minigame_scene)
 
 
 ## Returns to the board and appropriately scores each player.
