@@ -2,19 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-uid="uid://rn3c8j1hdl3m"
-=======
-uid="uid://dqdc6daly22nk"
->>>>>>> Stashed changes
-=======
-uid="uid://dqdc6daly22nk"
->>>>>>> Stashed changes
-=======
-uid="uid://dqdc6daly22nk"
->>>>>>> Stashed changes
+uid="uid://m8uwojunfbco"
 path="res://.godot/imported/fuze_rel.wav-31b6ac14f0a2e07ea34c7b8d706c4c5c.sample"
 
 [deps]

@@ -2,19 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-uid="uid://q664hnmo68c7"
-=======
-uid="uid://citsdyta6chbk"
->>>>>>> Stashed changes
-=======
-uid="uid://citsdyta6chbk"
->>>>>>> Stashed changes
-=======
-uid="uid://citsdyta6chbk"
->>>>>>> Stashed changes
+uid="uid://bc4gy2hu6a8hn"
 path="res://.godot/imported/tick_tock.wav-b1362e94aed5975fc183c6476cf17445.sample"
 
 [deps]
