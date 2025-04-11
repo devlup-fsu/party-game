@@ -13,3 +13,7 @@ func initialize(target_minigame: Minigame) -> void:
 	var game_scene = _target_minigame.scene.instantiate()
 	%SubViewport.add_child(game_scene)
 	
+	for control in _target_minigame.controls:
+		var texture_rect = TextureRect.new()
+		texture_rect.texture = control
+		%ControlsContainer.add_child(texture_rect)

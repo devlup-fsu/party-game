@@ -6,3 +6,4 @@ extends Resource
 @export var portrait: Texture2D = load("res://Core/Minigames/default_portrait.png")
 @export var scene: PackedScene
 @export var published: bool
+@export var controls: Array[Texture2D]
