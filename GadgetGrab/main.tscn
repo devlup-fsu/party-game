@@ -100,7 +100,7 @@ mesh = SubResource("BoxMesh_4ckl1")
 shape = SubResource("ConcavePolygonShape3D_w2lik")
 
 [node name="astroidArena" parent="." instance=ExtResource("3_wyg58")]
-transform = Transform3D(5.905, 0, 0, 0, 5.905, 0, 0, 0, 5.905, -2.12042, -3.15844, -2.34966)
+transform = Transform3D(5.905, 0, 0, 0, 5.905, 0, 0, 0, 4, -2.12042, -3.15844, -2.34966)
 
 [node name="HBoxContainer" type="Control" parent="."]
 layout_mode = 3

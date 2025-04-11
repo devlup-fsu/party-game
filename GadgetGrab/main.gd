@@ -56,7 +56,7 @@ func _process(_delta: float) -> void:
 	total_time_elapsed += _delta
 	spawn_timer += _delta
 	
-	print(spawn_timer)
+	#print(spawn_timer)
 	
 	if (spawn_timer > _get_spawn_time(total_time_elapsed)):
 		var pos : Vector3
