@@ -1,7 +1,13 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://b0t0mdqwr1nce"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b0t0mdqwr1nce"]
+
+[ext_resource type="Texture2D" uid="uid://dncm4b0xhtjlf" path="res://FactoryGame/Resources/Materials/factory-wall/albedo.png" id="1_r5bpi"]
+[ext_resource type="Texture2D" uid="uid://drj408xbeeln2" path="res://FactoryGame/Resources/Materials/factory-wall/normal.png" id="2_lvvrp"]
 
 [resource]
-albedo_color = Color(0.237539, 0.237539, 0.237539, 1)
+albedo_texture = ExtResource("1_r5bpi")
 metallic = 0.51
 metallic_specular = 1.0
 emission = Color(1, 1, 1, 1)
+normal_enabled = true
+normal_texture = ExtResource("2_lvvrp")
+uv1_scale = Vector3(3.5, 1.75, 3.5)
