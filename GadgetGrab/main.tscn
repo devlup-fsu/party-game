@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bt56kwwqia5eo"]
 
 [ext_resource type="Script" uid="uid://dtcp40qdfm33m" path="res://GadgetGrab/main.gd" id="1_esxul"]
-[ext_resource type="PackedScene" uid="uid://c46qilv4v0c7a" path="res://GadgetGrab/grab_player.tscn" id="1_q3mhu"]
+[ext_resource type="PackedScene" uid="uid://dohc6wxtdg605" path="res://GadgetGrab/grab_player.tscn" id="1_q3mhu"]
 [ext_resource type="PackedScene" uid="uid://pnpg6gf8dmvc" path="res://GadgetGrab/astroid_arena.tscn" id="3_wyg58"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gpkpt"]
@@ -30,16 +30,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0710357, -0.0187528, -0.08
 shape = SubResource("ConcavePolygonShape3D_fc1ln")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.52101, 0.853551, 0, -0.853551, 0.52101, 0, 12.2267, 14.7781)
+transform = Transform3D(1, 0, 0, 0, 0.52101, 0.853551, 0, -0.853551, 0.52101, 0, 19.5763, 11.3179)
 current = true
-fov = 95.6
+fov = 60.4
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 22.1074, 0)
 shadow_enabled = true
 
 [node name="Player1" parent="." instance=ExtResource("1_q3mhu")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2.5447, 12.8375)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2.5447, 5.20909)
 
 [node name="Player2" parent="." instance=ExtResource("1_q3mhu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0788, 2.64109, 0)
@@ -94,4 +94,4 @@ mesh = SubResource("BoxMesh_4ckl1")
 shape = SubResource("ConcavePolygonShape3D_w2lik")
 
 [node name="astroidArena" parent="." instance=ExtResource("3_wyg58")]
-transform = Transform3D(5.905, 0, 0, 0, 5.905, 0, 0, 0, 5.905, -2.12042, -3.15844, -2.34966)
+transform = Transform3D(5.905, 0, 0, 0, 5.905, 0, 0, 0, 4, -2.12042, -3.15844, -2.34966)

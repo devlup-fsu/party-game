@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c46qilv4v0c7a"]
+[gd_scene load_steps=4 format=3 uid="uid://dohc6wxtdg605"]
 
 [ext_resource type="Script" uid="uid://dha2ryxxdmixm" path="res://GadgetGrab/grab_player.gd" id="1_2np2r"]
 [ext_resource type="PackedScene" uid="uid://b2kpeha0lugga" path="res://GadgetGrab/gadget_grabberMesh.tscn" id="2_dnlfr"]

@@ -37,12 +37,13 @@ func spawn_random_object(position: Vector3):
 	falling_obj_instance.falling_obj_res = resources.pick_random()
 	add_child(falling_obj_instance)
 	falling_obj_instance.position = position
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	var pos : Vector3
-	pos.x = randf_range(-200,200)
+	pos.x = randf_range(-25,25)
 	pos.y = 10
-	pos.z = randf_range(-200,200)
+	pos.z = randf_range(-25,25)
 	#var random = randf_range(0,800)
 	if (((pos.x*pos.x) +(pos.z*pos.z)) <= 225):
 		spawn_random_object(pos)
