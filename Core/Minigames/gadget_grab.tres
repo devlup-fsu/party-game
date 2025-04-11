@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_gneht")
 name = "Gadget Grab"
-description = ""
+description = "Control your robot to collect various gadgets and trinkets falling from the sky from the broken space station. But be careful, don't collect the bomb, or you will lose some of your gadgets!"
 portrait = ExtResource("1_3x8c3")
 scene = ExtResource("1_ftdyp")
 published = true

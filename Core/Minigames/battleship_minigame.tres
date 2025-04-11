@@ -6,8 +6,8 @@
 
 [resource]
 script = ExtResource("1_si128")
-name = "Battleship Minigame"
-description = ""
+name = "Galaxy Fighter"
+description = "Battle to the death in a free-for-all fightership battle minigame! Shoot lasers out the front of your battleship and try to hit the other players. Each player has 3 lives, and the last one standing wins!"
 portrait = ExtResource("1_06ic0")
 scene = ExtResource("2_3wgr5")
 published = true

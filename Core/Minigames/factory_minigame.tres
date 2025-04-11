@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_cr0b7")
-name = "Factory Collector"
+name = "Fuel Rush"
 description = ""
 portrait = ExtResource("1_86eop")
 scene = ExtResource("1_wbkxu")

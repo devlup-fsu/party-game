@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_5niyx")
 name = "Hole in the Wall"
-description = ""
+description = "Some  left the inter-ship cables attatched in the astroid field! Now we need to coridinate to SQUEEZZZEEEEE through the astroids as we fly our way outta here! And ya only got three lives so make em cout! All hands on deck, communication is key!"
 portrait = ExtResource("1_kl2lg")
 scene = ExtResource("1_me0wk")
 published = true
