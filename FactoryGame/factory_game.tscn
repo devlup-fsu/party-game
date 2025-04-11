@@ -24,7 +24,7 @@ script = ExtResource("1_iji3h")
 
 [node name="Camera" type="Camera3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.885345, 0.464935, 0, -0.464935, 0.885345, 0, 5.41159, 13.473)
+transform = Transform3D(1, 0, 0, 0, 0.300706, 0.953717, 0, -0.953717, 0.300706, 0, 32.248, 13.473)
 current = true
 
 [node name="Lights" type="Node3D" parent="."]
