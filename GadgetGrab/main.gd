@@ -13,6 +13,10 @@ var total_time_elapsed : float = 0
 var spawn_timer : float = 0
 
 
+var total_time_elapsed : float = 0
+var spawn_timer : float = 0
+
+
 func get_all_resources() -> Array[FallingObjRes]:
 
 	
@@ -57,6 +61,7 @@ func _process(_delta: float) -> void:
 	
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	var pos : Vector3
 	pos.x = randf_range(-25,25)
 	pos.y = 10
@@ -69,6 +74,8 @@ func _process(_delta: float) -> void:
 
 
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 	total_time_elapsed += _delta
@@ -88,6 +95,9 @@ func _process(_delta: float) -> void:
 	
 	
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
