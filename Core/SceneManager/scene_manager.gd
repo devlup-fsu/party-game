@@ -196,7 +196,7 @@ func load_minigame(minigame: Minigame, show_carousel: bool = false) -> void:
 		_push_scene(carousel_scene, false)
 	else:
 		var minigame_scene = minigame.scene.instantiate()
-		_push_scene(minigame_scene)
+		ScreenTransitions.fade(minigame_scene)
 
 
 ## Returns to the board and appropriately scores each player.
