@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://b73h0hr5qe1w1"]
+
+[ext_resource type="Script" uid="uid://3wlrk78r4i5n" path="res://Core/ScreenTransitions/countdown.gd" id="1_nj7wl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rrhv3"]
+font_size = 120
+font_color = Color(0.941176, 0.705882, 0.180392, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.501961)
+shadow_offset = Vector2(4, 4)
+
+[node name="Countdown" type="Node2D"]
+script = ExtResource("1_nj7wl")
+
+[node name="LabelContainer" type="CanvasGroup" parent="."]
+
+[node name="CountdownLabel" type="Label" parent="LabelContainer"]
+unique_name_in_owner = true
+visible = false
+offset_right = 57.0
+offset_bottom = 137.0
+text = "3"
+label_settings = SubResource("LabelSettings_rrhv3")
+horizontal_alignment = 1
+vertical_alignment = 1

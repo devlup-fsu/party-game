@@ -7,7 +7,7 @@ const FADE_TIME = 1.0
 var fade_type: bool = true
 
 ## The function to call when the fade is finished.
-var onexit: Callable
+var on_finish: Callable
 
 var fade_timer: float = 0.0
 
@@ -20,7 +20,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	fade_timer = move_toward(fade_timer, FADE_TIME, delta)
 	if fade_timer >= FADE_TIME:
-		self.onexit.call()
+		self.on_finish.call()
 	else:
 		var alpha: float
 		if fade_type:  # fade out
