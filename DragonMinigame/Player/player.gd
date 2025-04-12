@@ -41,7 +41,8 @@ func jump_tick(delta: float):
 		else:
 			can_jump = false
 	
-	var jump_button_state = Controls.is_action_pressed(player_number, 'core_player_north')
+	var axis = Controls.get_axis(player_number, 'core_player_down', 'core_player_up')
+	var jump_button_state = axis < -0.5 or Controls.is_action_pressed(player_number, 'core_player_jump')
 	if jump_button_state and can_jump and jump_hold_timer < JUMP_DURATION:
 		velocity.y = remap(jump_hold_timer, 0, JUMP_DURATION, 8, 0)
 		jump_hold_timer = move_toward(jump_hold_timer, JUMP_DURATION, delta)
@@ -56,7 +57,8 @@ func jump_tick(delta: float):
 	
 
 func duck_tick(_delta: float):
-	is_ducking = Controls.is_action_pressed(player_number, 'core_player_jump')
+	var axis = Controls.get_axis(player_number, 'core_player_down', 'core_player_up')
+	is_ducking = axis > 0.5
 	if is_ducking:
 		$CollisionShape.disabled = true
 		$DuckingCollisionShape.disabled = false
@@ -71,8 +73,9 @@ func duck_tick(_delta: float):
 
 func lane_change_tick(_delta: float):
 	if is_on_floor():
-		var west = Controls.is_action_pressed(player_number, 'core_player_west')
-		var east = Controls.is_action_pressed(player_number, 'core_player_east')
+		var axis = Controls.get_axis(player_number, 'core_player_left', 'core_player_right')
+		var west = axis < -0.5
+		var east = axis > 0.5
 		if west and east:  # Pressing both buttons fsr
 			lane_location = LaneLocation.MIDDLE
 		elif west:
