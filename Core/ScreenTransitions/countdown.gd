@@ -22,10 +22,9 @@ func animate_label():
 	var current_scale = remap(progress_eased, 0.0, 1.0, ANIMATION_START_SCALE, ANIMATION_END_SCALE)
 	var current_alpha = progress_eased
 	$LabelContainer.scale = Vector2(current_scale, current_scale)
-	
 	var viewport = get_viewport()
 	if viewport != null:
-		var screen_center = viewport.size / 2.0
+		var screen_center = viewport.get_visible_rect().size / 2.0
 		$LabelContainer.position = screen_center - %CountdownLabel.size / 2 * current_scale
 		$LabelContainer.modulate.a = current_alpha
 
