@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://bt56kwwqia5eo"]
 
 [ext_resource type="Script" uid="uid://dtcp40qdfm33m" path="res://GadgetGrab/main.gd" id="1_esxul"]
-[ext_resource type="PackedScene" uid="uid://dohc6wxtdg605" path="res://GadgetGrab/grab_player.tscn" id="1_q3mhu"]
-[ext_resource type="PackedScene" uid="uid://bw4ks76um5hx4" path="res://GadgetGrab/astroid_arena.tscn" id="3_wyg58"]
+[ext_resource type="PackedScene" uid="uid://dohc6wxtdg605" path="res://GadgetGrab/Grab_Player.tscn" id="1_q3mhu"]
+[ext_resource type="PackedScene" path="res://GadgetGrab/astroid_arena.tscn" id="3_wyg58"]
 [ext_resource type="Texture2D" uid="uid://dp75ve153x6pi" path="res://GadgetGrab/sprites/BlueGuy.png" id="4_o8cu4"]
 [ext_resource type="Texture2D" uid="uid://cfhjhmtkjitsx" path="res://GadgetGrab/sprites/GreenGuy.png" id="5_i3d5a"]
 [ext_resource type="Texture2D" uid="uid://dwci321agn32f" path="res://GadgetGrab/sprites/GreyGuy.png" id="6_rwo54"]

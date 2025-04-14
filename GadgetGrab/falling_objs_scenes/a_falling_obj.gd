@@ -1,7 +1,9 @@
 class_name AFallingObj
 extends Area3D
 
+
 @export var falling_obj_res: FallingObjRes
+@export var grab_player: GrabPlayer
 
 const FALLING_SPEED : float = -1.2
 
@@ -16,6 +18,7 @@ func _ready():
 	$CollisionShape3D.shape.size = Vector3.ONE * falling_obj_res.collision_size
 	
 	
+	
 	#rng.randomize()
 	#x_rot_velo = rng.randf_range(3.14 * -2, 3.14 * 2)
 	#y_rot_velo = rng.randf_range(3.14 * -2, 3.14 * 2)
@@ -26,7 +29,6 @@ func _ready():
 	z_rot_velo = rng.randfn(0, 3.14 * 0.5)
 
 func _physics_process(delta: float) -> void:
-	
 	
 	
 	if (!start_physics_sim):
@@ -46,8 +48,10 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body is GrabPlayer:
 		body.objs_collected += falling_obj_res.player_points
+		#player.emitting = true
 		queue_free()
 	elif body is not AFallingObj:
+		$GPUParticles3D.emitting = true
 		start_physics_sim = true
 	
 	

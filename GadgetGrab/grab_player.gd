@@ -20,8 +20,6 @@ var objs_collected : int = 0 # how many
 var cycle_num : int = 0 # used for debug printing
 
 
-
-
 @export var player: Controls.Player
 
 @onready var eyes_balls: MeshInstance3D = $GadgetGrabber/EyesBalls
@@ -65,6 +63,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# ! Physics Processing
 	
+
+		
 	if not is_on_floor():
 		velocity += Vector3(0,GRAVITY_ACCEL,0) * delta
 	#print($RayCast3D.get_collider())
