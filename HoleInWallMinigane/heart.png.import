@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b351xgyx3tfek"
-path="res://.godot/imported/button_color_b.svg-03870e7db4d03fa3ff0aa93873032f9e.ctex"
+uid="uid://cc2lmascxicv5"
+path="res://.godot/imported/heart.png-8aa29a27f6cc1ae95bdcea5269049e68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Core/Controls/Assets/button_color_b.svg"
-dest_files=["res://.godot/imported/button_color_b.svg-03870e7db4d03fa3ff0aa93873032f9e.ctex"]
+source_file="res://HoleInWallMinigane/heart.png"
+dest_files=["res://.godot/imported/heart.png-8aa29a27f6cc1ae95bdcea5269049e68.ctex"]
 
 [params]
 
@@ -31,7 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
+detect_3d/compress_to=1

@@ -8,8 +8,6 @@ class_name FactoryPlayer
 @onready var carried_fuel_position = $CarriedFuelPosition
 
 
-var stunned_material = preload("res://FactoryGame/Resources/Materials/temp_stunned_material.tres")
-
 const PLAYER_COLORS = [
 	Color('#FF0000'),
 	Color('#0000FF'),
@@ -43,12 +41,14 @@ const THROW_BAR_SMOOTHING_SPEED: float = 0.35
 
 const PUNCH_HITBOX_DISTANCE = 1.5
 const PUNCH_DANGER_TIME = 0.3
-const PUNCH_COOLDOWN_TIME = 0.75
+const PUNCH_COOLDOWN_TIME = 0.8
 const PUNCH_SPEED_MODIFIER = 0.3  # Slow down the player while they're punching
 const PUNCH_FORCE = 10.0  # How far the player should be knocked back when punched
 
-const STUN_DURATION = 0.75
+const STUN_DURATION = 1.0
 const STUN_DROP_STRENGTH = 6.5
+
+const STUN_HALO_ROTATE_SPEED = 8.5
 
 var previous_direction = Vector3(1, 0, 0)
 var facing_direction = Vector3(1, 0, 0);
@@ -68,18 +68,11 @@ var stun_timer = 0.0
 var player_material: StandardMaterial3D
 
 
-func reset_player_material():
-	player_mesh.set_surface_override_material(0, player_material)
-
-func set_stunned_material():
-	player_mesh.set_surface_override_material(0, stunned_material)
-
-
 func _ready() -> void:
 	player_material = StandardMaterial3D.new()
 	player_material.albedo_color = PLAYER_COLORS[player_number]
 	player_material.roughness = 0.2
-	reset_player_material()
+	player_mesh.set_surface_override_material(0, player_material)
 	
 	# Setup throw strength bar
 	throw_strength_bar.max_value = THROW_CHARGE_TIME * THROW_BAR_SCALE
@@ -173,7 +166,7 @@ func update_strength_bar_position():
 
 # Stuns this player.
 func stun(drop_vector: Vector3, push: bool):
-	set_stunned_material()
+	$StunHalo.visible = true
 	is_stunned = true
 	stun_timer = STUN_DURATION
 	
@@ -201,7 +194,7 @@ func stun_tick(delta: float):
 		stun_timer = move_toward(stun_timer, 0, delta) # reduces current stun duration by delta until 0
 		if stun_timer <= 0:
 			is_stunned = false
-			reset_player_material()
+			$StunHalo.visible = false
 	
 	
 func punch_tick(delta: float):
@@ -277,6 +270,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(delta: float) -> void:
-	# TODO: move non-graphical stuff from here into _physics_process
-	
 	update_strength_bar_position()
+	
+	# Rotate stun halo
+	if $StunHalo.visible:
+		$StunHalo.rotate_y(STUN_HALO_ROTATE_SPEED * delta)

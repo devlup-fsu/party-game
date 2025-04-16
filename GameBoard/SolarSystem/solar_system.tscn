@@ -52,51 +52,51 @@ resource_local_to_scene = true
 inner_radius = 7.0
 outer_radius = 7.1
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_egcnt"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_apmby"]
 top_radius = 0.05
 bottom_radius = 0.05
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_2bbc2"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_rcopt"]
 top_radius = 0.05
 bottom_radius = 0.05
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_hwgs3"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_v3fkw"]
 top_radius = 0.05
 bottom_radius = 0.05
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_58nfr"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_5ym1u"]
 top_radius = 0.05
 bottom_radius = 0.05
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_erd40"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_ih35o"]
 top_radius = 0.05
 bottom_radius = 0.05
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_a4sc4"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_41see"]
 top_radius = 0.05
 bottom_radius = 0.05
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_2ke00"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_0qv7v"]
 top_radius = 0.05
 bottom_radius = 0.05
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_ql71l"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_nbwsi"]
 top_radius = 0.05
 bottom_radius = 0.05
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_11atx"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_ixwed"]
 top_radius = 0.05
 bottom_radius = 0.05
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_77606"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_ymcuh"]
 top_radius = 0.05
 bottom_radius = 0.05
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_vfeku"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_rj5i1"]
 top_radius = 0.05
 bottom_radius = 0.05
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_hihjl"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_pvu5f"]
 top_radius = 0.05
 bottom_radius = 0.05
 
@@ -118,51 +118,51 @@ mesh = SubResource("TorusMesh_hcj84")
 
 [node name="SectorLine0" type="MeshInstance3D" parent="SectorLineMeshes"]
 transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -6.05, 0, 0)
-mesh = SubResource("CylinderMesh_egcnt")
+mesh = SubResource("CylinderMesh_apmby")
 
 [node name="SectorLine1" type="MeshInstance3D" parent="SectorLineMeshes"]
 transform = Transform3D(-0.5, -0.866025, 2.18557e-08, -4.37114e-08, 1.91069e-15, -1, 0.866025, -0.5, -3.78552e-08, -5.23945, 0, -3.025)
-mesh = SubResource("CylinderMesh_2bbc2")
+mesh = SubResource("CylinderMesh_rcopt")
 
 [node name="SectorLine2" type="MeshInstance3D" parent="SectorLineMeshes"]
 transform = Transform3D(-0.866025, -0.5, 3.78552e-08, -4.37114e-08, 1.91069e-15, -1, 0.5, -0.866025, -2.18557e-08, -3.025, 0, -5.23945)
-mesh = SubResource("CylinderMesh_hwgs3")
+mesh = SubResource("CylinderMesh_v3fkw")
 
 [node name="SectorLine3" type="MeshInstance3D" parent="SectorLineMeshes"]
 transform = Transform3D(-1, 8.74228e-08, 4.37114e-08, -4.37114e-08, 1.91069e-15, -1, -8.74228e-08, -1, 1.91069e-15, 2.64454e-07, 0, -6.05)
-mesh = SubResource("CylinderMesh_58nfr")
+mesh = SubResource("CylinderMesh_5ym1u")
 
 [node name="SectorLine4" type="MeshInstance3D" parent="SectorLineMeshes"]
 transform = Transform3D(-0.866025, 0.5, 3.78552e-08, -4.37114e-08, 1.91069e-15, -1, -0.5, -0.866025, 2.18557e-08, 3.025, 0, -5.23945)
-mesh = SubResource("CylinderMesh_erd40")
+mesh = SubResource("CylinderMesh_ih35o")
 
 [node name="SectorLine5" type="MeshInstance3D" parent="SectorLineMeshes"]
 transform = Transform3D(-0.5, 0.866025, 2.18557e-08, -4.37114e-08, 1.91069e-15, -1, -0.866025, -0.5, 3.78552e-08, 5.23945, 0, -3.025)
-mesh = SubResource("CylinderMesh_a4sc4")
+mesh = SubResource("CylinderMesh_41see")
 
 [node name="SectorLine6" type="MeshInstance3D" parent="SectorLineMeshes"]
 transform = Transform3D(1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, 6.05, 0, 5.28908e-07)
-mesh = SubResource("CylinderMesh_2ke00")
+mesh = SubResource("CylinderMesh_0qv7v")
 
 [node name="SectorLine7" type="MeshInstance3D" parent="SectorLineMeshes"]
 transform = Transform3D(0.5, 0.866025, -2.18557e-08, -4.37114e-08, 1.91069e-15, -1, -0.866025, 0.5, 3.78552e-08, 5.23945, 0, 3.025)
-mesh = SubResource("CylinderMesh_ql71l")
+mesh = SubResource("CylinderMesh_nbwsi")
 
 [node name="SectorLine8" type="MeshInstance3D" parent="SectorLineMeshes"]
 transform = Transform3D(0.866025, 0.5, -3.78552e-08, -4.37114e-08, 1.91069e-15, -1, -0.5, 0.866025, 2.18557e-08, 3.025, 0, 5.23945)
-mesh = SubResource("CylinderMesh_11atx")
+mesh = SubResource("CylinderMesh_ixwed")
 
 [node name="SectorLine9" type="MeshInstance3D" parent="SectorLineMeshes"]
 transform = Transform3D(1, -5.56363e-08, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 5.56363e-08, 1, -5.21253e-16, -7.21455e-08, 0, 6.05)
-mesh = SubResource("CylinderMesh_77606")
+mesh = SubResource("CylinderMesh_ymcuh")
 
 [node name="SectorLine10" type="MeshInstance3D" parent="SectorLineMeshes"]
 transform = Transform3D(0.866025, -0.5, -3.78552e-08, -4.37114e-08, 1.91069e-15, -1, 0.5, 0.866025, -2.18557e-08, -3.025, 0, 5.23945)
-mesh = SubResource("CylinderMesh_vfeku")
+mesh = SubResource("CylinderMesh_rj5i1")
 
 [node name="SectorLine11" type="MeshInstance3D" parent="SectorLineMeshes"]
 transform = Transform3D(0.5, -0.866025, -2.18557e-08, -4.37114e-08, 1.91069e-15, -1, 0.866025, 0.5, -3.78552e-08, -5.23945, 0, 3.025)
-mesh = SubResource("CylinderMesh_hihjl")
+mesh = SubResource("CylinderMesh_pvu5f")
 
 [node name="Sectors" type="Node3D" parent="."]
 

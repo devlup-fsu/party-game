@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6jvsgy5x4q3"]
+[gd_scene load_steps=20 format=3 uid="uid://c6jvsgy5x4q3"]
 
 [ext_resource type="PackedScene" uid="uid://ges8lqnwpw11" path="res://FactoryGame/Player/player.tscn" id="1_00avj"]
 [ext_resource type="Script" uid="uid://b12jmsjjc1gl2" path="res://FactoryGame/factory_game.gd" id="1_iji3h"]
@@ -8,8 +8,6 @@
 [ext_resource type="Material" uid="uid://brqxm3henxq7l" path="res://FactoryGame/Resources/Materials/clean-concrete-bl/concrete_material.tres" id="5_5uikl"]
 [ext_resource type="PackedScene" uid="uid://8im326ay6uie" path="res://FactoryGame/FuelGenerator/fuel_generator.tscn" id="6_64uwv"]
 [ext_resource type="Material" uid="uid://bcovub7rjd8ri" path="res://FactoryGame/Resources/Materials/factory-wall/factory_wall.tres" id="6_wa17k"]
-[ext_resource type="Script" uid="uid://4rcpvrp2cdg7" path="res://FactoryGame/UI/fps_label.gd" id="7_ppaln"]
-[ext_resource type="Script" uid="uid://cx3jj7q72qyxc" path="res://FactoryGame/UI/score_display.gd" id="8_ekchf"]
 [ext_resource type="Script" uid="uid://k3abbtf6pflk" path="res://FactoryGame/FuelGenerator/fuel_generator_container.gd" id="8_nqspd"]
 [ext_resource type="Script" uid="uid://chypm7qnvg2we" path="res://FactoryGame/Maze/maze_gen.gd" id="9_ajj37"]
 [ext_resource type="PackedScene" uid="uid://pfuwki2d02i0" path="res://FactoryGame/Conveyor/conveyor.tscn" id="11_4kvkj"]
@@ -18,6 +16,50 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r47md"]
 size = Vector3(75, 5, 75)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fus06"]
+font_size = 50
+font_color = Color(1, 0.397702, 0.329256, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.501961)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_43awp"]
+font_size = 50
+font_color = Color(0.219626, 0.445708, 1, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.501961)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qyo7c"]
+font_size = 50
+font_color = Color(0.997163, 0.895476, 7.70092e-07, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.501961)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y26eq"]
+font_size = 50
+font_color = Color(7.5084e-06, 0.778717, 7.70092e-07, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.501961)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ixnm6"]
+font_size = 35
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.501961)
+shadow_offset = Vector2(2, 2)
 
 [node name="Root" type="Node3D"]
 script = ExtResource("1_iji3h")
@@ -172,20 +214,6 @@ speed = 4.0
 [node name="Launcher" parent="Launchers/Left" instance=ExtResource("12_ctq0a")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24.914, 8.002, 0)
 
-[node name="FpsLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-script = ExtResource("7_ppaln")
-
-[node name="ScoreDisplay" type="Node2D" parent="."]
-script = ExtResource("8_ekchf")
-
-[node name="ScoreLabel" type="Label" parent="ScoreDisplay"]
-offset_top = 20.0
-offset_right = 55.0
-offset_bottom = 43.0
-text = "Scores:"
-
 [node name="MazeGen" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0238609, 0.0426254, 0.0298872)
 script = ExtResource("9_ajj37")
@@ -193,15 +221,6 @@ maze_size = 30.0
 wall_height = 4.0
 wall_thickness = 0.5
 maze_translation = null
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
-[node name="TimerLabel" type="Label" parent="Timer"]
-offset_top = 71.0
-offset_right = 43.0
-offset_bottom = 94.0
-text = "Time:"
 
 [node name="Background" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
@@ -211,4 +230,73 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
 [node name="BackgroundRight" parent="Background" instance=ExtResource("13_di267")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.3, 0, 0)
 
-[connection signal="timeout" from="Timer" to="ScoreDisplay" method="_on_timer_timeout"]
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ScoreLabelsContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 648.0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/ScoreLabelsContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+
+[node name="Top" type="HBoxContainer" parent="UI/ScoreLabelsContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Score1" type="Label" parent="UI/ScoreLabelsContainer/MarginContainer/Top"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_fus06")
+
+[node name="Score2" type="Label" parent="UI/ScoreLabelsContainer/MarginContainer/Top"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_43awp")
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/ScoreLabelsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
+
+[node name="Bottom" type="HBoxContainer" parent="UI/ScoreLabelsContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Score3" type="Label" parent="UI/ScoreLabelsContainer/MarginContainer2/Bottom"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_qyo7c")
+
+[node name="Score4" type="Label" parent="UI/ScoreLabelsContainer/MarginContainer2/Bottom"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_y26eq")
+
+[node name="CenterContainer" type="CenterContainer" parent="UI"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 73.0
+
+[node name="TimerLabel" type="Label" parent="UI/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0:00"
+label_settings = SubResource("LabelSettings_ixnm6")
+horizontal_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bt56kwwqia5eo"]
 
 [ext_resource type="Script" uid="uid://dtcp40qdfm33m" path="res://GadgetGrab/main.gd" id="1_esxul"]
-[ext_resource type="PackedScene" uid="uid://dohc6wxtdg605" path="res://GadgetGrab/Grab_Player.tscn" id="1_q3mhu"]
+[ext_resource type="PackedScene" uid="uid://su85vcmwb7f" path="res://GadgetGrab/Grab_Player.tscn" id="1_q3mhu"]
 [ext_resource type="PackedScene" path="res://GadgetGrab/astroid_arena.tscn" id="3_wyg58"]
 [ext_resource type="Texture2D" uid="uid://dp75ve153x6pi" path="res://GadgetGrab/sprites/BlueGuy.png" id="4_o8cu4"]
 [ext_resource type="Texture2D" uid="uid://cfhjhmtkjitsx" path="res://GadgetGrab/sprites/GreenGuy.png" id="5_i3d5a"]
@@ -110,65 +110,107 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer"]
-position = Vector2(81, 75)
-scale = Vector2(0.145, 0.145)
+[node name="Sprite2D" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+offset_right = 150.0
+offset_bottom = 150.0
 texture = ExtResource("4_o8cu4")
+expand_mode = 5
 
-[node name="Sprite2D2" type="Sprite2D" parent="HBoxContainer"]
-position = Vector2(1069, 75)
-scale = Vector2(0.145, 0.145)
+[node name="Sprite2D2" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_bottom = 150.0
+grow_horizontal = 0
 texture = ExtResource("5_i3d5a")
+expand_mode = 5
 
-[node name="Sprite2D3" type="Sprite2D" parent="HBoxContainer"]
-position = Vector2(81, 567)
-scale = Vector2(0.145, 0.145)
+[node name="Sprite2D3" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 150.0
+grow_vertical = 0
 texture = ExtResource("6_rwo54")
+expand_mode = 5
 
-[node name="Sprite2D4" type="Sprite2D" parent="HBoxContainer"]
-position = Vector2(1071, 574)
-scale = Vector2(0.145, 0.145)
+[node name="Sprite2D4" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -150.0
+grow_horizontal = 0
+grow_vertical = 0
 texture = ExtResource("7_og5bp")
+expand_mode = 5
 
 [node name="Label" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-offset_left = 166.0
-offset_top = 520.0
-offset_right = 209.0
-offset_bottom = 625.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 150.0
+offset_top = -129.0
+offset_right = 193.0
+offset_bottom = -24.0
+grow_vertical = 0
 theme_override_colors/font_color = Color(0.922167, 0.779788, 0, 1)
 theme_override_font_sizes/font_size = 76
 text = "9"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-offset_left = 158.0
-offset_top = 23.0
-offset_right = 201.0
-offset_bottom = 128.0
+layout_mode = 1
+offset_left = 150.0
+offset_top = 24.0
+offset_right = 193.0
+offset_bottom = 129.0
 theme_override_colors/font_color = Color(0.922167, 0.779788, 0, 1)
 theme_override_font_sizes/font_size = 76
 text = "9"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-offset_left = 940.0
-offset_top = 525.0
-offset_right = 983.0
-offset_bottom = 630.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = -129.0
+offset_right = -150.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_colors/font_color = Color(0.922167, 0.779788, 0, 1)
 theme_override_font_sizes/font_size = 76
 text = "9"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-offset_left = 937.0
-offset_top = 19.0
-offset_right = 980.0
-offset_bottom = 124.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -193.0
+offset_top = 24.0
+offset_right = -150.0
+offset_bottom = 129.0
+grow_horizontal = 0
 theme_override_colors/font_color = Color(0.922167, 0.779788, 0, 1)
 theme_override_font_sizes/font_size = 76
 text = "9"

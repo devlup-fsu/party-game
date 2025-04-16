@@ -11,7 +11,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	var prev_y = global_position.y
 	global_position = global_position.lerp(target.global_position + target_offset, delta * lerp_speed)
+	global_position.y = prev_y
 
 
 func teleport_to_player(player: Node3D) -> void:

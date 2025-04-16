@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://ges8lqnwpw11"]
+[gd_scene load_steps=19 format=3 uid="uid://ges8lqnwpw11"]
 
 [ext_resource type="Script" uid="uid://drjocqai1aajg" path="res://FactoryGame/Player/player.gd" id="1_4pf3t"]
+[ext_resource type="ArrayMesh" uid="uid://bo6m3p4smk0p3" path="res://FactoryGame/Resources/Models/StunHalo.obj" id="2_d3cbu"]
 [ext_resource type="Texture2D" uid="uid://dpxpv5wrj44gt" path="res://FactoryGame/Resources/Textures/ThrowBar/over.png" id="2_nsf7m"]
 [ext_resource type="Script" uid="uid://c2yi4yvad8o7n" path="res://FactoryGame/Player/throw_trajectory_arc.gd" id="3_xyrkj"]
 [ext_resource type="AudioStream" uid="uid://cesr1wkcdbvvg" path="res://FactoryGame/Resources/Audio/punch_swing.wav" id="4_m8ieg"]
@@ -9,6 +10,11 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2ad30"]
 radius = 0.75
 height = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfnal"]
+albedo_color = Color(0.901323, 0.761966, 0.145546, 1)
+emission_enabled = true
+emission = Color(0.92549, 0.796078, 0.219608, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_eyunm"]
 height = 3.0
@@ -46,13 +52,18 @@ streams_count = 1
 stream_0/stream = ExtResource("4_m8ieg")
 
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0329933, -4.76837e-07, -0.0111046)
 collision_mask = 13
 script = ExtResource("1_4pf3t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_2ad30")
+
+[node name="StunHalo" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 2.20701, 0)
+visible = false
+mesh = ExtResource("2_d3cbu")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfnal")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)

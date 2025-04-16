@@ -14,7 +14,7 @@ func _ready() -> void:
 	Controls.unassign_all_controllers()
 
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	_update_labels()
 	
 	for player in range(Controls.Player.ONE, Controls.Player.size()):

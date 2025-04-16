@@ -1,11 +1,16 @@
-[gd_resource type="Resource" script_class="Minigame" load_steps=3 format=3 uid="uid://dagcdf8ytbxd3"]
+[gd_resource type="Resource" script_class="Minigame" load_steps=6 format=3 uid="uid://dagcdf8ytbxd3"]
 
-[ext_resource type="PackedScene" uid="uid://bt56kwwqia5eo" path="res://BattleshipMinigame/world.tscn" id="1_ftdyp"]
+[ext_resource type="Texture2D" uid="uid://riqpsnw6fweb" path="res://GadgetGrab/portrait.png" id="1_3x8c3"]
+[ext_resource type="PackedScene" uid="uid://bt56kwwqia5ea" path="res://GadgetGrab/main.tscn" id="1_ftdyp"]
+[ext_resource type="Texture2D" uid="uid://bnyhh4nh6ps4o" path="res://Core/Controls/Assets/steamdeck_stick_l.svg" id="1_gbjy3"]
 [ext_resource type="Script" uid="uid://j5u61pxsb46s" path="res://Core/Minigames/minigame.gd" id="1_gneht"]
+[ext_resource type="Texture2D" uid="uid://djfrbr7gwv4sc" path="res://Core/Controls/Assets/button_color_a.svg" id="2_b2h8d"]
 
 [resource]
 script = ExtResource("1_gneht")
 name = "Gadget Grab"
-description = ""
+description = "Control your robot to collect various gadgets and trinkets falling from the sky from the broken space station. But be careful, don't collect the bomb, or you will lose some of your gadgets!"
+portrait = ExtResource("1_3x8c3")
 scene = ExtResource("1_ftdyp")
 published = true
+controls = Array[Texture2D]([ExtResource("1_gbjy3"), ExtResource("2_b2h8d")])
