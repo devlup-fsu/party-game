@@ -10,7 +10,7 @@
 [resource]
 script = ExtResource("1_cr0b7")
 name = "Fuel Rush"
-description = ""
+description = "You’ve crash landed on a deserted moon after running out of fuel! Scramble through the abandoned factory to collect as much fuel as possible before time runs out!"
 portrait = ExtResource("1_86eop")
 scene = ExtResource("1_wbkxu")
 published = true

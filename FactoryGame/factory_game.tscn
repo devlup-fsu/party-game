@@ -233,7 +233,9 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.3, 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="UI" type="Node2D" parent="."]
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="ScoreLabelsContainer" type="VBoxContainer" parent="UI"]
 offset_right = 1150.0
