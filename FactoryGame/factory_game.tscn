@@ -238,6 +238,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="ScoreLabelsContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 0
 offset_right = 1150.0
 offset_bottom = 648.0
 
@@ -287,6 +288,7 @@ text = "0"
 label_settings = SubResource("LabelSettings_y26eq")
 
 [node name="CenterContainer" type="CenterContainer" parent="UI"]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 73.0
 
