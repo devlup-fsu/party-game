@@ -54,8 +54,8 @@ size = Vector3(53.5674, 1, 41.0209)
 
 [node name="WallMinigameMain" type="Node3D" node_paths=PackedStringArray("lives1", "lives2")]
 script = ExtResource("1_i7wdh")
-lives1 = [NodePath("Control/Sprite2D"), NodePath("Control/Sprite2D2"), NodePath("Control/Sprite2D3")]
-lives2 = [NodePath("Control2/Sprite2D4"), NodePath("Control2/Sprite2D5"), NodePath("Control2/Sprite2D6")]
+lives1 = [NodePath("Control/Sprite2D2"), NodePath("Control/Sprite2D3"), NodePath("Control/Sprite2D")]
+lives2 = [NodePath("Control2/Sprite2D4"), NodePath("Control2/Sprite2D6"), NodePath("Control2/Sprite2D5")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.395498, 0.918467, 0, -0.918467, 0.395498, 0, 0, 25.8418)
