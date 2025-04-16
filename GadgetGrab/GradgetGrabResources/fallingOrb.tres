@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FallingObjRes" load_steps=3 format=3 uid="uid://d2eeto28rukqh"]
+
+[ext_resource type="Script" uid="uid://cqpxxlci1bgsv" path="res://GadgetGrab/GradgetGrabResources/FallingObjRes.gd" id="1_r4iu8"]
+[ext_resource type="PackedScene" uid="uid://diudob1ikusqe" path="res://GadgetGrab/falling_objs_models/falling_orb.tscn" id="1_ye054"]
+
+[resource]
+script = ExtResource("1_r4iu8")
+objModel = ExtResource("1_ye054")
+collision_size = 1.0
+player_points = -1
+metadata/_custom_type_script = "uid://cqpxxlci1bgsv"

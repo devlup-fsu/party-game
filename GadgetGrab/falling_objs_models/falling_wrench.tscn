@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvcgh8nsneqj2"]
+
+[ext_resource type="PackedScene" uid="uid://dpedu1o0bu8aa" path="res://GadgetGrab/models/wrench.blend" id="1_yqoaw"]
+
+[node name="wrench" instance=ExtResource("1_yqoaw")]
+
+[node name="Circle" parent="." index="0"]
+transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, -0.7, 0, 0.7, -3.0598e-08, 1.83297, -1.46032, 0)

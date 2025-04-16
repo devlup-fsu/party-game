@@ -2,7 +2,7 @@ class_name GrabPlayer
 extends CharacterBody3D
 
 const GRAVITY_ACCEL = -5 # m/s^2
-const JUMP_VELO = 4 # m/s
+const JUMP_VELO = 4.6 # m/s
 const MAX_LIN_SPEED = 10.0 # m/s
 const LIN_ACCEL = 20.0 # m/s^2
 const MAX_ROTATIONAL_VELO = 10.0 # rads/s
@@ -15,21 +15,60 @@ var target_lin_velo : float = 0.0 # m/s
 var lin_velo : float = 0.0 # m/s
 var target_rotational_velo : float = 0.0 # rads/s
 var rotational_velo : float = 0.0 # rads/s
+
+var objs_collected : int = 0 # how many  
 var cycle_num : int = 0 # used for debug printing
 
 
 @export var player: Controls.Player
 
+@onready var eyes_balls: MeshInstance3D = $GadgetGrabber/EyesBalls
+@onready var hair: MeshInstance3D = $GadgetGrabber/Hair
+@onready var rubys: MeshInstance3D = $GadgetGrabber/Rubys
+
+static var prev_player_mat: Material
+
+func make_material_unique(mesh: MeshInstance3D, index: int):
+	mesh.mesh.resource_local_to_scene = true
+	mesh.mesh = mesh.mesh.duplicate(true)
+	mesh.mesh.surface_get_material(index).resource_local_to_scene = true
+	mesh.mesh.surface_set_material(index, mesh.mesh.surface_get_material(index).duplicate())
+
+
 func _ready() -> void:
-	pass
+	make_material_unique(eyes_balls, 0)
+	make_material_unique(hair, 0)
+	make_material_unique(rubys, 0)
+	
+	prev_player_mat = eyes_balls.mesh.surface_get_material(0)
+	
+	match player:
+		Controls.Player.ONE:
+			eyes_balls.mesh.surface_get_material(0).albedo_color = Color.GREEN
+			hair.mesh.surface_get_material(0).albedo_color = Color.GREEN
+			rubys.mesh.surface_get_material(0).albedo_color = Color.GREEN
+		Controls.Player.TWO:
+			eyes_balls.mesh.surface_get_material(0).albedo_color = Color.RED
+			hair.mesh.surface_get_material(0).albedo_color = Color.RED
+			rubys.mesh.surface_get_material(0).albedo_color = Color.RED
+		Controls.Player.THREE:
+			eyes_balls.mesh.surface_get_material(0).albedo_color = Color.BLUE
+			hair.mesh.surface_get_material(0).albedo_color = Color.BLUE
+			rubys.mesh.surface_get_material(0).albedo_color = Color.BLUE
+		Controls.Player.FOUR:
+			eyes_balls.mesh.surface_get_material(0).albedo_color = Color.SILVER
+			hair.mesh.surface_get_material(0).albedo_color = Color.SILVER
+			rubys.mesh.surface_get_material(0).albedo_color = Color.SILVER
 
 func _physics_process(delta: float) -> void:
 	# ! Physics Processing
 	
+
+		
 	if not is_on_floor():
 		velocity += Vector3(0,GRAVITY_ACCEL,0) * delta
-	
-	if Controls.is_action_just_pressed(player, "core_player_jump") and is_on_floor():
+	#print($RayCast3D.get_collider())
+	if Controls.is_action_just_pressed(player, "core_player_jump") and is_on_floor() and not $RayCast3D.get_collider() is GrabPlayer:
 		
 		$GadgetGrabber/AnimationPlayer.play("Cube_009Action", 0, .52)
 		$GadgetGrabber/AnimationPlayer.play("Cube_010Action",1)
@@ -73,8 +112,8 @@ func _physics_process(delta: float) -> void:
 
 	# print(str(position.y))
 	if(not is_on_floor()):
-		velocity.x = velocity.x * 0.7
-		velocity.z = velocity.z * 0.7
+		velocity.x = velocity.x * 0.8
+		velocity.z = velocity.z * 0.8
 		
 	cycle_num += 1
 	move_and_slide()

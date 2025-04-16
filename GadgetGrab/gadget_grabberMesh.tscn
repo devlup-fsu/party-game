@@ -193,5 +193,5 @@ _data = {
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="12"]
 root_node = NodePath("../AnimationPlayer")
 libraries = {
-"": SubResource("AnimationLibrary_iqxfw")
+&"": SubResource("AnimationLibrary_iqxfw")
 }

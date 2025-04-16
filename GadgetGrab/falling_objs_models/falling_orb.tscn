@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://diudob1ikusqe"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_swnqo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gy8pj"]
+albedo_color = Color(1, 0.666667, 0, 1)
+
+[node name="FallingOrb" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_swnqo")
+surface_material_override/0 = SubResource("StandardMaterial3D_gy8pj")

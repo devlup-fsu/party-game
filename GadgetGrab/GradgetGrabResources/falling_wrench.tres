@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FallingObjRes" load_steps=3 format=3 uid="uid://cl3fmsptjorh"]
+
+[ext_resource type="PackedScene" uid="uid://cvcgh8nsneqj2" path="res://GadgetGrab/falling_objs_models/falling_wrench.tscn" id="1_theyp"]
+[ext_resource type="Script" uid="uid://cqpxxlci1bgsv" path="res://GadgetGrab/GradgetGrabResources/FallingObjRes.gd" id="2_v3550"]
+
+[resource]
+script = ExtResource("2_v3550")
+objModel = ExtResource("1_theyp")
+collision_size = 0.5
+player_points = 1
