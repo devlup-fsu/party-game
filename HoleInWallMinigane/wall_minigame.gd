@@ -1,13 +1,11 @@
 extends Node3D
 
-@onready var scoreLabel1: Label = $HBoxContainer/SubViewportContainer2/Score
-@onready var scoreLabel2: Label = $HBoxContainer/SubViewportContainer/Score
 var score1 = 3
 var score2 = 3
 var HitTimer = 2
 var HitTimer2 = 2
-@export var lives1: Array[Sprite2D]
-@export var lives2: Array[Sprite2D]
+@export var lives1: Array[Node]
+@export var lives2: Array[Node]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

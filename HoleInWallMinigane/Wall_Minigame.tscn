@@ -54,8 +54,8 @@ size = Vector3(53.5674, 1, 41.0209)
 
 [node name="WallMinigameMain" type="Node3D" node_paths=PackedStringArray("lives1", "lives2")]
 script = ExtResource("1_i7wdh")
-lives1 = [NodePath("HBoxContainer/SubViewportContainer/Sprite2D2"), NodePath("HBoxContainer/SubViewportContainer/Sprite2D3"), NodePath("HBoxContainer/SubViewportContainer/Sprite2D")]
-lives2 = [NodePath("HBoxContainer/SubViewportContainer2/Sprite2D4"), NodePath("HBoxContainer/SubViewportContainer2/Sprite2D6"), NodePath("HBoxContainer/SubViewportContainer2/Sprite2D5")]
+lives1 = [NodePath("Control/Sprite2D"), NodePath("Control/Sprite2D2"), NodePath("Control/Sprite2D3")]
+lives2 = [NodePath("Control2/Sprite2D4"), NodePath("Control2/Sprite2D5"), NodePath("Control2/Sprite2D6")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.395498, 0.918467, 0, -0.918467, 0.395498, 0, 0, 25.8418)
@@ -83,21 +83,6 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, -12, 4.877, 10)
 environment = SubResource("Environment_4xmll")
 
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/SubViewportContainer"]
-position = Vector2(173, 61.8)
-scale = Vector2(0.075, 0.075)
-texture = ExtResource("3_4xmll")
-
-[node name="Sprite2D2" type="Sprite2D" parent="HBoxContainer/SubViewportContainer"]
-position = Vector2(393.2, 64.8)
-scale = Vector2(0.075, 0.075)
-texture = ExtResource("3_4xmll")
-
-[node name="Sprite2D3" type="Sprite2D" parent="HBoxContainer/SubViewportContainer"]
-position = Vector2(283.2, 64)
-scale = Vector2(0.075, 0.075)
-texture = ExtResource("3_4xmll")
-
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -112,20 +97,77 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 0.995808, 0.0914667, 0, -0.0914667, 0.995808, 8, 4.839, 10)
 environment = SubResource("Environment_6yrb3")
 
-[node name="Sprite2D4" type="Sprite2D" parent="HBoxContainer/SubViewportContainer2"]
-position = Vector2(181, 61.8)
-scale = Vector2(0.075, 0.075)
-texture = ExtResource("3_4xmll")
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.25
+anchor_right = 0.25
 
-[node name="Sprite2D5" type="Sprite2D" parent="HBoxContainer/SubViewportContainer2"]
-position = Vector2(401.2, 64.8)
-scale = Vector2(0.075, 0.075)
+[node name="Sprite2D" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 0
+offset_left = -130.0
+offset_top = 16.0
+offset_right = -55.0
+offset_bottom = 91.0
 texture = ExtResource("3_4xmll")
+expand_mode = 5
 
-[node name="Sprite2D6" type="Sprite2D" parent="HBoxContainer/SubViewportContainer2"]
-position = Vector2(291.2, 64)
-scale = Vector2(0.075, 0.075)
+[node name="Sprite2D2" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 0
+offset_left = 56.0
+offset_top = 16.0
+offset_right = 131.0
+offset_bottom = 91.0
 texture = ExtResource("3_4xmll")
+expand_mode = 5
+
+[node name="Sprite2D3" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 0
+offset_left = -37.0
+offset_top = 16.0
+offset_right = 38.0
+offset_bottom = 91.0
+texture = ExtResource("3_4xmll")
+expand_mode = 5
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.75
+anchor_right = 0.75
+grow_horizontal = 2
+
+[node name="Sprite2D4" type="TextureRect" parent="Control2"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 0
+offset_left = -130.0
+offset_top = 16.0
+offset_right = -55.0
+offset_bottom = 116.0
+texture = ExtResource("3_4xmll")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="Sprite2D5" type="TextureRect" parent="Control2"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 0
+offset_left = 56.0
+offset_top = 16.0
+offset_right = 131.0
+offset_bottom = 91.0
+texture = ExtResource("3_4xmll")
+expand_mode = 5
+
+[node name="Sprite2D6" type="TextureRect" parent="Control2"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 0
+offset_left = -37.0
+offset_top = 16.0
+offset_right = 38.0
+offset_bottom = 91.0
+texture = ExtResource("3_4xmll")
+expand_mode = 5
 
 [node name="Astroid Spawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.53616, 4.21563, -16.1533)
