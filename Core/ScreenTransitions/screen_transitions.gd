@@ -61,7 +61,7 @@ func fade_with_countdown(next_scene: Node):
 	
 	var fade_out_finish = func():
 		var fade_in_scene = _create_fade_scene(false, fade_in_finish)
-		SceneManager._pop_scene().queue_free()  # pop the fade out scene
+		SceneManager._pop_to_board()
 		SceneManager._push_scene(next_scene)
 		SceneManager._push_scene(fade_in_scene, false)
 	

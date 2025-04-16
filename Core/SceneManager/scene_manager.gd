@@ -198,14 +198,11 @@ func load_minigame(minigame: Minigame, show_carousel: bool = false) -> void:
 	else:
 		var tutorial_scene = _tutorial_scene.instantiate()
 		tutorial_scene.initialize(minigame)
-		_push_scene(tutorial_scene)
 		ScreenTransitions.fade(tutorial_scene)
 
 
 
 func load_minigame_for_real_this_time(minigame: Minigame) -> void:
-	_pop_to_board()
-	
 	var minigame_scene = minigame.scene.instantiate()
 	ScreenTransitions.fade_with_countdown(minigame_scene)
 
@@ -222,4 +219,3 @@ func exit_minigame(one: Scores.Place, two: Scores.Place, three: Scores.Place, fo
 
 	var end_scene: EndScene = EndScene.create([one, two, three, four])
 	ScreenTransitions.fade(end_scene)
-
