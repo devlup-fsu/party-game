@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://cvq4qlb4hn745"]
+
+[ext_resource type="Script" uid="uid://dk71xpg07v27x" path="res://Core/EndScene/end_scene.gd" id="1_yhrxa"]
+[ext_resource type="Material" uid="uid://dohtlhqoer28o" path="res://Core/EndScene/Resources/ship_body_material.tres" id="2_mq3nf"]
+[ext_resource type="PackedScene" uid="uid://cldewd7ijfuyg" path="res://Core/EndScene/ship.tscn" id="3_gbdec"]
+[ext_resource type="Material" uid="uid://cpravk8g2injl" path="res://Core/EndScene/Resources/ship2_material.tres" id="4_gbdec"]
+[ext_resource type="Material" uid="uid://bnc3636y138qc" path="res://Core/EndScene/Resources/ship3_material.tres" id="5_yhrxa"]
+[ext_resource type="Material" uid="uid://b42r3swympy7" path="res://Core/EndScene/Resources/ship4_material.tres" id="6_c8s2b"]
+[ext_resource type="Texture2D" uid="uid://djfrbr7gwv4sc" path="res://Core/Controls/Assets/button_color_a.svg" id="7_yhrxa"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xduq6"]
+material = ExtResource("2_mq3nf")
+top_radius = 25.0
+bottom_radius = 25.0
+height = 1.0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yhrxa"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_c8s2b"]
+sky_material = SubResource("ProceduralSkyMaterial_yhrxa")
+
+[sub_resource type="Environment" id="Environment_xhy3c"]
+background_mode = 2
+sky = SubResource("Sky_c8s2b")
+
+[node name="EndScene" type="Node3D"]
+script = ExtResource("1_yhrxa")
+
+[node name="Platform" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_xduq6")
+
+[node name="Ships" type="Node3D" parent="."]
+
+[node name="Ship1" parent="Ships" instance=ExtResource("3_gbdec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 4, 0)
+
+[node name="Ship2" parent="Ships" instance=ExtResource("3_gbdec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 4, 0)
+surface_material_override/0 = ExtResource("4_gbdec")
+
+[node name="Ship3" parent="Ships" instance=ExtResource("3_gbdec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4, 0)
+surface_material_override/0 = ExtResource("5_yhrxa")
+
+[node name="Ship4" parent="Ships" instance=ExtResource("3_gbdec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 4, 0)
+surface_material_override/0 = ExtResource("6_c8s2b")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.8159, 60.7043)
+environment = SubResource("Environment_xhy3c")
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.755179, 0.289887, 0.587937, -0.655519, 0.33396, 0.677323, -1.24351e-08, -0.896904, 0.442226, 0, 21.7812, 2.66494)
+shadow_enabled = true
+
+[node name="ContinueLabel" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 77, 0)
+visible = false
+
+[node name="Text" type="Label3D" parent="ContinueLabel"]
+modulate = Color(1, 0.717647, 0.188235, 1)
+text = "Press      to Continue"
+font_size = 1250
+
+[node name="AButtonSprite" type="Sprite3D" parent="ContinueLabel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.97318, -0.356567, 0)
+pixel_size = 0.1
+texture = ExtResource("7_yhrxa")
