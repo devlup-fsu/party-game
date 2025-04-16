@@ -48,7 +48,7 @@ const PUNCH_FORCE = 10.0  # How far the player should be knocked back when punch
 const STUN_DURATION = 1.0
 const STUN_DROP_STRENGTH = 6.5
 
-const STUN_HALO_ROTATE_SPEED = 0.1
+const STUN_HALO_ROTATE_SPEED = 8.5
 
 var previous_direction = Vector3(1, 0, 0)
 var facing_direction = Vector3(1, 0, 0);
@@ -274,4 +274,4 @@ func _process(delta: float) -> void:
 	
 	# Rotate stun halo
 	if $StunHalo.visible:
-		$StunHalo.rotate_y(STUN_HALO_ROTATE_SPEED)
+		$StunHalo.rotate_y(STUN_HALO_ROTATE_SPEED * delta)
