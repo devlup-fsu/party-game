@@ -1,6 +1,7 @@
 class_name BSMPlayer
 extends CharacterBody3D
 
+signal died(player: Controls.Player)
 
 const MAX_LIN_SPEED = 20.0 # m/sec
 const LIN_ACCEL = 40.0 # m/sec^2
@@ -80,6 +81,7 @@ func _physics_process(delta: float) -> void:
 	
 	# ! Lives Handling
 	if (lives_remaining == 0):
+		died.emit(player)
 		queue_free()
 
 func set_target_rotational_velo(input_vector: Vector2, forward_vector: Vector2):

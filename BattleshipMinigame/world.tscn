@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bt56kwwqia5eo"]
+[gd_scene load_steps=14 format=3 uid="uid://bt56kwwqia5eo"]
 
+[ext_resource type="Script" uid="uid://calh3ariky3dj" path="res://BattleshipMinigame/world.gd" id="1_6bu3u"]
 [ext_resource type="PackedScene" uid="uid://bhaa373vhoku1" path="res://BattleshipMinigame/player_1.tscn" id="1_ya70w"]
 [ext_resource type="Texture2D" uid="uid://d0ae4qnwxba2h" path="res://SharedAssets/eq_sky.png" id="1_yrbxa"]
 
@@ -36,7 +37,9 @@ background_color = Color(0.2627, 0.314562, 0.37, 1)
 sky = SubResource("Sky_plijl")
 sky_rotation = Vector3(-5.02655, -5.48382, 1.34565)
 
-[node name="world" type="Node3D"]
+[node name="world" type="Node3D" node_paths=PackedStringArray("players")]
+script = ExtResource("1_6bu3u")
+players = [NodePath("Player1"), NodePath("Player2"), NodePath("Player3"), NodePath("Player4")]
 
 [node name="Right Wall (RididBody3D)" type="StaticBody3D" parent="."]
 
