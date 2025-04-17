@@ -27,7 +27,7 @@ func get_player_rankings(scores: Array[float], lower_is_better: bool=false) -> A
 			unique_scores.append(score)
 	
 	unique_scores.sort()
-	if lower_is_better:
+	if not lower_is_better:
 		unique_scores.reverse()
 	
 	var score_to_place: Dictionary[float, Scores.Place] = {}
