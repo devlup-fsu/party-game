@@ -28,8 +28,9 @@ var elimination_time: float = -1.0
 
 ## Eliminate this player.
 func eliminate():
-	elimination_time = get_physics_process_delta_time()
-	visible = false
+	if elimination_time == -1.0:
+		elimination_time = $"../..".cumulative_time
+		visible = false
 	
 	
 func jump_tick(delta: float):
