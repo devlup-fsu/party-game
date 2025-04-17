@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://diu00o8qqxckl"]
 
 [ext_resource type="PackedScene" uid="uid://crjbb0qonbuwt" path="res://DragonMinigame/Player/player.tscn" id="1_p57v6"]
-[ext_resource type="Script" path="res://DragonMinigame/dragon_minigame.gd" id="1_y042p"]
+[ext_resource type="Script" uid="uid://dn0kx4fff12ja" path="res://DragonMinigame/dragon_minigame.gd" id="1_y042p"]
 [ext_resource type="PackedScene" uid="uid://cfrrp0jbxei0g" path="res://DragonMinigame/Tentacle/tentacle.tscn" id="3_c303u"]
 [ext_resource type="PackedScene" uid="uid://dewigmbs5audk" path="res://DragonMinigame/Tentacle/tentacle_indicator.tscn" id="4_bw0i0"]
 
@@ -33,6 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.999666, 0.0258451, 0, -0.0258451, 0.999666, 0, 5.12098, 9.87843)
+current = true
 
 [node name="Platforms" type="Node3D" parent="."]
 
