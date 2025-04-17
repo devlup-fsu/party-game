@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Minigame" load_steps=3 format=3 uid="uid://dtyiuej8c72gb"]
+
+[ext_resource type="Script" uid="uid://j5u61pxsb46s" path="res://Core/Minigames/minigame.gd" id="1_dqt1f"]
+[ext_resource type="PackedScene" uid="uid://diu00o8qqxckl" path="res://DragonMinigame/dragon_minigame.tscn" id="1_gprix"]
+
+[resource]
+script = ExtResource("1_dqt1f")
+name = "Nest Crashers"
+description = ""
+scene = ExtResource("1_gprix")
+published = true
+controls = Array[Texture2D]([])
+metadata/_custom_type_script = "uid://j5u61pxsb46s"

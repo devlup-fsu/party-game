@@ -1,6 +1,5 @@
-extends CharacterBody3D
 class_name DragonGamePlayer
-
+extends CharacterBody3D
 
 @export var player_number: Controls.Player
 
