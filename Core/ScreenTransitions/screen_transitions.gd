@@ -21,15 +21,18 @@ func _create_countdown_scene(on_finish: Callable) -> CountdownScene:
 
 
 ## Fades to `next_scene`.
-func fade(next_scene: Node):
+## If `pop_current` is true, then the current scene will be popped when the fade is completed.
+func fade(next_scene: Node, pop_current: bool=false):
 	var fade_in_finish = func():
-		SceneManager._pop_scene().queue_free()
+		SceneManager._pop_scene().queue_free()  # pop the fade in scene
 	
 	var fade_out_finish = func():
 		var fade_in_scene = _create_fade_scene(false, fade_in_finish)
-		SceneManager._pop_scene().queue_free()  # pop the fade out scene
-		SceneManager._push_scene(next_scene)
-		SceneManager._push_scene(fade_in_scene, false)
+		SceneManager._pop_scene().queue_free()          # pop the fade out scene
+		if pop_current:
+			SceneManager._pop_scene().queue_free()      # pop the current scene if necessary
+		SceneManager._push_scene(next_scene)            # push the next scene and hide the current scene
+		SceneManager._push_scene(fade_in_scene, false)  # push the fade in scene, keeping the next scene visible
 	
 	var fade_out_scene = _create_fade_scene(true, fade_out_finish)
 	SceneManager._push_scene(fade_out_scene, false)
