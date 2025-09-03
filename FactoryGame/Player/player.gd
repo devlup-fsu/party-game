@@ -7,6 +7,7 @@ class_name FactoryPlayer
 @onready var player_mesh = $MeshInstance3D
 @onready var carried_fuel_position = $CarriedFuelPosition
 
+@onready var player_model: PlayerModel = $PlayerModel
 
 const PLAYER_COLORS = [
 	Color('#FF0000'),
@@ -69,10 +70,11 @@ var player_material: StandardMaterial3D
 
 
 func _ready() -> void:
-	player_material = StandardMaterial3D.new()
-	player_material.albedo_color = PLAYER_COLORS[player_number]
-	player_material.roughness = 0.2
-	player_mesh.set_surface_override_material(0, player_material)
+	#player_material = StandardMaterial3D.new()
+	#player_material.albedo_color = PLAYER_COLORS[player_number]
+	#player_material.roughness = 0.2
+	#player_mesh.set_surface_override_material(0, player_material)
+	player_model.player = player_number
 	
 	# Setup throw strength bar
 	throw_strength_bar.max_value = THROW_CHARGE_TIME * THROW_BAR_SCALE
@@ -126,6 +128,8 @@ func throw_tick(delta: float):
 			
 			throw_strength_bar.visible = true
 			throw_strength_bar.value = get_throw_strength() * THROW_BAR_SCALE
+			
+			player_model.play_aim()
 		
 		elif prev_throwbutton_state:  # Released the throw button
 			var throw_strength = get_throw_strength()
@@ -142,6 +146,8 @@ func throw_tick(delta: float):
 			
 			$SFX/Throw.pitch_scale = throw_strength + 1.0  # Increase pitch with throw charge
 			$SFX/Throw.play()
+			
+			player_model.throw()
 			
 			reset_throw_charge()
 	
@@ -207,6 +213,7 @@ func punch_tick(delta: float):
 		punch_timer = PUNCH_DANGER_TIME
 		punch_direction = facing_direction
 		$SFX/PunchSwing.play()
+		player_model.punch()
 	
 	if punch_state == PunchState.DANGER:
 		punch_timer -= delta
@@ -252,8 +259,15 @@ func _physics_process(delta: float) -> void:
 				facing_direction = direction
 	if is_stunned:
 		direction = Vector3.ZERO  # No movement when stunned
-		
+	
 	update_velocity(direction)
+	
+	if velocity == Vector3.ZERO:
+		player_model.play_idle()
+	else:
+		player_model.play_running()
+		player_model.rotation.y = atan2(velocity.x, velocity.z) - deg_to_rad(90)
+	
 	move_and_slide()
 	throw_tick(delta)
 	stun_tick(delta)

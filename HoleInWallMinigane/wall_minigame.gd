@@ -24,8 +24,6 @@ func _process(delta: float) -> void:
 	
 
 
-
-
 func _on_wall_players_rope_astroid_hit() -> void:
 	if HitTimer < 0:
 		score1 = score1 - 1

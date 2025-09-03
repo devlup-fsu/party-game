@@ -2,6 +2,7 @@
 extends Node3D
 
 @onready var grey_mesh: MeshInstance3D = $GreyGameReady/Grey/Skeleton3D/Grey_001
+@onready var animation_tree: AnimationTree = $AnimationTree
 
 
 func _ready() -> void:

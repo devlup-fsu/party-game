@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://m2wl41bfjfm1"]
+
+[ext_resource type="Script" uid="uid://sv55v2p284b8" path="res://SharedAssets/Players/Flatwoods/flatwoods_model.gd" id="1_fp0tw"]
+[ext_resource type="PackedScene" uid="uid://s0hmr5mumpfu" path="res://SharedAssets/Players/Flatwoods/FlatwoodsGameReady.blend" id="2_fp0tw"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://ch40t83vf4kiq" path="res://SharedAssets/Players/Flatwoods/flatwoods_animation_tree.tres" id="3_uv5n2"]
+
+[node name="FlatwoodsModel" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_fp0tw")
+
+[node name="FlatwoodsGameReady" parent="." instance=ExtResource("2_fp0tw")]
+
+[node name="Skeleton3D" parent="FlatwoodsGameReady/FlatArma" index="0"]
+bones/1/position = Vector3(5.2361e-09, 0.278029, -0.552905)
+bones/1/rotation = Quaternion(0.51006, 1.02321e-07, 6.6546e-08, 0.860139)
+bones/2/rotation = Quaternion(-0.234639, -2.00569e-10, -6.47719e-08, 0.972083)
+bones/3/rotation = Quaternion(-0.175943, 3.06501e-10, -3.78773e-08, 0.9844)
+bones/4/rotation = Quaternion(-0.148193, 2.85215e-10, -2.80139e-08, 0.988959)
+bones/6/rotation = Quaternion(0.0934056, -0.181838, -0.126862, 0.970627)
+bones/7/rotation = Quaternion(0.542077, -0.00162363, -0.021319, 0.840057)
+bones/8/rotation = Quaternion(0.0211024, 3.70065e-10, -5.95996e-09, 0.999777)
+bones/10/rotation = Quaternion(0.0954396, 0.178028, 0.136406, 0.969841)
+bones/11/rotation = Quaternion(0.542462, 0.00189118, 0.0016438, 0.840077)
+bones/12/position = Vector3(-0.547658, 0.243142, 0.406485)
+bones/12/rotation = Quaternion(0.612768, 0.623316, -0.329453, 0.357005)
+bones/14/rotation = Quaternion(0.075986, -0.0553766, -0.690969, 0.716744)
+bones/15/rotation = Quaternion(0.267102, -0.0392776, 0.0990054, 0.957764)
+bones/16/position = Vector3(0.0354258, 0.115187, 0.000307681)
+bones/16/rotation = Quaternion(0.120652, 0.0539913, -0.113078, 0.984755)
+bones/17/rotation = Quaternion(0.0850291, -0.00458248, 0.0731053, 0.993682)
+bones/18/position = Vector3(-0.0265839, 0.116694, -0.000299632)
+bones/18/rotation = Quaternion(0.108406, -0.0786677, 0.126008, 0.982945)
+bones/19/rotation = Quaternion(0.0633938, 0.00506393, -0.0597116, 0.996188)
+bones/20/position = Vector3(0.547658, 0.243142, 0.406485)
+bones/20/rotation = Quaternion(0.612768, -0.623316, 0.329454, 0.357005)
+bones/21/rotation = Quaternion(-0.029621, 0.0276294, -0.72189, 0.690822)
+bones/22/rotation = Quaternion(0.0759859, 0.0553766, 0.690969, 0.716744)
+bones/23/rotation = Quaternion(0.267102, 0.0392776, -0.0990055, 0.957764)
+bones/24/position = Vector3(-0.0354259, 0.115187, 0.000307661)
+bones/24/rotation = Quaternion(0.120652, -0.0539912, 0.113078, 0.984755)
+bones/25/rotation = Quaternion(0.0850291, 0.00458248, -0.0731053, 0.993682)
+bones/26/position = Vector3(0.0265839, 0.116694, -0.000299693)
+bones/26/rotation = Quaternion(0.108406, 0.0786677, -0.126008, 0.982946)
+bones/27/rotation = Quaternion(0.0633938, -0.00506393, 0.0597116, 0.996188)
+bones/29/rotation = Quaternion(0.240233, -0.371787, 0.849384, -0.287417)
+bones/30/position = Vector3(0.499287, 1.6209, -0.599769)
+bones/31/position = Vector3(-0.499287, 1.6209, -0.599769)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../FlatwoodsGameReady")
+tree_root = ExtResource("3_uv5n2")
+anim_player = NodePath("../FlatwoodsGameReady/AnimationPlayer")
+parameters/Aim/current_state = "none"
+parameters/Aim/transition_request = ""
+parameters/Aim/current_index = 0
+parameters/AimBlend/blend_amount = 0.0
+parameters/Punch/active = false
+parameters/Punch/internal_active = false
+parameters/Punch/request = 0
+parameters/Throw/active = false
+parameters/Throw/internal_active = false
+parameters/Throw/request = 0
+parameters/Transition/current_state = "idle"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 0
+
+[editable path="FlatwoodsGameReady"]

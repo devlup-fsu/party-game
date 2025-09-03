@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://ges8lqnwpw11"]
+[gd_scene load_steps=20 format=3 uid="uid://ges8lqnwpw11"]
 
 [ext_resource type="Script" uid="uid://drjocqai1aajg" path="res://FactoryGame/Player/player.gd" id="1_4pf3t"]
+[ext_resource type="PackedScene" uid="uid://dmb7xwwc7cveu" path="res://SharedAssets/Players/PlayerModel.tscn" id="2_6cqtt"]
 [ext_resource type="ArrayMesh" uid="uid://bo6m3p4smk0p3" path="res://FactoryGame/Resources/Models/StunHalo.obj" id="2_d3cbu"]
 [ext_resource type="Texture2D" uid="uid://dpxpv5wrj44gt" path="res://FactoryGame/Resources/Textures/ThrowBar/over.png" id="2_nsf7m"]
 [ext_resource type="Script" uid="uid://c2yi4yvad8o7n" path="res://FactoryGame/Player/throw_trajectory_arc.gd" id="3_xyrkj"]
@@ -40,8 +41,10 @@ width = 60
 height = 14
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fntdy"]
+size = Vector3(2, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gb68g"]
+size = Vector3(2, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_el4do"]
 albedo_color = Color(0.466667, 1, 0.466667, 1)
@@ -55,8 +58,12 @@ stream_0/stream = ExtResource("4_m8ieg")
 collision_mask = 13
 script = ExtResource("1_4pf3t")
 
+[node name="PlayerModel" parent="." instance=ExtResource("2_6cqtt")]
+transform = Transform3D(2.5, 0, -1.42109e-14, 0, 2.5, 0, 1.42109e-14, 0, 2.5, 0, -1.8, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_2ad30")
 
 [node name="StunHalo" type="MeshInstance3D" parent="."]
@@ -94,6 +101,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 shape = SubResource("BoxShape3D_fntdy")
 
 [node name="PunchIndicatorMesh" type="MeshInstance3D" parent="PunchHitbox"]
+visible = false
 mesh = SubResource("BoxMesh_gb68g")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_el4do")

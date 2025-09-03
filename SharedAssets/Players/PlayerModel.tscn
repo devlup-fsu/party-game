@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmb7xwwc7cveu"]
+
+[ext_resource type="Script" uid="uid://cnpsnkq77hadf" path="res://SharedAssets/Players/player_model.gd" id="1_64ksm"]
+
+[node name="PlayerModel" type="Node3D"]
+script = ExtResource("1_64ksm")
