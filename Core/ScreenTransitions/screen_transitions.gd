@@ -67,6 +67,9 @@ func fade_with_countdown(next_scene: Node):
 		SceneManager._pop_to_board()
 		SceneManager._push_scene(next_scene)
 		SceneManager._push_scene(fade_in_scene, false)
+		next_scene.process_mode = Node.PROCESS_MODE_INHERIT
+		await get_tree().create_timer(0.1).timeout
+		next_scene.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	var fade_out_scene = _create_fade_scene(true, fade_out_finish)
 	SceneManager._push_scene(fade_out_scene, false)
