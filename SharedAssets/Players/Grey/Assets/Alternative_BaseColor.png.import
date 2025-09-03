@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh1e06vmd1wyi"
-path.s3tc="res://.godot/imported/FlatWoodsMetalic-Red_CoatO-Green_SeenO-Blue_CoatR-Alpha.png-2878de9db009861b1e572a316b1ad0e0.s3tc.ctex"
+uid="uid://cmvcsl8d88kht"
+path.s3tc="res://.godot/imported/Alternative_BaseColor.png-768887e3a4d1a8447aaf8094d702e604.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://SharedAssets/Players/Flatwoods/Assets/FlatWoodsMetalic-Red_CoatO-Green_SeenO-Blue_CoatR-Alpha.png"
-dest_files=["res://.godot/imported/FlatWoodsMetalic-Red_CoatO-Green_SeenO-Blue_CoatR-Alpha.png-2878de9db009861b1e572a316b1ad0e0.s3tc.ctex"]
+source_file="res://SharedAssets/Players/Grey/Assets/Alternative_BaseColor.png"
+dest_files=["res://.godot/imported/Alternative_BaseColor.png-768887e3a4d1a8447aaf8094d702e604.s3tc.ctex"]
 
 [params]
 
