@@ -6,6 +6,8 @@ extends Node3D
 
 @onready var ufo_mesh: MeshInstance3D = $FinalUFO/UFO
 
+var use_alt_material = false
+
 
 func _ready() -> void:
 	ufo_mesh.mesh.surface_get_material(0).metallic_texture_channel = BaseMaterial3D.TextureChannel.TEXTURE_CHANNEL_RED

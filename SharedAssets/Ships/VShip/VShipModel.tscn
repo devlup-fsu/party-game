@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b31atqtcyyqax"]
+
+[ext_resource type="PackedScene" uid="uid://b5hot81grm87t" path="res://SharedAssets/Ships/VShip/VshipGameReady.blend" id="1_mq4c5"]
+[ext_resource type="Script" uid="uid://hphq5e5iloua" path="res://SharedAssets/Ships/VShip/v_ship_model.gd" id="1_tr5ib"]
+
+[node name="VShipModel" type="Node3D"]
+script = ExtResource("1_tr5ib")
+emission_dir = "res://SharedAssets/Ships/VShip/Assets/Emiss"
+
+[node name="VshipGameReady" parent="." instance=ExtResource("1_mq4c5")]
+
+[editable path="VshipGameReady"]

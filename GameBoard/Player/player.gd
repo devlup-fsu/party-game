@@ -13,6 +13,8 @@ const PLAYER_COLORS = [Color.LIME_GREEN, Color.DARK_RED, Color.ROYAL_BLUE, Color
 
 @onready var move_counter_label: Label3D = $MoveCounter
 
+@onready var ship_model: ShipModel = $ShipModel
+
 var current_sector: Sector
 var next_sector: Sector
 var has_control: bool = false
@@ -21,7 +23,7 @@ var rand_hover_offset = randf_range(0, 10)
 
 
 func _ready() -> void:
-	$Body.get_surface_override_material(0).albedo_color = PLAYER_COLORS[player]
+	ship_model.player = player
 	
 	current_sector = starting_solar_system.sectors.get_child(starting_index)
 	current_sector.player = self

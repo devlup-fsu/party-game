@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://h1phtycqe1ba" path="res://GameBoard/Player/player.gd" id="1_hr5vq"]
 [ext_resource type="ArrayMesh" uid="uid://w446wgc58vm4" path="res://GameBoard/Player/ship.obj" id="2_f4fuv"]
-[ext_resource type="PackedScene" uid="uid://cr3cs64vxs33x" path="res://SharedAssets/Ships/UFO/UfoModel.tscn" id="3_ma6lj"]
+[ext_resource type="PackedScene" uid="uid://cyg5yvdml04iv" path="res://SharedAssets/Ships/ShipModel.tscn" id="3_5t5cj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x4y2d"]
 resource_local_to_scene = true
@@ -25,11 +25,11 @@ mesh = ExtResource("2_f4fuv")
 surface_material_override/0 = SubResource("StandardMaterial3D_x4y2d")
 surface_material_override/1 = SubResource("StandardMaterial3D_sh6sc")
 
+[node name="ShipModel" parent="." instance=ExtResource("3_5t5cj")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 1, 0)
+
 [node name="MoveCounter" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 billboard = 1
 font_size = 128
 outline_size = 32
-
-[node name="UfoModel" parent="." instance=ExtResource("3_ma6lj")]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 1, 0)
