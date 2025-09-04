@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1je2sy1f55jn"
-path.s3tc="res://.godot/imported/VShip_Bake1_PBR_Normal.png-80e7924a24d8df6978ea716d9619fa74.s3tc.ctex"
+uid="uid://l2v5fa32eewp"
+path.s3tc="res://.godot/imported/Bomb_rg_rMetal_gRough.png-b171ace128d05647df3be9c6b7a3d6be.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://SharedAssets/Ships/VShip/Assets/VShip_Bake1_PBR_Normal.png"
-dest_files=["res://.godot/imported/VShip_Bake1_PBR_Normal.png-80e7924a24d8df6978ea716d9619fa74.s3tc.ctex"]
+source_file="res://GadgetGrab/models/Bomb_rg_rMetal_gRough.png"
+dest_files=["res://.godot/imported/Bomb_rg_rMetal_gRough.png-b171ace128d05647df3be9c6b7a3d6be.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://SharedAssets/Ships/VShip/Assets/VShip_Bake1_PBR_Normal.png"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

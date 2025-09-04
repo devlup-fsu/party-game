@@ -17,11 +17,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-
-	
 	HitTimer = HitTimer - delta
 	HitTimer2 = HitTimer2 - delta
 	
+	if score1 <= 0 or score2 <= 0:
+		pass
 
 
 func _on_wall_players_rope_astroid_hit() -> void:
