@@ -1,5 +1,5 @@
 class_name PlayerSelectScreen
-extends ColorRect
+extends Node3D
 
 @onready var _selected_labels: Array[Label] = [
 	%Player1/Selected,
@@ -42,4 +42,7 @@ func _update_labels() -> void:
 		
 		_selected_labels[player].text = "Selected" if selected else ""
 	
-	_start_game_label.visible = Controls.get_assigned_player_count() == Controls.Player.size()
+	if Controls.get_assigned_player_count() == Controls.Player.size():
+		_start_game_label.text = "Press START to play the game!"
+	else:
+		_start_game_label.text = ""

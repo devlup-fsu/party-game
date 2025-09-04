@@ -24,7 +24,15 @@ func _update_model():
 		model.queue_free()
 	
 	model = model_scenes[player].instantiate()
+	
+	if player == Controls.Player.THREE or player == Controls.Player.FOUR:
+		model.use_alt_material = true
+	
 	add_child(model)
+	
+	if not model.is_node_ready():
+		await model.ready
+	
 	play_idle()
 
 func play_idle() -> void:

@@ -1,117 +1,167 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck4fs2abkaalb"]
+[gd_scene load_steps=11 format=3 uid="uid://ck4fs2abkaalb"]
 
 [ext_resource type="Script" uid="uid://bk2yv7ciy1rlh" path="res://Core/Controls/player_select_screen.gd" id="1_81omw"]
 [ext_resource type="Texture2D" uid="uid://de4m77gysiui3" path="res://Core/Controls/Assets/button_color_a_outline.svg" id="1_g240e"]
 [ext_resource type="Texture2D" uid="uid://dy0cwsevqyexu" path="res://Core/Controls/Assets/button_color_b_outline.svg" id="2_au23s"]
 [ext_resource type="Texture2D" uid="uid://cxyrgedx3jbr8" path="res://Core/Controls/Assets/button_color_x_outline.svg" id="3_x7sbj"]
 [ext_resource type="Texture2D" uid="uid://bjbssi8a005j8" path="res://Core/Controls/Assets/button_color_y_outline.svg" id="4_ode0b"]
+[ext_resource type="Texture2D" uid="uid://d0ae4qnwxba2h" path="res://SharedAssets/eq_sky.png" id="6_bdtf4"]
+[ext_resource type="PackedScene" uid="uid://dmb7xwwc7cveu" path="res://SharedAssets/Players/PlayerModel.tscn" id="6_ecxqy"]
 
-[node name="PlayerSelectScreen" type="ColorRect"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.162066, 0.162066, 0.162066, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_14fc8"]
+panorama = ExtResource("6_bdtf4")
+
+[sub_resource type="Sky" id="Sky_2njlf"]
+sky_material = SubResource("PanoramaSkyMaterial_14fc8")
+
+[sub_resource type="Environment" id="Environment_puv2t"]
+background_mode = 2
+sky = SubResource("Sky_2njlf")
+sky_rotation = Vector3(0, -1.07338, 3.59014)
+adjustment_enabled = true
+
+[node name="PlayerSelectScreen" type="Node3D"]
 script = ExtResource("1_81omw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.55
+anchor_right = 0.95
+anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 64
+color = Color(0.21, 0.21, 0.21, 0.631373)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 64
+theme_override_constants/separation = 168
 alignment = 1
 
-[node name="Player1" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="Player1" type="VBoxContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Player1"]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/Player1"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Player 1"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Player1"]
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/Player1"]
 layout_mode = 2
 texture = ExtResource("1_g240e")
 stretch_mode = 3
 
-[node name="Selected" type="Label" parent="VBoxContainer/HBoxContainer/Player1"]
+[node name="Selected" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/Player1"]
 layout_mode = 2
 text = "Selected"
 horizontal_alignment = 1
 
-[node name="Player2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="Player2" type="VBoxContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Player2"]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/Player2"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Player 2"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Player2"]
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/Player2"]
 layout_mode = 2
 texture = ExtResource("2_au23s")
 stretch_mode = 3
 
-[node name="Selected" type="Label" parent="VBoxContainer/HBoxContainer/Player2"]
+[node name="Selected" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/Player2"]
 layout_mode = 2
 text = "Selected"
 horizontal_alignment = 1
 
-[node name="Player3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="Player3" type="VBoxContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Player3"]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/Player3"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Player 3"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Player3"]
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/Player3"]
 layout_mode = 2
 texture = ExtResource("3_x7sbj")
 stretch_mode = 3
 
-[node name="Selected" type="Label" parent="VBoxContainer/HBoxContainer/Player3"]
+[node name="Selected" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/Player3"]
 layout_mode = 2
 text = "Selected"
 horizontal_alignment = 1
 
-[node name="Player4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="Player4" type="VBoxContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Player4"]
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/Player4"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Player 4"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Player4"]
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/Player4"]
 layout_mode = 2
 texture = ExtResource("4_ode0b")
 stretch_mode = 3
 
-[node name="Selected" type="Label" parent="VBoxContainer/HBoxContainer/Player4"]
+[node name="Selected" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/Player4"]
 layout_mode = 2
 text = "Selected"
 horizontal_alignment = 1
 
-[node name="StartGameLabel" type="Label" parent="VBoxContainer"]
+[node name="StartGameLabel" type="Label" parent="ColorRect/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Press START to play the game!"
 horizontal_alignment = 1
+
+[node name="Camera3D" type="Camera3D" parent="."]
+environment = SubResource("Environment_puv2t")
+projection = 1
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shadow_enabled = true
+
+[node name="PlayerModel" parent="." instance=ExtResource("6_ecxqy")]
+transform = Transform3D(-1.5299e-08, 0, -0.35, 0, 0.35, 0, 0.35, 0, -1.5299e-08, -0.6, -0.3, -2)
+
+[node name="PlayerModel2" parent="." instance=ExtResource("6_ecxqy")]
+transform = Transform3D(-1.5299e-08, 0, -0.35, 0, 0.35, 0, 0.35, 0, -1.5299e-08, -0.2, -0.3, -2)
+player = 1
+
+[node name="PlayerModel3" parent="." instance=ExtResource("6_ecxqy")]
+transform = Transform3D(-1.5299e-08, 0, -0.35, 0, 0.35, 0, 0.35, 0, -1.5299e-08, 0.2, -0.3, -2)
+player = 2
+
+[node name="PlayerModel4" parent="." instance=ExtResource("6_ecxqy")]
+transform = Transform3D(-1.5299e-08, 0, -0.35, 0, 0.35, 0, 0.35, 0, -1.5299e-08, 0.6, -0.3, -2)
+player = 3
