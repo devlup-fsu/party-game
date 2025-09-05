@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvq4qlb4hn745"]
+[gd_scene load_steps=13 format=3 uid="uid://cvq4qlb4hn745"]
 
 [ext_resource type="Script" uid="uid://dk71xpg07v27x" path="res://Core/EndScene/end_scene.gd" id="1_yhrxa"]
 [ext_resource type="Material" uid="uid://dohtlhqoer28o" path="res://Core/EndScene/Resources/ship_body_material.tres" id="2_mq3nf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://cpravk8g2injl" path="res://Core/EndScene/Resources/ship2_material.tres" id="4_gbdec"]
 [ext_resource type="Material" uid="uid://bnc3636y138qc" path="res://Core/EndScene/Resources/ship3_material.tres" id="5_yhrxa"]
 [ext_resource type="Material" uid="uid://b42r3swympy7" path="res://Core/EndScene/Resources/ship4_material.tres" id="6_c8s2b"]
+[ext_resource type="Texture2D" uid="uid://d0ae4qnwxba2h" path="res://SharedAssets/eq_sky.png" id="7_c8s2b"]
 [ext_resource type="Texture2D" uid="uid://djfrbr7gwv4sc" path="res://Core/Controls/Assets/button_color_a.svg" id="7_yhrxa"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_xduq6"]
@@ -14,18 +15,18 @@ top_radius = 25.0
 bottom_radius = 25.0
 height = 1.0
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yhrxa"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0, 0, 0, 1)
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0, 0, 0, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eowsk"]
+panorama = ExtResource("7_c8s2b")
 
-[sub_resource type="Sky" id="Sky_c8s2b"]
-sky_material = SubResource("ProceduralSkyMaterial_yhrxa")
+[sub_resource type="Sky" id="Sky_fmlju"]
+sky_material = SubResource("PanoramaSkyMaterial_eowsk")
 
 [sub_resource type="Environment" id="Environment_xhy3c"]
 background_mode = 2
-sky = SubResource("Sky_c8s2b")
+sky = SubResource("Sky_fmlju")
+sky_rotation = Vector3(5.68977, -1.06465, 0)
+ambient_light_energy = 6.0
+reflected_light_source = 2
 
 [node name="EndScene" type="Node3D"]
 script = ExtResource("1_yhrxa")

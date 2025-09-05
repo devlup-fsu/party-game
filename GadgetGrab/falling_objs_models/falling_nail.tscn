@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdphcucnjt3ru"]
+[gd_scene load_steps=3 format=3 uid="uid://cdphcucnjt3ru"]
 
 [ext_resource type="PackedScene" uid="uid://cd2mnsqiyh74l" path="res://GadgetGrab/models/nail.blend" id="1_borql"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_borql"]
+metallic = 1.0
+roughness = 0.3
 
 [node name="falling_nail" instance=ExtResource("1_borql")]
 
 [node name="Cylinder_001" parent="." index="0"]
 transform = Transform3D(0.38, 0, 0, 0, 0.033, 0, 0, 0, 0.369, 0, 0.61612, -0.031)
+surface_material_override/0 = SubResource("StandardMaterial3D_borql")

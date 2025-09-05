@@ -71,8 +71,8 @@ void fragment() {
 	vec4 clearcoat_tex = texture(texture_clearcoat, base_uv).rgba;
 	CLEARCOAT = clearcoat * clearcoat_tex.g;
 	CLEARCOAT_ROUGHNESS = clearcoat_roughness * clearcoat_tex.a;
-	
-	RIM = clearcoat_tex.b * 0.5;
+
+	RIM = clearcoat_tex.b;
 }
 "
 

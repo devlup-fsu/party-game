@@ -1,7 +1,8 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bsmulr2i5f6bi"]
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bsmulr2i5f6bi"]
 
 [ext_resource type="Texture2D" uid="uid://cmvcsl8d88kht" path="res://SharedAssets/Players/Grey/Assets/Alternative_BaseColor.png" id="1_vo3nx"]
 [ext_resource type="Texture2D" uid="uid://denbvqsdeo6p7" path="res://SharedAssets/Players/Grey/Assets/Grey_Bake1_PBR_Normal.png" id="2_8bcp3"]
+[ext_resource type="Texture2D" uid="uid://doc5a7c18wje7" path="res://SharedAssets/Players/Grey/Assets/Grey_Bake1_PBR_BaseColor.a.Rough.png" id="2_77ngv"]
 [ext_resource type="Texture2D" uid="uid://6ufrgximc0c" path="res://SharedAssets/Players/Grey/Assets/Grey_Bake1_PBR_Diffuse.png" id="3_77ngv"]
 
 [sub_resource type="Shader" id="Shader_4bhvw"]
@@ -70,9 +71,8 @@ shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/texture_albedo = ExtResource("1_vo3nx")
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 1.0
-shader_parameter/texture_metallic = ExtResource("1_vo3nx")
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
-shader_parameter/texture_roughness = ExtResource("1_vo3nx")
+shader_parameter/texture_roughness = ExtResource("2_77ngv")
 shader_parameter/specular = 0.5
 shader_parameter/metallic = 0.0
 shader_parameter/texture_normal = ExtResource("2_8bcp3")

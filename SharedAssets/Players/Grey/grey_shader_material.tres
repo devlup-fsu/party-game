@@ -70,7 +70,6 @@ shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/texture_albedo = ExtResource("2_re17t")
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 1.0
-shader_parameter/texture_metallic = ExtResource("2_re17t")
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
 shader_parameter/texture_roughness = ExtResource("2_re17t")
 shader_parameter/specular = 0.5

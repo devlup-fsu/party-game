@@ -56,6 +56,20 @@ func _process(_delta: float) -> void:
 	total_time_elapsed += _delta
 	spawn_timer += _delta
 	
+	if total_time_elapsed >= 60.0:
+		var unique_scores: Array[int] = []
+		for player in players:
+			if player.objs_collected not in unique_scores:
+				unique_scores.append(player.objs_collected)
+		unique_scores.sort()
+		unique_scores.reverse()
+		
+		var placements: Array[Scores.Place] = [0, 0, 0, 0]
+		for player in players:
+			placements[player.player] = unique_scores.find(player.objs_collected)
+		
+		SceneManager.exit_minigame(placements[0], placements[1], placements[2], placements[3])
+	
 	#print(spawn_timer)
 	
 	if (spawn_timer > _get_spawn_time(total_time_elapsed)):

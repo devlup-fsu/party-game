@@ -214,6 +214,9 @@ func exit_minigame(one: Scores.Place, two: Scores.Place, three: Scores.Place, fo
 	if active_scene is TutorialScreen:
 		active_scene.restart_practice_minigame()
 		return
-
+	
+	if active_scene is WallMinigame:
+		_pop_scene()
+	
 	var end_scene: EndScene = EndScene.create([one, two, three, four])
 	ScreenTransitions.fade(end_scene, true)

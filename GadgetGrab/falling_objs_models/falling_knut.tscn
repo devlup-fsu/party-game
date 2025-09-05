@@ -1,5 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba4i3l51kfin5"]
+[gd_scene load_steps=3 format=3 uid="uid://ba4i3l51kfin5"]
 
 [ext_resource type="PackedScene" uid="uid://dipqk2k2g31ds" path="res://GadgetGrab/models/OdyssyKnut.blend" id="1_6ana5"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gwah2"]
+metallic = 1.0
+roughness = 0.3
+
 [node name="OdyssyKnut" instance=ExtResource("1_6ana5")]
+
+[node name="Plane" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_gwah2")

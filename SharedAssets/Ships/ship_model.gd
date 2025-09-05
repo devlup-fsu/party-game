@@ -25,7 +25,7 @@ func _update_model():
 	
 	model = model_scenes[player].instantiate()
 	
-	if player == Controls.Player.THREE or player == Controls.Player.FOUR:
+	if player == Controls.Player.ONE or player == Controls.Player.TWO:
 		model.use_alt_material = true
 	
 	add_child(model)

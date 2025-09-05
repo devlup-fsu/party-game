@@ -1,4 +1,5 @@
 extends Node3D
+class_name WallMinigame
 
 var score1 = 3
 var score2 = 3
@@ -20,8 +21,14 @@ func _process(delta: float) -> void:
 	HitTimer = HitTimer - delta
 	HitTimer2 = HitTimer2 - delta
 	
-	if score1 <= 0 or score2 <= 0:
-		pass
+	if score1 <= 0 and score2 <= 0:
+		SceneManager.exit_minigame(Scores.Place.FIRST, Scores.Place.FIRST, Scores.Place.FIRST, Scores.Place.FIRST)
+	
+	if score2 <= 0:
+		SceneManager.exit_minigame(Scores.Place.FIRST, Scores.Place.FIRST, Scores.Place.THIRD, Scores.Place.THIRD)
+	
+	if score1 <= 0:
+		SceneManager.exit_minigame(Scores.Place.THIRD, Scores.Place.THIRD, Scores.Place.FIRST, Scores.Place.FIRST)
 
 
 func _on_wall_players_rope_astroid_hit() -> void:

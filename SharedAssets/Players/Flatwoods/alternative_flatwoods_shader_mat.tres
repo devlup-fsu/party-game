@@ -1,9 +1,10 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://4m3r77l5gg8g"]
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://4m3r77l5gg8g"]
 
 [ext_resource type="Texture2D" uid="uid://0snc6xgd8fnt" path="res://SharedAssets/Players/Flatwoods/Assets/Alternative_BaseColor.png" id="1_l2vqg"]
 [ext_resource type="Texture2D" uid="uid://dh1e06vmd1wyi" path="res://SharedAssets/Players/Flatwoods/Assets/FlatWoodsMetalic-Red_CoatO-Green_SeenO-Blue_CoatR-Alpha.png" id="2_4dc6s"]
 [ext_resource type="Texture2D" uid="uid://b0damohmcqqgu" path="res://SharedAssets/Players/Flatwoods/Assets/Alternative_Emissive.png" id="3_4dc6s"]
 [ext_resource type="Texture2D" uid="uid://pr3ui1vea4ok" path="res://SharedAssets/Players/Flatwoods/Assets/FlatWoodsNormal.png" id="4_oxcoi"]
+[ext_resource type="Texture2D" uid="uid://nxagjbklh02a" path="res://SharedAssets/Players/Flatwoods/Assets/FlatWoodsBaseColor-RGB_Rough-Alpha.png" id="5_4dc6s"]
 
 [sub_resource type="Shader" id="Shader_fjwrc"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's StandardMaterial3D.
@@ -71,8 +72,8 @@ void fragment() {
 	vec4 clearcoat_tex = texture(texture_clearcoat, base_uv).rgba;
 	CLEARCOAT = clearcoat * clearcoat_tex.g;
 	CLEARCOAT_ROUGHNESS = clearcoat_roughness * clearcoat_tex.a;
-	
-	RIM = clearcoat_tex.b * 0.5;
+
+	RIM = clearcoat_tex.b;
 }
 "
 
@@ -87,7 +88,7 @@ shader_parameter/point_size = 1.0
 shader_parameter/roughness = 1.0
 shader_parameter/texture_metallic = ExtResource("2_4dc6s")
 shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/texture_roughness = ExtResource("1_l2vqg")
+shader_parameter/texture_roughness = ExtResource("5_4dc6s")
 shader_parameter/specular = 0.5
 shader_parameter/metallic = 1.0
 shader_parameter/texture_emission = ExtResource("3_4dc6s")

@@ -8,5 +8,3 @@ script = ExtResource("1_tr5ib")
 emission_dir = "res://SharedAssets/Ships/VShip/Assets/Emiss"
 
 [node name="VshipGameReady" parent="." instance=ExtResource("1_mq4c5")]
-
-[editable path="VshipGameReady"]
