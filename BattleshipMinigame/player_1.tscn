@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhaa373vhoku1"]
+[gd_scene load_steps=8 format=3 uid="uid://bhaa373vhoku1"]
 
 [ext_resource type="Script" uid="uid://cb8rx68wqmecm" path="res://BattleshipMinigame/player_1.gd" id="1_ahrti"]
 [ext_resource type="PackedScene" uid="uid://b72rwtf2bcpuu" path="res://BattleshipMinigame/laser.tscn" id="2_8qjj7"]
 [ext_resource type="ArrayMesh" uid="uid://w446wgc58vm4" path="res://GameBoard/Player/ship.obj" id="3_ut4mo"]
+[ext_resource type="PackedScene" uid="uid://cyg5yvdml04iv" path="res://SharedAssets/Ships/ShipModel.tscn" id="3_wrrp8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5flq"]
 resource_local_to_scene = true
@@ -23,8 +24,12 @@ axis_lock_linear_y = true
 script = ExtResource("1_ahrti")
 laser_scene = ExtResource("2_8qjj7")
 
+[node name="ShipModel" parent="." instance=ExtResource("3_wrrp8")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.487152)
+
 [node name="MainBody" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0.487152)
+visible = false
 mesh = ExtResource("3_ut4mo")
 surface_material_override/0 = SubResource("StandardMaterial3D_a5flq")
 surface_material_override/1 = SubResource("StandardMaterial3D_nhgf6")

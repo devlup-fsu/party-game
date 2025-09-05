@@ -27,10 +27,14 @@ var lives_remaining : int = 3
 @export var color: Color
 @export var laser_scene : PackedScene
 
+@onready var ship_model: ShipModel = $ShipModel
+
 func _ready() -> void:
 	var tip_material = $MainBody.get_surface_override_material(0)
 	if tip_material is StandardMaterial3D:
 		tip_material.albedo_color = color
+	
+	ship_model.player = player
 
 func _physics_process(delta: float) -> void:
 	# ! Physics Processing
