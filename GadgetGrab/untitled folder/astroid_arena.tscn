@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkpvsf08pivou"]
+
+[ext_resource type="PackedScene" uid="uid://dh5a2saw0kwjd" path="res://GadgetGrab/untitled folder/astroidArena.blend" id="1_4ik3u"]
+
+[node name="astroidArena" instance=ExtResource("1_4ik3u")]

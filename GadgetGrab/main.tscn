@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bt56kwwqia5ea"]
+[gd_scene load_steps=13 format=3 uid="uid://bt56kwwqia5ea"]
 
 [ext_resource type="Script" uid="uid://dtcp40qdfm33m" path="res://GadgetGrab/main.gd" id="1_esxul"]
 [ext_resource type="PackedScene" uid="uid://dohc6wxtdg605" path="res://GadgetGrab/Grab_Player.tscn" id="1_q3mhu"]
 [ext_resource type="PackedScene" uid="uid://bw4ks76um5hx4" path="res://GadgetGrab/astroid_arena.tscn" id="3_wyg58"]
+[ext_resource type="PackedScene" uid="uid://dkpvsf08pivou" path="res://GadgetGrab/untitled folder/astroid_arena.tscn" id="4_i3d5a"]
 [ext_resource type="Texture2D" uid="uid://dp75ve153x6pi" path="res://GadgetGrab/sprites/BlueGuy.png" id="4_o8cu4"]
 [ext_resource type="Texture2D" uid="uid://cfhjhmtkjitsx" path="res://GadgetGrab/sprites/GreenGuy.png" id="5_i3d5a"]
 [ext_resource type="Texture2D" uid="uid://dwci321agn32f" path="res://GadgetGrab/sprites/GreyGuy.png" id="6_rwo54"]
@@ -29,6 +30,7 @@ scores = [NodePath("HBoxContainer/Label4"), NodePath("HBoxContainer/Label3"), No
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor_RigidBody3D"]
+visible = false
 mesh = SubResource("BoxMesh_gpkpt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor_RigidBody3D"]
@@ -100,6 +102,10 @@ mesh = SubResource("BoxMesh_4ckl1")
 shape = SubResource("ConcavePolygonShape3D_w2lik")
 
 [node name="astroidArena" parent="." instance=ExtResource("3_wyg58")]
+transform = Transform3D(5.905, 0, 0, 0, 5.905, 0, 0, 0, 4, -2.12042, -3.15844, -2.34966)
+visible = false
+
+[node name="astroidArena2" parent="." instance=ExtResource("4_i3d5a")]
 transform = Transform3D(5.905, 0, 0, 0, 5.905, 0, 0, 0, 4, -2.12042, -3.15844, -2.34966)
 
 [node name="HBoxContainer" type="Control" parent="."]
