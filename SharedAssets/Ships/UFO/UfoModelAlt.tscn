@@ -1,83 +1,83 @@
-[gd_scene load_steps=71 format=4 uid="uid://cr3cs64vxs33x"]
+[gd_scene load_steps=71 format=4 uid="uid://dol2vwybga4iu"]
 
-[ext_resource type="PackedScene" uid="uid://dxruynudxpyce" path="res://SharedAssets/Ships/UFO/FinalUFO.blend" id="1_ixuop"]
-[ext_resource type="Script" uid="uid://b13tgyrdyyhg6" path="res://SharedAssets/Ships/UFO/ufo_model.gd" id="1_u4jq5"]
-[ext_resource type="Texture2D" uid="uid://b134p4ig0vjy7" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO-body_Bake1_PBR_Diffuse.png" id="3_kf8is"]
-[ext_resource type="Texture2D" uid="uid://djg4xyksbf341" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO-body_Bake1_PBR_rMetalgRough.png" id="4_ifchr"]
-[ext_resource type="Texture2D" uid="uid://bbqwqh152st6e" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO-body_Bake1_PBR_Normal.png" id="5_06xlb"]
-[ext_resource type="Texture2D" uid="uid://dbvtuxsnvath3" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0001.png" id="6_vk54w"]
-[ext_resource type="Texture2D" uid="uid://dlly0krqhgf4l" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0002.png" id="7_q38m2"]
-[ext_resource type="Texture2D" uid="uid://dvs0qqpit76s4" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0011.png" id="8_u2vmo"]
-[ext_resource type="Texture2D" uid="uid://blh0d47wo43n3" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0012.png" id="9_or36h"]
-[ext_resource type="Texture2D" uid="uid://p1m1by6soofu" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0013.png" id="10_3075y"]
-[ext_resource type="Texture2D" uid="uid://yfdu084xuq2p" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0014.png" id="11_ub87o"]
-[ext_resource type="Texture2D" uid="uid://cck2nwxtj6gm8" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0015.png" id="12_kce0i"]
-[ext_resource type="Texture2D" uid="uid://clsru4lns6cou" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0016.png" id="13_dj24n"]
-[ext_resource type="Texture2D" uid="uid://doml2y4fhwocx" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0017.png" id="14_l1ajt"]
-[ext_resource type="Texture2D" uid="uid://5p1jmm78k7q5" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0018.png" id="15_sdxbh"]
-[ext_resource type="Texture2D" uid="uid://bqxbdmsusmcd4" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0019.png" id="16_3vr1p"]
-[ext_resource type="Texture2D" uid="uid://d17wx715ljco" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0020.png" id="17_bnd2h"]
-[ext_resource type="Texture2D" uid="uid://crwy423knj31l" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0003.png" id="18_5fkal"]
-[ext_resource type="Texture2D" uid="uid://7vdsar5ptwhe" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0021.png" id="19_8q2ik"]
-[ext_resource type="Texture2D" uid="uid://brv1y7e7apeo6" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0022.png" id="20_wejrw"]
-[ext_resource type="Texture2D" uid="uid://ctsl1bb2csq7c" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0023.png" id="21_0f3m0"]
-[ext_resource type="Texture2D" uid="uid://bqdvle01ye8qw" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0024.png" id="22_7bk7k"]
-[ext_resource type="Texture2D" uid="uid://dxtyqepfxd0xv" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0025.png" id="23_wiap5"]
-[ext_resource type="Texture2D" uid="uid://dxt4aky41xxqe" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0026.png" id="24_40mdd"]
-[ext_resource type="Texture2D" uid="uid://biono8e6orwpd" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0027.png" id="25_gvvn6"]
-[ext_resource type="Texture2D" uid="uid://clteillevs87" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0028.png" id="26_d73vj"]
-[ext_resource type="Texture2D" uid="uid://cii7gvxhhhxsx" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0029.png" id="27_a6asl"]
-[ext_resource type="Texture2D" uid="uid://dt2eyg7tkhocp" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0030.png" id="28_pswch"]
-[ext_resource type="Texture2D" uid="uid://bielx8rc7soj3" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0004.png" id="29_rxtu3"]
-[ext_resource type="Texture2D" uid="uid://bh048jxkhjgir" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0031.png" id="30_8kb5g"]
-[ext_resource type="Texture2D" uid="uid://bq01pi1fv7phw" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0032.png" id="31_jdmyn"]
-[ext_resource type="Texture2D" uid="uid://c73s21fiht7jq" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0033.png" id="32_6svsj"]
-[ext_resource type="Texture2D" uid="uid://bf5teau725toh" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0034.png" id="33_0enhn"]
-[ext_resource type="Texture2D" uid="uid://kdyg8tip2i3e" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0035.png" id="34_wfwhs"]
-[ext_resource type="Texture2D" uid="uid://b8o87cc27aynm" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0036.png" id="35_yy03e"]
-[ext_resource type="Texture2D" uid="uid://w354m2feimyq" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0037.png" id="36_lx711"]
-[ext_resource type="Texture2D" uid="uid://dsgqjm4djwo3d" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0038.png" id="37_tqedd"]
-[ext_resource type="Texture2D" uid="uid://clwbgdfvo6muj" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0039.png" id="38_l14qp"]
-[ext_resource type="Texture2D" uid="uid://bq0tv5r7cj4je" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0040.png" id="39_3k48p"]
-[ext_resource type="Texture2D" uid="uid://6mfviahluip0" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0005.png" id="40_201fy"]
-[ext_resource type="Texture2D" uid="uid://bjh2mv7y51td2" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0041.png" id="41_pjko2"]
-[ext_resource type="Texture2D" uid="uid://whquaj2w0f6i" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0042.png" id="42_dk3mh"]
-[ext_resource type="Texture2D" uid="uid://bll01xjosjlob" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0043.png" id="43_ligw8"]
-[ext_resource type="Texture2D" uid="uid://b0tcek3ap3gs7" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0044.png" id="44_m0cvl"]
-[ext_resource type="Texture2D" uid="uid://dawv8ibqrtf53" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0045.png" id="45_5joby"]
-[ext_resource type="Texture2D" uid="uid://io8yqoixwcgc" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0046.png" id="46_7wk2i"]
-[ext_resource type="Texture2D" uid="uid://7rnf3gtll6of" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0047.png" id="47_n3bst"]
-[ext_resource type="Texture2D" uid="uid://dd2ui4odac0gq" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0048.png" id="48_ev5ku"]
-[ext_resource type="Texture2D" uid="uid://rvlt8tlurlgf" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0049.png" id="49_1njko"]
-[ext_resource type="Texture2D" uid="uid://gwluavl7xsul" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0050.png" id="50_8yffk"]
-[ext_resource type="Texture2D" uid="uid://vlttucg73unj" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0006.png" id="51_rgvnu"]
-[ext_resource type="Texture2D" uid="uid://dmsfmr8l5wuln" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0051.png" id="52_xin7w"]
-[ext_resource type="Texture2D" uid="uid://bn1jcs7yllq23" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0052.png" id="53_j1hve"]
-[ext_resource type="Texture2D" uid="uid://becl4cd0os0ln" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0053.png" id="54_qh6mt"]
-[ext_resource type="Texture2D" uid="uid://ccipt6dscolcc" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0054.png" id="55_3xxy6"]
-[ext_resource type="Texture2D" uid="uid://chqmy41v6ffh6" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0055.png" id="56_4fryw"]
-[ext_resource type="Texture2D" uid="uid://d3yxusrdin4iy" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0056.png" id="57_w06t7"]
-[ext_resource type="Texture2D" uid="uid://dawfedrw5p7m5" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0057.png" id="58_p0gh2"]
-[ext_resource type="Texture2D" uid="uid://c41dscsq8umo0" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0058.png" id="59_mhxmm"]
-[ext_resource type="Texture2D" uid="uid://dr6u7gaw8823i" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0059.png" id="60_j17nh"]
-[ext_resource type="Texture2D" uid="uid://bxh2exf0ni508" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0060.png" id="61_i2vxl"]
-[ext_resource type="Texture2D" uid="uid://cjlkbarkui36k" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0007.png" id="62_ja4wt"]
-[ext_resource type="Texture2D" uid="uid://corjbwsq1x0ah" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0008.png" id="63_jnp6p"]
-[ext_resource type="Texture2D" uid="uid://bcdbwhrmyx61f" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0009.png" id="64_20bcr"]
-[ext_resource type="Texture2D" uid="uid://31uiwxw18tq6" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0010.png" id="65_lfvx0"]
+[ext_resource type="Script" uid="uid://b13tgyrdyyhg6" path="res://SharedAssets/Ships/UFO/ufo_model.gd" id="1_ps5ot"]
+[ext_resource type="PackedScene" uid="uid://dxruynudxpyce" path="res://SharedAssets/Ships/UFO/FinalUFO.blend" id="2_q1iba"]
+[ext_resource type="Texture2D" uid="uid://qwqs5r6b161" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO-body-Alt_Bake2_PBR_Diffuse.png" id="3_th5ip"]
+[ext_resource type="Texture2D" uid="uid://djg4xyksbf341" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO-body_Bake1_PBR_rMetalgRough.png" id="4_0iw4l"]
+[ext_resource type="Texture2D" uid="uid://bbqwqh152st6e" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO-body_Bake1_PBR_Normal.png" id="5_uvsew"]
+[ext_resource type="Texture2D" uid="uid://dbvtuxsnvath3" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0001.png" id="6_y7g4f"]
+[ext_resource type="Texture2D" uid="uid://dlly0krqhgf4l" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0002.png" id="7_u41bu"]
+[ext_resource type="Texture2D" uid="uid://dvs0qqpit76s4" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0011.png" id="8_lyi2d"]
+[ext_resource type="Texture2D" uid="uid://blh0d47wo43n3" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0012.png" id="9_afidb"]
+[ext_resource type="Texture2D" uid="uid://p1m1by6soofu" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0013.png" id="10_kp5pf"]
+[ext_resource type="Texture2D" uid="uid://yfdu084xuq2p" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0014.png" id="11_tqgmj"]
+[ext_resource type="Texture2D" uid="uid://cck2nwxtj6gm8" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0015.png" id="12_r7nxu"]
+[ext_resource type="Texture2D" uid="uid://clsru4lns6cou" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0016.png" id="13_3v5qw"]
+[ext_resource type="Texture2D" uid="uid://doml2y4fhwocx" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0017.png" id="14_t0eb5"]
+[ext_resource type="Texture2D" uid="uid://5p1jmm78k7q5" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0018.png" id="15_8c63x"]
+[ext_resource type="Texture2D" uid="uid://bqxbdmsusmcd4" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0019.png" id="16_4nb8a"]
+[ext_resource type="Texture2D" uid="uid://d17wx715ljco" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0020.png" id="17_vc8dp"]
+[ext_resource type="Texture2D" uid="uid://crwy423knj31l" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0003.png" id="18_rinet"]
+[ext_resource type="Texture2D" uid="uid://7vdsar5ptwhe" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0021.png" id="19_tvd17"]
+[ext_resource type="Texture2D" uid="uid://brv1y7e7apeo6" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0022.png" id="20_hvyy2"]
+[ext_resource type="Texture2D" uid="uid://ctsl1bb2csq7c" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0023.png" id="21_dqb4v"]
+[ext_resource type="Texture2D" uid="uid://bqdvle01ye8qw" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0024.png" id="22_bln8t"]
+[ext_resource type="Texture2D" uid="uid://dxtyqepfxd0xv" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0025.png" id="23_qsv4c"]
+[ext_resource type="Texture2D" uid="uid://dxt4aky41xxqe" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0026.png" id="24_rw0lq"]
+[ext_resource type="Texture2D" uid="uid://biono8e6orwpd" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0027.png" id="25_v1r4y"]
+[ext_resource type="Texture2D" uid="uid://clteillevs87" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0028.png" id="26_h0w5m"]
+[ext_resource type="Texture2D" uid="uid://cii7gvxhhhxsx" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0029.png" id="27_b6fnx"]
+[ext_resource type="Texture2D" uid="uid://dt2eyg7tkhocp" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0030.png" id="28_ric36"]
+[ext_resource type="Texture2D" uid="uid://bielx8rc7soj3" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0004.png" id="29_0ed8s"]
+[ext_resource type="Texture2D" uid="uid://bh048jxkhjgir" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0031.png" id="30_t1med"]
+[ext_resource type="Texture2D" uid="uid://bq01pi1fv7phw" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0032.png" id="31_by05f"]
+[ext_resource type="Texture2D" uid="uid://c73s21fiht7jq" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0033.png" id="32_a80u2"]
+[ext_resource type="Texture2D" uid="uid://bf5teau725toh" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0034.png" id="33_x0as6"]
+[ext_resource type="Texture2D" uid="uid://kdyg8tip2i3e" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0035.png" id="34_mylco"]
+[ext_resource type="Texture2D" uid="uid://b8o87cc27aynm" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0036.png" id="35_4gcdv"]
+[ext_resource type="Texture2D" uid="uid://w354m2feimyq" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0037.png" id="36_kk3x5"]
+[ext_resource type="Texture2D" uid="uid://dsgqjm4djwo3d" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0038.png" id="37_qsm24"]
+[ext_resource type="Texture2D" uid="uid://clwbgdfvo6muj" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0039.png" id="38_4plwv"]
+[ext_resource type="Texture2D" uid="uid://bq0tv5r7cj4je" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0040.png" id="39_nibmi"]
+[ext_resource type="Texture2D" uid="uid://6mfviahluip0" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0005.png" id="40_d0obi"]
+[ext_resource type="Texture2D" uid="uid://bjh2mv7y51td2" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0041.png" id="41_22gai"]
+[ext_resource type="Texture2D" uid="uid://whquaj2w0f6i" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0042.png" id="42_tq1el"]
+[ext_resource type="Texture2D" uid="uid://bll01xjosjlob" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0043.png" id="43_f8bqd"]
+[ext_resource type="Texture2D" uid="uid://b0tcek3ap3gs7" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0044.png" id="44_k4k4l"]
+[ext_resource type="Texture2D" uid="uid://dawv8ibqrtf53" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0045.png" id="45_m7p23"]
+[ext_resource type="Texture2D" uid="uid://io8yqoixwcgc" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0046.png" id="46_tu07y"]
+[ext_resource type="Texture2D" uid="uid://7rnf3gtll6of" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0047.png" id="47_mx2ot"]
+[ext_resource type="Texture2D" uid="uid://dd2ui4odac0gq" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0048.png" id="48_tnuaj"]
+[ext_resource type="Texture2D" uid="uid://rvlt8tlurlgf" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0049.png" id="49_f5gbo"]
+[ext_resource type="Texture2D" uid="uid://gwluavl7xsul" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0050.png" id="50_4xbw5"]
+[ext_resource type="Texture2D" uid="uid://vlttucg73unj" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0006.png" id="51_n4et2"]
+[ext_resource type="Texture2D" uid="uid://dmsfmr8l5wuln" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0051.png" id="52_aitki"]
+[ext_resource type="Texture2D" uid="uid://bn1jcs7yllq23" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0052.png" id="53_kk8vw"]
+[ext_resource type="Texture2D" uid="uid://becl4cd0os0ln" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0053.png" id="54_jkku5"]
+[ext_resource type="Texture2D" uid="uid://ccipt6dscolcc" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0054.png" id="55_75k21"]
+[ext_resource type="Texture2D" uid="uid://chqmy41v6ffh6" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0055.png" id="56_nk6u3"]
+[ext_resource type="Texture2D" uid="uid://d3yxusrdin4iy" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0056.png" id="57_8iexk"]
+[ext_resource type="Texture2D" uid="uid://dawfedrw5p7m5" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0057.png" id="58_wuy2p"]
+[ext_resource type="Texture2D" uid="uid://c41dscsq8umo0" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0058.png" id="59_5px65"]
+[ext_resource type="Texture2D" uid="uid://dr6u7gaw8823i" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0059.png" id="60_spxy1"]
+[ext_resource type="Texture2D" uid="uid://bxh2exf0ni508" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0060.png" id="61_r2asj"]
+[ext_resource type="Texture2D" uid="uid://cjlkbarkui36k" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0007.png" id="62_sseki"]
+[ext_resource type="Texture2D" uid="uid://corjbwsq1x0ah" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0008.png" id="63_tj35o"]
+[ext_resource type="Texture2D" uid="uid://bcdbwhrmyx61f" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0009.png" id="64_q1d42"]
+[ext_resource type="Texture2D" uid="uid://31uiwxw18tq6" path="res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss/UFO-lights_fLights_PBR_Emission.0010.png" id="65_q08py"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bul5c"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ac74a"]
 resource_local_to_scene = true
 resource_name = "UFO-body_Baked.003"
 cull_mode = 2
-albedo_texture = ExtResource("3_kf8is")
+albedo_texture = ExtResource("3_th5ip")
 metallic = 1.0
-metallic_texture = ExtResource("4_ifchr")
-roughness_texture = ExtResource("4_ifchr")
+metallic_texture = ExtResource("4_0iw4l")
+roughness_texture = ExtResource("4_0iw4l")
 roughness_texture_channel = 1
 normal_enabled = true
 normal_scale = 3.0
-normal_texture = ExtResource("5_06xlb")
+normal_texture = ExtResource("5_uvsew")
 metadata/extras = {
 "DM": {},
 "SB_bake_operation_id": "30acf988-c3f2-45a4-ba95-ae0b9281bc1c",
@@ -89,125 +89,125 @@ metadata/extras = {
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_50qre"]
 frames = 60
-frame_0/texture = ExtResource("6_vk54w")
+frame_0/texture = ExtResource("6_y7g4f")
 frame_0/duration = 0.0333333
-frame_1/texture = ExtResource("7_q38m2")
+frame_1/texture = ExtResource("7_u41bu")
 frame_1/duration = 0.0333333
-frame_2/texture = ExtResource("18_5fkal")
+frame_2/texture = ExtResource("18_rinet")
 frame_2/duration = 0.0333333
-frame_3/texture = ExtResource("29_rxtu3")
+frame_3/texture = ExtResource("29_0ed8s")
 frame_3/duration = 0.0333333
-frame_4/texture = ExtResource("40_201fy")
+frame_4/texture = ExtResource("40_d0obi")
 frame_4/duration = 0.0333333
-frame_5/texture = ExtResource("51_rgvnu")
+frame_5/texture = ExtResource("51_n4et2")
 frame_5/duration = 0.0333333
-frame_6/texture = ExtResource("62_ja4wt")
+frame_6/texture = ExtResource("62_sseki")
 frame_6/duration = 0.0333333
-frame_7/texture = ExtResource("63_jnp6p")
+frame_7/texture = ExtResource("63_tj35o")
 frame_7/duration = 0.0333333
-frame_8/texture = ExtResource("64_20bcr")
+frame_8/texture = ExtResource("64_q1d42")
 frame_8/duration = 0.0333333
-frame_9/texture = ExtResource("65_lfvx0")
+frame_9/texture = ExtResource("65_q08py")
 frame_9/duration = 0.0333333
-frame_10/texture = ExtResource("8_u2vmo")
+frame_10/texture = ExtResource("8_lyi2d")
 frame_10/duration = 0.0333333
-frame_11/texture = ExtResource("9_or36h")
+frame_11/texture = ExtResource("9_afidb")
 frame_11/duration = 0.0333333
-frame_12/texture = ExtResource("10_3075y")
+frame_12/texture = ExtResource("10_kp5pf")
 frame_12/duration = 0.0333333
-frame_13/texture = ExtResource("11_ub87o")
+frame_13/texture = ExtResource("11_tqgmj")
 frame_13/duration = 0.0333333
-frame_14/texture = ExtResource("12_kce0i")
+frame_14/texture = ExtResource("12_r7nxu")
 frame_14/duration = 0.0333333
-frame_15/texture = ExtResource("13_dj24n")
+frame_15/texture = ExtResource("13_3v5qw")
 frame_15/duration = 0.0333333
-frame_16/texture = ExtResource("14_l1ajt")
+frame_16/texture = ExtResource("14_t0eb5")
 frame_16/duration = 0.0333333
-frame_17/texture = ExtResource("15_sdxbh")
+frame_17/texture = ExtResource("15_8c63x")
 frame_17/duration = 0.0333333
-frame_18/texture = ExtResource("16_3vr1p")
+frame_18/texture = ExtResource("16_4nb8a")
 frame_18/duration = 0.0333333
-frame_19/texture = ExtResource("17_bnd2h")
+frame_19/texture = ExtResource("17_vc8dp")
 frame_19/duration = 0.0333333
-frame_20/texture = ExtResource("19_8q2ik")
+frame_20/texture = ExtResource("19_tvd17")
 frame_20/duration = 0.0333333
-frame_21/texture = ExtResource("20_wejrw")
+frame_21/texture = ExtResource("20_hvyy2")
 frame_21/duration = 0.0333333
-frame_22/texture = ExtResource("21_0f3m0")
+frame_22/texture = ExtResource("21_dqb4v")
 frame_22/duration = 0.0333333
-frame_23/texture = ExtResource("22_7bk7k")
+frame_23/texture = ExtResource("22_bln8t")
 frame_23/duration = 0.0333333
-frame_24/texture = ExtResource("23_wiap5")
+frame_24/texture = ExtResource("23_qsv4c")
 frame_24/duration = 0.0333333
-frame_25/texture = ExtResource("24_40mdd")
+frame_25/texture = ExtResource("24_rw0lq")
 frame_25/duration = 0.0333333
-frame_26/texture = ExtResource("25_gvvn6")
+frame_26/texture = ExtResource("25_v1r4y")
 frame_26/duration = 0.0333333
-frame_27/texture = ExtResource("26_d73vj")
+frame_27/texture = ExtResource("26_h0w5m")
 frame_27/duration = 0.0333333
-frame_28/texture = ExtResource("27_a6asl")
+frame_28/texture = ExtResource("27_b6fnx")
 frame_28/duration = 0.0333333
-frame_29/texture = ExtResource("28_pswch")
+frame_29/texture = ExtResource("28_ric36")
 frame_29/duration = 0.0333333
-frame_30/texture = ExtResource("30_8kb5g")
+frame_30/texture = ExtResource("30_t1med")
 frame_30/duration = 0.0333333
-frame_31/texture = ExtResource("31_jdmyn")
+frame_31/texture = ExtResource("31_by05f")
 frame_31/duration = 0.0333333
-frame_32/texture = ExtResource("32_6svsj")
+frame_32/texture = ExtResource("32_a80u2")
 frame_32/duration = 0.0333333
-frame_33/texture = ExtResource("33_0enhn")
+frame_33/texture = ExtResource("33_x0as6")
 frame_33/duration = 0.0333333
-frame_34/texture = ExtResource("34_wfwhs")
+frame_34/texture = ExtResource("34_mylco")
 frame_34/duration = 0.0333333
-frame_35/texture = ExtResource("35_yy03e")
+frame_35/texture = ExtResource("35_4gcdv")
 frame_35/duration = 0.0333333
-frame_36/texture = ExtResource("36_lx711")
+frame_36/texture = ExtResource("36_kk3x5")
 frame_36/duration = 0.0333333
-frame_37/texture = ExtResource("37_tqedd")
+frame_37/texture = ExtResource("37_qsm24")
 frame_37/duration = 0.0333333
-frame_38/texture = ExtResource("38_l14qp")
+frame_38/texture = ExtResource("38_4plwv")
 frame_38/duration = 0.0333333
-frame_39/texture = ExtResource("39_3k48p")
+frame_39/texture = ExtResource("39_nibmi")
 frame_39/duration = 0.0333333
-frame_40/texture = ExtResource("41_pjko2")
+frame_40/texture = ExtResource("41_22gai")
 frame_40/duration = 0.0333333
-frame_41/texture = ExtResource("42_dk3mh")
+frame_41/texture = ExtResource("42_tq1el")
 frame_41/duration = 0.0333333
-frame_42/texture = ExtResource("43_ligw8")
+frame_42/texture = ExtResource("43_f8bqd")
 frame_42/duration = 0.0333333
-frame_43/texture = ExtResource("44_m0cvl")
+frame_43/texture = ExtResource("44_k4k4l")
 frame_43/duration = 0.0333333
-frame_44/texture = ExtResource("45_5joby")
+frame_44/texture = ExtResource("45_m7p23")
 frame_44/duration = 0.0333333
-frame_45/texture = ExtResource("46_7wk2i")
+frame_45/texture = ExtResource("46_tu07y")
 frame_45/duration = 0.0333333
-frame_46/texture = ExtResource("47_n3bst")
+frame_46/texture = ExtResource("47_mx2ot")
 frame_46/duration = 0.0333333
-frame_47/texture = ExtResource("48_ev5ku")
+frame_47/texture = ExtResource("48_tnuaj")
 frame_47/duration = 0.0333333
-frame_48/texture = ExtResource("49_1njko")
+frame_48/texture = ExtResource("49_f5gbo")
 frame_48/duration = 0.0333333
-frame_49/texture = ExtResource("50_8yffk")
+frame_49/texture = ExtResource("50_4xbw5")
 frame_49/duration = 0.0333333
-frame_50/texture = ExtResource("52_xin7w")
+frame_50/texture = ExtResource("52_aitki")
 frame_50/duration = 0.0333333
-frame_51/texture = ExtResource("53_j1hve")
+frame_51/texture = ExtResource("53_kk8vw")
 frame_51/duration = 0.0333333
-frame_52/texture = ExtResource("54_qh6mt")
+frame_52/texture = ExtResource("54_jkku5")
 frame_52/duration = 0.0333333
-frame_53/texture = ExtResource("55_3xxy6")
+frame_53/texture = ExtResource("55_75k21")
 frame_53/duration = 0.0333333
-frame_54/texture = ExtResource("56_4fryw")
+frame_54/texture = ExtResource("56_nk6u3")
 frame_54/duration = 0.0333333
-frame_55/texture = ExtResource("57_w06t7")
+frame_55/texture = ExtResource("57_8iexk")
 frame_55/duration = 0.0333333
-frame_56/texture = ExtResource("58_p0gh2")
+frame_56/texture = ExtResource("58_wuy2p")
 frame_56/duration = 0.0333333
-frame_57/texture = ExtResource("59_mhxmm")
+frame_57/texture = ExtResource("59_5px65")
 frame_57/duration = 0.0333333
-frame_58/texture = ExtResource("60_j17nh")
+frame_58/texture = ExtResource("60_spxy1")
 frame_58/duration = 0.0333333
-frame_59/texture = ExtResource("61_i2vxl")
+frame_59/texture = ExtResource("61_r2asj")
 frame_59/duration = 0.0333333
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gtrvc"]
@@ -252,7 +252,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_x1kkr"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_t22xb"]
 resource_local_to_scene = true
 resource_name = "FinalUFO_Cube_009"
 _surfaces = [{
@@ -262,7 +262,7 @@ _surfaces = [{
 "index_count": 6912,
 "index_data": PackedByteArray("TgJPAlACTwICAAMAUQICAE8CTgJRAk8CUQIBAAIATwIDAFICUAJPAlICUgIDAAQAUwIBAFECUwIHAAEAwQBRAk4CwQBTAlECUgIEAFQCVAIEAAUAVQJSAlQCUAJSAlUCVAIFAFYCVgIFAAYAVQJUAlcCVwJUAlYCSgFQAlUCWAJVAlcCWAJKAVUCVgIGAFkCWQIGAAgAVwJWAloCWgJWAlkCSwFYAlcCSwFXAloCWQIIAFsCWwIIACIAWgJZAlwCXAJZAlsCTAFLAVoCTAFaAlwCWwIiAF0CXQIiACQAXAJbAl4CXgJbAl0CXwJMAVwCXwJcAl4CXQIkAGACYAIkACYAXgJdAlABUAFdAmACYQJfAl4CYQJeAlABYAImAFIBUgEmACUAUAFgAmICYgJgAlIBUAFjAmECYgJ6AFABUAF6AGMCUgElAGQCZAIlACMAYgJSAWUCZQJSAWQCYgJTAXoAZQJTAWICegBmAmMCZAIjAGcCZwIjACEAZQJkAmgCaAJkAmcCZQJpAlMBaAJpAmUCUwFqAnoAegBqAmYCaQJrAlMBUwFrAmoCawLKAGoCagLKAGYCZgLKAGwCawJUAcoAZgJsAswAbQJUAWsCaQJtAmsCbQJuAlQBZgLMAG8CcAJtAmkCaAJwAmkCcQJuAm0CcAJxAm0CcQJ5AG4CYwJmAm8CbwLMAHICYwJvAnMCYQJjAnMCbwJyAlcBcwJvAlcBVwFyAs0AYQJzAnQCdAJfAmECcwJXAcsAdAJzAssAVwHNAHUCywBXAXUCdQLNAM4AdAJ2Al8CdgJMAV8CdALLAHcCdwJ2AnQCywB1AngCdwLLAHgCdQLOAFgBeAJ1AlgBWAHOAHkCdgJ6AkwBegJLAUwBdwJPAXYCTwF6AnYCdwJ4AlEBUQFPAXcCeAJYAXsCUQF4AnsCWAF5AnwCewJYAXwCfAJ5An0CfAJ9An4CfgJ9AnwAewJ8An8CfwJ8An4CzwB7An8CUQF7As8AfgJ8AIACgAJ8AIECfwJ+AoICggJ+AoACzwB/AlkBWQF/AoICgAKBAoMCgwKBAh8AggKAAoQChAKAAoMCWQGCAoUChQKCAoQCgwIfAIYChgIfAIcChAKDAogCiAKDAoYChQKEAscAxwCEAogChgKHAokCiQKHAlUBiAKGAooCigKGAokChQGIAooCxwCIAoUBiQJVAYsCiwJVAXkAiwJ5AHECjAKJAosCigKJAowCjQKLAnECjAKLAo0CjQJxAnACjgKKAowChQGKAo4CjwKMAo0CjgKMAo8CwwCNAnACjwKNAsMAwwBwAmgCaAJnAsMAwwBnApACZwIhAJACkAIhACAAkAIgAJECkQIgAB4AwwCQApICkgKQApECVgHDAJICVgGPAsMAkQIeAJMCkwIeABwAkgKRApQClAKRApMClQJWAZIClQKSApQClgKPAlYBlgKOAo8ClwJWAZUClwKWAlYBmAKOApYCmAKFAY4CmQKWApcCmQKYApYChgGFAZgChgHHAIUBmgKYApkCmgKGAZgCmwKZApcCeACaApkCeACZApsCmwKXApwCnAKXApUCnQJ4AJsCngKbApwCnQKbAp4CnAKVAoMBgwGVApQCngKcAp8CnwKcAoMBjAGdAp4CxACeAp8CjAGeAsQAgwGUAqAClAKTAqACnwKDAaECoQKDAaACxACfAqICogKfAqECoAKTAqMCkwIcAKMCowIcABsAoAKjAqQCoQKgAqQCowIbAKUCpAKjAqUCpQIbABoApgKhAqQCogKhAqYCpAKlAqcCpgKkAqcCpQIaAKgCpwKlAqgCqAIaABkAqAIZAKkCqQIZABcApwKoAqoCqgKoAqkCggGmAqcCggGnAqoCqwKmAoIBqwKiAqYCqQIXAKwCrAIXABYAqgKpAq0CrQKpAqwCrgKCAaoCrgKqAq0CrwKrAoIBrwKCAa4CrAIWALACsAIWABUArQKsArECsQKsArACgQGuAq0CgQGtArECsgKvAq4CsgKuAoEBsAIVALMCswIVABQAsQKwArQCtAKwArMCtQKBAbECtQKxArQCtgKyAoEBtgKBAbUCswIUALcCtwIUABMAtAKzArgCuAKzArcCxQC1ArQCxQC0ArgCuQK2ArUCuQK1AsUAtwITALoCugITABIAuAK3ArsCuwK3AroCvALFALgCvAK4ArsCvQK5AsUAvQLFALwCugISAL4CvgISABEAuwK6Ar8CvwK6Ar4CwAK8ArsCwAK7Ar8CwQK9ArwCwQK8AsACvgIRAMICwgIRAA4AvwK+AsMCwwK+AsICfwHAAr8CfwG/AsMCxALBAsACxALAAn8BwgIOAMUCxQIOAA0AwwLCAsYCxgLCAsUCxwJ/AcMCxwLDAsYCyALEAn8ByAJ/AccCxQINAMkCyQINAAwAxgLFAsoCygLFAskCywLHAsYCywLGAsoCzALIAscCzALHAssCyQIMAM0CzQIMAAsAygLJAs4CzgLJAs0CwgDLAsoCwgDKAs4CzwLMAssCzwLLAsIAzQILAH0BfQELAAoAzgLNAtAC0ALNAn0BzgLRAsIA0AJ+Ac4CzgJ+AdECfQEKANIC0gIKAAcA0gIHAFMC0wJ9AdIC0AJ9AdMC1ALSAlMC0wLSAtQC1AJTAsEA0wLVAtAC0ALVAn4B1ALWAtMC0wLWAtUC1AJ8AdYCwQB8AdQC1gLXAtUC1QLYAn4B1QLXAtgC1gLZAtcCfAHZAtYC1wLhANgC1wLaAuEA2QLaAtcC2ALhANsC2QLcAtoCfgHYAt0C2ALbAt0CfgHdAtEC3QLbAgkA3gLcAtkCfAHeAtkC3gJ7AdwC3QIJAN8C0QLdAt8C3wIJAOAC0QLfAuECwgDRAuECwgDhAs8C3wLgAuIC4QLfAuIC4gLgAuMCzwLhAuQC4QLiAuQC4gLjAuUC5ALiAuUC5QLjAoYAzwLkAt8A3wDMAs8C5ALlAuYC3wDkAuYC5QKGAOcC5gLlAucC5wKGAOgC3wDpAswC6QLIAswC3wDmAoABgAHpAt8A5gLnAuoCgAHmAuoC5wLoAusC6gLnAusC6wLoAuMA6QLsAsgC7ALEAsgCmQHsAukCgAGZAekC7ALtAsQC7QLBAsQCmQHuAuwC7gLtAuwC7QLvAsEC7wK9AsEC7gLdAO0C3QDvAu0C7wKbAb0CmwG5Ar0C3QDwAu8C8AKbAe8CmwHxArkC8QK2ArkC8AJ3AJsBdwDxApsB8QLyArYC8gKyArYCdwCVAfEClQHyAvEC8gKcAbICnAGvArIClQHzAvIC8wKcAfICnAH0Aq8C9AKrAq8C8wLGAJwBxgD0ApwB9AKEAasChAGiAqsChAHEAKIC9QKEAfQCxgD1AvQC9gLEAIQB9QL2AoQB9gKMAcQAyQD1AsYAkAH2AvUCyQCQAfUCkAGOAfYCjgGMAfYC1wCQAckAjgEYAIwBGACdAowBjwGOAZAB1wCPAZAB1gAYAI4BjwHWAI4BjQGPAdcAjQH3Ao8B9wLWAI8B+AKNAdcA9wKKANYA+ALXAJIBkgHXAMkAkQH4ApIBigCLANYA1gCLABgAigD5AosAkgHJAPoC+gLJAMYA+gLGAPMCkQGSAYkAiQCSAfoCEACRAYkAkwH6AvMCiQD6ApMBkwHzApUBEACJANgA2ACJAJMB+wIQANgAiACTAZUB2ACTAYgAiACVAXcA+wLYAJQBlAHYAIgA2gD7ApQB/AKIAHcAlAGIAPwC/AJ3APAC2gCUAdkA2QCUAfwC/QLaANkA3AD8AvAC2QD8AtwA3ADwAt0A/QLZAJYBlgHZANwAhAD9ApYB/gLcAN0AlgHcAP4C/gLdAO4ChACWAdsA2wCWAf4C/wKEANsAhwD+Au4C2wD+AocAhwDuApkB/wLbAJcBlwHbAIcAAAP/ApcBmAGHAJkBlwGHAJgBmAGZAYABAAOXAd4A3gCXAZgBDwAAA94AmgGYAYAB3gCYAZoBDwDeAHIBcgHeAJoBcAEPAHIBmgGAAXgBgAHqAngBcgGaAXMBcwGaAXgBcAFyAeAA4AByAXMBAQNwAeAAeAHqAgID6gLrAgIDcwF4AeIAeAECA+IA4ABzAYMAgwBzAeIAAQPgAG0BbQHgAIMAgQABA20BAgPrAnUB6wLjAHUBdQHjAHYBAgN1AQMD4gACAwMDdQF2AXQBAwN1AXQBdAF2AXcB4gADA3EBgwDiAHEBAwN0AQQDcQEDAwQDdAF3AQUDBAN0AQUDBQN3AQYDcQEEA24BbwGDAHEBbwFxAW4BbQGDAG8BBQMGA3kBeQEGA4UABAMFA2wBbAEFA3kBbgEEA2wBagFtAW8BgQBtAWoBaAGBAGoBagFvAYIAggBvAW4BaAFqAeQA5ABqAYIABwNoAeQABwPkAGcBZQEHA2cB5ACCAGkBZwHkAGkBggBuAWsBaQGCAGsBawFuAQgDbgFsAQgDZQFnAeUACQNlAeUAZwFpAWYB5QBnAWYBaQFrAXYAZgFpAXYAdgBrAQoDawEIAwoDCQPlAGQBAAAJA2QB5QBmAYAAZAHlAIAAZgF2AAsDgABmAQsDCwN2AAwDdgAKAwwDAABkAeYADQMAAOYAZAGAAGMB5gBkAWMBgAALA04BYwGAAE4BTgELAw4DCwMMAw4DDQPmAGIBYAENA2IB5gBjAecAYgHmAOcAYwFOAQ8D5wBjAQ8DDwNOARADTgEOAxADYAFiAV8BEQNgAV8BYgHnAGEBXwFiAWEB5wAPA9AAYQHnANAA0AAPA00BDwMQA00BEQNfAdUAHQARA9UAXwFhAXsA1QBfAXsAYQHQABIDewBhARIDEgPQABMD0ABNARMDewASA1EBUQESA08BEgMTA08BTwETA3oCWgF7AFEB1QB7AFoBWgFRAc8AEwMUA3oCEwNNARQDegIUA0sBFANYAksBTQEVAxQDFAMVA1gCTQEQAxUDFQNKAVgCEAMWAxUDFQMWA0oBEAMOAxYDFgPAAEoBSgHAAFACwABOAlACDgMXAxYDFgMXA8AADgMMAxcDwABIAU4CFwNIAcAASAHBAE4CDAMYAxcDFwMYA0gBDAMKAxgDSAFJAcEAGANJAUgBCgMZAxgDGAMZA0kBCgMIAxkDSQEaA8EAwQAaA3wBGgPeAnwBSQEbAxoDGQMbA0kBGgN6Ad4CGwN6ARoDegF7Ad4CegEcA3sBHQMcA3oBGwMdA3oBHQOFABwDeQGFAB0DHgMdAxsDHgN5AR0DGQMeAxsDCAMeAxkDbAF5AR4DCANsAR4DGACLAZ0CiwF4AJ0CiwCLARgAiwHIAHgAiwCKAYsBigHIAIsB+QKKAYsAyACaAngA+QIfA4oBHwN+AIoBigF+AMgAHwN/AH4AyACIAZoCfgCIAcgAiAGGAZoCfwCJAX4AfgCJAYgBfwAgA4kBiAGHAYYBiQGHAYgBhwHHAIYBIAPRAIkBiQHRAIcBIANeAdEAhwF9AMcA0QB9AIcBfQCFAscAXgFdAdEA0QBdAX0AXgHUAF0BfQBbAYUCXQFbAX0AWwFZAYUC1ADTAF0BXQHTAFsB1AAhA9MAWwHSAFkB0wDSAFsB0gDPAFkB0gBaAc8A0wBcAdIAXAFaAdIAIQNcAdMAXAHVAFoBIQMdAFwBHQDVAFwBIgMjAyQDJAMjAyUDIgMmAyMDIgMkAycDJgMoAyMDKQMmAyIDIwMoA54BIwOeASUDJgMqAygDIgMnA6QBKQMiA6QBKQMrAyYDKwMqAyYDKQOkASwDLQMrAykDLQMpAywDLAOkAfYALQMuAysDKwPpACoDLgPpACsD6QAvAyoDMAMuAy0DLQMsA+oAMAMtA+oA6gAsA9kBLAP2ANkB2QH2AJAA9gAxA5AA2QGQADID9gAzAzEDpAEzA/YAMwPHATEDpAEnAzMDMwPyAMcBJwPyADMD8gD1AMcBNAPZATID6gDZATQDNAMyAzUD2AHqADQDMAPqANgB1wE0AzUD2AE0A9cB1wE1A5IA8gA2A/UANgM3A/UAJwM4A/IAOAM2A/IAJAM4AycDNgPGATcDxgE8ADcDOAPFATYDxQHGATYDJAM5AzgDOQPFATgDJAMlAzkDxgE6AzwAOgM7AzwAxQE8A8YBPAM6A8YBOQM9A8UBPQM8A8UBOQMlA50BOQOdAT0DJQM+A50BJQOeAT4DOgOPADsDjwDIATsDPAO+AToDvgGPADoDPwO+ATwDPQM/AzwDvgFAA48AjwBBA8gBQANBA48AQQNCA8gBQwNAA74BPwNDA74BQANEA0EDQQNFA0IDRANFA0EDRQMyAEIDRgNEA0ADQwNGA0ADRANHA0UDRQPEATIARwPEAUUDxAFIAzIASQNHA0QDRgNJA0QDRwO9AcQBxAFKA0gDvQFKA8QBSgPJAUgDSwO9AUcDSQNLA0cDvQFMA0oDSgPxAMkBTAPxAEoD8QBNA8kBTgNMA70BSwNOA70BTAO/AfEA8QBPA00DvwFPA/EATwPKAU0DUAO/AUwDTgNQA0wDvwFRA08DTwPLAcoBUQPLAU8DywGTAMoBUgNRA78BUANSA78BUQNTA8sBywHzAJMAUwPzAMsB8wBUA5MAVQNTA1EDUgNVA1EDUwPCAfMA8wBWA1QDwgFWA/MAVgPMAVQDVwPCAVMDVQNXA1MDwgFYA1YDVgNZA8wBWANZA1YDWQM+AMwBWgNYA8IBVwNaA8IBWANbA1kDWQOUAD4AWwOUAFkDlABcAz4AXQNbA1gDWgNdA1gDWwPNAZQAlABeA1wDzQFeA5QAXgNfA1wDYAPNAVsDXQNgA1sDzQFhA14DXgPOAV8DYQPOAV4DzgGVAF8DYgNhA80BYANiA80BYQPPAc4BzgFjA5UAzwFjA84BYwNkA5UAZQPPAWEDYgNlA2EDzwFmA2MDYwNnA2QDZgNnA2MDZwP0AGQDaANmA88BZQNoA88BZgNpA2cDZwPQAfQAaQPQAWcD0AFqA/QAawNpA2YDaANrA2YDaQPRAdAB0AFsA2oD0QFsA9ABbAM9AGoDbQPRAWkDawNtA2kD0QFuA2wDbAOWAD0AbgOWAGwDlgDSAT0AbwNuA9EBbQNvA9EBbgPUAZYAlgBwA9IB1AFwA5YAcANxA9IBcgPUAW4DbwNyA24D1AFzA3ADcAN0A3EDcwN0A3ADdAPVAXEDdQNzA9QBcgN1A9QBcwN2A3QDdAORANUBdgORAHQDkQB3A9UBeAN2A3MDdQN4A3MDdgPWAZEAkQB5A3cD1gF5A5EAeQOSAHcDeQPXAZIAegPXAXkD1gF6A3kDegPYAdcBewPWAXYDeAN7A3YDfAN6A9YBewN8A9YBfQPYAXoDfAN9A3oDfQMwA9gBfQPoADADMAPoAC4DfAN+A30DfQN+A+gAewN/A3wDfAN/A34DewOAA38DeAOAA3sD6ACBAy4DLgOBA+kAfgOCA+gA6ACCA4EDfwODA34DfgODA4IDgAOEA38DfwOEA4MDgQOrAekAggOFA4EDgQOFA6sB6QCrAS8DggOtAYUDgwOtAYIDhAOGA4MDgwOGA60BhAMnAIYDhQOqAasBrQGHA4UDhQOHA6oBhgOsAa0BrQGsAYcDhgOIA6wBJwCIA4YDqwGqAYkDqwGJAy8DhwOKA6oBrAGLA4cDhwOLA4oDiAOMA6wBrAGMA4sDqgGNA4kDqgGKA40DiQONA44DiwOPA4oDigOpAY0DigOPA6kBiwOQA48DjAOQA4sDjwMvAKkBjwMwAC8AkAMwAI8DqQEvAC4AkAMxADAAjQOpAZEDqQEuAJEDjQORA44DkQMuAC0AkgMxAJADjAOSA5ADkgNMADEAkQMtAJMDjgORA5MDkwMtACwAlAOSA4wDlQNMAJIDlAOVA5IDlQNOAEwAiAOUA4wDSgBOAJUDSgBPAE4AlgOVA5QDlgNKAJUDrgGUA4gDrgGWA5QDJwCuAYgDlwNPAEoAlwNNAE8AmANKAJYDmAOXA0oAmQOWA64BmQOYA5YDmgOuAScAmgOZA64BmwOaAycAmwMnAIQDgAObA4QDrwGbA4ADeAOvAYADdQOvAXgDrwGcA5sDnAOaA5sDdQOdA68BnQOcA68BcgOdA3UDnAOxAZoDsQGZA5oDnQPrAJwD6wCxAZwDcgPTAZ0D0wHrAJ0DbwPTAXIDsQGeA5kDngOYA5kD6wCfA7EBnwOeA7EB0wGgA+sAoAOfA+sAbwOhA9MBoQOgA9MBbQOhA28DngOiA5gDogOXA5gDnwPsAJ4D7ACiA54DoAOjA58DowPsAJ8DoQOkA6ADpAOjA6ADbQOlA6EDpQOkA6EDawOlA20DawPDAaUDaAPDAWsDpQOmA6QDwwGmA6UDpAOyAaMDpgOyAaQDsgGnA6MDowOnA+wAaAOoA8MBZQOoA2gDwwGpA6YDqAOpA8MBpgOqA7IBqQOqA6YDsgGrA6cDqgOrA7IBZQOsA6gDYgOsA2UDqAM/AKkDrAM/AKgDqQOtA6oDPwCtA6kDqgPtAKsDrQPtAKoDYgOuA6wDYAOuA2IDrAOvAz8ArgOvA6wDPwC0Aa0DrwO0AT8ArQOwA+0AtAGwA60DYAOxA64DXQOxA2ADrgOyA68DsQOyA64DrwOzA7QBsgOzA68DtAG0A7ADswO0A7QBXQPBAbEDWgPBAV0DsQO1A7IDwQG1A7EDsgO3AbMDtQO3AbIDswO1AbQDtwG1AbMDWgO2A8EBVwO2A1oDwQHuALUDtgPuAMEBtQO3A7cB7gC3A7UDtwGXALUBtwOXALcBVwPAAbYDVQPAAVcDtgO4A+4AwAG4A7YD7gC5A7cDuAO5A+4AtwO6A5cAuQO6A7cDVQO7A8ABUgO7A1UDwAGOALgDuwOOAMABuAO8A7kDjgC8A7gDuQO2AboDvAO2AbkDUgO9A7sDUAO9A1IDuwO+A44AvQO+A7sDjgC4AbwDvgO4AY4AvAO/A7YBuAG/A7wDUAPAA70DTgPAA1ADvQO8Ab4DwAO8Ab0DvgPBA7gBvAHBA74DuAHvAL8DwQPvALgBTgPCA8ADSwPCA04DwAPDA7wBwgPDA8ADvAG7AcEDwwO7AbwBwQPEA+8AuwHEA8EDSwPFA8IDSQPFA0sDwgONAMMDxQONAMIDwwPGA7sBjQDGA8MDuwG6AcQDxgO6AbsBSQPHA8UDRgPHA0kDxQPIA40AxwPIA8UDjQClAcYDyAOlAY0AxgPJA7oBpQHJA8YDRgPKA8cDQwPKA0YDxwOgAcgDygOgAccDyAPLA6UBoAHLA8gDpQHMA8kDywPMA6UBQwPNA8oDPwPNA0MDygPOA6ABzQPOA8oDoAHPA8sDzgPPA6ABywPQA8wDzwPQA8sDPwPRA80DPQPRAz8DPQOdAdED0QOMAM0DzQOMAM4DnQHSA9ED0QPSA4wAnQE+A9IDzgPTA88DjADTA84D0wOiAc8DzwOiAdADjACfAdMD0gOfAYwA0wPUA6IBnwHUA9MD0gPVA58BPgPVA9IDnwGmAdQD1QOmAZ8BPgPWA9UDngHWAz4D1QPXA6YB1gPXA9UDngGhAdYDKAOhAZ4B1gPYA9cDoQHYA9YDKAPZA6EBKgPZAygDKgMvA9kD2QOjAaEBoQGjAdgDLwMoANkD2QMoAKMBLwOJAygAiQOOAygAKACOA9oDKADaA6MBjgOTA9oDowHbA9gDowHaA9sD2gOTA9wD2gPcA9sDkwMsANwD3AMsACsA3AMrAKcB2wPcA6cBpwErACoA2APbA90D2wOnAd0D2APdA9cDpwEqAN4D3QOnAd4D3gMqACkA1wPdA98D3QPeA98D1wPfA6YB3gMpAOAD3wPeA+AD4AMpADMApgHfA+ED3wPgA+EDpgHhA9QD4AMzAOID4QPgA+ID4gMzADQA1APhA+MD4QPiA+MD1APjA6IB4gM0AOQD4wPiA+QD5AM0ADUAogHjA+UD4wPkA+UDogHlA9AD5AM1AKgB5QPkA6gBqAE1ADYA0APlA/AA5QOoAfAA0APwAMwDqAE2AOYD8ACoAeYD5gM2ADcAzAPwAOcD8ADmA+cDzAPnA8kD5gM3AOgD5wPmA+gD6AM3ADgAyQPnA+kD5wPoA+kDyQPpA7oB6AM4AOoD6QPoA+oD6gM4ADkAugHpA+sD6QPqA+sDugHrA8QD6gM5ALkB6wPqA7kBuQE5ADoAxAPrA+wD6wO5AewDxAPsA+8AuQE6AO0D7AO5Ae0D7QM6ADsA7wDsA+4D7APtA+4D7wDuA78D7QM7AO8D7gPtA+8D7wM7AEYAvwPuA/AD7gPvA/ADvwPwA7YB7wNGAPED8APvA/ED8QNGAEgAtgHwA/ID8APxA/IDtgHyA7oD8QNIAPMD8gPxA/MD8wNIAEkAugPyA/QD8gPzA/QDugP0A5cA8wNJAEUA9APzA0UARQBJAEcAlwD0A/UD9ANFAPUDlwD1A7UBRQBHAPYD9QNFAPYD9gNHAEQAtQH1A/cD9QP2A/cDtQH3A7QD9gNEAPgD9wP2A/gD+ANEAEMAtAP3A/kD9wP4A/kDtAP5A7AD+ANDAPoD+QP4A/oD+gNDAEIAsAP5A/sD+QP6A/sDsAP7A+0A+gNCALMB+wP6A7MBswFCAEEA7QD7A/wD+wOzAfwD7QD8A6sDswFBAP0D/AOzAf0D/QNBAEAAqwP8A/4D/AP9A/4DqwP+A6cD/QNAAP8D/gP9A/8D/wNAAEsApwP+AwAE/gP/AwAEpwMABOwA7AAABKIDAAT/A7AB/wNLALABAASwAaIDsAFLAE0AogOwAZcDsAFNAJcDAQQCBAMEBAQDBHUABAQBBAMEpgABBAQEAQT3AAIEpgAFBAEEBQT3AAEEBgQFBKYA9wD4AAIEBgTcAQUEBwTcAQYEBQTbAfcA3AHbAQUE9wDaAfgA2wHaAfcA2gGoAPgABwTeAdwB+gDeAQcE3AEIBNsB3gEIBNwB2wH5ANoBCAT5ANsB2gH7AKgA+QD7ANoB+wCqAKgA+gDgAd4BAAHgAfoA3gEJBAgE4AEJBN4BCASnAPkACQSnAAgE+QDdAfsApwDdAfkA+wD9AKoA3QH9APsA/QAKBKoA/QALBAoECwQMBAoE3QEDAf0AAwELBP0ACwTmAQwE5gENBAwEAwEOBAsEDgTmAQsE5gEPBA0EDwT+AA0EDgQQBOYBEAQPBOYBDwQCAf4AAgGsAP4AEAQRBA8EEQQCAQ8EAgHoAawAdACsAOgBdADoAXMA5wHoAQIBEQTnAQIBcwDoAasA5wGrAOgBcwCrAHIAcgCrAOkBcgDpAXAABAGrAOcBBAHpAasAEgTnAREEEgQEAecBcADpARMEFAQSBBEEFAQRBBAEcAATBHEA6gHpAQQB6gETBOkBFQQEARIEFQTqAQQBFgQSBBQEFgQVBBIEcQATBAUBcQAFAW8ABgETBOoBBgEFARMEFwTqARUEFwQGAeoBGAQVBBYEGAQXBBUEbwAFAesBbwDrAW4ABwEFAQYBBwHrAQUBGQQGARcEGQQHAQYBGgQXBBgEGgQZBBcE7AFuAOsB7AFtAG4ACAHrAQcBCAHsAesBGwQHARkEGwQIAQcB7wEZBBoE7wEbBBkEHARtAOwBHARsAG0AHQTsAQgBHQQcBOwBHgQIARsEHgQdBAgBHwQbBO8BHwQeBBsE7QFsABwE7QFrAGwA7gEcBB0E7gHtARwEIAQdBB4EIATuAR0E8QEeBB8E8QEgBB4E8gFrAO0B8gFlAGsA8AHtAe4B8AHyAe0BIQTuASAEIQTwAe4BIgQgBPEBIgQhBCAEZQDyAfMBZQDzAWQAFQHyAfABFQHzAfIBIwTwASEEIwQVAfABJAQhBCIEJAQjBCEEZADzASUEZAAlBGYAJgTzARUBJgQlBPMBJwQVASMEJwQmBBUBKAQjBCQEKAQnBCMEZgAlBCABZgAgAWcAFwElBCYEFwEgASUEKQQmBCcEKQQXASYEKgQnBCgEKgQpBCcEZwAgAR8BZwAfAWgAngAgARcBngAfASABKwQXASkEKwSeABcBLAQpBCoELAQrBCkEaAAfAfQBaAD0AWkAaQD0AZ8AaQCfAGoAHgGfAPQBHQH0AR8BHgH0AR0BHQEfAZ4ALQQeAR0BLgQdAZ4ALQQdAS4ELgSeACsELwQtBC4EMAQuBCsELwQuBDAEMAQrBCwEMQQvBDAEMQQwBDIEMgQwBCwEnAAxBDIEMgQsBDMEnAAyBBwBHAEyBDMEMwQsBCoEmACcABwBMwQqBDQENAQqBCgEHAEzBBoBGgEzBDQEmAAcARsBGwEcARoBGQGYABsBNAQoBDUENQQoBCQEGgE0BJsAmwA0BDUEGwEaAZkAmQAaAZsAGQEbAfUB9QEbAZkANgQZAfUBNQQkBDcENwQkBCIEmwA1BPYB9gE1BDcENgT1AfcBOASbAPYBmQCbADgEOQQ2BPcB9QGZAPkB9wH1AfkBOQT3AToEYwA5BDoEYwA6BDsEOgT3ARgB9wH5ARgBOwQ6BDwEOgQYATwEOwQ8BPgB+AE8BPsB+AH7AZoAPAQYAT0EPAQ9BPsBGAH5AT4EGAE+BD0E+QH6AT4E+QGZAPoBmgD7AT8EmgA/BEAE+wE9BEEE+wFBBD8EPQQ+BEIEPQRCBEEEPgT+AUIEPgT6Af4BQAQ/BBEBQAQRAf0BPwRBBPwBPwT8AREBQQRCBAACQQQAAvwBQgQSAQACQgT+ARIB/QERARIC/QESAg8BEQH8AaMAEQGjABIC/AEAAgEC/AEBAqMAAAIQAQECAAISARABDwESAhECDwERAkMEEgKjAA4BEgIOARECowABAhACowAQAg4BAQIDAhACAQIQAQMCQwQRAkQEQwREBAEBEQIOAUUEEQJFBEQEDgEQAkYEDgFGBEUEEAJHBEYEEAIDAkcEAQFEBEgEAQFIBEkERARFBA8CRAQPAkgERQRGBKUARQSlAA8CRgQLAqUARgRHBAsCSQRIBEoESQRKBAABAAFKBOABSAT/AEoESAQPAv8ASgRLBOABSgT/AEsE4AFLBAkEDwIOAv8ADwKlAA4C/wANAksE/wAOAg0CSwRMBAkESwQNAkwECQRMBKcApQAMAg4CpQALAgwCDgL8AA0CDgIMAvwADQLhAUwEDQL8AOEBTATfAacATAThAd8BpwDfAd0B3wGpAN0BqQADAd0B4QFNBN8B3wFNBKkA/ABOBOEB4QFOBE0E/ABPBE4EDAJPBPwAqQDjAQMB4wEOBAMBTQRQBKkAUATjAakATgTiAU0ETQTiAVAETwRRBE4ETgRRBOIB4wFSBA4EUgQQBA4EUgQUBBAEUwRSBOMBUARTBOMBVAQUBFIEUwRUBFIEVAQWBBQE5AFTBFAE4gHkAVAEVQRUBFME5AFVBFMEVgQWBFQEVQRWBFQEVgQYBBYECQJVBOQB4gFXBOQBVwQJAuQBUQRXBOIBWAQYBFYEWQRWBFUEWQRYBFYECQJZBFUEWAQaBBgEWgQaBFgEWgTvARoEWwRYBFkEWwRaBFgEXARZBAkCXARbBFkEXQTvAVoEXQQfBO8BXgRaBFsEXgRdBFoEXwRbBFwEXwReBFsEYAQfBF0EYATxAR8EYQRdBF4EYQRgBF0EYgReBF8EYgRhBF4EYwTxAWAEYwQiBPEBNwQiBGMEBwJjBGAEBwJgBGEEBgI3BGMEBgJjBAcC9gE3BAYCZAQHAmEEZARhBGIEFgEGAgcCFgEHAmQEZQT2AQYCZQQGAhYBOAT2AWUEYgQUAWQEFgFkBBQBYgSgABQBXwSgAGIEFgEUAWYEZQQWAWYEoABnBBQBZgQUAWcEXwRoBKAAXARoBF8EoABpBGcEaARpBKAAXAShAGgECQKhAFwEaARqBGkEoQBqBGgECQJrBKEAVwRrBAkCoQBsBGoEawRsBKEA5QFrBFcEUQTlAVcEawRtBGwE5QFtBGsEbgTlAVEETwRuBFEEpABtBOUBbgSkAOUBbwRuBE8EDAJvBE8ECwJvBAwCbwQKAm4ECgKkAG4ECwJwBG8EcAQKAm8ERwRwBAsCRwRxBHAEAwJxBEcEcAQMAQoCcQQMAXAECgIJAaQADAEJAQoCCQEKAaQApAAKAW0ECQFyBAoBAwJzBHEEEAFzBAMCcQR0BAwBcwR0BHEEDAF1BAkBdQRyBAkBdAR1BAwBCgFyBAgCdQQIAnIEbQQKAQsBCgEIAgsBbQQLAWwEdgQIAnUEdAR2BHUECwEIAncEdgR3BAgCbAQLAXgECwF3BHgEbAR4BGoEDQF2BHQEcwQNAXQEeQR3BHYEDQF5BHYEeAR3BHoEeQR6BHcEagR4BAUCeAR6BAUCagQFAmkEewQNAXMEEAF7BHMEEgF7BBABewSiAA0BogB5BA0BEgF8BHsEfASiAHsE/gF8BBIBogACAnkEAgJ6BHkEfAT/AaIA/wECAqIA/gF9BHwEfQT/AXwE+gF9BP4BAgJ+BHoEBQJ6BH4E/wGdAAICnQB+BAICBQJ+BAQCnQAEAn4EaQQFAgQCaQQEAmcEfwRnBAQCfwQEAp0AZgRnBH8EgASdAP8BgAR/BJ0AfQSABP8BgQRmBH8EgQR/BIAEZQRmBIEEOARlBIEEEwGBBIAEOASBBBMBEwGABH0EmQA4BBMB+gETAX0EmQATAfoBEwKCBBUCrQATAhUCgwQTAq0ArQAVAoQEgwSFBBMChgSFBIMEhQQUAhMCEwIUAoIEhgSHBIUEUgCHBIYEUgCIBIcEhwQYAoUEhQQYAhQCiAQaAocEhwQaAhgCiASJBBoCiQQmARoCiQQnASYBGgKwABgCGgImAbAAGAKKBBQCGAKwAIoEFAKKBIsEFAKLBIIEJwEoASYBJwGxACgBJgGuALAAJgEoAa4AsAAhAYoEsACuACEBigQZAosEigQhARkCsQArASgBsQCyACsBKAErASoBKAEqAa4AsgCMBCsBsgCNBIwEKwGOBCoBKwGMBI4EjQQcAowEjQSPBBwCjASQBI4EjAQcApAEjwSRBBwCjwSSBJEEHAKTBJAEHAKRBJMEkgQsAZEEkgQtASwBkQQfApMEkQQsAR8CLQEgAiwBLQGzACACswBXACACswBYAFcAIAJXAFYALAEgAi4BIAJWAC4BLAEuAR8CLgFWAFQALgFUALQAHwIuAbQAtABUAFUAHwK0AC8BkwQfAi8BtABVAJQELwG0AJQElARVAFAAkwQvAZUEkASTBJUELwGUBCEClQQvASEClARQACICIQKUBCICIgJQAFEAkASVBJYEjgSQBJYElQQhApcElgSVBJcEIQIiAjABlwQhAjABIgJRACMCMAEiAiMCUwAjAlEAjgSWBJgEKgGOBJgElgSXBJkEmASWBJkElwQwAZoEmQSXBJoEMAEjAjEBmgQwATEBUwAlAiMCMQEjAiUCWgAlAlMAWgCbBCUCWQCbBFoAMQElApwEnAQlApsEmgQxAZ0EnQQxAZwEngSaBJ0EmQSaBJ4EWQAoApsEWwAoAlkAnASbBJ8EnwSbBCgCnQScBKAEoAScBJ8EoQSdBKAEngSdBKEEWwApAigCKQJbAFwAnwQoAjQBNAEoAikCoASfBKIEogSfBDQBJwKgBKIEoQSgBCcCKQJcADYBNgFcAF0ANAEpAjUBNQEpAjYBogQ0ASoCKgI0ATUBowSiBCoCJwKiBKMENgFdAKQEpARdAF4ANQE2ASwCLAI2AaQEKgI1AaUEpQQ1ASwCpgQqAqUEowQqAqYEpAReACsCKwJeAF8ALAKkBKcEpwSkBCsCpQQsAqgEqAQsAqcEqQSlBKgEpgSlBKkEKwJfAL4AvgBfAGAApwQrAroAugArAr4AqASnBKoEqgSnBLoAqwSoBKoEqQSoBKsEvgBgAC4CLgJgAGEALgJhAL8AOgG+AC4CugC+ADoBOAEuAr8AOgEuAjgBOAG/ADkBrAS6ADoBqgS6AKwErQQ6ATgBrAQ6Aa0ErgQ4ATkBrQQ4Aa4ErgQ5Aa8EsASqBKwEqwSqBLAEsQSsBK0EsASsBLEEsgStBK4EsQStBLIEswSuBK8EsgSuBLMEswSvBLQEtQSzBLQEtQS0BLYEtwSyBLMEtwSzBLUEuASxBLIEuASyBLcEuQSxBLgEuQSwBLEEPAG1BLYEPAG2BL0AOwG3BLUEOwG1BDwBLwK4BLcELwK3BDsBMAK5BLgEMAK4BC8CPQE8Ab0APQG9ALwAMQI7ATwBMQI8AT0BuwAvAjsBuwA7ATECugQwAi8CugQvArsAMwI9AbwAMwK8AD4BNAIxAj0BNAI9ATMCNQK7ADECPwExAjQCPwE1AjECNgIzAj4BNgI+AbsEQQE0AjMCQQEzAjYCvAQ/ATQCvAQ0AkEBvQQ2ArsEvQS7BL4EvwS9BL4EvwS+BGIAQgG9BL8EwAQ2Ar0EQgHABL0EwARBATYCwQTABEIBNwJBAcAEwQQ3AsAENwK8BEEBwgQ3AsEEwgTDBDcCwwS8BDcCOALDBMIEwwQ5ArwEOALEBMMExAQ5AsMExQTEBDgCOQI/AbwExQQ8AsQEuAA8AsUExAQ6AjkCPAI6AsQEOQLGBD8BOgLGBDkCxgQ1Aj8BuADHBDwCyATHBLgAPAJEAToCxwREATwCOgLJBMYERAHJBDoCxgTKBDUCyQTKBMYEygTLBDUCNQLLBLsAywS6BLsAygTMBMsEywTNBLoEzATNBMsEzQQ3AboENwEwAroEyQRAAcoEQAHMBMoEPgJAAckERAE+AskEQAE7AswERwE+AkQBxwRHAUQBPgJGAUABRgE7AkABRwE/Aj4CPwJGAT4CzgRHAccEyATOBMcEPQLOBMgEzgTPBEcBzwQ/AkcBPQLQBM4E0ATPBM4EFwLQBD0CFwLRBNAEJAHRBBcC0ARAAs8E0QRAAtAEzwTSBD8CQALSBM8E0gRBAj8CPwJBAkYBJAEWAtEEhAQWAiQBhAQVAhYCFgJCAtEE0QRCAkACFQIjARYCFgIjAUICFQKCBCMBQgIlAUACQAIlAdIEIwFDAkICQgJDAiUBggTTBCMBIwHTBEMCggSLBNMEJQHUBNIE0gTUBEECQwJEAiUBJQFEAtQE0wRFAkMCQwJFAkQCiwQiAdME0wQiAUUCiwQZAiIBRALVBNQERQLWBEQCRALWBNUEIgHXBEUCRQLXBNYEGQLYBCIBIgHYBNcEGQLZBNgEIQHZBBkC2ARGAtcEIQEbAtkErgAbAiEB2QRHAtgE2ARHAkYCGwLaBNkE2QTaBEcCrgAdAhsC1wRGArcA1wS3ANYEGwLbBNoEHQLbBBsCrgApAR0CrgAqASkBKgGYBCkBKQGYBNwEmASZBNwE3ASZBJ4EKQHcBN0EHQIpAd0E3ASeBN4E3QTcBN4E3gSeBKEEHQLdBN8EHQLfBNsE3QTeBCQC3wTdBCQC3gShBOAEJALeBOAE4AShBCcC4AQnAuEE4QQnAqMEJALgBOIE4gTgBOEE3wQkAh4CHgIkAuIE3wQeAuME3wTjBNsE4QSjBOQE5ASjBKYE4gThBOUE5QThBOQEHgLiBCYCJgLiBOUEHgImAuYEHgLmBOMEJgLlBOcE5gQmAucE5QTkBOgE5wTlBOgE5ASmBOkE6ATkBOkE6QSmBKkE6QSpBOoE6gSpBKsE6ATpBOsE6wTpBOoE5wToBOwE7AToBOsEMgHnBOwE5gTnBDIB6gSrBO0E7QSrBLAE7QSwBLkE7gTqBO0E6wTqBO4E7wTtBLkE7gTtBO8E7wS5BDACNwHvBDACLQLuBO8ELQLvBDcB8ATrBO4E8ATuBC0C7ATrBPAEMgItAjcBzQQyAjcB8QTsBPAEMgHsBPEEtgDwBC0C8QTwBLYAMgLyBC0CtgAtAvIE8wQyAs0EzATzBM0EOwLzBMwE8wT0BDIC9ATyBDICOwL1BPME9QT0BPME9gT1BDsCRgH2BDsCQQL2BEYBQQL3BPYE1AT3BEEC1ATVBPcE9wRNAvYE9gRNAvUE1QRFAfcE9wRFAU0C1QT4BEUB1gT4BNUE1gS3APgETQK5APUE9QS5APQERQFDAU0CTQJDAbkA+AT5BEUBRQH5BEMBtwD6BPgE+AT6BPkEtwD7BPoERgL7BLcA+QT8BEMBRgJIAvsERwJIAkYC+gRLAvkE+QRLAvwEQwH8BEwCSwJMAvwEQwFMArkA+gT9BEsC+wT9BPoESwIzAUwC/QQzAUsCuQBMAv4EMwH+BEwCuQD+BPQE9AT+BPIE/wTyBP4EMwH/BP4E/wS2APIE/QQABTMBAAX/BDMBAQW2AP8EAAUBBf8EAQXxBLYASgIABf0E+wRKAv0ESAJKAvsESgICBQAFAgUBBQAFSAIDBUoCAwUCBUoCBAXxBAEFAgUEBQEFBAUyAfEEAwVJAgIFSQIEBQIFrwADBUgCrwBJAgMFRwKvAEgC2gSvAEcCtQAyAQQFSQK1AAQFtQDmBDIB4wTmBLUABQW1AEkC4wS1AAUFBQVJAq8A2gQFBa8A2wTjBAUF2wQFBdoE"),
 "lods": [0.0486869, PackedByteArray("SAEBAAIASQEBAEgBSQEHAAEASgFIAQIAAgADAEoBSgEDAAQASgF2AEgBdgBJAUgBSgEEAEsBSwEEAAUASwEFAAYASwEGAEwBTAEGAAgATQFKAUsBTQFOAUoBTgF2AEoBTwFNAUsBTwFLAUwB0ABNAU8B0ABOAU0BTAEIAFABUAEIACIAywBPAUwBUQFPAcsAUQHQAE8BywBMAXoAegBMAVABUAEiAFIBIgAkAFIBUgEkACYAUgEmACUAUgElACMAwwBSASMAUAFSAcMAwwAjACEAUAFTAXoAwwBTAVABUwHKAHoAUwFUAcoAUwF5AFQBwwB5AFMBwwBVAXkAwwAhAFYBVgFVAcMAVgEhACAAegDKAFcBygDMAFcBegBXAcsAVwHMAM0AVwHNAM4AywBXAVEBVwHOAFgBUQFXAVgBWAHOAHwAWQFYAXwAUQFYAc8AzwBYAVkBWQF8AMcAWgFRAc8A0gDPAFkB0gBaAc8AWwHSAFkBWwFZAccAXAFaAdIA0wDSAFsB0wBcAdIA1ABcAdMAXQHTAFsB1ADTAF0B1AAdAFwBXgHUAF0BHQDVAFwBXAHVAFoBXQFbAX0AfQBbAccAXgFdAdEA0QBdAX0A1QB7AFoBWgF7AFEBHQBfAdUA1QBfAXsAHQBgAV8BewBhAVEBXwFhAXsAYQHQAFEBYAFiAV8BXwFiAWEBYAHmAGIBYgHnAGEBYQHnANAAYgHmAOcAYAEAAOYA5wBjAdAA5gBjAecAYwFOAdAAAABkAeYA5gBkAWMBAADlAGQBZAGAAGMBYwGAAE4BZAHlAIAAAABlAeUAgABmAU4B5QBmAYAAZgF2AE4BZQFnAeUA5QBnAWYBZQHkAGcBZQFoAeQAZwFpAWYBZgFpAXYAZwHkAGkBaAFqAeQAaAGBAGoB5ACCAGkB5ABqAYIAaQFrAXYAaQGCAGsBawFsAXYAgQBtAWoBggBuAWsBawFuAWwBagFvAYIAggBvAW4BagFtAW8BgQBwAW0BdgBsAUkBbwFxAW4BbQGDAG8BbwGDAHEBcAHgAG0BbQHgAIMAcAFyAeAAcAEPAHIB4ABzAYMA4AByAXMBgwDiAHEBgwBzAeIAcQF0AW4BbgF0AWwB4gB1AXEBcQF1AXQB4gDjAHUBdQF2AXQBdQHjAHYBdAF2AXcBdAF3AWwBbAF3AYUAeAHjAOIAcwF4AeIAeAGGAOMAbAGFAHkBbAF5AUkBeQGFAHoBSQF5AXoBegGFAHsBSQF6AXwBegF7AXwBfAEHAEkBfAF7AeEAfAF9AQcAfQEKAAcAfQELAAoAfQEMAAsAfQENAAwADgANAH0BfAHhAH4BfgF9AXwBfgHhAAkAwgB9AX4BwgAOAH0BwgB+AQkAfwEOAMIAfwERAA4AfwESABEAfwETABIAwgAJAN8A3wB/AcIA3wAJAIABgAEJAIYAgAGGAHgBxQATAH8BxQAUABMAxQAVABQAgQEVAMUAgQEWABUAFwAWAIEBgQGCARcAggEZABcAggEaABkAggEbABoAgwEbAIIBgwEcABsAgwEeABwAgwEgAB4AVgEgAIMBhAGCAYEBhAGDAYIBgwGFAVYBhQFVAVYBhQEfAFUBfAAfAIUBxwB8AIUBeACFAYMBhAF4AIMBhgHHAIUBeACGAYUBhwHHAIYBhwF9AMcA0QB9AIcBiAGHAYYBiAGGAXgAiQHRAIcBiQGHAYgBXgHRAIkBfwBeAYkBfgCJAYgBfwCJAX4AyACIAXgAfgCIAcgAfwB+AIoBigF+AMgAigB/AIoBiwHIAHgAigHIAIsBiwF4AIwBigCKAYsAiwCKAYsBjAF4AIQBigCLANYAiwCLARgAGACLAYwB1gCLABgAjQGKANYAjgEYAIwB1gAYAI4BjQHWAI8BjwHWAI4BjQGPAdcAjwGOAZABkAGOAYwB1wCPAZABkQGNAdcAkAGMAcYAxgCMAYQB1wCQAckAyQCQAcYAkQHXAJIBkgHXAMkAkQGSAYkAEACRAYkAkgHJAJMBkwHJAMYAiQCSAZMBEACJANgA2ACJAJMBEADYAJQB2gAQAJQB2ACTAYgAlAHYAIgA2gCUAdkAiACTAZUBkwHGAJUBlAGIANwA2QCUAdwA2gDZAJYBlgHZANwAhADaAJYBiACVAXcA3ACIAHcAhACWAdsAlgHcAIcA2wCWAYcAhADbAJcBlwHbAIcADwCEAJcB3AB3AN0AhwDcAN0ADwCXAd4ADwDeAHIBlwGHAJgB3gCXAZgBmAGHAJkBhwDdAJkBcgHeAJoB3gCYAZoBcgGaAXMBcwGaAXgBmgGAAXgBmgGYAYABmAGZAYABgAGZAd8AmQHdAN8A3wDdAH8B3QCbAX8B3QB3AJsBmwHFAH8BdwCVAZsBmwGcAcUAlQGcAZsBxQCcAYEBlQHGAJwBnAGEAYEBxgCEAZwBnQGeAYwAngGfAYwAnQGMAKABngGhAZ8BnwGiAYwA6QCeAZ0B6QChAZ4BoQGjAZ8BpAHpAJ0BjACiAaUBoAGMAKUBnwGmAaIBnwGjAaYBpgEzAKIBpgEpADMApgGnASkAowGnAaYBpwEqACkApwErACoApwEsACsALQAsAKcBowEtAKcBogEzAKgBMwA0AKgBqAE0ADUAqAE1ADYAqAE2ADcAogGoAfAA8ACoATcApQGiAfAAKAAtAKMBoQEoAKMBKACpAS0AqQEuAC0AqQEvAC4AMAAvAKkBqgGpASgAqgEwAKkBqwEoAKEBqwGqASgA6QCrAaEBrAEwAKoBqwGsAaoBrAExADAArQGsAasB6QCtAasBrgExAKwBrQGuAawBTgBMADEArgFOADEArwGtAekAJwCuAa0BrwEnAK0BrgGwAU4AsAFPAE4AsAFNAE8AsAFLAE0AsAFAAEsAQQBAALAB7ACwAa4B7ABBALABsQHsAK4BsQGuAScA7QBBAOwA6wCxAScA6wAnAK8BsgHsALEB6wCyAbEBsgHtAOwAPwCyAesA7QCzAUEAswFCAEEAswFDAEIARABDALMB7QBEALMBtAHtALIBPwC0AbIBtQFEAO0AtAG1Ae0AtQFFAEQARQBHAEQARQBJAEcARQBIAEkARQBGAEgAOwBGAEUAlwBFALUBtgE7AEUAtgFFAJcAtwGXALUBtwG2AZcAtwG1AbQB7gC3AbQB7gC0AT8AuAG2AbcB7gC4AbcB7wA7ALYBuAHvALYB7wC5ATsAuQE6ADsAuQE5ADoAuQE4ADkANwA4ALkBugG5Ae8AugE3ALkBuAG6Ae8A8AA3ALoBuwHwALoBuwG6AbgBpQHwALsBoAGlAbsBvAG7AbgBoAG7AbwBvAG4Ae4AvQGgAbwBvgGgAb0BvgGdAaABvQG8Ab8BwAG8Ae4AvAHAAb8BwAHuAMEBwQHuAD8AwAHBAcIBwAHCAb8BwQE/AMMBwwE/AOsAvQG/AcQBvgG9AcQBxQGdAb4BpAGdAcUBxQG+AcYBpAHFAfIAxQHGAfIAvgGPAMYBvgHEAY8A8gDGAfUAxgE8APUAxgGPADwA8gD1AMcBjwDIATwAjwDEAcgBxAEyAMgBxAHJATIA9gDyAMcBpAHyAPYA9gDHAZAAxAHxAMkB8QDKAckBvwHxAMQB8QDLAcoBvwHLAfEAywGTAMoBvwHCAcsBywHzAJMAwgHzAMsB8wDMAZMA8wCUAMwBwgGUAPMAlAA+AMwBwgHNAZQAlADOAT4AwQHNAcIBzQHOAZQAzgGVAD4AzQHBAcMBzgH0AJUAzQHPAc4BzQHDAc8BzgHQAfQAzwHQAc4B0AE9APQAwwHRAc8BzwHRAdAB0AGWAD0A0QGWANABlgDSAT0AwwHTAdEBwwHrANMB0QHUAZYA0wHUAdEB0wHrAK8B0wGvAdQBlgCRANIB1AGRAJYAkQDVAdIBrwHWAdQB1AHWAZEArwHoANYB6ACvAekAkQDXAdUB1gHXAZEA1wGSANUB1gHoANgB2AHoAOkA1gHYAdcB2AHpAKQB1wHZAZIA2AHZAdcB2AGkAdkB2QGQAJIApAH2ANkB2QH2AJAA9wD4AHUApgD3AHUA9wDaAfgA2gGoAPgApgDbAfcA2wHaAfcApgDcAdsB+gDcAaYA2wH5ANoB3AH5ANsB2gH7AKgA+QD7ANoB+wCqAKgA+QDdAfsA+wD9AKoA3QH9APsA/QD+AKoA3AGnAPkApwDdAfkA3gGnANwB+gDeAdwBpwDfAd0B+gDgAd4B3gHhAacA4QHfAacA4AHhAd4BAAHgAfoA3QEDAf0A3wGpAN0BqQADAd0B3wHiAakA4QHiAd8BqQDjAQMB4gHkAakA5AHjAakA4QHlAeIB4gHlAeQBAwHmAf0A/QDmAf4AAwHnAeYB4wHnAQMB5gECAf4A5wECAeYBAgGsAP4AAgHoAawA5wHoAQIBdACsAOgBdADoAXMAcwDoAasA5wGrAOgBcwCrAHIABAGrAOcB4wEEAecBcgCrAOkBBAHpAasAcgDpAXAA4wHqAQQB6gHpAQQBBgHqAeMB5AEGAeMB6gEFAekBcADpAQUBBgEFAeoBcAAFAXEAcQAFAW8ABwEFAQYBBwEGAeQBbwAFAesBBwHrAQUBbwDrAW4A7AFuAOsB7AFtAG4ACAHsAesBCAHrAQcB7QFtAOwB7QFsAG0A7gHsAQgB7gHtAewB7QFrAGwA7gEIAe8B7wEIAQcB8AHtAe4B8QHuAe8B8AHuAfEB8gFrAO0B8AHyAe0B8gFlAGsAoQDvAQcB8QHvAaEAZQDyAfMBZQDzAWQAFQHyAfABFQHzAfIBZADzASABZAAgAWYAFwHzARUBFwEgAfMBZgAgAWcAZwAgAR8BZwAfAWgAngAfASABngAgARcBaAAfAfQBaAD0AWkAaQD0AZ8AaQCfAGoAHgGfAPQBHQH0AR8BHgH0AR0BHQEfAZ4AnAAeAR0BnAAdARwBHAEdAZ4AmACcABwBHAGeABoBGgGeABcBmAAcARsBGwEcARoBGQGYABsBGwEaAZkAGQEbAfUB9QEbAZkAGgEXAZsAmQAaAZsAmwAXAfYB9gEXARUBmQCbABMBEwGbAPYBGQH1AfcBYwAZAfcBYwD3AfgB9wH1AfkB9QGZAPkB+AH3ARgB9wH5ARgB+QGZAPoBGAH5AfoBmQATAfoB+AEYAfsBGAH6AfsB+AH7AZoAmgD7AfwBmgD8Af0B+wH6Af4B+gETAf8B+gH/Af4B+wH+AQAC+wEAAvwB/gESAQAC/gH/ARIB/AEAAgECAAISARABAAIQAQECEgH/AaIAEgGiABAB/wECAqIAEAGiAA0BogACAg0BAQIQAQMCEAENAQMC/AEBAqMA/wGdAAICEwGdAP8BnQAEAgICEwEWAZ0AnQAUAQQCFgEUAZ0AEwH2ARYBAgIEAgUCBQIEAhQBAgIFAg0BFgH2AQYC9gEVAQYCBgIVAfABFgEGAgcCBgLwAQcCFgEHAhQBBwLwAfEBFAEHAvEBFAHxAaAAoAAFAhQBoADxAaEAoQAFAqAAoQALAQUCCwEIAgUCDQEFAggCCQILAaEAoQAHAQkCCQIHAeQB5QEJAuQBCQIKAQsB5QEKAQkCCgEIAgsBpAAKAeUBCgEJAQgCCQEKAaQADAEIAgkBDQEIAgwBCgIJAaQADAEJAQoC/ACkAOUBCgKkAPwA/ADlAeEBCwINAQwBCwIMAQoCAwINAQsCDAIKAvwACwIKAgwCDQL8AOEB4AENAuEBDgIMAvwADgL8AA0C/wANAuAB/wAOAg0CAAH/AOABAAEPAv8ADwIOAv8AAQEPAgABpQAMAg4CDwKlAA4CpQALAgwCAQEOAQ8CDgGlAA8CEAILAqUAEAIDAgsCDgEQAqUAAQIDAhACowABAhACowAQAg4BEQIOAQEBDwERAgEBEgKjAA4BEgIOARECDwESAhEC/AGjABIC/QESAg8B/QH8ARICEwIUAhUCrQATAhUCUgATAq0ArQAVAhYCrQAWAiQBJAEWAhcCFQIjARYCUgAYAhMCGAIUAhMCFAIZAhUCFQIZAiMBUgAaAhgCUgAnARoCGAKwABQCGgKwABgCsAAhARQCFAIhARkCGgImAbAAJwEmARoCsACuACEBJgGuALAAJwEoASYBJgEoAa4AJwGxACgBIQEbAhkCrgAbAiEBsQArASgBsQCyACsBKAEqAa4AKAErASoBsgAcAisBKwEcAioBsgAtARwCrgAdAhsCrgAqASkBrgApAR0CHQIeAhsCHQIpAR4CLQEsARwCHAIfAioBHAIsAR8CKgEfAi8BKgEvASkBLQEgAiwBLQGzACACswBXACACswBYAFcAIAJXAFYALAEgAi4BIAJWAC4BLAEuAR8CLgFWAFQAHwIuAbQALgFUALQAHwK0AC8BtABUAFUAtABVAFAALwG0ACECLwEhAikBtABQACICIQK0ACICIgJQAFEAKQEhAjABIQIiAjABIgJRACMCMAEiAiMCUwAjAlEAKQEwASQCHgIpASQCMAEjAjEBJAIwATEBUwAlAiMCMQEjAiUCWgAlAlMAWQAlAloAJAIxASYCHgIkAiYCMQElAicCJgIxAScCWQAoAiUCWwAoAlkANAElAigCJwIlAjQBWwApAigCNAEoAikCKQJbAFwAJwI0ASoCNAEpAjUBKgI0ATUBKQJcADYBNQEpAjYBNgFcAF0ANgFdAF4AJwIqArYAtgAqAjUBMgEnArYAJgInAjIBNgFeACsCKwJeAF8ANQE2ASwCugA2ASsCLAI2AboAKwJfAL4AugArAr4AvgBfAGAANQEsAjcBNwEsAroAtgA1AS0CLQI1ATcBvgBgAC4CLgJgAGEALgJhAL8AOgG+AC4CugC+ADoBOAEuAr8AOgEuAjgBOAG/ADkBLwK6ADoBMAK6AC8CNwG6ADACLwI6ATsBOwE6ATgBuwAwAi8CuwAvAjsBNwEwArsAPAE4ATkBOwE4ATwBPAE5Ab0AMQI7ATwBuwA7ATECPQE8Ab0AMQI8AT0BPQG9ALwAMgI3AbsAMgItAjcBMwI9AbwAMwK8AD4BNAIxAj0BNAI9ATMCNQK7ADECPwExAjQCPwE1AjECNgIzAj4BYgA2Aj4BQgE2AmIAQQEzAjYCQgFBATYCQQE0AjMCQgE3AkEBNwI0AkEBNwI/ATQCOAI3AkIBOQI/ATcCOAI5AjcCOQI1Aj8BOAI6AjkCOQI7AjUCOwK7ADUCOgI7AjkCOwIyArsAPAI6AjgCuAA8AjgCPAJEAToCuABHATwCRwFEATwCuAA9AkcBRAE+AjoCRwE+AkQBPgJAAToCOgJAATsCPgJGAUABRgE7AkABPwJGAT4CRwE/Aj4CPQJAAkcBQAI/AkcBFwJAAj0CPwJBAkYBFwJCAkACFgJCAhcCQAIlAT8CQgIlAUACJQFBAj8CFgIjAUICQgJDAiUBIwFDAkICQwJEAiUBJQFEAkECIwFFAkMCQwJFAkQCIwEiAUUCGQIiASMBRQK3AEQCRAK3AEECIgFGAkUCRQJGArcAGQJHAiIBIgFHAkYCGQIbAkcCRwJIAkYCRgJIArcAGwKvAEcCRwKvAEgCGwIeAq8AHgK1AK8AHgImArUAtQAmAjIBrwC1AEkCrwBJAkgCSQK1ADIBSAJJAkoCSQIyAUoCSAJKArcASgIyATMBMgG2ADMBMwG2AC0CSgIzAUsCtwBKAksCMwEtAkwCSwIzAUwCtwBLAkUBQQK3AEUBSwJMAkMBRQFLAkMBuQBMAi0CQwFMArkAuQAtAjICOwK5ADICTQJDAbkATQK5ADsCRQFDAU0CQQJFAU0CRgFNAjsCQQJNAkYB"), 0.172044, PackedByteArray("wAABAAIAAgADAMAAwAADAAQAwAAEAAUAwAAFAAYAwQABAMAAwQAHAAEAwAAGAHoAegAGAAgAegAIACIAIgAkAHoAegAkACYAegAmACUAwQDCAAcAwgAKAAcAwgALAAoAwgAMAAsAwgANAAwADgANAMIAegAlAMMAwwAlACMAwwAjACEAwwAhACAAdwAOAMIAdwARAA4AdwASABEAdwATABIAwwAgAMQAxAAgAB4AxAAeABwAxAAcABsAxAAbABoAxAAaABkAxAAZABcAxQATAHcAxQAUABMAxQAVABQAxQAWABUAFwAWAMUAxQDEABcAxgDEAMUAdwDGAMUAxgAYAMQAGAB4AMQAeADHAMQAxADHAMMAGADIAHgAyADHAHgAyQAYAMYAxwAfAMMAwwAfAHkAfAAfAMcAwwB5AHoAeQDKAHoAegDKAMsAygDMAMsAywDMAM0AywDNAM4AzwDOAHwAzwDLAM4AzwB8AMcAywDQAHoAzwDQAMsA0ADAAHoAfQDPAMcA0AB2AMAAyAB9AMcAdgDBAMAA0QB9AMgAfgDRAMgAfQDSAM8AiwB+AMgAiwDIABgAfwDRAH4AfwB+AIsA0QDTAH0AfwDTANEA0wDSAH0AigB/AIsAfwDUANMA1ADVANMA0wDVANIA1AAdANUAHQAAANUAigCLANYA1gCLABgA1gAYAMkAigDWANcA1wDWAMkAEACKANcAiQDXAMkAEADXAIkAiQDJAIgAEACJANgA2ACJAIgAiADJAMYAEADYANkA2QDYAIgA2gAQANkAiADGAHcA2gDZANsA2QCIANwA3ACIAHcA2wDZANwAhADaANsA3AB3AN0AhADbAN4ADwCEAN4A2wDcAIcAhwDcAN0A3gDbAIcA3wDdAHcADwDeAOAAhwDdAN8A4ADeAIcAgQAPAOAA3wB3AMIAwgAJAN8A4QAJAMIA4QDCAMEA3wAJAIYAwQCFAOEA3wCGAOIAhwDfAOIA4gCGAOMA4gDjAIUAgwCHAOIA4ACHAIMA4gCFAIIAggCFAMEAggCDAOIA4ACDAIIAdgCCAMEA5ADgAIIAgQDgAOQAgACCAHYA5ACCAIAAgQDkAOUA5QDkAIAAAACBAOUAAADlAOYA5gDlAIAAAADmANUA5wCAAHYA5gCAAOcA5wB2ANAA1QDmAHsA5gDnAHsAewDnANAA1QB7ANIAewDQAM8A0gB7AM8A6ADpAIwA6AAnAOkA6QAoAIwA6QAnACgA6gDoAIwA6wAnAOgA6wDoAOoAJwAxACgAJwBOADEATgBMADEAMQAwACgAJwDsAE4A6wDsACcA7ABPAE4AMAAvACgA7ABNAE8AKAAvAC4A7ABLAE0A7ABAAEsAQQBAAOwAKAAuAC0ALQAsACgAKAAsACsAKAArACoAKAAqACkAjAAoACkAjAApADMA7QBBAOwA7QBCAEEA7QBDAEIA6wDtAOwARABDAO0APwDtAOsAlwBEAO0APwCXAO0AlwBFAEQARQBHAEQARQBJAEcARQBIAEkARQBGAEgAOwBGAEUA7gBFAJcA7gA7AEUA7gCXAD8APwDrAJYA7wA7AO4A7wA6ADsA7wA5ADoA7wA4ADkANwA4AO8A6wDqAJYA8AA3AO8A8AA2ADcA8AA1ADYA8AA0ADUAMwA0APAAjAAzAPAAjQDwAO8AjADwAI0AjQDvAO4A8QCMAI0AjQDuAPEA6gCMAPIA7gDzAPEA8QDzAJMA7gCUAPMA8wCUAJMAlADuAD8A8QCTADIAlAA+AJMAlACVAD4AlAD0AJUAlAA/AJYAlACWAPQAlgA9APQAjwDxADIAjwCMAPEAjwAyADwA8gCMAI8A8gCPADwA8gA8APUA8gD1AJAAlgCRAD0AkQCSAD0AlgDqAJEA9gCQAJIA9gDyAJAAkQD2AJIA6gDyAPYA6gD2AJEA9wD4AHUApgD3AHUA9wD5APgApgD5APcA+QCoAPgApgCnAPkA+gCnAKYA+QD7AKgA+wCqAKgApwCpAPkA+QCpAPsA+gD8AKcApwD8AKkA+wD9AKoAqQD9APsA/QD+AKoA/wD8APoAAAH/APoAAAGlAP8A/wClAPwAAQGlAAAB/QACAf4AAgGsAP4AAwECAf0AqQADAf0AAgGrAKwAdACsAKsAdACrAHMAcwCrAHIAcgCrAHAAAwEEAQIBBAGrAAIBqQAEAQMBcACrAAUBBAEFAasAcAAFAXEAcQAFAW8AbwAFAW4ABgEFAQQBBgEEAakABwFuAAUBBwEFAQYBpAAGAakABwEGAaQA/ACkAKkACAFuAAcBCAFtAG4AbABtAAgBCQGkAPwACgEHAaQACQEKAaQAoQAIAQcBoQAHAQoBpQAJAfwAoAAIAaEAoABsAAgBCgELAaEACgEJAQsBoQALAaAApQAMAQkBDAELAQkBDQELAQwBpQANAQwBDQGgAAsBDgENAaUAAQEOAaUADwEOAQEBDwGjAA4BEAENAQ4BowAQAQ4BDwERAaMAEQEQAaMAmgARAQ8BEAGiAA0BogCgAA0BEQESARABEgGiABABmgASAREBogCdAKAAEgGdAKIAEwESAZoAEwGdABIBoACdABQBFAEVAaAAFgEUAZ0AFgEVARQBEwEWAZ0AFQFsAKAAFQFlAGwAZQBrAGwAFQFkAGUAFgEXARUBFwFkABUBEwGbABYBmwAXARYBGAETAZoAYwAYAZoAYwAZARgBGAGZABMBmQCbABMBGQGZABgBGgEXAZsAmQAaAZsAGQEbAZkAGwEaAZkAGQGYABsBmAAcARsBGwEcARoBmACcABwBGgGeABcBHAGeABoBnAAdARwBHAEdAZ4AnAAeAR0BHgGfAB0BaQCfAGoAaACfAGkAHQGfAB8BaAAfAZ8AHQEfAZ4AZwAfAWgAngAfASABZwAgAR8BngAgARcBZgAgAWcAFwEgAWQAZAAgAWYArQAhASIBrQAiASMBrQAjASQBJAEjASUBIwEiASUBJAElAbgAIgG3ACUBIQGvACIBIgGvALcAsAAhAa0AUgCwAK0AUgAmAbAAUgAnASYBsACuACEBJgGuALAAJwEoASYBJgEoAa4AJwGxACgBrgApASEBKQGvACEBKAEqAa4ArgAqASkBsQArASgBKAErASoBsQCyACsBsgAsASsBKwEsASoBsgAtASwBLQGzACwBswBYAFcAswBXAFYAswBWAC4BLAGzAC4BLgFWAFQALAEvASoBLAEuAS8BKgEvASkBLgFUALQALwEuAbQAtABUAFUAtABVAFAALwG0ADABLwEwASkBMAG0AFAAKQEwAa8AMAFQAFEAMAFRADEBrwAwATEBMQFRAFMArwAxAbUArwC1ALcAMQFTADIBtQAxATIBWQBTAFoAtwC1ADMBtQAyATMBNAFTAFkAMgFTADQBNAFZAFsAMgE0AbYAMgG2ADMBNAFbADUBtgA0ATUBNQFbADYBWwBcADYBtgA1ATcBMwG2ADcBNQE2ATcBNgFcAF0ANgFdAF4AugA2AV4ANwE2AboAugBeAL4AXgBfAL4AvgBfAGAAvgBgAGEAvgBhAL8AOAG+AL8AOAG/ADkBugC+ADoBOgG+ADgBOwE6ATgBuwC6ADoBuwA6ATsBNwG6ALsAOwE4ATwBPAE4ATkBuwA7ATwBPAE5Ab0APQE8Ab0AuwA8AT0BPQG9ALwAPgE9AbwAPwG7AD0BPwE9AT4BQAE3AbsAQAG7AD8BQAG5ADcBMwE3AbkAQQE/AT4BQgFBAT4BQgE/AUEBQgE+AWIAuAA/AUIBuABAAT8BMwG5AEMBQwG5AEABRAFAAbgARQEzAUMBtwAzAUUBJQG3AEUBRgFDAUABRAFGAUABRQFDAUYBuABHAUQBuAAlAUcBRwFGAUQBJQFFAUcBRwFFAUYB"), 0.310132, PackedByteArray("dgABAAIAAgADAHYAdgADAAQAdgAEAAUAdgAHAAEAdgAFAAYAdgAJAAcACQAKAAcACQALAAoACQAMAAsACQANAAwADgANAAkACQB3AA4AdwARAA4AdwASABEAdwATABIAdwAUABMAdwAVABQAdwAWABUAFwAWAHcAdwB4ABcAeAAZABcAeAAaABkAeAAbABoAeAAcABsAeAAeABwAeAAgAB4AeQAgAHgAeQAhACAAeQAjACEAeQAlACMAeQAmACUAeQAkACYAIgAkAHkAegAiAHkAegAIACIAegAGAAgAdgAGAHoAegB5AHsAeAAfAHkAewB5AHwAfAAfAHgAfQB8AHgAfQB7AHwAHQB7AH0AfgB9AHgAfgAdAH0AHQAAAHsAfwAdAH4AAACAAHsAewCAAHoAgAB2AHoAAACBAIAAgACCAHYAgQCCAIAAgQCDAIIAggCDAHYAgQAPAIMADwCEAIMAgwCFAHYAdgCFAAkAgwCGAIUAhwAJAIYAhwCGAIMAgwCEAIcAhwB3AAkAhACIAIcAiAB3AIcAhAAQAIgAiAAYAHcAdwAYAHgAGAB+AHgAEACJAIgAiQAYAIgAEACKAIkAiwB+ABgAiQCLABgAigCLAIkAfwB+AIsAigB/AIsAJwAoAIwAKAAsACsALQAsACgAKAArACoAKAAuAC0AKAAvAC4AKAAqACkAjAAoACkAMAAvACgAKAAnADAAjAApADMAJwAxADAAjAAzAI0AMwA0AI0AjQA0ADUAjQA1ADYAjQA2ADcAjQA3AI4ANwA4AI4AjgA4ADkAjgA5ADoAjgA6ADsAjwCMAI0AjQCOAI8AkACMAI8AkQCMAJAAkACPADwAjwAyADwAkQCQAJIAjwCTADIAkQCSAD0AjwCUAJMAjgCUAI8AlAA+AJMAlACVAD4AlgA9AJUAlACWAJUAlgCRAD0AlAA/AJYAPwCRAJYAjgA/AJQAkQAnAIwAPwAnAJEAjgCXAD8AjgA7AJcAlwA7AEUAOwBGAEUARQBGAEgARQBIAEkARQBJAEcARQBHAEQAlwBFAEQAlwBEAD8ARABDAD8APwBDAEIAPwBCAEEAPwBBAEAAPwBAACcAQABKACcAJwBKADEAQABLAEoASgBMADEASgBLAE0ASgBOAEwASgBNAE8ASgBPAE4AYwCYAJkAYwCZAJoAmACbAJkAmACcAJsAmQCdAJoAmQCbAJ0AnACeAJsAmwCeAJ0AnACfAJ4AaQCfAGoAaACfAGkAngCfAGgAZwCeAGgAZgCeAGcAZACeAGYAngBkAGUAnQCeAGUAZQBrAGwAZQBsAKAAnQBlAKAAoABsAG0AoABtAKEAoQBtAG4AoACiAJ0AoAChAKIAnQCiAKMAmgCdAKMAogChAKQAoQBuAKQAowCiAKUAmgCjAKUApQCiAKQAmgClAKYApQCkAKYApgCkAKcApgCnAHUApwCoAHUApwCkAKkApwCpAKgApABuAKkAqQCqAKgAbgCrAKkAqQCrAKoAqgCrAKwAdACsAKsAdACrAHMAcwCrAHIAbgBvAKsAcgCrAHAAcACrAG8AcABvAHEArQCuAK8AsACuAK0AUgCwAK0AUgCxALAAsQCuALAAsQCyAK4AsgCzAK4AswBYAFcAswBXAFYAswC0AK4AswBWALQArgC0AK8AVgBUALQAtABUAFUAtABVAFAAtABQAFEAtABRALUArwC0ALUAtQBRAFMAtQBTAFkAWQBTAFoAtQBZALYAtgBZAFsArwC1ALcAtwC1ALYAuACvALcArQCvALgAtwC2ALkAtgBbALkAuAC3ALkAWwC6ALkAuAC5ALsAWwBcALoAuAC7AGIAuQC6ALsAugBcAF0AYgC7ALwAugBdAF4AuwC9ALwAugBeAL4AuwC6AL4AuwC+AL0AXgBfAL4AvQC+AL8AvgBfAGAAvgBhAL8AvgBgAGEA"), 0.907871, PackedByteArray("AAABAAIAAgADAAAAAAADAAQAAAAEAAUAAAAFAAYAAAAHAAEAAAAGAAgAAAAJAAcACQAKAAcACQALAAoACQAMAAsACQANAAwADgANAAkADwAJAAAADwAQAAkACQAQAA4AEAARAA4AEAASABEAEAATABIAEAAUABMAEAAVABQAEAAWABUAFwAWABAAEAAYABcAGAAZABcAGAAaABkAGAAbABoAGAAcABsAEAAdABgAHgAcABgAHQAfABgAGAAfAB4AHQAAAB8AHwAgAB4AHwAAAAgAHwAhACAACAAiAB8AHwAjACEAIgAkAB8AHwAlACMAHwAkACYAHwAmACUAJwAoACkAKAAqACkAKAArACoAKAAsACsALQAsACgAKAAuAC0AKAAvAC4AMAAvACgAKAAnADAAJwAxADAAJwApADIAKQAzADIAMgAzADQANAA1ADIAMgA1ADYAMgA2ADcANwA4ADIAMgA4ADkAMgA5ADoAMgA6ADsAJwAyADwAJwA8AD0AJwA9AD4AMgA/AD4APgA/ACcAMgA7AD8AJwA/AEAAPwBBAEAAPwBCAEEAPwBDAEIARABDAD8APwA7AEUAPwBFAEQAOwBGAEUARQBHAEQARQBGAEgARQBJAEcARQBIAEkAQABKACcAJwBKADEAQABLAEoASgBMADEASgBLAE0ASgBOAEwASgBNAE8ASgBPAE4AUABRAFIAUgBRAFMAUABUAFUAVgBUAFAAUgBWAFAAUgBXAFYAUgBYAFcAWQBTAFoAUgBTAFkAUgBZAFsAWwBcAFIAUgBcAF0AUgBdAF4AXgBfAFIAUgBfAGAAUgBgAGEAUgBhAGIAYwBkAGUAZABjAGYAZgBjAGcAZwBjAGgAaABjAGkAaQBjAGoAZQBrAGwAZQBsAGMAYwBsAG0AYwBtAG4AbgBvAGMAcABvAHEAcABjAG8AcgBjAHAAcwBjAHIAdABjAHMAdAB1AGMA")],
-"material": SubResource("StandardMaterial3D_bul5c"),
+"material": SubResource("StandardMaterial3D_ac74a"),
 "name": "UFO-body_Baked.003",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -286,13 +286,13 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mnqcy")
 
 [node name="UfoModel" type="Node3D"]
-script = ExtResource("1_u4jq5")
+script = ExtResource("1_ps5ot")
 emission_dir = "res://SharedAssets/Ships/UFO/UFO Assests/UFO Emiss"
 properties_dir = "res://SharedAssets/Ships/UFO/UFO Assests/UFO r.Rough.g.Diff.b.Emstr.a.Metal"
 
-[node name="FinalUFO" parent="." instance=ExtResource("1_ixuop")]
+[node name="FinalUFO" parent="." instance=ExtResource("2_q1iba")]
 
 [node name="UFO" parent="FinalUFO" index="0"]
-mesh = SubResource("ArrayMesh_x1kkr")
+mesh = SubResource("ArrayMesh_t22xb")
 
 [editable path="FinalUFO"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1r4vrrpf7usc"]
+[gd_scene load_steps=7 format=3 uid="uid://c1r4vrrpf7usc"]
 
 [ext_resource type="Script" uid="uid://dym6anhd6wmu6" path="res://HoleInWallMinigane/wall_player.gd" id="1_m3bat"]
 [ext_resource type="ArrayMesh" uid="uid://w446wgc58vm4" path="res://GameBoard/Player/ship.obj" id="2_3v1dr"]
+[ext_resource type="PackedScene" uid="uid://cyg5yvdml04iv" path="res://SharedAssets/Ships/ShipModel.tscn" id="3_3xa70"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_td31j"]
 resource_local_to_scene = true
@@ -25,9 +26,13 @@ script = ExtResource("1_m3bat")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, 0, 0, 0)
+visible = false
 mesh = ExtResource("2_3v1dr")
 surface_material_override/0 = SubResource("StandardMaterial3D_td31j")
 surface_material_override/1 = SubResource("StandardMaterial3D_o3w5e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_3gvae")
+
+[node name="ShipModel" parent="." instance=ExtResource("3_3xa70")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)

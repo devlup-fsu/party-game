@@ -12,10 +12,14 @@ var maxSpeed = 9
 @export var color: Color
 @export var chained_player: Wall_Player
 
+@onready var ship_model: ShipModel = $ShipModel
+
 func _ready() -> void:
 	var material = $MeshInstance3D.get_surface_override_material(0)
 	if material is StandardMaterial3D:
 		material.albedo_color = color
+	
+	ship_model.player = player
 
 
 func _physics_process(delta):

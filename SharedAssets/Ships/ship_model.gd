@@ -3,8 +3,8 @@ class_name ShipModel
 extends Node3D
 
 var model_scenes = [
-	load("res://SharedAssets/Ships/UFO/UfoModel.tscn"),
-	load("res://SharedAssets/Ships/VShip/VShipModel.tscn"),
+	load("res://SharedAssets/Ships/UFO/UfoModelAlt.tscn"),
+	load("res://SharedAssets/Ships/VShip/VShipModelAlt.tscn"),
 	load("res://SharedAssets/Ships/UFO/UfoModel.tscn"),
 	load("res://SharedAssets/Ships/VShip/VShipModel.tscn"),
 ]
